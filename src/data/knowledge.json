@@ -1,0 +1,476 @@
+{
+  "0.1": {
+    "explanation": "A computer follows instructions by moving data between a processor, working memory, storage, and input/output devices. A CPU runs general instructions; a GPU repeats many numerical operations at once.",
+    "why": "Hardware limits explain why a model fits in RAM but fails in GPU memory.",
+    "application": "Choosing a machine for a local inference service.",
+    "assignment": "Inspect your machine's CPU cores, RAM, disk and GPU. Draw the path of a Python program from disk to execution and record a real memory measurement."
+  },
+  "0.2": {
+    "explanation": "An operating system shares hardware between running programs. Its kernel schedules work, manages memory, and controls device access; applications normally run with fewer privileges in user space.",
+    "why": "Processes, resource limits and scheduling affect API reliability.",
+    "application": "Diagnosing a backend that consumes too much memory.",
+    "assignment": "Run two Python processes, inspect their process IDs and memory, then stop one gracefully. Reproduce a small race condition and fix it with a lock."
+  },
+  "0.3": {
+    "explanation": "A network lets machines exchange messages. DNS finds an address, TCP provides an ordered byte stream, TLS protects transport, and HTTP defines the request and response used by most web APIs.",
+    "why": "An AI provider call crosses a network that can be slow or fail.",
+    "application": "Tracing a request from a browser to an inference API.",
+    "assignment": "Use browser developer tools and curl to inspect a request, its headers, TLS connection and response status. Compare a successful request with a missing route."
+  },
+  "0.4": {
+    "explanation": "A terminal is a text interface to a shell. The shell starts programs and connects files, processes and environment settings, making repeatable development and server work possible.",
+    "why": "Production debugging often happens without a graphical desktop.",
+    "application": "Starting a Python service on a Linux server.",
+    "assignment": "Create a Linux practice directory, a virtual environment and a script. Set a temporary environment variable, redirect logs and inspect the running process."
+  },
+  "0.5": {
+    "explanation": "Git records snapshots of a project's history. Branches let you change code independently; GitHub hosts repositories and adds review through pull requests.",
+    "why": "Version history lets you review, collaborate and recover safely.",
+    "application": "Reviewing a model-serving change before release.",
+    "assignment": "Create a repository, ignore generated files, make two branches, resolve a deliberate merge conflict, and open a pull request with a useful README."
+  },
+  "1.1": {
+    "explanation": "Python is a general-purpose language used to describe computations using values, control flow and collections. Its interpreter executes your code while the standard library supplies reusable tools.",
+    "why": "You need fluent programming before model libraries become useful.",
+    "application": "Validating and transforming a batch of prediction requests.",
+    "assignment": "Build a command-line marks calculator that validates input, uses a dictionary of students and prints a formatted summary. Test empty and invalid input."
+  },
+  "1.2": {
+    "explanation": "Functions give a named operation a clear input and output. Modules and packages group these operations so a program can grow without becoming one tangled script.",
+    "why": "Small explicit interfaces make AI pipelines easier to test and change.",
+    "application": "Separating data loading, preprocessing and prediction.",
+    "assignment": "Split the marks calculator into modules. Write pure functions for validation and aggregation, demonstrate positional and keyword arguments, and test edge cases."
+  },
+  "1.3": {
+    "explanation": "Object-oriented programming combines state and behavior in objects. Classes define their structure; composition assembles behavior from smaller objects, and polymorphism allows interchangeable implementations.",
+    "why": "A common interface keeps provider-specific code out of business logic.",
+    "application": "Implementing two model providers behind one interface.",
+    "assignment": "Create Student and StudentRepository classes. Add a file-backed repository, replace it with an in-memory version in tests, and explain why composition helps."
+  },
+  "1.4": {
+    "explanation": "Python's advanced tools control errors, iteration, resource lifetimes and asynchronous work. Generators produce values lazily; async I/O lets a program wait for external work without blocking all other tasks.",
+    "why": "Data and API code must handle large inputs and partial failure.",
+    "application": "Streaming records into a preprocessing pipeline.",
+    "assignment": "Build a typed JSON-to-CSV converter with a generator, a context manager, structured logs and custom exceptions. Add an async example with bounded concurrency."
+  },
+  "1.5": {
+    "explanation": "Professional Python development makes behavior predictable through consistent formatting, types, tests and documentation. Profiling measures actual bottlenecks before you optimize.",
+    "why": "Readable, checked code is easier to maintain than a clever untested script.",
+    "application": "Preparing a small Python package for a team.",
+    "assignment": "Add a formatter, linter, type checker and pytest suite to your package. Use fixtures and one dependency mock, then profile a real slow path."
+  },
+  "1.6-javascript": {
+    "explanation": "JavaScript runs interactive web applications; TypeScript adds static checks around its values and interfaces. Promises model asynchronous work such as a network request.",
+    "why": "An AI application needs a usable, reliable interface around its backend.",
+    "application": "Building a typed frontend for a prediction API.",
+    "assignment": "Build a small TypeScript client with a typed request and response, a loading state and a visible error state. Validate network input at runtime as well."
+  },
+  "1.6-sql": {
+    "explanation": "SQL describes queries and changes to relational tables. Keys and constraints protect relationships, while joins combine related records without copying them everywhere.",
+    "why": "Most applications need durable, queryable user and request data.",
+    "application": "Reporting token usage per account in PostgreSQL.",
+    "assignment": "Create students and results tables. Write filtered, joined and grouped queries; add constraints, an index and a transaction. Use parameters for user input."
+  },
+  "1.6-bash": {
+    "explanation": "Bash is a command shell and scripting language for connecting programs, files and environment settings. Exit codes let scripts detect failed steps.",
+    "why": "Repeatable automation reduces mistakes during setup and deployment.",
+    "application": "Automating a local test and packaging workflow.",
+    "assignment": "Write a script that checks its inputs, runs tests, writes a timestamped log and exits on failure. Practice only in a temporary directory."
+  },
+  "2.1": {
+    "explanation": "Basic mathematics describes quantities and relationships. Algebra turns an unknown value into a solvable equation; functions map inputs to outputs, and graphs reveal their behavior.",
+    "why": "Ratios, logarithms and functions appear in costs, loss curves and scaling.",
+    "application": "Calculating growth in data size and request cost.",
+    "assignment": "Plot a linear and a quadratic function in Python. Solve sample equations and calculate percentage error and a token budget by hand, then verify with code."
+  },
+  "2.2": {
+    "explanation": "Discrete mathematics studies countable objects and logical statements. Sets describe membership, logic expresses rules, and graphs model relationships between entities.",
+    "why": "Algorithms and access-control rules depend on precise reasoning.",
+    "application": "Representing relationships in a knowledge system.",
+    "assignment": "Build truth tables for a small access policy, count possible combinations, and model a course prerequisite graph. Explain a proof by induction."
+  },
+  "2.3": {
+    "explanation": "Statistics summarizes observations and reasons about a population from a sample. Variation, sampling and uncertainty matter as much as a single average.",
+    "why": "A model score without uncertainty can hide poor real-world performance.",
+    "application": "Comparing error rates across user groups.",
+    "assignment": "Analyze a small public dataset. Report center, spread, missingness and a confidence interval; explain selection bias and why correlation does not prove causation."
+  },
+  "2.4": {
+    "explanation": "Probability models uncertain outcomes. Conditional probability updates a probability when evidence is known; Bayes' theorem relates that update to prior beliefs and likelihoods.",
+    "why": "Prediction, classification and experimentation require reasoning about uncertainty.",
+    "application": "Interpreting a classifier's false positives.",
+    "assignment": "Simulate repeated coin flips, calculate a conditional probability and solve a Bayes example using invented classroom numbers."
+  },
+  "2.5": {
+    "explanation": "Linear algebra represents numerical data as vectors and matrices. Matrix multiplication combines transformations; a dot product measures how two vectors align.",
+    "why": "Embeddings, attention and neural layers are vector and matrix operations.",
+    "application": "Calculating similarity between document embeddings.",
+    "assignment": "Implement vector dot product and matrix multiplication by hand for tiny arrays. Verify with NumPy and draw a two-dimensional linear transformation."
+  },
+  "2.6": {
+    "explanation": "Calculus describes how outputs change as inputs change. A derivative measures local change; gradients collect partial derivatives and guide optimization toward lower loss.",
+    "why": "Backpropagation is an efficient application of the chain rule.",
+    "application": "Training a simple linear regression model.",
+    "assignment": "Differentiate a squared-error function, compare the result with finite differences, and implement gradient descent with several learning rates."
+  },
+  "2.7": {
+    "explanation": "Information theory quantifies uncertainty and the difference between probability distributions. Entropy measures uncertainty; cross-entropy scores predictions against observed outcomes.",
+    "why": "Classification and language-model losses use these quantities.",
+    "application": "Explaining why a confident wrong prediction has a high loss.",
+    "assignment": "Compute entropy for a fair and biased coin. Calculate cross-entropy and KL divergence for tiny distributions, carefully handling zero probabilities."
+  },
+  "2.8": {
+    "explanation": "Data structures organize values and algorithms describe the steps used to process them. Complexity estimates how time or memory grows with input size.",
+    "why": "Choosing a hash map or queue can matter more than choosing a framework.",
+    "application": "Scheduling requests and searching a document graph.",
+    "assignment": "Implement binary search, a queue and BFS. Solve a small set of problems, record edge cases and derive time and space complexity for each solution."
+  },
+  "3.1": {
+    "explanation": "Software engineering turns requirements into maintainable, tested programs. Clear boundaries separate responsibilities so changes stay local and behavior can be reviewed.",
+    "why": "A working prototype becomes fragile when every feature depends on everything else.",
+    "application": "Designing a service that supports multiple model providers.",
+    "assignment": "Write functional and quality requirements, split an application into modules, review a change, refactor duplicated behavior and write an architecture decision."
+  },
+  "3.2": {
+    "explanation": "PostgreSQL stores related data in tables and provides transactions, constraints and a query planner. Indexes speed selected reads at a cost to writes and storage.",
+    "why": "AI products still need correct user, document and usage records.",
+    "application": "Persisting request history with tenant isolation.",
+    "assignment": "Design a schema for users, documents and requests. Add keys and constraints, inspect EXPLAIN output, run a transaction and test backup restoration."
+  },
+  "3.3": {
+    "explanation": "NoSQL is a family of database approaches including documents, key-value records, wide columns and graphs. Each makes different choices about queries, relationships and scaling.",
+    "why": "Data shape and access patterns should drive storage decisions.",
+    "application": "Comparing MongoDB documents with relational tables.",
+    "assignment": "Model the same document metadata in PostgreSQL and MongoDB. List the queries each model supports well and document consistency and indexing trade-offs."
+  },
+  "3.4": {
+    "explanation": "Data engineering moves data from sources into useful, trustworthy forms. Pipelines ingest, validate, transform and store data while recording its origin and failures.",
+    "why": "A model cannot compensate for a silently broken data pipeline.",
+    "application": "Preparing a repeatable training dataset.",
+    "assignment": "Build a CSV-to-Parquet pipeline with schema validation, duplicate handling, a quarantine file and rerunnable steps. Record source, version and row counts."
+  },
+  "3.5": {
+    "explanation": "AI storage combines ordinary records with document content and numerical embeddings. Metadata connects vectors back to their source and access permissions.",
+    "why": "Retrieval must return relevant content that the requesting user may access.",
+    "application": "Designing storage for a document assistant.",
+    "assignment": "Design users, documents, chunks and embedding tables. Include tenant filters, source versions and deletion behavior; explain the hybrid retrieval query."
+  },
+  "4.1": {
+    "explanation": "Data science explores data to answer questions. NumPy computes over arrays, Pandas organizes labeled tables, and charts help reveal distributions and mistakes.",
+    "why": "Exploration exposes leakage, missing data and unsuitable assumptions early.",
+    "application": "Understanding a dataset before training a predictor.",
+    "assignment": "Create a reproducible notebook that profiles a public dataset, cleans it without hiding issues, and explains three useful charts in plain English."
+  },
+  "4.2": {
+    "explanation": "Machine learning fits a model to examples rather than specifying every rule. Training chooses parameters; inference uses the resulting model on new input.",
+    "why": "A useful model must generalize beyond its training examples.",
+    "application": "Predicting an outcome from structured features.",
+    "assignment": "Create train, validation and test splits before preprocessing. Train a simple baseline and demonstrate how accidental data leakage inflates a score."
+  },
+  "4.3": {
+    "explanation": "Supervised learning uses labeled examples to learn a mapping from features to a target. Linear methods, trees and ensembles make different assumptions about that mapping.",
+    "why": "A small baseline can beat a complex model on cost and reliability.",
+    "application": "Selecting a model for tabular prediction.",
+    "assignment": "Compare a linear model, decision tree and random forest using the same splits and metric. Explain errors, training cost and why one model fits the task."
+  },
+  "4.4": {
+    "explanation": "Unsupervised learning looks for structure without target labels. Clustering groups similar observations; dimensionality reduction creates a smaller representation.",
+    "why": "It supports exploration and anomaly discovery when labels are unavailable.",
+    "application": "Grouping similar documents or customers.",
+    "assignment": "Scale a small dataset, compare K-Means and DBSCAN, visualize PCA projections and explain why cluster labels are not automatically meaningful categories."
+  },
+  "4.5": {
+    "explanation": "Evaluation connects predictions to the real cost of mistakes. Classification metrics describe different errors; regression metrics describe numerical distance from targets.",
+    "why": "High accuracy can hide a model that ignores a rare important class.",
+    "application": "Choosing a threshold for a spam detector.",
+    "assignment": "Compute a confusion matrix and precision, recall and F1 by hand. Compare thresholds, use cross-validation and report one subgroup failure."
+  },
+  "4.6": {
+    "explanation": "Model improvement combines preprocessing, feature design and controlled hyperparameter experiments. A pipeline keeps transformations consistent between training and inference.",
+    "why": "Uncontrolled experiments make gains difficult to trust or reproduce.",
+    "application": "Improving and packaging a baseline predictor.",
+    "assignment": "Build a scikit-learn Pipeline, compare a small search space with cross-validation, record seeds and parameters, and save the complete inference pipeline."
+  },
+  "5.1": {
+    "explanation": "Deep learning uses layered numerical transformations whose parameters are learned from data. Forward passes produce predictions; backpropagation computes gradients for optimization.",
+    "why": "Understanding the training loop helps explain instability and overfitting.",
+    "application": "Training a small classifier from feature vectors.",
+    "assignment": "Implement a tiny network, inspect gradients and plot training versus validation loss. Compare learning rates and one regularization method."
+  },
+  "5.2": {
+    "explanation": "PyTorch represents data as tensors and records operations for automatic differentiation. Modules define networks, while optimizers update learnable parameters.",
+    "why": "It makes model mechanics explicit and debuggable.",
+    "application": "Writing a custom training and evaluation loop.",
+    "assignment": "Train a small PyTorch classifier with batches, zero_grad, backward and optimizer.step. Save and reload weights and verify predictions in evaluation mode."
+  },
+  "5.3": {
+    "explanation": "Neural architectures encode assumptions about data. CNNs use local spatial patterns, recurrent networks process sequences, and attention combines information across positions.",
+    "why": "Architecture choices influence accuracy, memory and computation.",
+    "application": "Choosing a model for images versus text.",
+    "assignment": "Compare a small feedforward model with a CNN on images. Trace tensor shapes and explain where recurrent models and transformers would be appropriate."
+  },
+  "5.4": {
+    "explanation": "A GPU runs many numerical operations in parallel but has limited device memory. Precision, batch size and data movement affect both speed and stability.",
+    "why": "A training job can run out of memory long before a GPU is fully utilized.",
+    "application": "Choosing a feasible training configuration.",
+    "assignment": "Estimate parameter, gradient and optimizer memory for a tiny model. Measure batch throughput and memory; compare CPU with an available GPU without requiring paid hardware."
+  },
+  "6.1": {
+    "explanation": "Natural language processing turns text into representations that programs can analyze. Tokenization, normalization and embeddings prepare input for classification and retrieval.",
+    "why": "Text preprocessing choices can remove useful meaning or introduce bias.",
+    "application": "Building a baseline text classifier.",
+    "assignment": "Compare TF-IDF with a small embedding representation on sample documents. Inspect tokenization, named entities and errors on unusual text."
+  },
+  "6.2": {
+    "explanation": "A language model assigns probabilities to text sequences, often by predicting the next token. Training learns parameters; inference produces probabilities from fixed parameters.",
+    "why": "This explains both fluent generation and its factual limitations.",
+    "application": "Estimating a prompt's context requirements.",
+    "assignment": "Tokenize several sentences, inspect IDs and lengths, and manually trace a toy next-token distribution. Distinguish pretraining, fine-tuning and inference."
+  },
+  "6.3": {
+    "explanation": "A transformer mixes information between token positions using attention. Queries compare with keys to produce weights over values; residual paths and normalization stabilize stacked layers.",
+    "why": "Attention and tensor shapes explain context handling and compute cost.",
+    "application": "Understanding the architecture behind a decoder language model.",
+    "assignment": "Implement scaled dot-product attention on tiny matrices. Add a causal mask, check shapes and explain why future tokens must be hidden during training."
+  },
+  "6.4": {
+    "explanation": "LLM generation repeatedly processes a context, computes next-token probabilities and selects a token. Sampling changes the output distribution; caching avoids recomputing prior key/value states.",
+    "why": "Decoding and context length affect quality, latency and memory.",
+    "application": "Tuning an inference service's generation settings.",
+    "assignment": "Compare greedy, top-k and top-p decoding on a toy distribution. Record token count, time to first token and generation speed for a small available model."
+  },
+  "6.5": {
+    "explanation": "Adaptation changes an existing model for a narrower task. Fine-tuning updates parameters, LoRA trains small low-rank updates, and preference methods optimize against comparison data.",
+    "why": "Adaptation is useful only when evaluation supports its cost and risks.",
+    "application": "Planning a task-specific model adaptation experiment.",
+    "assignment": "Prepare a small licensed instruction dataset, separate evaluation examples and compare prompting with a lightweight adaptation plan. Document overfitting and license risks."
+  },
+  "6.6": {
+    "explanation": "Hugging Face hosts models, datasets and libraries that make existing models easier to load and evaluate. Model cards explain intended use, limits and licenses.",
+    "why": "Using a model safely requires more than copying its identifier.",
+    "application": "Selecting and loading a suitable open model.",
+    "assignment": "Inspect a model card and license, pin a revision, load its tokenizer and run a small CPU-compatible example. Record configuration and evaluation results."
+  },
+  "7.1": {
+    "explanation": "An API is a contract between programs. HTTP APIs use routes, methods, schemas and status codes to make requests and responses predictable.",
+    "why": "Reliable contracts keep clients independent of backend internals.",
+    "application": "Exposing predictions and request history.",
+    "assignment": "Specify a prediction endpoint with validation, pagination and errors. Document authentication, timeout and retry behavior using an OpenAPI schema."
+  },
+  "7.2": {
+    "explanation": "FastAPI is a Python web framework that uses type annotations and Pydantic validation to define HTTP endpoints. Async endpoints help with waiting on I/O, not CPU-heavy computation.",
+    "why": "It provides a practical bridge between Python models and clients.",
+    "application": "Serving a trained scikit-learn pipeline.",
+    "assignment": "Build a validated prediction endpoint, inject a model service, add consistent errors and test successful and invalid requests with a test client."
+  },
+  "7.3": {
+    "explanation": "Backend architecture separates transport, application rules and persistence. A route translates HTTP, a service performs a use case and a repository handles storage.",
+    "why": "Changing a provider or database should not require rewriting every endpoint.",
+    "application": "Maintaining a growing inference backend.",
+    "assignment": "Separate an API into routes, services and repositories. Replace one dependency in tests and prove that validation and business rules stay consistent."
+  },
+  "7.4": {
+    "explanation": "A provider adapter converts your application's common request format into a provider-specific API call. It normalizes responses, streaming events and failures.",
+    "why": "Provider differences should be explicit rather than scattered throughout the app.",
+    "application": "Connecting two providers behind a stable interface.",
+    "assignment": "Define an adapter protocol and implement two mocked providers. Validate structured responses, normalize errors, apply timeouts and keep credentials server-side."
+  },
+  "7.5": {
+    "explanation": "LLM tokens are pieces of text used for processing and billing. They are unrelated to authentication tokens and API keys. Input, output and cached token rates may differ.",
+    "why": "Budgets and quotas require measured usage and current provider pricing.",
+    "application": "Estimating and enforcing a request budget.",
+    "assignment": "Build a token-cost calculator using configurable rates, separate input and output usage, check context limits and enforce an account budget with a reserve."
+  },
+  "7.6": {
+    "explanation": "AI backend reliability anticipates slow providers, malformed responses and interrupted streams. Bounded retries, circuit breakers and idempotency prevent failures from multiplying.",
+    "why": "A fallback without limits can increase both outages and cost.",
+    "application": "Recovering from a provider outage.",
+    "assignment": "Simulate timeout, rate-limit and malformed-response failures. Add jittered backoff, a retry budget, cancellation and a circuit breaker; verify usage is not counted twice."
+  },
+  "8.1": {
+    "explanation": "Embeddings represent items as numerical vectors so similarity can be computed. The embedding model defines the representation; distance alone does not guarantee semantic correctness.",
+    "why": "Retrieval quality depends on representation, indexing and evaluation.",
+    "application": "Finding relevant document chunks.",
+    "assignment": "Embed a small corpus with one model, compare cosine and dot-product rankings and test queries with known relevant results. Keep model and dimensions consistent."
+  },
+  "8.2": {
+    "explanation": "A vector database stores embeddings and searches nearby vectors, often using approximate indexes. Metadata filtering restricts candidate records by attributes or permissions.",
+    "why": "The database must meet recall, latency and operational requirements.",
+    "application": "Storing document chunks in PostgreSQL with pgvector.",
+    "assignment": "Start with pgvector, create vectors and metadata, compare exact and indexed search, and measure recall and latency. Explore alternatives only if needed."
+  },
+  "8.3": {
+    "explanation": "Retrieval-augmented generation finds relevant external content and includes it in a model's context. It changes supplied information without retraining model weights.",
+    "why": "Sources can improve grounding but retrieval and generation can still fail.",
+    "application": "Building a document question-answering assistant.",
+    "assignment": "Parse a small document set, chunk it, retrieve context and generate answers with source references. Include unanswerable questions and permission-filtered documents."
+  },
+  "8.4": {
+    "explanation": "Advanced retrieval improves a measured baseline using methods such as hybrid search, query rewriting and reranking. Each additional stage adds latency and failure modes.",
+    "why": "Sophisticated retrieval should earn its complexity through evaluation.",
+    "application": "Improving document recall for ambiguous queries.",
+    "assignment": "Build a labeled query set, compare keyword and vector retrieval, add a reranker and measure recall, faithfulness, latency and citation correctness."
+  },
+  "8.5": {
+    "explanation": "A knowledge graph stores entities as nodes and relationships as edges. Traversal follows these connections to answer relationship-oriented questions.",
+    "why": "Explicit relationships can support multi-hop explanations.",
+    "application": "Connecting papers, authors and research topics.",
+    "assignment": "Build a small graph with provenance on every relation. Write traversal queries, resolve duplicate entities and compare results with a flat document index."
+  },
+  "8.6": {
+    "explanation": "Graph RAG uses graph relationships during retrieval before constructing a model's context. It can help connected questions but adds extraction, storage and maintenance cost.",
+    "why": "It is a situational extension rather than a universal replacement for vector RAG.",
+    "application": "Answering questions spanning related documents.",
+    "assignment": "Build a small provenance-aware graph and compare graph, vector and hybrid retrieval on relationship questions. Report extraction errors and operational cost."
+  },
+  "8.7": {
+    "explanation": "An agent uses a model to choose actions within a loop of observation, tool execution and state updates. A workflow can keep more of that sequence deterministic.",
+    "why": "Tool access turns model mistakes into real actions unless permissions are bounded.",
+    "application": "Running a research workflow with approved tools.",
+    "assignment": "Build a bounded agent loop using mocked tools, explicit state, time and cost budgets, an allowlist and human approval before a sensitive operation."
+  },
+  "8.8": {
+    "explanation": "Frameworks provide reusable orchestration, while protocols define how independently built components communicate. MCP standardizes interaction between clients and context or tool servers.",
+    "why": "Core concepts should remain understandable without a specific framework.",
+    "application": "Connecting a read-only tool server to an agent.",
+    "assignment": "Implement a tiny workflow without a framework, then compare it with LangGraph. Inspect MCP discovery and permission boundaries using a local read-only tool."
+  },
+  "9.1": {
+    "explanation": "System design chooses components and their interactions to satisfy functional needs and quality goals. Capacity estimates and trade-offs explain why a design fits a workload.",
+    "why": "Architecture should follow measured requirements rather than fashionable diagrams.",
+    "application": "Designing a multi-user AI request service.",
+    "assignment": "Define traffic, latency and availability targets, estimate storage and concurrency, and draw a modular architecture with data flow and failure boundaries."
+  },
+  "9.2": {
+    "explanation": "Caching keeps a reusable copy closer to the consumer. A hit avoids expensive work; a miss fetches from the source. Expiration and invalidation decide how stale data can become.",
+    "why": "Caching trades freshness and complexity for lower latency and load.",
+    "application": "Caching safe model metadata or repeated retrieval results.",
+    "assignment": "Add cache-aside Redis caching with tenant-aware keys and TTL. Measure hits and misses, test invalidation and document which results must never be shared."
+  },
+  "9.3": {
+    "explanation": "Rate limiting restricts how frequently a caller can act. Token buckets allow controlled bursts, while window algorithms count work over time.",
+    "why": "Limits protect capacity, cost and fairness under concurrent traffic.",
+    "application": "Enforcing per-account inference limits.",
+    "assignment": "Implement a token bucket and a Redis-backed atomic limiter. Test simultaneous calls, expiration and 429 responses with useful retry headers."
+  },
+  "9.4": {
+    "explanation": "A queue decouples a producer from a worker that performs a task later. Delivery is commonly at least once, so handlers must tolerate duplicate work.",
+    "why": "Background work avoids holding an HTTP connection for long tasks.",
+    "application": "Processing document ingestion asynchronously.",
+    "assignment": "Queue a document-processing job, make its handler idempotent, bound retries and move repeated failures to a dead-letter queue. Track status and cancellation."
+  },
+  "9.5": {
+    "explanation": "Distributed systems coordinate across machines that can fail independently. Network delay and partial failure make consistency, retries and ownership difficult.",
+    "why": "A request timeout does not prove that a remote operation did not happen.",
+    "application": "Coordinating services and persistent request records.",
+    "assignment": "Simulate a delayed response and duplicate delivery. Design idempotency keys, backoff and recovery, then explain a consistency trade-off during a network partition."
+  },
+  "9.6": {
+    "explanation": "Concurrency overlaps work; parallelism executes work at the same instant. Pools and resource limits bound contention, while profiling identifies the true bottleneck.",
+    "why": "More workers can reduce throughput when memory or connections are exhausted.",
+    "application": "Sizing a backend's connection and worker pools.",
+    "assignment": "Profile a workload, compare async I/O with a bounded thread pool and record P95 latency, throughput and memory while changing one limit at a time."
+  },
+  "9.7": {
+    "explanation": "AI workloads combine variable generation time, token-dependent cost and constrained provider or GPU capacity. Routing, queues and admission control keep demand within limits.",
+    "why": "Unbounded concurrency can amplify latency and cost under load.",
+    "application": "Serving concurrent streamed inference requests.",
+    "assignment": "Design a bounded inference queue, per-tenant quotas and overload behavior. Measure token throughput and first-token latency, then test graceful degradation."
+  },
+  "9.8": {
+    "explanation": "Load testing applies controlled traffic to measure a system under expected and exceptional demand. Percentiles reveal slow requests that averages conceal.",
+    "why": "Capacity claims need repeatable evidence and a defined environment.",
+    "application": "Finding the safe request rate of your own API.",
+    "assignment": "Run a small k6 test against your own service. Increase traffic gradually and report P50, P95, P99, errors, CPU and memory with the exact test conditions."
+  },
+  "10.1": {
+    "explanation": "Application security protects confidentiality, integrity and availability through authentication, authorization, validation and restricted access. Threat modeling starts with what can go wrong.",
+    "why": "A single missing object-level permission check can expose another user's records.",
+    "application": "Securing document upload and progress endpoints.",
+    "assignment": "Threat-model a small API, parameterize database queries, validate uploads and test every data route with two accounts and an anonymous caller."
+  },
+  "10.2": {
+    "explanation": "LLM security treats model input and output as untrusted. Retrieved documents may contain instructions, and tools can expose data or perform unintended actions.",
+    "why": "Prompt instructions alone cannot enforce an access boundary.",
+    "application": "Protecting a document assistant with tool access.",
+    "assignment": "Create adversarial document and prompt tests, enforce access before retrieval, validate tool arguments and require approval for sensitive actions. Record residual risks."
+  },
+  "10.3": {
+    "explanation": "Tests check behavior at different boundaries: units isolate a component, integration tests connect dependencies, and end-to-end tests exercise a user journey.",
+    "why": "A meaningful test detects a broken requirement instead of mirroring code.",
+    "application": "Preventing regressions in a prediction API.",
+    "assignment": "Write tests for valid, invalid, unauthorized and failing-provider requests. Add deterministic fixtures, a database integration test and a CI smoke journey."
+  },
+  "10.4": {
+    "explanation": "AI evaluation measures quality on representative examples alongside cost and latency. Human review and automated metrics answer different questions and have different biases.",
+    "why": "A model or prompt change can improve one example while degrading many others.",
+    "application": "Comparing two RAG configurations before release.",
+    "assignment": "Build a versioned golden dataset with expected sources and rubrics. Compare retrieval recall, faithfulness, latency and cost; inspect judge disagreement manually."
+  },
+  "10.5": {
+    "explanation": "Containers package an application and its user-space dependencies into a reproducible image. Containers share the host kernel, unlike full virtual machines.",
+    "why": "A repeatable runtime reduces environment-specific deployment failures.",
+    "application": "Packaging an API and its supporting services.",
+    "assignment": "Write a small multi-stage Dockerfile, run as a non-root user, configure health checks and use Compose for local dependencies. Keep secrets outside images."
+  },
+  "10.6": {
+    "explanation": "Cloud computing rents compute, storage and managed services through APIs. Responsibility shifts depending on whether you operate virtual machines, containers or managed platforms.",
+    "why": "A working cloud deployment also needs identity, backups and cost controls.",
+    "application": "Deploying a small AI backend with a managed database.",
+    "assignment": "Choose AWS or GCP, diagram a minimal deployment, restrict IAM, configure a budget alert and test restoration. Explore other providers only when required."
+  },
+  "10.7": {
+    "explanation": "DevOps connects development and operations through automation and feedback. CI checks changes; delivery pipelines package and release them reproducibly.",
+    "why": "Reliable releases need tested rollback and separate environment settings.",
+    "application": "Releasing an API from a reviewed Git change.",
+    "assignment": "Create a GitHub Actions pipeline for checks and image builds, protect deployment secrets and document rollback. Treat Kubernetes and advanced Terraform as later options."
+  },
+  "10.8": {
+    "explanation": "Observability uses logs, metrics and traces to explain system behavior. Service-level objectives turn user expectations into measurable reliability targets.",
+    "why": "You cannot diagnose slow generation or failed retrieval from a single uptime number.",
+    "application": "Tracing a request across retrieval and inference.",
+    "assignment": "Add structured request IDs, a latency histogram and a trace spanning retrieval and provider calls. Define an SLO, alert and incident playbook without logging secrets."
+  },
+  "10.9": {
+    "explanation": "MLOps manages the model lifecycle from reproducible experiments to deployment, monitoring and retraining. Data, code and model versions must stay connected.",
+    "why": "Model quality can decay even when application code has not changed.",
+    "application": "Tracking and safely releasing a prediction model.",
+    "assignment": "Track runs in MLflow, register a model with dataset and code versions, deploy a candidate and simulate drift. Define promotion, rollback and retraining criteria."
+  },
+  "10.10": {
+    "explanation": "Responsible AI combines privacy, provenance, fairness and accountable operation. Data minimization limits collection; governance records decisions and ownership.",
+    "why": "Technical usefulness does not remove privacy, licensing or fairness obligations.",
+    "application": "Designing document retention and access policies.",
+    "assignment": "Inventory collected data, document licenses and retention, test deletion and compare subgroup performance. Consult current official regulators for applicable legal requirements."
+  },
+  "11.1": {
+    "explanation": "AI system architecture integrates identity, orchestration, models, memory, storage and operations behind explicit contracts. Each component needs an owner and a failure strategy.",
+    "why": "A clear architecture makes the whole platform understandable and evolvable.",
+    "application": "Planning the CCAI flagship system.",
+    "assignment": "Draw CCAI's request and data flows, identify trust boundaries and failure modes, and write architecture decisions for routing, storage and observability."
+  },
+  "11.2": {
+    "explanation": "A model router chooses a model based on task requirements, capability, quality, latency, cost and current availability. A policy must be evaluated against a stable baseline.",
+    "why": "Selecting the cheapest model is useful only when it can satisfy the task.",
+    "application": "Routing CCAI requests across compatible providers.",
+    "assignment": "Create a capability registry and a rule-based router using configurable prices. Test context limits, provider outages and routing quality on a labeled task set."
+  },
+  "11.3": {
+    "explanation": "Model serving exposes inference through a managed runtime. Quantization, key/value caching and batching trade memory, throughput, latency and sometimes quality.",
+    "why": "An optimization should improve the workload you actually need to serve.",
+    "application": "Benchmarking a small local model endpoint.",
+    "assignment": "Choose one serving framework, establish a baseline and compare one precision or batching change. Record hardware, quality, memory, first-token latency and throughput."
+  },
+  "11.4": {
+    "explanation": "High availability reduces the effect of failures through redundancy, health checks and tested recovery. Recovery time and recovery point objectives describe acceptable interruption and data loss.",
+    "why": "An untested backup is not evidence that recovery works.",
+    "application": "Keeping an AI backend useful during provider failure.",
+    "assignment": "Create a failure drill: stop a provider, check failover and degrade safely. Restore a backup and record measured recovery time and data loss."
+  },
+  "11.5": {
+    "explanation": "Architecture trade-offs compare alternatives against a workload and constraints. Complexity, freshness, cost, quality and availability rarely improve together without limits.",
+    "why": "Good engineering makes the cost of each decision visible.",
+    "application": "Choosing CCAI's first deployable architecture.",
+    "assignment": "Write three architecture decisions comparing realistic alternatives with measured or estimated costs. State assumptions, consequences and conditions that would change each decision."
+  }
+}

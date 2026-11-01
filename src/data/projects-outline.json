@@ -1,0 +1,126 @@
+[
+  {
+    "number": 1,
+    "title": "Python Student Management System",
+    "requirements": [
+      "Add student",
+      "Update student",
+      "Delete student",
+      "Search students",
+      "Store records",
+      "Validate input",
+      "Handle errors",
+      "Organize code into modules"
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Data Analysis and ML Prediction",
+    "requirements": [
+      "Choose a public dataset",
+      "Clean data",
+      "Explore data",
+      "Visualize trends",
+      "Train a baseline model",
+      "Evaluate the model",
+      "Explain evaluation results",
+      "Save the trained model"
+    ]
+  },
+  {
+    "number": 3,
+    "title": "ML Prediction API",
+    "requirements": [
+      "FastAPI",
+      "Prediction endpoint",
+      "Input validation",
+      "Response validation",
+      "Error handling",
+      "Model loading",
+      "API documentation",
+      "Unit and integration tests"
+    ]
+  },
+  {
+    "number": 4,
+    "title": "RAG Document Assistant",
+    "requirements": [
+      "Upload documents",
+      "Parse documents",
+      "Split into chunks",
+      "Generate embeddings",
+      "Store vectors",
+      "Retrieve relevant information",
+      "Send context to an LLM",
+      "Generate answers",
+      "Display source references",
+      "Handle retrieval failures"
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Graph RAG Knowledge Assistant",
+    "requirements": [
+      "Extract entities",
+      "Extract relationships",
+      "Create graph data",
+      "Store nodes and edges",
+      "Retrieve connected information",
+      "Combine graph and vector retrieval where useful",
+      "Evaluate answers"
+    ]
+  },
+  {
+    "number": 6,
+    "title": "CCAI Intelligent Model Router",
+    "requirements": [
+      "User authentication",
+      "Prompt input",
+      "Prompt classification",
+      "Task categorization",
+      "Difficulty classification",
+      "Model capability registry",
+      "Provider integrations",
+      "Intelligent model routing",
+      "Token counting",
+      "Input/output usage tracking",
+      "Cost estimation",
+      "Model context limit checks",
+      "Provider fallback",
+      "Retry handling",
+      "Request history",
+      "User quotas",
+      "PostgreSQL storage",
+      "Redis caching where appropriate",
+      "Rate limiting",
+      "Secure API key management",
+      "Logging",
+      "Monitoring",
+      "Error reporting",
+      "Evaluation and routing analytics"
+    ]
+  },
+  {
+    "number": 7,
+    "title": "Production-Ready Scalable AI Platform",
+    "requirements": [
+      "API Gateway",
+      "Authentication",
+      "Backend services",
+      "PostgreSQL",
+      "Redis",
+      "Background queues",
+      "Distributed rate limiting",
+      "Provider fallback",
+      "Docker",
+      "Cloud deployment",
+      "CI/CD",
+      "Logging",
+      "Monitoring",
+      "Security tests",
+      "Load testing",
+      "Performance documentation",
+      "Architecture documentation"
+    ]
+  }
+]

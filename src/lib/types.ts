@@ -1,0 +1,87 @@
+export type Priority = "core" | "optional" | "advanced";
+export type Difficulty = "beginner" | "intermediate" | "advanced";
+export type Status =
+  "not_started" | "in_progress" | "completed" | "needs_revision";
+export type Resource = {
+  id: string;
+  title: string;
+  provider: string;
+  category: string;
+  description: string;
+  url: string;
+  type: "official_docs" | "course";
+  free: boolean;
+  phases: number[];
+};
+export type Subtopic = {
+  id: string;
+  title: string;
+  explanation: string;
+  why: string;
+  study: string[];
+  application: string;
+  exercise: string;
+  criteria: string[];
+  minutes: number;
+  priority: Priority;
+  resources: string[];
+};
+export type Topic = {
+  id: string;
+  slug: string;
+  title: string;
+  phase: number;
+  explanation: string;
+  why: string;
+  application: string;
+  assignment: string;
+  outcomes: string[];
+  prerequisites: string[];
+  difficulty: Difficulty;
+  priority: Priority;
+  subtopics: Subtopic[];
+  hours: number;
+  resources: string[];
+  guidance: string[];
+};
+export type Phase = {
+  id: string;
+  slug: string;
+  number: number;
+  title: string;
+  shortTitle: string;
+  purpose: string;
+  why: string;
+  weeks: string;
+  difficulty: Difficulty;
+  priority: Priority;
+  prerequisites: string[];
+  outcomes: string[];
+  topics: Topic[];
+  color: string;
+};
+export type Project = {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  purpose: string;
+  difficulty: Difficulty;
+  phases: number[];
+  technologies: string[];
+  requirements: string[];
+  milestones: string[];
+  extensions: string[];
+  deployment: string;
+  result: string;
+};
+export type Technology = {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  why: string;
+  phase: number;
+  priority: Priority;
+  topicIds: string[];
+};

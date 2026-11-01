@@ -1,0 +1,1953 @@
+[
+  {
+    "number": 0,
+    "title": "Computer Science and Development Foundations",
+    "purpose": "Understand how computers, operating systems, networks, and software development tools work.",
+    "topics": [
+      {
+        "id": "0.1",
+        "title": "Computer Fundamentals",
+        "subtopics": [
+          "What is a computer?",
+          "Hardware and software",
+          "CPU architecture basics",
+          "CPU cores and threads",
+          "RAM and memory",
+          "Storage systems: HDD and SSD",
+          "GPU fundamentals",
+          "Binary number system",
+          "Bits and bytes",
+          "Computer memory hierarchy",
+          "Cache memory",
+          "Basic input/output operations",
+          "How programs execute"
+        ],
+        "guidance": [
+          "Practical: Understand the role of CPU, RAM, storage, and GPU in a computer that runs AI applications."
+        ]
+      },
+      {
+        "id": "0.2",
+        "title": "Operating Systems",
+        "subtopics": [
+          "What is an operating system?",
+          "Kernel fundamentals",
+          "User space and kernel space",
+          "Processes",
+          "Threads",
+          "Process lifecycle",
+          "Context switching",
+          "CPU scheduling basics",
+          "Memory management",
+          "Virtual memory",
+          "File systems",
+          "Environment variables",
+          "Concurrency",
+          "Parallelism",
+          "Race conditions",
+          "Deadlocks"
+        ],
+        "guidance": [
+          "Practical: Inspect running processes and resource usage on a computer."
+        ]
+      },
+      {
+        "id": "0.3",
+        "title": "Computer Networking",
+        "subtopics": [
+          "What is a network?",
+          "Internet fundamentals",
+          "Client-server architecture",
+          "IP addresses",
+          "DNS",
+          "Domain names",
+          "Ports",
+          "TCP",
+          "UDP",
+          "HTTP",
+          "HTTPS",
+          "HTTP methods",
+          "HTTP status codes",
+          "Request and response",
+          "TLS basics",
+          "REST fundamentals",
+          "WebSockets",
+          "Reverse proxy basics"
+        ],
+        "guidance": [
+          "Practical: Make API requests and inspect network traffic through browser developer tools and Postman."
+        ]
+      },
+      {
+        "id": "0.4",
+        "title": "Command Line and Linux",
+        "subtopics": [
+          "What is a terminal?",
+          "Shell fundamentals",
+          "Files and directories",
+          "Navigation commands",
+          "Create, copy, move, and delete operations",
+          "Permissions",
+          "Users and groups",
+          "Processes and signals",
+          "Package managers",
+          "Bash fundamentals",
+          "Environment variables",
+          "SSH basics",
+          "Logs",
+          "Shell scripts"
+        ],
+        "guidance": [
+          "Practical: Set up a Linux environment and run a small Python project."
+        ]
+      },
+      {
+        "id": "0.5",
+        "title": "Git and GitHub",
+        "subtopics": [
+          "Version control",
+          "Git installation",
+          "Repositories",
+          "Working tree",
+          "Staging",
+          "Commits",
+          "Branches",
+          "Merging",
+          "Merge conflicts",
+          "Pull requests",
+          ".gitignore",
+          "README files",
+          "GitHub collaboration",
+          "Release and version tags"
+        ],
+        "guidance": [
+          "Practical: Create a repository, commit code, branch, merge, and document a project."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 1,
+    "title": "Programming Languages and Python Engineering",
+    "purpose": "Build strong programming fundamentals and make Python the primary language for AI engineering.",
+    "topics": [
+      {
+        "id": "1.1",
+        "title": "Python Setup and Fundamentals",
+        "subtopics": [
+          "Python installation",
+          "Python interpreter",
+          "IDE and VS Code setup",
+          "Variables",
+          "Data types",
+          "Numbers",
+          "Strings",
+          "Booleans",
+          "Operators",
+          "Type conversion",
+          "User input",
+          "Output formatting",
+          "Conditional statements",
+          "if, elif, and else",
+          "for loops",
+          "while loops",
+          "Nested loops",
+          "Break and continue",
+          "String methods",
+          "Lists",
+          "Tuples",
+          "Sets",
+          "Dictionaries",
+          "Mutability and immutability"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "1.2",
+        "title": "Functions and Modular Programming",
+        "subtopics": [
+          "Function definition",
+          "Function calling",
+          "Parameters",
+          "Arguments",
+          "Return statements",
+          "Default parameters",
+          "Keyword arguments",
+          "Positional arguments",
+          "*args",
+          "**kwargs",
+          "Lambda functions",
+          "Variable scope",
+          "Local and global variables",
+          "Recursion",
+          "Modules",
+          "Packages",
+          "Import system",
+          "Code reusability",
+          "Modular application structure"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "1.3",
+        "title": "Object-Oriented Programming",
+        "subtopics": [
+          "OOP fundamentals",
+          "Classes",
+          "Objects",
+          "Attributes",
+          "Methods",
+          "Constructors",
+          "self",
+          "Instance variables",
+          "Class variables",
+          "Encapsulation",
+          "Inheritance",
+          "Polymorphism",
+          "Abstraction",
+          "Composition",
+          "Method overriding",
+          "Class methods",
+          "Static methods",
+          "Properties",
+          "Dunder methods"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "1.4",
+        "title": "Advanced Python",
+        "subtopics": [
+          "Exception handling",
+          "Custom exceptions",
+          "File handling",
+          "JSON processing",
+          "CSV processing",
+          "List comprehension",
+          "Dictionary comprehension",
+          "Set comprehension",
+          "Iterators",
+          "Generators",
+          "Decorators",
+          "Context managers",
+          "with statement",
+          "Type hints",
+          "Dataclasses",
+          "Enums",
+          "Regular expressions",
+          "Virtual environments",
+          "pip",
+          "Dependency management",
+          "Python packaging basics",
+          "Async programming",
+          "async and await",
+          "Async I/O",
+          "Debugging",
+          "Logging"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "1.5",
+        "title": "Python Professional Development",
+        "subtopics": [
+          "PEP 8",
+          "Clean code",
+          "Readable naming conventions",
+          "Type checking",
+          "Static analysis",
+          "Formatting",
+          "Linting",
+          "Debugging techniques",
+          "Unit testing",
+          "Pytest fundamentals",
+          "Test fixtures",
+          "Mocking basics",
+          "Documentation",
+          "Profiling basics",
+          "Performance awareness"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "1.6-javascript",
+        "title": "JavaScript and TypeScript",
+        "subtopics": [
+          "JavaScript fundamentals revision",
+          "Variables and functions",
+          "Arrays and objects",
+          "ES modules",
+          "Promises",
+          "Async/await",
+          "Fetch API",
+          "TypeScript types",
+          "Interfaces",
+          "Generics",
+          "Type narrowing",
+          "Type-safe API interaction"
+        ]
+      },
+      {
+        "id": "1.6-sql",
+        "title": "SQL",
+        "subtopics": [
+          "Database basics",
+          "Tables",
+          "Data types",
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "WHERE",
+          "GROUP BY",
+          "HAVING",
+          "JOIN",
+          "Subqueries",
+          "Aggregate functions",
+          "Constraints",
+          "Index fundamentals"
+        ]
+      },
+      {
+        "id": "1.6-bash",
+        "title": "Bash",
+        "subtopics": [
+          "Shell basics",
+          "Variables",
+          "Conditions",
+          "Loops",
+          "Functions",
+          "Environment variables",
+          "Script execution"
+        ]
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Mathematics, DSA, and Problem Solving",
+    "purpose": "Build the mathematical and algorithmic foundation needed for ML and reliable software engineering.",
+    "topics": [
+      {
+        "id": "2.1",
+        "title": "Basic Mathematics",
+        "subtopics": [
+          "Numbers and number systems",
+          "Fractions",
+          "Decimals",
+          "Percentages",
+          "Ratios",
+          "Powers",
+          "Exponents",
+          "Roots",
+          "Logarithms",
+          "Algebraic expressions",
+          "Linear equations",
+          "Quadratic equations",
+          "Functions",
+          "Domain and range",
+          "Graphs",
+          "Coordinate geometry"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "2.2",
+        "title": "Discrete Mathematics and Logic",
+        "subtopics": [
+          "Propositional logic",
+          "Logical operators",
+          "Truth tables",
+          "Sets",
+          "Set operations",
+          "Relations",
+          "Functions",
+          "Permutations",
+          "Combinations",
+          "Counting principles",
+          "Mathematical induction",
+          "Graph theory fundamentals",
+          "Nodes and edges",
+          "Trees",
+          "Boolean algebra"
+        ],
+        "guidance": [
+          "Why: Useful for algorithms, computer science, graph-based knowledge systems, and logical problem solving."
+        ]
+      },
+      {
+        "id": "2.3",
+        "title": "Statistics",
+        "subtopics": [
+          "Population and sample",
+          "Mean",
+          "Median",
+          "Mode",
+          "Range",
+          "Variance",
+          "Standard deviation",
+          "Percentiles",
+          "Quartiles",
+          "Distribution",
+          "Normal distribution",
+          "Skewness",
+          "Outliers",
+          "Correlation",
+          "Covariance",
+          "Sampling methods",
+          "Statistical inference",
+          "Confidence intervals",
+          "Hypothesis testing basics",
+          "P-values and their limitations"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "2.4",
+        "title": "Probability",
+        "subtopics": [
+          "Probability fundamentals",
+          "Events",
+          "Independent events",
+          "Conditional probability",
+          "Bayes' theorem",
+          "Random variables",
+          "Discrete distributions",
+          "Continuous distributions",
+          "Expected value",
+          "Variance of a random variable",
+          "Probability density functions",
+          "Common probability distributions"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "2.5",
+        "title": "Linear Algebra",
+        "subtopics": [
+          "Scalars",
+          "Vectors",
+          "Vector operations",
+          "Dot product",
+          "Vector magnitude",
+          "Matrices",
+          "Matrix addition",
+          "Matrix multiplication",
+          "Transpose",
+          "Identity matrix",
+          "Matrix inverse",
+          "Linear transformations",
+          "Eigenvalues",
+          "Eigenvectors",
+          "Vector spaces basics",
+          "Dimensionality"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "2.6",
+        "title": "Calculus and Optimization",
+        "subtopics": [
+          "Limits",
+          "Continuity",
+          "Derivatives",
+          "Derivative rules",
+          "Chain rule",
+          "Partial derivatives",
+          "Gradients",
+          "Gradient descent",
+          "Learning rate",
+          "Loss minimization",
+          "Optimization fundamentals",
+          "Local and global minima",
+          "Multivariable functions"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "2.7",
+        "title": "Information Theory Basics",
+        "subtopics": [
+          "Information and uncertainty",
+          "Entropy",
+          "Conditional entropy",
+          "Cross-entropy",
+          "KL divergence",
+          "Mutual information",
+          "Why these concepts appear in ML and language models"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "2.8",
+        "title": "Data Structures and Algorithms",
+        "subtopics": [
+          "Algorithm fundamentals",
+          "Time complexity",
+          "Space complexity",
+          "Big O notation",
+          "Arrays",
+          "Strings",
+          "Linked lists",
+          "Stacks",
+          "Queues",
+          "Hash maps",
+          "Hash sets",
+          "Searching",
+          "Binary search",
+          "Sorting algorithms",
+          "Recursion",
+          "Trees",
+          "Binary search trees",
+          "Heaps",
+          "Graphs",
+          "BFS",
+          "DFS",
+          "Shortest-path basics",
+          "Greedy algorithms",
+          "Dynamic programming",
+          "Algorithm optimization"
+        ],
+        "guidance": [
+          "Practical: Solve beginner-to-intermediate programming problems regularly. Include progress tracking for DSA practice."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "title": "Software Engineering, Databases, and Data Engineering",
+    "purpose": "Learn how to design maintainable applications and prepare data for real-world AI workloads.",
+    "topics": [
+      {
+        "id": "3.1",
+        "title": "Software Engineering Fundamentals",
+        "subtopics": [
+          "Software development lifecycle",
+          "Requirement analysis",
+          "Functional requirements",
+          "Non-functional requirements",
+          "Modular design",
+          "Separation of concerns",
+          "DRY principle",
+          "SOLID principles",
+          "Clean architecture basics",
+          "Design patterns",
+          "Dependency management",
+          "Code review",
+          "Refactoring",
+          "Technical documentation",
+          "Error handling",
+          "Logging",
+          "Testing strategy",
+          "Maintainability"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "3.2",
+        "title": "Database Engineering with PostgreSQL",
+        "subtopics": [
+          "Relational database concepts",
+          "PostgreSQL setup",
+          "Database creation",
+          "Tables and columns",
+          "Data types",
+          "Primary keys",
+          "Foreign keys",
+          "Constraints",
+          "Relationships",
+          "One-to-one relationships",
+          "One-to-many relationships",
+          "Many-to-many relationships",
+          "SQL queries",
+          "Joins",
+          "Aggregation",
+          "Subqueries",
+          "Views",
+          "Indexes",
+          "Query execution plans",
+          "Query optimization",
+          "Database normalization",
+          "Transactions",
+          "ACID properties",
+          "Isolation levels",
+          "Deadlocks",
+          "Connection pooling",
+          "Database migrations",
+          "Backup and recovery"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "3.3",
+        "title": "NoSQL Fundamentals",
+        "subtopics": [
+          "Relational vs NoSQL databases",
+          "Document databases",
+          "Key-value databases",
+          "Wide-column databases",
+          "Graph databases",
+          "Data modeling",
+          "Query trade-offs",
+          "Choosing a database based on requirements"
+        ],
+        "guidance": ["Include MongoDB as an introductory document database."]
+      },
+      {
+        "id": "3.4",
+        "title": "Data Engineering Fundamentals",
+        "subtopics": [
+          "What is Data Engineering?",
+          "Data sources",
+          "Data ingestion",
+          "Structured data",
+          "Semi-structured data",
+          "Unstructured data",
+          "CSV",
+          "JSON",
+          "Parquet basics",
+          "Data cleaning",
+          "Data validation",
+          "ETL",
+          "ELT",
+          "Data pipelines",
+          "Batch processing",
+          "Stream processing basics",
+          "Data quality",
+          "Data warehouses",
+          "Data lakes",
+          "Data lineage",
+          "Data versioning",
+          "Pipeline failures",
+          "Pipeline monitoring",
+          "Apache Spark fundamentals as an advanced optional topic"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "3.5",
+        "title": "Data Modeling and Storage for AI",
+        "subtopics": [
+          "Relational data modeling",
+          "Document modeling",
+          "Embedding storage",
+          "Vector indexing concepts",
+          "Similarity search",
+          "Metadata filtering",
+          "Hybrid retrieval basics",
+          "Data access control",
+          "Multi-tenant data separation"
+        ],
+        "guidance": []
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "title": "Data Science and Machine Learning",
+    "purpose": "Learn how data is analyzed and how ML algorithms identify patterns and make predictions.",
+    "topics": [
+      {
+        "id": "4.1",
+        "title": "Data Science Fundamentals",
+        "subtopics": [
+          "AI vs ML vs Data Science",
+          "Data Science workflow",
+          "NumPy",
+          "Arrays",
+          "Array operations",
+          "Vectorization",
+          "Pandas",
+          "Series and DataFrames",
+          "Data loading",
+          "Data inspection",
+          "Data cleaning",
+          "Missing values",
+          "Duplicate data",
+          "Outlier handling",
+          "Data transformations",
+          "Exploratory Data Analysis",
+          "Matplotlib",
+          "Seaborn",
+          "Data visualization",
+          "Jupyter Notebook"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "4.2",
+        "title": "Machine Learning Fundamentals",
+        "subtopics": [
+          "What is Machine Learning?",
+          "How machines learn patterns",
+          "Supervised learning",
+          "Unsupervised learning",
+          "Reinforcement learning",
+          "Features",
+          "Labels",
+          "Training data",
+          "Validation data",
+          "Testing data",
+          "Training and inference",
+          "Baseline models",
+          "Model selection",
+          "Model generalization",
+          "Data leakage",
+          "Underfitting",
+          "Overfitting",
+          "Bias and variance"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "4.3",
+        "title": "Supervised Learning Algorithms",
+        "subtopics": [
+          "Linear Regression",
+          "Logistic Regression",
+          "K-Nearest Neighbors",
+          "Decision Trees",
+          "Random Forest",
+          "Support Vector Machines",
+          "Naive Bayes",
+          "Gradient Boosting fundamentals",
+          "When to choose each algorithm"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "4.4",
+        "title": "Unsupervised Learning",
+        "subtopics": [
+          "Clustering fundamentals",
+          "K-Means",
+          "Hierarchical clustering",
+          "DBSCAN",
+          "PCA",
+          "Dimensionality reduction",
+          "Anomaly detection basics"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "4.5",
+        "title": "Model Evaluation",
+        "subtopics": [
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "F1-score",
+          "Confusion matrix",
+          "ROC curve",
+          "AUC",
+          "Cross-validation",
+          "Regression metrics",
+          "MAE",
+          "MSE",
+          "RMSE",
+          "R-squared",
+          "Class imbalance",
+          "Threshold selection",
+          "Model calibration",
+          "Error analysis"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "4.6",
+        "title": "Model Training and Improvement",
+        "subtopics": [
+          "Feature engineering",
+          "Feature selection",
+          "Data preprocessing",
+          "Feature scaling",
+          "Encoding categorical data",
+          "Hyperparameters",
+          "Hyperparameter tuning",
+          "Grid search",
+          "Random search",
+          "Model comparison",
+          "Reproducible experiments",
+          "Saving models",
+          "Model inference",
+          "Model deployment basics"
+        ],
+        "guidance": [
+          "Practical projects:",
+          "- Student performance prediction.",
+          "- House price prediction.",
+          "- Spam classifier.",
+          "- Customer segmentation."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Deep Learning and PyTorch",
+    "purpose": "Understand neural networks and the mechanics of training more complex machine learning models.",
+    "topics": [
+      {
+        "id": "5.1",
+        "title": "Deep Learning Fundamentals",
+        "subtopics": [
+          "What is Deep Learning?",
+          "Neural networks",
+          "Artificial neurons",
+          "Input layers",
+          "Hidden layers",
+          "Output layers",
+          "Weights",
+          "Biases",
+          "Activation functions",
+          "ReLU",
+          "Sigmoid",
+          "Softmax",
+          "Loss functions",
+          "Forward propagation",
+          "Backpropagation",
+          "Gradient descent",
+          "Optimizers",
+          "Epochs",
+          "Batches",
+          "Learning rate",
+          "Regularization",
+          "Dropout",
+          "Batch normalization",
+          "Training and validation"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "5.2",
+        "title": "PyTorch",
+        "subtopics": [
+          "PyTorch installation",
+          "Tensors",
+          "Tensor shapes",
+          "Tensor operations",
+          "CPU and GPU",
+          "Automatic differentiation",
+          "Autograd",
+          "Building neural networks",
+          "Loss functions",
+          "Optimizers",
+          "Training loops",
+          "Evaluation loops",
+          "Saving models",
+          "Loading models",
+          "GPU memory basics",
+          "Debugging training",
+          "Experiment tracking"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "5.3",
+        "title": "Deep Learning Architectures",
+        "subtopics": [
+          "Feedforward neural networks",
+          "CNN fundamentals",
+          "Convolution",
+          "Pooling",
+          "Image classification",
+          "RNN concepts",
+          "LSTM concepts",
+          "GRU concepts",
+          "Sequence modeling",
+          "Attention fundamentals",
+          "Transformer introduction"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "5.4",
+        "title": "GPU and Model Training Fundamentals",
+        "subtopics": [
+          "CPU vs GPU computation",
+          "GPU architecture basics",
+          "VRAM",
+          "Tensor computation",
+          "Batch sizes",
+          "Mixed precision",
+          "FP32",
+          "FP16",
+          "BF16",
+          "Training throughput",
+          "GPU memory bottlenecks",
+          "CUDA concepts",
+          "Distributed training overview"
+        ],
+        "guidance": [
+          "Keep low-level CUDA programming and advanced distributed training optional."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "title": "NLP, Transformers, and Large Language Models",
+    "purpose": "Understand how LLMs process text, represent information, and generate responses.",
+    "topics": [
+      {
+        "id": "6.1",
+        "title": "Natural Language Processing",
+        "subtopics": [
+          "What is NLP?",
+          "Text preprocessing",
+          "Text normalization",
+          "Tokenization",
+          "Sentence segmentation",
+          "Stop words",
+          "Stemming",
+          "Lemmatization",
+          "Bag of Words",
+          "TF-IDF",
+          "Word embeddings",
+          "Semantic similarity",
+          "Text classification",
+          "Named Entity Recognition",
+          "Sequence modeling"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "6.2",
+        "title": "Language Model Fundamentals",
+        "subtopics": [
+          "What is a language model?",
+          "Statistical language models",
+          "Neural language models",
+          "Next-token prediction",
+          "Vocabulary",
+          "Tokenization",
+          "Subword tokenization",
+          "Context windows",
+          "Model parameters",
+          "Pretraining",
+          "Fine-tuning",
+          "Inference"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "6.3",
+        "title": "Transformer Architecture",
+        "subtopics": [
+          "Why transformers were introduced",
+          "Transformer architecture overview",
+          "Encoder",
+          "Decoder",
+          "Self-attention",
+          "Query, Key, and Value",
+          "Attention scores",
+          "Scaled dot-product attention",
+          "Multi-head attention",
+          "Positional encoding",
+          "Feedforward layers",
+          "Residual connections",
+          "Layer normalization",
+          "Transformer training overview",
+          "GPT-style decoder architecture"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "6.4",
+        "title": "LLM Internals",
+        "subtopics": [
+          "How LLM input is processed",
+          "Token IDs",
+          "Token embeddings",
+          "Positional information",
+          "Context window",
+          "Next-token prediction",
+          "Sampling",
+          "Temperature",
+          "Top-k sampling",
+          "Top-p sampling",
+          "Greedy decoding",
+          "Hallucination",
+          "Context limitations",
+          "KV cache basics",
+          "Inference latency",
+          "Time to First Token",
+          "Tokens per second"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "6.5",
+        "title": "LLM Training and Adaptation",
+        "subtopics": [
+          "Pretraining overview",
+          "Supervised fine-tuning",
+          "Instruction tuning",
+          "Preference alignment",
+          "RLHF concepts",
+          "DPO concepts",
+          "PEFT",
+          "LoRA",
+          "Quantization-aware considerations",
+          "Fine-tuning datasets",
+          "Training evaluation",
+          "Overfitting during fine-tuning",
+          "Model selection",
+          "Model licensing awareness"
+        ],
+        "guidance": ["Explain training vs fine-tuning vs inference clearly."]
+      },
+      {
+        "id": "6.6",
+        "title": "Hugging Face Ecosystem",
+        "subtopics": [
+          "Model Hub",
+          "Transformers library",
+          "Tokenizers",
+          "Datasets",
+          "Model loading",
+          "Pipeline API",
+          "Inference",
+          "Model configuration",
+          "Model cards",
+          "Model licensing",
+          "Quantized models",
+          "Basic evaluation"
+        ],
+        "guidance": []
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "title": "Backend, AI Application Engineering, and LLM Integration",
+    "purpose": "Turn AI models into real software applications.",
+    "topics": [
+      {
+        "id": "7.1",
+        "title": "API Engineering",
+        "subtopics": [
+          "What is an API?",
+          "REST architecture",
+          "HTTP methods",
+          "Status codes",
+          "Headers",
+          "Request body",
+          "JSON",
+          "Query parameters",
+          "Path parameters",
+          "Authentication",
+          "Authorization",
+          "API keys",
+          "JWT",
+          "OAuth fundamentals",
+          "Rate limits",
+          "Timeouts",
+          "Retries",
+          "Exponential backoff",
+          "Error handling",
+          "Pagination",
+          "Webhooks",
+          "Streaming",
+          "WebSockets",
+          "API versioning",
+          "OpenAPI documentation"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "7.2",
+        "title": "FastAPI",
+        "subtopics": [
+          "Installation",
+          "Project structure",
+          "Creating an API server",
+          "Routes",
+          "Path parameters",
+          "Query parameters",
+          "Request body",
+          "Pydantic",
+          "Data validation",
+          "Response models",
+          "Error handling",
+          "Dependency injection",
+          "Middleware",
+          "Async endpoints",
+          "Database integration",
+          "Authentication",
+          "Background tasks",
+          "File uploads",
+          "API documentation",
+          "Testing"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "7.3",
+        "title": "Backend Architecture",
+        "subtopics": [
+          "Routes and controllers",
+          "Service layer",
+          "Repository pattern",
+          "Database layer",
+          "Dependency injection",
+          "Configuration",
+          "Environment management",
+          "Application logging",
+          "Error handling",
+          "Modular project structure",
+          "Clean architecture basics",
+          "API testing"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "7.4",
+        "title": "AI Provider Integration",
+        "subtopics": [
+          "AI provider architecture",
+          "Provider API keys",
+          "Secure secret storage",
+          "Model identifiers",
+          "Request formats",
+          "Response formats",
+          "Model capabilities",
+          "Text generation",
+          "Image generation APIs overview",
+          "Multimodal APIs overview",
+          "Tool calling",
+          "Function calling",
+          "Structured output",
+          "Streaming responses",
+          "Provider-specific errors",
+          "Retry handling",
+          "Fallback providers",
+          "Request tracking",
+          "Provider health checks"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "7.5",
+        "title": "Token and Cost Engineering",
+        "subtopics": [
+          "What are LLM tokens?",
+          "Input tokens",
+          "Output tokens",
+          "Tokenization",
+          "Context limits",
+          "Token counting",
+          "Token usage reporting",
+          "Model pricing",
+          "Cost calculation",
+          "Token budgets",
+          "User-level quotas",
+          "Project-level quotas",
+          "Cost estimation",
+          "Cost optimization",
+          "Usage analytics"
+        ],
+        "guidance": [
+          "Explain that LLM text tokens, authentication tokens, and API keys are different concepts."
+        ]
+      },
+      {
+        "id": "7.6",
+        "title": "AI Backend Reliability",
+        "subtopics": [
+          "Model timeouts",
+          "Provider failures",
+          "Retry policies",
+          "Backoff",
+          "Circuit breakers",
+          "Fallback models",
+          "Request cancellation",
+          "Streaming failure recovery",
+          "Idempotency",
+          "Provider response validation",
+          "Usage logging",
+          "Cost tracking"
+        ],
+        "guidance": []
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "title": "RAG, Graph RAG, Agents, and Knowledge Systems",
+    "purpose": "Build AI applications that work with external knowledge, tools, and multi-step tasks.",
+    "topics": [
+      {
+        "id": "8.1",
+        "title": "Embeddings and Vector Search",
+        "subtopics": [
+          "What are embeddings?",
+          "Text embeddings",
+          "Embedding dimensions",
+          "Semantic similarity",
+          "Cosine similarity",
+          "Dot-product similarity",
+          "Vector storage",
+          "Vector indexes",
+          "Nearest-neighbor search",
+          "Metadata filtering",
+          "Vector database concepts",
+          "Similarity ranking"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "8.2",
+        "title": "Vector Databases",
+        "subtopics": [
+          "Vector databases",
+          "pgvector",
+          "Qdrant overview",
+          "Weaviate overview",
+          "Collection and index concepts",
+          "Insert operations",
+          "Search operations",
+          "Metadata filtering",
+          "Indexing basics",
+          "Choosing a vector database"
+        ],
+        "guidance": [
+          "Do not require learning every vector database. PostgreSQL with pgvector can be the first practical option."
+        ]
+      },
+      {
+        "id": "8.3",
+        "title": "Traditional RAG",
+        "subtopics": [
+          "What is RAG?",
+          "Why RAG is used",
+          "Document collection",
+          "Document parsing",
+          "Document cleaning",
+          "Chunking",
+          "Chunk size",
+          "Chunk overlap",
+          "Embedding generation",
+          "Vector database storage",
+          "Query embedding",
+          "Retrieval",
+          "Similarity search",
+          "Metadata filtering",
+          "Context construction",
+          "LLM generation",
+          "Source citations",
+          "Retrieval quality",
+          "RAG evaluation",
+          "Common RAG failures"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "8.4",
+        "title": "Advanced RAG",
+        "subtopics": [
+          "Query rewriting",
+          "Hybrid search",
+          "Keyword retrieval",
+          "Semantic retrieval",
+          "Reranking",
+          "Metadata-aware retrieval",
+          "Multi-query retrieval",
+          "Context compression",
+          "Context window management",
+          "Retrieval evaluation",
+          "Answer faithfulness",
+          "Citation quality",
+          "Access-controlled retrieval"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "8.5",
+        "title": "Graph Theory and Knowledge Graphs",
+        "subtopics": [
+          "Graph fundamentals",
+          "Nodes",
+          "Edges",
+          "Directed graphs",
+          "Undirected graphs",
+          "Weighted graphs",
+          "Graph traversal",
+          "BFS",
+          "DFS",
+          "Entity extraction",
+          "Relationship extraction",
+          "Knowledge graph construction",
+          "Graph database concepts",
+          "Graph query basics",
+          "Subgraph retrieval"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "8.6",
+        "title": "Graph RAG",
+        "subtopics": [
+          "What is Graph RAG?",
+          "Normal RAG vs Graph RAG",
+          "When Graph RAG is useful",
+          "Entity extraction",
+          "Relationship extraction",
+          "Entity resolution",
+          "Graph construction",
+          "Knowledge graph storage",
+          "Query entity identification",
+          "Graph-based retrieval",
+          "Subgraph generation",
+          "Combining vector search and graph search",
+          "Feeding retrieved graph context to an LLM",
+          "Graph RAG evaluation",
+          "Limitations and operational cost"
+        ],
+        "guidance": [
+          "Explain that Graph RAG is not a universal replacement for traditional RAG."
+        ]
+      },
+      {
+        "id": "8.7",
+        "title": "AI Agents",
+        "subtopics": [
+          "What is an AI agent?",
+          "Agent vs ordinary LLM application",
+          "Agent workflow",
+          "Tool calling",
+          "Function execution",
+          "Agent state",
+          "Memory",
+          "Planning",
+          "Task decomposition",
+          "Tool selection",
+          "Agent loops",
+          "Workflow orchestration",
+          "Human approval",
+          "Agent permissions",
+          "Failure handling",
+          "Agent evaluation",
+          "Multi-agent systems",
+          "Multi-agent coordination",
+          "Multi-agent communication",
+          "Agent security"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "8.8",
+        "title": "AI Frameworks and Protocols",
+        "subtopics": [
+          "LangChain fundamentals",
+          "LangGraph fundamentals",
+          "LlamaIndex overview",
+          "When to use frameworks",
+          "Framework-independent agent architecture",
+          "Model Context Protocol (MCP) concepts",
+          "MCP clients and servers",
+          "Tool discovery",
+          "Tool permissions",
+          "Safe tool execution"
+        ],
+        "guidance": [
+          "Learn core concepts before becoming dependent on any one framework."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "title": "System Design, Distributed Systems, and Scalability",
+    "purpose": "Build systems that can handle growing users, traffic, workloads, and AI inference demand without becoming unreliable.",
+    "topics": [
+      {
+        "id": "9.1",
+        "title": "System Design Fundamentals",
+        "subtopics": [
+          "What is system design?",
+          "Functional requirements",
+          "Non-functional requirements",
+          "Requirement estimation",
+          "Latency",
+          "Throughput",
+          "Availability",
+          "Reliability",
+          "Scalability",
+          "Maintainability",
+          "Monolithic architecture",
+          "Microservices",
+          "Modular monolith",
+          "Client-server architecture",
+          "API Gateway",
+          "Reverse proxy",
+          "Load balancing",
+          "Horizontal scaling",
+          "Vertical scaling",
+          "Stateless services",
+          "Stateful services",
+          "Database architecture",
+          "Caching strategy",
+          "Read and write patterns"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.2",
+        "title": "Caching and Redis",
+        "subtopics": [
+          "What is caching?",
+          "Why caching matters",
+          "In-memory caching",
+          "Cache hit",
+          "Cache miss",
+          "TTL",
+          "Cache invalidation",
+          "Cache-aside",
+          "Write-through",
+          "Write-behind concepts",
+          "Redis fundamentals",
+          "Redis strings",
+          "Redis hashes",
+          "Redis lists",
+          "Redis sets",
+          "Redis sorted sets",
+          "Redis expiration",
+          "Redis Pub/Sub",
+          "Distributed caching",
+          "Cache consistency"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.3",
+        "title": "Rate Limiting",
+        "subtopics": [
+          "What is rate limiting?",
+          "Why rate limiting matters",
+          "Fixed-window algorithm",
+          "Sliding-window algorithm",
+          "Token-bucket algorithm",
+          "Leaky-bucket algorithm",
+          "Per-user limits",
+          "Per-IP limits",
+          "Per-API-key limits",
+          "Distributed rate limiting",
+          "Redis-based rate limiting",
+          "Atomic operations",
+          "Race conditions",
+          "Redis transactions basics",
+          "Redis Lua scripting",
+          "Rate-limit headers",
+          "Quota management",
+          "Fair usage policies"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.4",
+        "title": "Queues and Background Processing",
+        "subtopics": [
+          "Background tasks",
+          "Message queues",
+          "Producers",
+          "Consumers",
+          "Brokers",
+          "Job scheduling",
+          "Task retries",
+          "Dead-letter queues",
+          "Idempotent jobs",
+          "Celery basics",
+          "RabbitMQ overview",
+          "Kafka overview",
+          "Event-driven architecture",
+          "Event ordering",
+          "Backpressure"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.5",
+        "title": "Distributed Systems",
+        "subtopics": [
+          "What is a distributed system?",
+          "Multiple servers",
+          "Service communication",
+          "Network failures",
+          "Partial failures",
+          "Consistency",
+          "Availability",
+          "Partition tolerance",
+          "CAP theorem",
+          "Eventual consistency",
+          "Strong consistency basics",
+          "Replication",
+          "Database sharding",
+          "Distributed caching",
+          "Distributed locking concepts",
+          "Leader election concepts",
+          "Fault tolerance",
+          "Circuit breakers",
+          "Retries",
+          "Exponential backoff",
+          "Idempotency",
+          "Distributed transactions overview",
+          "Saga pattern overview",
+          "Service discovery",
+          "Failure recovery"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.6",
+        "title": "Concurrency and Performance",
+        "subtopics": [
+          "Concurrency vs parallelism",
+          "Threads",
+          "Processes",
+          "Async I/O",
+          "Thread pools",
+          "Worker pools",
+          "Connection pooling",
+          "Race conditions",
+          "Locks",
+          "Deadlocks",
+          "Throughput",
+          "Latency",
+          "Bottlenecks",
+          "Profiling",
+          "Memory utilization",
+          "CPU utilization",
+          "Database performance",
+          "Query optimization",
+          "Resource limits"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.7",
+        "title": "Scalable AI Systems",
+        "subtopics": [
+          "AI workload characteristics",
+          "Model request queues",
+          "Concurrent inference",
+          "Model routing",
+          "Provider capacity",
+          "GPU inference constraints",
+          "Inference batching",
+          "Model cold starts",
+          "Token throughput",
+          "Time to First Token",
+          "Streaming performance",
+          "Model fallback",
+          "AI cost control",
+          "Request prioritization",
+          "Usage quotas",
+          "Multi-tenant architecture",
+          "Graceful degradation",
+          "Load shedding"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "9.8",
+        "title": "Load and Stress Testing",
+        "subtopics": [
+          "Why load testing matters",
+          "Load testing",
+          "Stress testing",
+          "Spike testing",
+          "Endurance testing",
+          "Concurrent users",
+          "Requests per second",
+          "Response time percentiles",
+          "P50, P95, P99",
+          "Error rates",
+          "Throughput",
+          "Resource consumption",
+          "k6 fundamentals",
+          "Test scenario design",
+          "Bottleneck analysis",
+          "Performance reports"
+        ],
+        "guidance": [
+          "Practical: Test your own API under controlled loads, starting with small traffic levels. Do not claim million-request capacity without evidence."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "title": "Security, Testing, Cloud, DevOps, and MLOps",
+    "purpose": "Make the application secure, reliable, observable, maintainable, and deployable.",
+    "topics": [
+      {
+        "id": "10.1",
+        "title": "Application Security",
+        "subtopics": [
+          "Security fundamentals",
+          "CIA triad",
+          "Authentication",
+          "Authorization",
+          "Password hashing",
+          "Sessions",
+          "JWT security",
+          "OAuth basics",
+          "Role-based access control",
+          "SQL injection",
+          "Cross-site scripting",
+          "CSRF",
+          "SSRF",
+          "Input validation",
+          "Output validation",
+          "Secure file uploads",
+          "Secrets management",
+          "Environment variables",
+          "HTTPS",
+          "CORS",
+          "Dependency vulnerabilities",
+          "Secure database access",
+          "Access control testing"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.2",
+        "title": "AI and LLM Security",
+        "subtopics": [
+          "OWASP Top 10 for LLM applications",
+          "Prompt injection",
+          "Indirect prompt injection",
+          "Sensitive information disclosure",
+          "Insecure output handling",
+          "Excessive agency",
+          "Improper tool permissions",
+          "Unsafe model-generated code",
+          "RAG data leakage",
+          "Cross-tenant information leakage",
+          "Data poisoning basics",
+          "Model denial-of-service risks",
+          "Input validation",
+          "Output validation",
+          "Tool allowlists",
+          "Human approval",
+          "Security testing",
+          "Red-team testing",
+          "Guardrails",
+          "Responsible AI basics"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.3",
+        "title": "Software and API Testing",
+        "subtopics": [
+          "Testing fundamentals",
+          "Unit tests",
+          "Integration tests",
+          "End-to-end tests",
+          "Regression tests",
+          "API tests",
+          "Database tests",
+          "Mocking",
+          "Fixtures",
+          "Pytest",
+          "Test coverage",
+          "Contract testing",
+          "Load testing",
+          "Security testing",
+          "CI test automation"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.4",
+        "title": "AI and LLM Evaluation",
+        "subtopics": [
+          "Why AI evaluation matters",
+          "Golden datasets",
+          "Test datasets",
+          "Model comparison",
+          "Answer relevance",
+          "Faithfulness",
+          "Context relevance",
+          "Retrieval recall",
+          "Retrieval precision",
+          "Hallucination evaluation",
+          "Human evaluation",
+          "Automated evaluation",
+          "LLM-as-judge limitations",
+          "Regression evaluation",
+          "Prompt evaluation",
+          "Agent evaluation",
+          "Cost-quality-latency trade-offs"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.5",
+        "title": "Docker and Containers",
+        "subtopics": [
+          "What is Docker?",
+          "Virtual machines vs containers",
+          "Docker images",
+          "Containers",
+          "Dockerfile",
+          "Building images",
+          "Running containers",
+          "Ports",
+          "Volumes",
+          "Networks",
+          "Docker Compose",
+          "Environment variables",
+          "Multi-stage builds",
+          "Container security basics"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.6",
+        "title": "Cloud Computing",
+        "subtopics": [
+          "What is cloud computing?",
+          "IaaS",
+          "PaaS",
+          "SaaS",
+          "Compute",
+          "Storage",
+          "Networking",
+          "Managed databases",
+          "IAM",
+          "VMs",
+          "Serverless computing",
+          "Container hosting",
+          "GPU cloud fundamentals",
+          "Deployment environments",
+          "Cloud costs",
+          "Backup and disaster recovery"
+        ],
+        "guidance": [
+          "Learn one cloud provider deeply at first: AWS or GCP.",
+          "Azure can be explored later if a job or project requires it."
+        ]
+      },
+      {
+        "id": "10.7",
+        "title": "DevOps and CI/CD",
+        "subtopics": [
+          "DevOps fundamentals",
+          "CI",
+          "CD",
+          "GitHub Actions",
+          "Build pipelines",
+          "Automated testing",
+          "Deployment pipelines",
+          "Environment configuration",
+          "Secret management",
+          "Rollbacks",
+          "Release management",
+          "Infrastructure as Code introduction",
+          "Terraform basics",
+          "Kubernetes fundamentals",
+          "Container orchestration"
+        ],
+        "guidance": [
+          "Kubernetes and advanced Terraform are later-stage skills, not prerequisites for the first working AI application."
+        ]
+      },
+      {
+        "id": "10.8",
+        "title": "Logging, Monitoring, and Observability",
+        "subtopics": [
+          "Application logs",
+          "Structured logging",
+          "Metrics",
+          "Traces",
+          "Observability",
+          "Monitoring",
+          "Alerts",
+          "OpenTelemetry",
+          "Prometheus",
+          "Grafana",
+          "Error tracking",
+          "Request tracing",
+          "Performance monitoring",
+          "SLOs",
+          "SLAs",
+          "Error budgets",
+          "Incident response",
+          "Root-cause analysis"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.9",
+        "title": "MLOps",
+        "subtopics": [
+          "What is MLOps?",
+          "ML lifecycle",
+          "Experiment tracking",
+          "MLflow",
+          "Dataset versioning",
+          "Model versioning",
+          "Model registry",
+          "Reproducible training",
+          "Model deployment",
+          "Model serving",
+          "Model monitoring",
+          "Data drift",
+          "Concept drift",
+          "Model performance monitoring",
+          "Retraining pipelines",
+          "Rollback",
+          "Production model management"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "10.10",
+        "title": "Privacy, Governance, and Responsible AI",
+        "subtopics": [
+          "Data privacy fundamentals",
+          "Personally identifiable information",
+          "Data minimization",
+          "Data retention",
+          "User consent",
+          "Access control",
+          "Data licensing",
+          "Model licensing",
+          "Dataset provenance",
+          "Responsible AI",
+          "Bias and fairness",
+          "Explainability",
+          "Audit trails",
+          "AI governance basics",
+          "Awareness of applicable privacy and compliance requirements"
+        ],
+        "guidance": [
+          "For legal and regulatory content, do not present outdated legal advice. Direct learners to current official government and regulatory sources."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 11,
+    "title": "Advanced AI Systems Architecture",
+    "purpose": "Combine previous skills to design advanced, reliable AI infrastructure.",
+    "topics": [
+      {
+        "id": "11.1",
+        "title": "AI System Architecture",
+        "subtopics": [
+          "AI system requirements",
+          "AI architecture components",
+          "API Gateway",
+          "Authentication service",
+          "AI orchestrator",
+          "Task planner",
+          "Model router",
+          "Provider adapters",
+          "Context manager",
+          "Memory service",
+          "Database",
+          "Cache",
+          "Queue",
+          "Monitoring",
+          "Logging",
+          "Failure recovery",
+          "Architecture diagrams",
+          "Architecture decision records"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "11.2",
+        "title": "Intelligent Model Routing",
+        "subtopics": [
+          "What is model routing?",
+          "Model capability analysis",
+          "Prompt classification",
+          "Task classification",
+          "Easy, medium, and complex task levels",
+          "Model selection",
+          "Cost-based selection",
+          "Latency-based selection",
+          "Quality-based selection",
+          "Provider availability",
+          "Fallback routing",
+          "Load-aware routing",
+          "Token budget",
+          "Context limit management",
+          "Model evaluation",
+          "Routing accuracy",
+          "Routing observability"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "11.3",
+        "title": "Model Serving and Inference Optimization",
+        "subtopics": [
+          "What is model serving?",
+          "Training vs inference",
+          "Model endpoints",
+          "Batch inference",
+          "Real-time inference",
+          "GPU inference",
+          "Quantization",
+          "Model compression",
+          "Distillation overview",
+          "Mixed precision",
+          "KV cache",
+          "Continuous batching",
+          "Model throughput",
+          "Latency optimization",
+          "GPU memory optimization",
+          "vLLM overview",
+          "Hugging Face Text Generation Inference overview",
+          "NVIDIA Triton overview"
+        ],
+        "guidance": [
+          "Treat advanced serving frameworks as practical exploration topics. Do not require mastery of all frameworks."
+        ]
+      },
+      {
+        "id": "11.4",
+        "title": "High Availability and Reliability",
+        "subtopics": [
+          "High availability",
+          "Redundancy",
+          "Failover",
+          "Health checks",
+          "Graceful degradation",
+          "Disaster recovery",
+          "Backups",
+          "Recovery objectives",
+          "Fault isolation",
+          "Rate limiting under failure",
+          "Service recovery",
+          "Production incident response"
+        ],
+        "guidance": []
+      },
+      {
+        "id": "11.5",
+        "title": "Architecture Trade-offs",
+        "subtopics": [
+          "Cost vs performance",
+          "Latency vs quality",
+          "Consistency vs availability",
+          "Simplicity vs complexity",
+          "Monolith vs microservices",
+          "Managed services vs self-hosting",
+          "Model size vs inference cost",
+          "Caching vs freshness",
+          "Synchronous vs asynchronous processing",
+          "Build vs buy decisions"
+        ],
+        "guidance": []
+      }
+    ]
+  }
+]
