@@ -20,8 +20,8 @@ import {
 import { safeNextPath } from "../src/lib/slug";
 test("all master topics, lesson order, educational content and references are valid", () => {
   const counts = validateCurriculum();
-  assert.equal(counts.topics, 82);
-  assert.equal(counts.lessons, 1291);
+  assert.equal(counts.topics, 83);
+  assert.equal(counts.lessons, 1313);
 });
 test("new learners start at a real zero and the first core topic", () => {
   const state = emptyState();

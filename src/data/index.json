@@ -28,7 +28,9 @@
         "hours": 6.5,
         "prerequisites": [],
         "description": "A computer follows instructions by moving data between a processor, working memory, storage, and input/output devices. A CPU runs general instructions; a GPU repeats many numerical operations at once.",
-        "resources": ["cs50"],
+        "resources": [
+          "cs50"
+        ],
         "subtopics": [
           {
             "id": "0.1.1",
@@ -118,9 +120,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 8,
-        "prerequisites": ["0.1"],
+        "prerequisites": [
+          "0.1"
+        ],
         "description": "An operating system shares hardware between running programs. Its kernel schedules work, manages memory, and controls device access; applications normally run with fewer privileges in user space.",
-        "resources": ["ostep"],
+        "resources": [
+          "ostep"
+        ],
         "subtopics": [
           {
             "id": "0.2.1",
@@ -228,9 +234,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 9,
-        "prerequisites": ["0.2"],
+        "prerequisites": [
+          "0.2"
+        ],
         "description": "A network lets machines exchange messages. DNS finds an address, TCP provides an ordered byte stream, TLS protects transport, and HTTP defines the request and response used by most web APIs.",
-        "resources": ["web"],
+        "resources": [
+          "web"
+        ],
         "subtopics": [
           {
             "id": "0.3.1",
@@ -256,7 +266,12 @@
             "priority": "core",
             "minutes": 30
           },
-          { "id": "0.3.5", "title": "DNS", "priority": "core", "minutes": 30 },
+          {
+            "id": "0.3.5",
+            "title": "DNS",
+            "priority": "core",
+            "minutes": 30
+          },
           {
             "id": "0.3.6",
             "title": "Domain names",
@@ -269,8 +284,18 @@
             "priority": "core",
             "minutes": 30
           },
-          { "id": "0.3.8", "title": "TCP", "priority": "core", "minutes": 30 },
-          { "id": "0.3.9", "title": "UDP", "priority": "core", "minutes": 30 },
+          {
+            "id": "0.3.8",
+            "title": "TCP",
+            "priority": "core",
+            "minutes": 30
+          },
+          {
+            "id": "0.3.9",
+            "title": "UDP",
+            "priority": "core",
+            "minutes": 30
+          },
           {
             "id": "0.3.10",
             "title": "HTTP",
@@ -335,9 +360,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 7,
-        "prerequisites": ["0.3"],
+        "prerequisites": [
+          "0.3"
+        ],
         "description": "A terminal is a text interface to a shell. The shell starts programs and connects files, processes and environment settings, making repeatable development and server work possible.",
-        "resources": ["linux"],
+        "resources": [
+          "linux"
+        ],
         "subtopics": [
           {
             "id": "0.4.1",
@@ -433,9 +462,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 7,
-        "prerequisites": ["0.4"],
+        "prerequisites": [
+          "0.4"
+        ],
         "description": "Git records snapshots of a project's history. Branches let you change code independently; GitHub hosts repositories and adds review through pull requests.",
-        "resources": ["git"],
+        "resources": [
+          "git"
+        ],
         "subtopics": [
           {
             "id": "0.5.1",
@@ -536,7 +569,9 @@
     "weeks": "6–8 weeks",
     "difficulty": "beginner",
     "priority": "core",
-    "prerequisites": ["phase-0"],
+    "prerequisites": [
+      "phase-0"
+    ],
     "outcomes": [
       "Build a command-line marks calculator that validates input, uses a dictionary of students and prints a formatted summary. Test empty and invalid input.",
       "Split the marks calculator into modules. Write pure functions for validation and aggregation, demonstrate positional and keyword arguments, and test edge cases.",
@@ -554,7 +589,10 @@
         "hours": 12,
         "prerequisites": [],
         "description": "Python is a general-purpose language used to describe computations using values, control flow and collections. Its interpreter executes your code while the standard library supplies reusable tools.",
-        "resources": ["python", "cs50"],
+        "resources": [
+          "python",
+          "cs50"
+        ],
         "subtopics": [
           {
             "id": "1.1.1",
@@ -710,9 +748,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 9.5,
-        "prerequisites": ["1.1"],
+        "prerequisites": [
+          "1.1"
+        ],
         "description": "Functions give a named operation a clear input and output. Modules and packages group these operations so a program can grow without becoming one tangled script.",
-        "resources": ["python"],
+        "resources": [
+          "python"
+        ],
         "subtopics": [
           {
             "id": "1.2.1",
@@ -838,9 +880,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 9.5,
-        "prerequisites": ["1.2"],
+        "prerequisites": [
+          "1.2"
+        ],
         "description": "Object-oriented programming combines state and behavior in objects. Classes define their structure; composition assembles behavior from smaller objects, and polymorphism allows interchangeable implementations.",
-        "resources": ["python"],
+        "resources": [
+          "python"
+        ],
         "subtopics": [
           {
             "id": "1.3.1",
@@ -878,7 +924,12 @@
             "priority": "core",
             "minutes": 30
           },
-          { "id": "1.3.7", "title": "self", "priority": "core", "minutes": 30 },
+          {
+            "id": "1.3.7",
+            "title": "self",
+            "priority": "core",
+            "minutes": 30
+          },
           {
             "id": "1.3.8",
             "title": "Instance variables",
@@ -961,9 +1012,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 13,
-        "prerequisites": ["1.3"],
+        "prerequisites": [
+          "1.3"
+        ],
         "description": "Python's advanced tools control errors, iteration, resource lifetimes and asynchronous work. Generators produce values lazily; async I/O lets a program wait for external work without blocking all other tasks.",
-        "resources": ["python"],
+        "resources": [
+          "python"
+        ],
         "subtopics": [
           {
             "id": "1.4.1",
@@ -1073,7 +1128,12 @@
             "priority": "core",
             "minutes": 30
           },
-          { "id": "1.4.19", "title": "pip", "priority": "core", "minutes": 30 },
+          {
+            "id": "1.4.19",
+            "title": "pip",
+            "priority": "core",
+            "minutes": 30
+          },
           {
             "id": "1.4.20",
             "title": "Dependency management",
@@ -1126,9 +1186,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 7.5,
-        "prerequisites": ["1.4"],
+        "prerequisites": [
+          "1.4"
+        ],
         "description": "Professional Python development makes behavior predictable through consistent formatting, types, tests and documentation. Profiling measures actual bottlenecks before you optimize.",
-        "resources": ["python", "pytest"],
+        "resources": [
+          "python",
+          "pytest"
+        ],
         "subtopics": [
           {
             "id": "1.5.1",
@@ -1230,9 +1295,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 6,
-        "prerequisites": ["1.5"],
+        "prerequisites": [
+          "1.5"
+        ],
         "description": "JavaScript runs interactive web applications; TypeScript adds static checks around its values and interfaces. Promises model asynchronous work such as a network request.",
-        "resources": ["typescript", "web"],
+        "resources": [
+          "typescript",
+          "web"
+        ],
         "subtopics": [
           {
             "id": "1.6-javascript.1",
@@ -1316,9 +1386,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 7.5,
-        "prerequisites": ["1.6-javascript"],
+        "prerequisites": [
+          "1.6-javascript"
+        ],
         "description": "SQL describes queries and changes to relational tables. Keys and constraints protect relationships, while joins combine related records without copying them everywhere.",
-        "resources": ["postgres"],
+        "resources": [
+          "postgres"
+        ],
         "subtopics": [
           {
             "id": "1.6-sql.1",
@@ -1420,9 +1494,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 3.5,
-        "prerequisites": ["1.6-sql"],
+        "prerequisites": [
+          "1.6-sql"
+        ],
         "description": "Bash is a command shell and scripting language for connecting programs, files and environment settings. Exit codes let scripts detect failed steps.",
-        "resources": ["linux"],
+        "resources": [
+          "linux"
+        ],
         "subtopics": [
           {
             "id": "1.6-bash.1",
@@ -1476,9 +1554,13 @@
         "priority": "optional",
         "difficulty": "intermediate",
         "hours": 5,
-        "prerequisites": ["1.5"],
+        "prerequisites": [
+          "1.5"
+        ],
         "description": "Java is a statically typed language widely used for enterprise services. Explore it when maintaining an existing JVM service or when a role requires it; it is not needed before machine learning.",
-        "resources": ["java"],
+        "resources": [
+          "java"
+        ],
         "subtopics": [
           {
             "id": "1.7-java.1",
@@ -1520,9 +1602,13 @@
         "priority": "optional",
         "difficulty": "intermediate",
         "hours": 5,
-        "prerequisites": ["1.5"],
+        "prerequisites": [
+          "1.5"
+        ],
         "description": "Go is a compiled language with a small syntax and built-in concurrency primitives. Explore it for infrastructure or networking work after building your first AI application.",
-        "resources": ["go"],
+        "resources": [
+          "go"
+        ],
         "subtopics": [
           {
             "id": "1.7-go.1",
@@ -1564,9 +1650,13 @@
         "priority": "optional",
         "difficulty": "intermediate",
         "hours": 5,
-        "prerequisites": ["1.5"],
+        "prerequisites": [
+          "1.5"
+        ],
         "description": "C++ offers close control over memory and performance. Explore it when low-level serving or accelerator work demands it, after the core Python and ML path.",
-        "resources": ["cpp"],
+        "resources": [
+          "cpp"
+        ],
         "subtopics": [
           {
             "id": "1.7-cpp.1",
@@ -1613,7 +1703,9 @@
     "weeks": "Parallel · ongoing",
     "difficulty": "beginner",
     "priority": "core",
-    "prerequisites": ["phase-1"],
+    "prerequisites": [
+      "phase-1"
+    ],
     "outcomes": [
       "Plot a linear and a quadratic function in Python. Solve sample equations and calculate percentage error and a token budget by hand, then verify with code.",
       "Build truth tables for a small access policy, count possible combinations, and model a course prerequisite graph. Explain a proof by induction.",
@@ -1631,7 +1723,9 @@
         "hours": 12,
         "prerequisites": [],
         "description": "Basic mathematics describes quantities and relationships. Algebra turns an unknown value into a solvable equation; functions map inputs to outputs, and graphs reveal their behavior.",
-        "resources": ["maths"],
+        "resources": [
+          "maths"
+        ],
         "subtopics": [
           {
             "id": "2.1.1",
@@ -1739,9 +1833,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 11.25,
-        "prerequisites": ["2.1"],
+        "prerequisites": [
+          "2.1"
+        ],
         "description": "Discrete mathematics studies countable objects and logical statements. Sets describe membership, logic expresses rules, and graphs model relationships between entities.",
-        "resources": ["algorithms", "maths"],
+        "resources": [
+          "algorithms",
+          "maths"
+        ],
         "subtopics": [
           {
             "id": "2.2.1",
@@ -1761,7 +1860,12 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "2.2.4", "title": "Sets", "priority": "core", "minutes": 45 },
+          {
+            "id": "2.2.4",
+            "title": "Sets",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "2.2.5",
             "title": "Set operations",
@@ -1838,9 +1942,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 15,
-        "prerequisites": ["2.2"],
+        "prerequisites": [
+          "2.2"
+        ],
         "description": "Statistics summarizes observations and reasons about a population from a sample. Variation, sampling and uncertainty matter as much as a single average.",
-        "resources": ["statistics"],
+        "resources": [
+          "statistics"
+        ],
         "subtopics": [
           {
             "id": "2.3.1",
@@ -1848,14 +1956,24 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "2.3.2", "title": "Mean", "priority": "core", "minutes": 45 },
+          {
+            "id": "2.3.2",
+            "title": "Mean",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "2.3.3",
             "title": "Median",
             "priority": "core",
             "minutes": 45
           },
-          { "id": "2.3.4", "title": "Mode", "priority": "core", "minutes": 45 },
+          {
+            "id": "2.3.4",
+            "title": "Mode",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "2.3.5",
             "title": "Range",
@@ -1962,9 +2080,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 9,
-        "prerequisites": ["2.3"],
+        "prerequisites": [
+          "2.3"
+        ],
         "description": "Probability models uncertain outcomes. Conditional probability updates a probability when evidence is known; Bayes' theorem relates that update to prior beliefs and likelihoods.",
-        "resources": ["statistics", "maths"],
+        "resources": [
+          "statistics",
+          "maths"
+        ],
         "subtopics": [
           {
             "id": "2.4.1",
@@ -2048,9 +2171,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 12,
-        "prerequisites": ["2.4"],
+        "prerequisites": [
+          "2.4"
+        ],
         "description": "Linear algebra represents numerical data as vectors and matrices. Matrix multiplication combines transformations; a dot product measures how two vectors align.",
-        "resources": ["linear-algebra", "numpy"],
+        "resources": [
+          "linear-algebra",
+          "numpy"
+        ],
         "subtopics": [
           {
             "id": "2.5.1",
@@ -2158,9 +2286,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 9.75,
-        "prerequisites": ["2.5"],
+        "prerequisites": [
+          "2.5"
+        ],
         "description": "Calculus describes how outputs change as inputs change. A derivative measures local change; gradients collect partial derivatives and guide optimization toward lower loss.",
-        "resources": ["maths", "numpy"],
+        "resources": [
+          "maths",
+          "numpy"
+        ],
         "subtopics": [
           {
             "id": "2.6.1",
@@ -2250,9 +2383,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 5.25,
-        "prerequisites": ["2.6"],
+        "prerequisites": [
+          "2.6"
+        ],
         "description": "Information theory quantifies uncertainty and the difference between probability distributions. Entropy measures uncertainty; cross-entropy scores predictions against observed outcomes.",
-        "resources": ["information-theory"],
+        "resources": [
+          "information-theory"
+        ],
         "subtopics": [
           {
             "id": "2.7.1",
@@ -2306,9 +2443,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 18.75,
-        "prerequisites": ["2.7"],
+        "prerequisites": [
+          "2.7"
+        ],
         "description": "Data structures organize values and algorithms describe the steps used to process them. Complexity estimates how time or memory grows with input size.",
-        "resources": ["algorithms"],
+        "resources": [
+          "algorithms"
+        ],
         "subtopics": [
           {
             "id": "2.8.1",
@@ -2424,8 +2565,18 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "2.8.20", "title": "BFS", "priority": "core", "minutes": 45 },
-          { "id": "2.8.21", "title": "DFS", "priority": "core", "minutes": 45 },
+          {
+            "id": "2.8.20",
+            "title": "BFS",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "2.8.21",
+            "title": "DFS",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "2.8.22",
             "title": "Shortest-path basics",
@@ -2465,7 +2616,9 @@
     "weeks": "4–6 weeks",
     "difficulty": "beginner",
     "priority": "core",
-    "prerequisites": ["phase-1"],
+    "prerequisites": [
+      "phase-1"
+    ],
     "outcomes": [
       "Write functional and quality requirements, split an application into modules, review a change, refactor duplicated behavior and write an architecture decision.",
       "Design a schema for users, documents and requests. Add keys and constraints, inspect EXPLAIN output, run a transaction and test backup restoration.",
@@ -2483,7 +2636,10 @@
         "hours": 13.5,
         "prerequisites": [],
         "description": "Software engineering turns requirements into maintainable, tested programs. Clear boundaries separate responsibilities so changes stay local and behavior can be reviewed.",
-        "resources": ["git", "pytest"],
+        "resources": [
+          "git",
+          "pytest"
+        ],
         "subtopics": [
           {
             "id": "3.1.1",
@@ -2603,9 +2759,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 21,
-        "prerequisites": ["3.1"],
+        "prerequisites": [
+          "3.1"
+        ],
         "description": "PostgreSQL stores related data in tables and provides transactions, constraints and a query planner. Indexes speed selected reads at a cost to writes and storage.",
-        "resources": ["postgres"],
+        "resources": [
+          "postgres"
+        ],
         "subtopics": [
           {
             "id": "3.2.1",
@@ -2785,9 +2945,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 6,
-        "prerequisites": ["3.2"],
+        "prerequisites": [
+          "3.2"
+        ],
         "description": "NoSQL is a family of database approaches including documents, key-value records, wide columns and graphs. Each makes different choices about queries, relationships and scaling.",
-        "resources": ["mongodb", "postgres"],
+        "resources": [
+          "mongodb",
+          "postgres"
+        ],
         "subtopics": [
           {
             "id": "3.3.1",
@@ -2847,9 +3012,13 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 18,
-        "prerequisites": ["3.3"],
+        "prerequisites": [
+          "3.3"
+        ],
         "description": "Data engineering moves data from sources into useful, trustworthy forms. Pipelines ingest, validate, transform and store data while recording its origin and failures.",
-        "resources": ["pandas"],
+        "resources": [
+          "pandas"
+        ],
         "subtopics": [
           {
             "id": "3.4.1",
@@ -2887,8 +3056,18 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "3.4.7", "title": "CSV", "priority": "core", "minutes": 45 },
-          { "id": "3.4.8", "title": "JSON", "priority": "core", "minutes": 45 },
+          {
+            "id": "3.4.7",
+            "title": "CSV",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "3.4.8",
+            "title": "JSON",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "3.4.9",
             "title": "Parquet basics",
@@ -2907,8 +3086,18 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "3.4.12", "title": "ETL", "priority": "core", "minutes": 45 },
-          { "id": "3.4.13", "title": "ELT", "priority": "core", "minutes": 45 },
+          {
+            "id": "3.4.12",
+            "title": "ETL",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "3.4.13",
+            "title": "ELT",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "3.4.14",
             "title": "Data pipelines",
@@ -2985,9 +3174,14 @@
         "priority": "core",
         "difficulty": "beginner",
         "hours": 6.75,
-        "prerequisites": ["3.4"],
+        "prerequisites": [
+          "3.4"
+        ],
         "description": "AI storage combines ordinary records with document content and numerical embeddings. Metadata connects vectors back to their source and access permissions.",
-        "resources": ["postgres", "pgvector"],
+        "resources": [
+          "postgres",
+          "pgvector"
+        ],
         "subtopics": [
           {
             "id": "3.5.1",
@@ -3058,7 +3252,11 @@
     "weeks": "6–8 weeks",
     "difficulty": "intermediate",
     "priority": "core",
-    "prerequisites": ["phase-1", "phase-2", "phase-3"],
+    "prerequisites": [
+      "phase-1",
+      "phase-2",
+      "phase-3"
+    ],
     "outcomes": [
       "Create a reproducible notebook that profiles a public dataset, cleans it without hiding issues, and explains three useful charts in plain English.",
       "Create train, validation and test splits before preprocessing. Train a simple baseline and demonstrate how accidental data leakage inflates a score.",
@@ -3076,7 +3274,11 @@
         "hours": 15,
         "prerequisites": [],
         "description": "Data science explores data to answer questions. NumPy computes over arrays, Pandas organizes labeled tables, and charts help reveal distributions and mistakes.",
-        "resources": ["numpy", "pandas"],
+        "resources": [
+          "numpy",
+          "pandas",
+          "ml-course"
+        ],
         "subtopics": [
           {
             "id": "4.1.1",
@@ -3208,9 +3410,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 13.5,
-        "prerequisites": ["4.1"],
+        "prerequisites": [
+          "4.1"
+        ],
         "description": "Machine learning fits a model to examples rather than specifying every rule. Training chooses parameters; inference uses the resulting model on new input.",
-        "resources": ["ml-course", "sklearn"],
+        "resources": [
+          "ml-course",
+          "sklearn"
+        ],
         "subtopics": [
           {
             "id": "4.2.1",
@@ -3330,9 +3537,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 6.75,
-        "prerequisites": ["4.2"],
+        "prerequisites": [
+          "4.2"
+        ],
         "description": "Supervised learning uses labeled examples to learn a mapping from features to a target. Linear methods, trees and ensembles make different assumptions about that mapping.",
-        "resources": ["sklearn"],
+        "resources": [
+          "sklearn"
+        ],
         "subtopics": [
           {
             "id": "4.3.1",
@@ -3398,9 +3609,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 5.25,
-        "prerequisites": ["4.3"],
+        "prerequisites": [
+          "4.3"
+        ],
         "description": "Unsupervised learning looks for structure without target labels. Clustering groups similar observations; dimensionality reduction creates a smaller representation.",
-        "resources": ["sklearn"],
+        "resources": [
+          "sklearn"
+        ],
         "subtopics": [
           {
             "id": "4.4.1",
@@ -3426,7 +3641,12 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "4.4.5", "title": "PCA", "priority": "core", "minutes": 45 },
+          {
+            "id": "4.4.5",
+            "title": "PCA",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "4.4.6",
             "title": "Dimensionality reduction",
@@ -3449,9 +3669,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 12.75,
-        "prerequisites": ["4.4"],
+        "prerequisites": [
+          "4.4"
+        ],
         "description": "Evaluation connects predictions to the real cost of mistakes. Classification metrics describe different errors; regression metrics describe numerical distance from targets.",
-        "resources": ["sklearn"],
+        "resources": [
+          "sklearn"
+        ],
         "subtopics": [
           {
             "id": "4.5.1",
@@ -3489,7 +3713,12 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "4.5.7", "title": "AUC", "priority": "core", "minutes": 45 },
+          {
+            "id": "4.5.7",
+            "title": "AUC",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "4.5.8",
             "title": "Cross-validation",
@@ -3502,8 +3731,18 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "4.5.10", "title": "MAE", "priority": "core", "minutes": 45 },
-          { "id": "4.5.11", "title": "MSE", "priority": "core", "minutes": 45 },
+          {
+            "id": "4.5.10",
+            "title": "MAE",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "4.5.11",
+            "title": "MSE",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "4.5.12",
             "title": "RMSE",
@@ -3550,9 +3789,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 10.5,
-        "prerequisites": ["4.5"],
+        "prerequisites": [
+          "4.5"
+        ],
         "description": "Model improvement combines preprocessing, feature design and controlled hyperparameter experiments. A pipeline keeps transformations consistent between training and inference.",
-        "resources": ["sklearn"],
+        "resources": [
+          "sklearn",
+          "mlflow"
+        ],
         "subtopics": [
           {
             "id": "4.6.1",
@@ -3653,7 +3897,10 @@
     "weeks": "5–7 weeks",
     "difficulty": "intermediate",
     "priority": "core",
-    "prerequisites": ["phase-2", "phase-4"],
+    "prerequisites": [
+      "phase-2",
+      "phase-4"
+    ],
     "outcomes": [
       "Implement a tiny network, inspect gradients and plot training versus validation loss. Compare learning rates and one regularization method.",
       "Train a small PyTorch classifier with batches, zero_grad, backward and optimizer.step. Save and reload weights and verify predictions in evaluation mode.",
@@ -3671,7 +3918,10 @@
         "hours": 18,
         "prerequisites": [],
         "description": "Deep learning uses layered numerical transformations whose parameters are learned from data. Forward passes produce predictions; backpropagation computes gradients for optimization.",
-        "resources": ["pytorch", "ml-course"],
+        "resources": [
+          "pytorch",
+          "ml-course"
+        ],
         "subtopics": [
           {
             "id": "5.1.1",
@@ -3827,9 +4077,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 12.75,
-        "prerequisites": ["5.1"],
+        "prerequisites": [
+          "5.1"
+        ],
         "description": "PyTorch represents data as tensors and records operations for automatic differentiation. Modules define networks, while optimizers update learnable parameters.",
-        "resources": ["pytorch"],
+        "resources": [
+          "pytorch"
+        ],
         "subtopics": [
           {
             "id": "5.2.1",
@@ -3943,9 +4197,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 8.25,
-        "prerequisites": ["5.2"],
+        "prerequisites": [
+          "5.2"
+        ],
         "description": "Neural architectures encode assumptions about data. CNNs use local spatial patterns, recurrent networks process sequences, and attention combines information across positions.",
-        "resources": ["pytorch"],
+        "resources": [
+          "pytorch"
+        ],
         "subtopics": [
           {
             "id": "5.3.1",
@@ -4023,9 +4281,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 9.75,
-        "prerequisites": ["5.3"],
+        "prerequisites": [
+          "5.3"
+        ],
         "description": "A GPU runs many numerical operations in parallel but has limited device memory. Precision, batch size and data movement affect both speed and stability.",
-        "resources": ["pytorch"],
+        "resources": [
+          "pytorch",
+          "cuda"
+        ],
         "subtopics": [
           {
             "id": "5.4.1",
@@ -4039,7 +4302,12 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "5.4.3", "title": "VRAM", "priority": "core", "minutes": 45 },
+          {
+            "id": "5.4.3",
+            "title": "VRAM",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "5.4.4",
             "title": "Tensor computation",
@@ -4058,9 +4326,24 @@
             "priority": "core",
             "minutes": 45
           },
-          { "id": "5.4.7", "title": "FP32", "priority": "core", "minutes": 45 },
-          { "id": "5.4.8", "title": "FP16", "priority": "core", "minutes": 45 },
-          { "id": "5.4.9", "title": "BF16", "priority": "core", "minutes": 45 },
+          {
+            "id": "5.4.7",
+            "title": "FP32",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "5.4.8",
+            "title": "FP16",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "5.4.9",
+            "title": "BF16",
+            "priority": "core",
+            "minutes": 45
+          },
           {
             "id": "5.4.10",
             "title": "Training throughput",
@@ -4100,7 +4383,9 @@
     "weeks": "5–7 weeks",
     "difficulty": "intermediate",
     "priority": "core",
-    "prerequisites": ["phase-5"],
+    "prerequisites": [
+      "phase-5"
+    ],
     "outcomes": [
       "Compare TF-IDF with a small embedding representation on sample documents. Inspect tokenization, named entities and errors on unusual text.",
       "Tokenize several sentences, inspect IDs and lengths, and manually trace a toy next-token distribution. Distinguish pretraining, fine-tuning and inference.",
@@ -4118,7 +4403,9 @@
         "hours": 11.25,
         "prerequisites": [],
         "description": "Natural language processing turns text into representations that programs can analyze. Tokenization, normalization and embeddings prepare input for classification and retrieval.",
-        "resources": ["huggingface"],
+        "resources": [
+          "huggingface"
+        ],
         "subtopics": [
           {
             "id": "6.1.1",
@@ -4220,9 +4507,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 9,
-        "prerequisites": ["6.1"],
+        "prerequisites": [
+          "6.1"
+        ],
         "description": "A language model assigns probabilities to text sequences, often by predicting the next token. Training learns parameters; inference produces probabilities from fixed parameters.",
-        "resources": ["huggingface"],
+        "resources": [
+          "huggingface"
+        ],
         "subtopics": [
           {
             "id": "6.2.1",
@@ -4306,9 +4597,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 11.25,
-        "prerequisites": ["6.2"],
+        "prerequisites": [
+          "6.2"
+        ],
         "description": "A transformer mixes information between token positions using attention. Queries compare with keys to produce weights over values; residual paths and normalization stabilize stacked layers.",
-        "resources": ["huggingface", "pytorch"],
+        "resources": [
+          "huggingface",
+          "pytorch"
+        ],
         "subtopics": [
           {
             "id": "6.3.1",
@@ -4410,9 +4706,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 12.75,
-        "prerequisites": ["6.3"],
+        "prerequisites": [
+          "6.3"
+        ],
         "description": "LLM generation repeatedly processes a context, computes next-token probabilities and selects a token. Sampling changes the output distribution; caching avoids recomputing prior key/value states.",
-        "resources": ["huggingface"],
+        "resources": [
+          "huggingface",
+          "information-theory"
+        ],
         "subtopics": [
           {
             "id": "6.4.1",
@@ -4519,6 +4820,159 @@
         ]
       },
       {
+        "id": "6.7",
+        "slug": "prompt-engineering-and-context-design",
+        "title": "Prompt Engineering and Context Design",
+        "phase": 6,
+        "priority": "core",
+        "difficulty": "intermediate",
+        "hours": 16.5,
+        "prerequisites": [
+          "6.4"
+        ],
+        "description": "Prompt engineering and context design turn a vague model request into an explicit, testable contract. You choose instructions, examples, evidence and output rules, then evaluate the resulting behavior on fixed cases. These techniques change the supplied information rather than the learned model weights.",
+        "resources": [
+          "huggingface",
+          "pytorch",
+          "promptfoo",
+          "prompt-engineering"
+        ],
+        "subtopics": [
+          {
+            "id": "6.7.1",
+            "title": "What is prompt engineering?",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.2",
+            "title": "System messages",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.3",
+            "title": "Developer instructions",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.4",
+            "title": "User messages",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.5",
+            "title": "Instruction hierarchy",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.6",
+            "title": "Prompt structure",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.7",
+            "title": "Clear task definition",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.8",
+            "title": "Context provision",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.9",
+            "title": "Few-shot prompting",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.10",
+            "title": "Zero-shot prompting",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.11",
+            "title": "Structured output",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.12",
+            "title": "JSON output and schema validation",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.13",
+            "title": "Prompt templates",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.14",
+            "title": "Prompt variables",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.15",
+            "title": "Prompt versioning",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.16",
+            "title": "Prompt reuse",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.17",
+            "title": "Context window management",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.18",
+            "title": "Context engineering",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.19",
+            "title": "Prompt injection awareness",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.20",
+            "title": "Prompt testing",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.21",
+            "title": "Prompt optimization",
+            "priority": "core",
+            "minutes": 45
+          },
+          {
+            "id": "6.7.22",
+            "title": "Prompt regression testing",
+            "priority": "core",
+            "minutes": 45
+          }
+        ]
+      },
+      {
         "id": "6.5",
         "slug": "llm-training-and-adaptation",
         "title": "LLM Training and Adaptation",
@@ -4526,9 +4980,13 @@
         "priority": "advanced",
         "difficulty": "intermediate",
         "hours": 10.5,
-        "prerequisites": ["6.4"],
+        "prerequisites": [
+          "6.7"
+        ],
         "description": "Adaptation changes an existing model for a narrower task. Fine-tuning updates parameters, LoRA trains small low-rank updates, and preference methods optimize against comparison data.",
-        "resources": ["huggingface"],
+        "resources": [
+          "huggingface"
+        ],
         "subtopics": [
           {
             "id": "6.5.1",
@@ -4624,9 +5082,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 9,
-        "prerequisites": ["6.4"],
+        "prerequisites": [
+          "6.7"
+        ],
         "description": "Hugging Face hosts models, datasets and libraries that make existing models easier to load and evaluate. Model cards explain intended use, limits and licenses.",
-        "resources": ["huggingface"],
+        "resources": [
+          "huggingface"
+        ],
         "subtopics": [
           {
             "id": "6.6.1",
@@ -4715,7 +5177,10 @@
     "weeks": "6–8 weeks",
     "difficulty": "intermediate",
     "priority": "core",
-    "prerequisites": ["phase-1", "phase-3"],
+    "prerequisites": [
+      "phase-1",
+      "phase-3"
+    ],
     "outcomes": [
       "Specify a prediction endpoint with validation, pagination and errors. Document authentication, timeout and retry behavior using an OpenAPI schema.",
       "Build a validated prediction endpoint, inject a model service, add consistent errors and test successful and invalid requests with a test client.",
@@ -4733,7 +5198,10 @@
         "hours": 25,
         "prerequisites": [],
         "description": "An API is a contract between programs. HTTP APIs use routes, methods, schemas and status codes to make requests and responses predictable.",
-        "resources": ["web", "fastapi"],
+        "resources": [
+          "web",
+          "fastapi"
+        ],
         "subtopics": [
           {
             "id": "7.1.1",
@@ -4771,7 +5239,12 @@
             "priority": "core",
             "minutes": 60
           },
-          { "id": "7.1.7", "title": "JSON", "priority": "core", "minutes": 60 },
+          {
+            "id": "7.1.7",
+            "title": "JSON",
+            "priority": "core",
+            "minutes": 60
+          },
           {
             "id": "7.1.8",
             "title": "Query parameters",
@@ -4802,7 +5275,12 @@
             "priority": "core",
             "minutes": 60
           },
-          { "id": "7.1.13", "title": "JWT", "priority": "core", "minutes": 60 },
+          {
+            "id": "7.1.13",
+            "title": "JWT",
+            "priority": "core",
+            "minutes": 60
+          },
           {
             "id": "7.1.14",
             "title": "OAuth fundamentals",
@@ -4885,9 +5363,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 20,
-        "prerequisites": ["7.1"],
+        "prerequisites": [
+          "7.1"
+        ],
         "description": "FastAPI is a Python web framework that uses type annotations and Pydantic validation to define HTTP endpoints. Async endpoints help with waiting on I/O, not CPU-heavy computation.",
-        "resources": ["fastapi"],
+        "resources": [
+          "fastapi",
+          "pytest"
+        ],
         "subtopics": [
           {
             "id": "7.2.1",
@@ -5019,9 +5502,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 12,
-        "prerequisites": ["7.2"],
+        "prerequisites": [
+          "7.2"
+        ],
         "description": "Backend architecture separates transport, application rules and persistence. A route translates HTTP, a service performs a use case and a repository handles storage.",
-        "resources": ["fastapi", "postgres"],
+        "resources": [
+          "fastapi",
+          "postgres"
+        ],
         "subtopics": [
           {
             "id": "7.3.1",
@@ -5105,9 +5593,15 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 19,
-        "prerequisites": ["7.3"],
+        "prerequisites": [
+          "7.3"
+        ],
         "description": "A provider adapter converts your application's common request format into a provider-specific API call. It normalizes responses, streaming events and failures.",
-        "resources": ["huggingface", "fastapi"],
+        "resources": [
+          "huggingface",
+          "fastapi",
+          "prompt-engineering"
+        ],
         "subtopics": [
           {
             "id": "7.4.1",
@@ -5233,9 +5727,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 15,
-        "prerequisites": ["7.4"],
+        "prerequisites": [
+          "7.4"
+        ],
         "description": "LLM tokens are pieces of text used for processing and billing. They are unrelated to authentication tokens and API keys. Input, output and cached token rates may differ.",
-        "resources": ["huggingface"],
+        "resources": [
+          "huggingface"
+        ],
         "subtopics": [
           {
             "id": "7.5.1",
@@ -5337,9 +5835,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 12,
-        "prerequisites": ["7.5"],
+        "prerequisites": [
+          "7.5"
+        ],
         "description": "AI backend reliability anticipates slow providers, malformed responses and interrupted streams. Bounded retries, circuit breakers and idempotency prevent failures from multiplying.",
-        "resources": ["builders", "fastapi"],
+        "resources": [
+          "builders",
+          "fastapi"
+        ],
         "subtopics": [
           {
             "id": "7.6.1",
@@ -5428,7 +5931,10 @@
     "weeks": "5–7 weeks",
     "difficulty": "intermediate",
     "priority": "core",
-    "prerequisites": ["phase-6", "phase-7"],
+    "prerequisites": [
+      "phase-6",
+      "phase-7"
+    ],
     "outcomes": [
       "Embed a small corpus with one model, compare cosine and dot-product rankings and test queries with known relevant results. Keep model and dimensions consistent.",
       "Start with pgvector, create vectors and metadata, compare exact and indexed search, and measure recall and latency. Explore alternatives only if needed.",
@@ -5446,7 +5952,10 @@
         "hours": 12,
         "prerequisites": [],
         "description": "Embeddings represent items as numerical vectors so similarity can be computed. The embedding model defines the representation; distance alone does not guarantee semantic correctness.",
-        "resources": ["huggingface", "pgvector"],
+        "resources": [
+          "huggingface",
+          "pgvector"
+        ],
         "subtopics": [
           {
             "id": "8.1.1",
@@ -5530,9 +6039,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 10,
-        "prerequisites": ["8.1"],
+        "prerequisites": [
+          "8.1"
+        ],
         "description": "A vector database stores embeddings and searches nearby vectors, often using approximate indexes. Metadata filtering restricts candidate records by attributes or permissions.",
-        "resources": ["pgvector"],
+        "resources": [
+          "pgvector"
+        ],
         "subtopics": [
           {
             "id": "8.2.1",
@@ -5604,9 +6117,16 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 20,
-        "prerequisites": ["8.2"],
+        "prerequisites": [
+          "8.2"
+        ],
         "description": "Retrieval-augmented generation finds relevant external content and includes it in a model's context. It changes supplied information without retraining model weights.",
-        "resources": ["huggingface", "pgvector"],
+        "resources": [
+          "huggingface",
+          "pgvector",
+          "ragas",
+          "deepeval"
+        ],
         "subtopics": [
           {
             "id": "8.3.1",
@@ -5738,9 +6258,15 @@
         "priority": "advanced",
         "difficulty": "intermediate",
         "hours": 13,
-        "prerequisites": ["8.3"],
+        "prerequisites": [
+          "8.3"
+        ],
         "description": "Advanced retrieval improves a measured baseline using methods such as hybrid search, query rewriting and reranking. Each additional stage adds latency and failure modes.",
-        "resources": ["pgvector", "huggingface"],
+        "resources": [
+          "pgvector",
+          "huggingface",
+          "ragas"
+        ],
         "subtopics": [
           {
             "id": "8.4.1",
@@ -5830,9 +6356,13 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 15,
-        "prerequisites": ["8.3"],
+        "prerequisites": [
+          "8.3"
+        ],
         "description": "A knowledge graph stores entities as nodes and relationships as edges. Traversal follows these connections to answer relationship-oriented questions.",
-        "resources": ["neo4j"],
+        "resources": [
+          "neo4j"
+        ],
         "subtopics": [
           {
             "id": "8.5.1",
@@ -5876,8 +6406,18 @@
             "priority": "core",
             "minutes": 60
           },
-          { "id": "8.5.8", "title": "BFS", "priority": "core", "minutes": 60 },
-          { "id": "8.5.9", "title": "DFS", "priority": "core", "minutes": 60 },
+          {
+            "id": "8.5.8",
+            "title": "BFS",
+            "priority": "core",
+            "minutes": 60
+          },
+          {
+            "id": "8.5.9",
+            "title": "DFS",
+            "priority": "core",
+            "minutes": 60
+          },
           {
             "id": "8.5.10",
             "title": "Entity extraction",
@@ -5924,9 +6464,14 @@
         "priority": "advanced",
         "difficulty": "intermediate",
         "hours": 15,
-        "prerequisites": ["8.5"],
+        "prerequisites": [
+          "8.5"
+        ],
         "description": "Graph RAG uses graph relationships during retrieval before constructing a model's context. It can help connected questions but adds extraction, storage and maintenance cost.",
-        "resources": ["neo4j"],
+        "resources": [
+          "neo4j",
+          "ragas"
+        ],
         "subtopics": [
           {
             "id": "8.6.1",
@@ -6028,9 +6573,15 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 20,
-        "prerequisites": ["8.5"],
+        "prerequisites": [
+          "8.5"
+        ],
         "description": "An agent uses a model to choose actions within a loop of observation, tool execution and state updates. A workflow can keep more of that sequence deterministic.",
-        "resources": ["langgraph", "mcp"],
+        "resources": [
+          "langgraph",
+          "mcp",
+          "deepeval"
+        ],
         "subtopics": [
           {
             "id": "8.7.1",
@@ -6162,9 +6713,14 @@
         "priority": "core",
         "difficulty": "intermediate",
         "hours": 10,
-        "prerequisites": ["8.7"],
+        "prerequisites": [
+          "8.7"
+        ],
         "description": "Frameworks provide reusable orchestration, while protocols define how independently built components communicate. MCP standardizes interaction between clients and context or tool servers.",
-        "resources": ["langgraph", "mcp"],
+        "resources": [
+          "langgraph",
+          "mcp"
+        ],
         "subtopics": [
           {
             "id": "8.8.1",
@@ -6241,7 +6797,10 @@
     "weeks": "8–10 weeks",
     "difficulty": "advanced",
     "priority": "core",
-    "prerequisites": ["phase-3", "phase-7"],
+    "prerequisites": [
+      "phase-3",
+      "phase-7"
+    ],
     "outcomes": [
       "Define traffic, latency and availability targets, estimate storage and concurrency, and draw a modular architecture with data flow and failure boundaries.",
       "Add cache-aside Redis caching with tenant-aware keys and TTL. Measure hits and misses, test invalidation and document which results must never be shared.",
@@ -6259,7 +6818,9 @@
         "hours": 24,
         "prerequisites": [],
         "description": "System design chooses components and their interactions to satisfy functional needs and quality goals. Capacity estimates and trade-offs explain why a design fits a workload.",
-        "resources": ["builders"],
+        "resources": [
+          "builders"
+        ],
         "subtopics": [
           {
             "id": "9.1.1",
@@ -6415,9 +6976,13 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 20,
-        "prerequisites": ["9.1"],
+        "prerequisites": [
+          "9.1"
+        ],
         "description": "Caching keeps a reusable copy closer to the consumer. A hit avoids expensive work; a miss fetches from the source. Expiration and invalidation decide how stale data can become.",
-        "resources": ["redis"],
+        "resources": [
+          "redis"
+        ],
         "subtopics": [
           {
             "id": "9.2.1",
@@ -6449,7 +7014,12 @@
             "priority": "core",
             "minutes": 60
           },
-          { "id": "9.2.6", "title": "TTL", "priority": "core", "minutes": 60 },
+          {
+            "id": "9.2.6",
+            "title": "TTL",
+            "priority": "core",
+            "minutes": 60
+          },
           {
             "id": "9.2.7",
             "title": "Cache invalidation",
@@ -6544,9 +7114,14 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 18,
-        "prerequisites": ["9.2"],
+        "prerequisites": [
+          "9.2"
+        ],
         "description": "Rate limiting restricts how frequently a caller can act. Token buckets allow controlled bursts, while window algorithms count work over time.",
-        "resources": ["redis", "builders"],
+        "resources": [
+          "redis",
+          "builders"
+        ],
         "subtopics": [
           {
             "id": "9.3.1",
@@ -6666,9 +7241,15 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 15,
-        "prerequisites": ["9.3"],
+        "prerequisites": [
+          "9.3"
+        ],
         "description": "A queue decouples a producer from a worker that performs a task later. Delivery is commonly at least once, so handlers must tolerate duplicate work.",
-        "resources": ["builders"],
+        "resources": [
+          "builders",
+          "ray",
+          "celery"
+        ],
         "subtopics": [
           {
             "id": "9.4.1",
@@ -6770,9 +7351,15 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 25,
-        "prerequisites": ["9.4"],
+        "prerequisites": [
+          "9.4"
+        ],
         "description": "Distributed systems coordinate across machines that can fail independently. Network delay and partial failure make consistency, retries and ownership difficult.",
-        "resources": ["builders", "ostep"],
+        "resources": [
+          "builders",
+          "ostep",
+          "ray"
+        ],
         "subtopics": [
           {
             "id": "9.5.1",
@@ -6934,9 +7521,14 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 19,
-        "prerequisites": ["9.5"],
+        "prerequisites": [
+          "9.5"
+        ],
         "description": "Concurrency overlaps work; parallelism executes work at the same instant. Pools and resource limits bound contention, while profiling identifies the true bottleneck.",
-        "resources": ["ostep", "builders"],
+        "resources": [
+          "ostep",
+          "builders"
+        ],
         "subtopics": [
           {
             "id": "9.6.1",
@@ -7062,9 +7654,15 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 18,
-        "prerequisites": ["9.6"],
+        "prerequisites": [
+          "9.6"
+        ],
         "description": "AI workloads combine variable generation time, token-dependent cost and constrained provider or GPU capacity. Routing, queues and admission control keep demand within limits.",
-        "resources": ["builders", "vllm"],
+        "resources": [
+          "builders",
+          "vllm",
+          "ray"
+        ],
         "subtopics": [
           {
             "id": "9.7.1",
@@ -7184,9 +7782,14 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 16,
-        "prerequisites": ["9.7"],
+        "prerequisites": [
+          "9.7"
+        ],
         "description": "Load testing applies controlled traffic to measure a system under expected and exceptional demand. Percentiles reveal slow requests that averages conceal.",
-        "resources": ["k6"],
+        "resources": [
+          "k6",
+          "otel"
+        ],
         "subtopics": [
           {
             "id": "9.8.1",
@@ -7299,7 +7902,9 @@
     "weeks": "6–8 weeks",
     "difficulty": "advanced",
     "priority": "core",
-    "prerequisites": ["phase-7"],
+    "prerequisites": [
+      "phase-7"
+    ],
     "outcomes": [
       "Threat-model a small API, parameterize database queries, validate uploads and test every data route with two accounts and an anonymous caller.",
       "Create adversarial document and prompt tests, enforce access before retrieval, validate tool arguments and require approval for sensitive actions. Record residual risks.",
@@ -7317,7 +7922,9 @@
         "hours": 23,
         "prerequisites": [],
         "description": "Application security protects confidentiality, integrity and availability through authentication, authorization, validation and restricted access. Threat modeling starts with what can go wrong.",
-        "resources": ["owasp-web"],
+        "resources": [
+          "owasp-web"
+        ],
         "subtopics": [
           {
             "id": "10.1.1",
@@ -7467,9 +8074,14 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 20,
-        "prerequisites": ["10.1"],
+        "prerequisites": [
+          "10.1"
+        ],
         "description": "LLM security treats model input and output as untrusted. Retrieved documents may contain instructions, and tools can expose data or perform unintended actions.",
-        "resources": ["owasp"],
+        "resources": [
+          "owasp",
+          "promptfoo"
+        ],
         "subtopics": [
           {
             "id": "10.2.1",
@@ -7601,9 +8213,14 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 15,
-        "prerequisites": ["10.2"],
+        "prerequisites": [
+          "10.2"
+        ],
         "description": "Tests check behavior at different boundaries: units isolate a component, integration tests connect dependencies, and end-to-end tests exercise a user journey.",
-        "resources": ["pytest"],
+        "resources": [
+          "pytest",
+          "promptfoo"
+        ],
         "subtopics": [
           {
             "id": "10.3.1",
@@ -7705,9 +8322,16 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 17,
-        "prerequisites": ["10.3"],
+        "prerequisites": [
+          "10.3"
+        ],
         "description": "AI evaluation measures quality on representative examples alongside cost and latency. Human review and automated metrics answer different questions and have different biases.",
-        "resources": ["mlflow"],
+        "resources": [
+          "mlflow",
+          "ragas",
+          "deepeval",
+          "promptfoo"
+        ],
         "subtopics": [
           {
             "id": "10.4.1",
@@ -7821,9 +8445,13 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 14,
-        "prerequisites": ["10.4"],
+        "prerequisites": [
+          "10.4"
+        ],
         "description": "Containers package an application and its user-space dependencies into a reproducible image. Containers share the host kernel, unlike full virtual machines.",
-        "resources": ["docker"],
+        "resources": [
+          "docker"
+        ],
         "subtopics": [
           {
             "id": "10.5.1",
@@ -7919,9 +8547,14 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 16,
-        "prerequisites": ["10.5"],
+        "prerequisites": [
+          "10.5"
+        ],
         "description": "Cloud computing rents compute, storage and managed services through APIs. Responsibility shifts depending on whether you operate virtual machines, containers or managed platforms.",
-        "resources": ["aws"],
+        "resources": [
+          "aws",
+          "terraform"
+        ],
         "subtopics": [
           {
             "id": "10.6.1",
@@ -7971,7 +8604,12 @@
             "priority": "core",
             "minutes": 60
           },
-          { "id": "10.6.9", "title": "IAM", "priority": "core", "minutes": 60 },
+          {
+            "id": "10.6.9",
+            "title": "IAM",
+            "priority": "core",
+            "minutes": 60
+          },
           {
             "id": "10.6.10",
             "title": "VMs",
@@ -8024,9 +8662,18 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 15,
-        "prerequisites": ["10.6"],
+        "prerequisites": [
+          "10.6"
+        ],
         "description": "DevOps connects development and operations through automation and feedback. CI checks changes; delivery pipelines package and release them reproducibly.",
-        "resources": ["docker", "kubernetes", "git"],
+        "resources": [
+          "docker",
+          "kubernetes",
+          "git",
+          "promptfoo",
+          "terraform",
+          "github-actions"
+        ],
         "subtopics": [
           {
             "id": "10.7.1",
@@ -8034,8 +8681,18 @@
             "priority": "core",
             "minutes": 60
           },
-          { "id": "10.7.2", "title": "CI", "priority": "core", "minutes": 60 },
-          { "id": "10.7.3", "title": "CD", "priority": "core", "minutes": 60 },
+          {
+            "id": "10.7.2",
+            "title": "CI",
+            "priority": "core",
+            "minutes": 60
+          },
+          {
+            "id": "10.7.3",
+            "title": "CD",
+            "priority": "core",
+            "minutes": 60
+          },
           {
             "id": "10.7.4",
             "title": "GitHub Actions",
@@ -8118,9 +8775,13 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 18,
-        "prerequisites": ["10.7"],
+        "prerequisites": [
+          "10.7"
+        ],
         "description": "Observability uses logs, metrics and traces to explain system behavior. Service-level objectives turn user expectations into measurable reliability targets.",
-        "resources": ["otel"],
+        "resources": [
+          "otel"
+        ],
         "subtopics": [
           {
             "id": "10.8.1",
@@ -8240,9 +8901,13 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 17,
-        "prerequisites": ["10.8"],
+        "prerequisites": [
+          "10.8"
+        ],
         "description": "MLOps manages the model lifecycle from reproducible experiments to deployment, monitoring and retraining. Data, code and model versions must stay connected.",
-        "resources": ["mlflow"],
+        "resources": [
+          "mlflow"
+        ],
         "subtopics": [
           {
             "id": "10.9.1",
@@ -8356,9 +9021,15 @@
         "priority": "core",
         "difficulty": "advanced",
         "hours": 15,
-        "prerequisites": ["10.9"],
+        "prerequisites": [
+          "10.9"
+        ],
         "description": "Responsible AI combines privacy, provenance, fairness and accountable operation. Data minimization limits collection; governance records decisions and ownership.",
-        "resources": ["privacy-india", "privacy-eu", "owasp"],
+        "resources": [
+          "privacy-india",
+          "privacy-eu",
+          "owasp"
+        ],
         "subtopics": [
           {
             "id": "10.10.1",
@@ -8465,7 +9136,11 @@
     "weeks": "6–10 weeks",
     "difficulty": "advanced",
     "priority": "advanced",
-    "prerequisites": ["phase-8", "phase-9", "phase-10"],
+    "prerequisites": [
+      "phase-8",
+      "phase-9",
+      "phase-10"
+    ],
     "outcomes": [
       "Draw CCAI's request and data flows, identify trust boundaries and failure modes, and write architecture decisions for routing, storage and observability.",
       "Create a capability registry and a rule-based router using configurable prices. Test context limits, provider outages and routing quality on a labeled task set.",
@@ -8483,7 +9158,10 @@
         "hours": 18,
         "prerequisites": [],
         "description": "AI system architecture integrates identity, orchestration, models, memory, storage and operations behind explicit contracts. Each component needs an owner and a failure strategy.",
-        "resources": ["builders", "otel"],
+        "resources": [
+          "builders",
+          "otel"
+        ],
         "subtopics": [
           {
             "id": "11.1.1",
@@ -8603,9 +9281,15 @@
         "priority": "advanced",
         "difficulty": "advanced",
         "hours": 17,
-        "prerequisites": ["11.1"],
+        "prerequisites": [
+          "11.1"
+        ],
         "description": "A model router chooses a model based on task requirements, capability, quality, latency, cost and current availability. A policy must be evaluated against a stable baseline.",
-        "resources": ["builders", "huggingface"],
+        "resources": [
+          "builders",
+          "huggingface",
+          "prompt-engineering"
+        ],
         "subtopics": [
           {
             "id": "11.2.1",
@@ -8719,9 +9403,16 @@
         "priority": "advanced",
         "difficulty": "advanced",
         "hours": 18,
-        "prerequisites": ["11.2"],
+        "prerequisites": [
+          "11.2"
+        ],
         "description": "Model serving exposes inference through a managed runtime. Quantization, key/value caching and batching trade memory, throughput, latency and sometimes quality.",
-        "resources": ["vllm", "huggingface"],
+        "resources": [
+          "vllm",
+          "huggingface",
+          "cuda",
+          "ray"
+        ],
         "subtopics": [
           {
             "id": "11.3.1",
@@ -8841,9 +9532,13 @@
         "priority": "advanced",
         "difficulty": "advanced",
         "hours": 12,
-        "prerequisites": ["11.3"],
+        "prerequisites": [
+          "11.3"
+        ],
         "description": "High availability reduces the effect of failures through redundancy, health checks and tested recovery. Recovery time and recovery point objectives describe acceptable interruption and data loss.",
-        "resources": ["builders"],
+        "resources": [
+          "builders"
+        ],
         "subtopics": [
           {
             "id": "11.4.1",
@@ -8927,9 +9622,13 @@
         "priority": "advanced",
         "difficulty": "advanced",
         "hours": 10,
-        "prerequisites": ["11.4"],
+        "prerequisites": [
+          "11.4"
+        ],
         "description": "Architecture trade-offs compare alternatives against a workload and constraints. Complexity, freshness, cost, quality and availability rarely improve together without limits.",
-        "resources": ["builders"],
+        "resources": [
+          "builders"
+        ],
         "subtopics": [
           {
             "id": "11.5.1",

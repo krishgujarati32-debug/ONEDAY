@@ -592,7 +592,9 @@
           "Query trade-offs",
           "Choosing a database based on requirements"
         ],
-        "guidance": ["Include MongoDB as an introductory document database."]
+        "guidance": [
+          "Include MongoDB as an introductory document database."
+        ]
       },
       {
         "id": "3.4",
@@ -978,6 +980,38 @@
         "guidance": []
       },
       {
+        "id": "6.7",
+        "title": "Prompt Engineering and Context Design",
+        "subtopics": [
+          "What is prompt engineering?",
+          "System messages",
+          "Developer instructions",
+          "User messages",
+          "Instruction hierarchy",
+          "Prompt structure",
+          "Clear task definition",
+          "Context provision",
+          "Few-shot prompting",
+          "Zero-shot prompting",
+          "Structured output",
+          "JSON output and schema validation",
+          "Prompt templates",
+          "Prompt variables",
+          "Prompt versioning",
+          "Prompt reuse",
+          "Context window management",
+          "Context engineering",
+          "Prompt injection awareness",
+          "Prompt testing",
+          "Prompt optimization",
+          "Prompt regression testing"
+        ],
+        "guidance": [
+          "Prompting complements software architecture, evaluation and security; it cannot replace them.",
+          "General concepts transfer across providers, while API message roles and schema features must be checked in that provider’s current documentation."
+        ]
+      },
+      {
         "id": "6.5",
         "title": "LLM Training and Adaptation",
         "subtopics": [
@@ -996,7 +1030,9 @@
           "Model selection",
           "Model licensing awareness"
         ],
-        "guidance": ["Explain training vs fine-tuning vs inference clearly."]
+        "guidance": [
+          "Explain training vs fine-tuning vs inference clearly."
+        ]
       },
       {
         "id": "6.6",

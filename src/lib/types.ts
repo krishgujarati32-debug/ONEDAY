@@ -2,6 +2,32 @@ export type Priority = "core" | "optional" | "advanced";
 export type Difficulty = "beginner" | "intermediate" | "advanced";
 export type Status =
   "not_started" | "in_progress" | "completed" | "needs_revision";
+export type ResourceStage =
+  "start_here" | "during_topic" | "after_topic" | "project" | "later_reference";
+export type ResourceLearningMoment = {
+  id: string;
+  phaseId: string;
+  phaseNumber: number;
+  topicId: string;
+  stageType: ResourceStage;
+  sequenceOrder: number;
+  isPrimaryMoment: boolean;
+  recommendedTiming: string;
+  startWhen: string;
+  prerequisiteTopicIds: string[];
+  previousLessonIds: string[];
+  focusSections: string[];
+  learningObjectives: string[];
+  whyAtThisStage: string;
+  practicalTask: string;
+  completionCriteria: string[];
+  nextStep: string;
+  nextTopicId?: string;
+  projectIds: string[];
+  advanced?: boolean;
+  security?: boolean;
+  estimatedMinutes: number;
+};
 export type Resource = {
   id: string;
   title: string;
@@ -10,8 +36,23 @@ export type Resource = {
   description: string;
   url: string;
   type: "official_docs" | "course";
+  contentType:
+    | "course"
+    | "documentation"
+    | "book"
+    | "tutorial"
+    | "articles"
+    | "legal_reference";
   free: boolean;
   phases: number[];
+  priority: Priority;
+  relatedTopicIds: string[];
+  learningMoments: ResourceLearningMoment[];
+  verificationStatus: "verified" | "needs_review";
+  verifiedAt?: string;
+  verificationNotes: string;
+  usageNotes: string;
+  supplementalUrls: { title: string; url: string }[];
 };
 export type Subtopic = {
   id: string;

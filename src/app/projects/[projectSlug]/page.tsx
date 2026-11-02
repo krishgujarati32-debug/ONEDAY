@@ -1,3 +1,6 @@
+import { resources } from "@/data/resources";
+import { ResourceCard } from "@/components/resource-card";
+import { phaseNumber } from "@/lib/resource-learning";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, Flag } from "lucide-react";
@@ -72,6 +75,35 @@ export default async function Page({
           <div className="top-space">
             <ProjectWorkspace project={project} />
           </div>
+          <section className="content-card top-space">
+            <h2>Resources for your milestones</h2>
+            <p>
+              Open each guide at its recommended phase. Optional tools and
+              advanced extensions can wait; choose one implementation for the
+              first baseline.
+            </p>
+            {resources
+              .filter((r) =>
+                r.learningMoments.some((m) =>
+                  m.projectIds.includes(project.id),
+                ),
+              )
+              .map((resource) => {
+                const moments = resource.learningMoments.filter((m) =>
+                  m.projectIds.includes(project.id),
+                );
+                return (
+                  <details className="project-resource-guide" key={resource.id}>
+                    <summary>
+                      {resource.title} · Phase{" "}
+                      {phaseNumber(moments[0].phaseNumber)} ·{" "}
+                      {resource.priority}
+                    </summary>
+                    <ResourceCard resource={resource} moments={moments} />
+                  </details>
+                );
+              })}
+          </section>
           <section className="content-card top-space">
             <h2>Make the result reviewable.</h2>
             <h3>Your GitHub documentation should contain</h3>

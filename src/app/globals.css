@@ -6027,3 +6027,133 @@ kbd {
     gap: 8px;
   }
 }
+/* Resource learning plans extend the existing cards and typography. */
+.resource-view-tabs {
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.resource-toolbar {
+  flex-wrap: wrap;
+}
+.resource-toolbar > select {
+  max-width: 100%;
+}
+.resource-results-count {
+  font-size: 12px;
+  margin: 0 0 22px;
+}
+.resource-phase-group {
+  margin: 32px 0 44px;
+}
+.resource-learning-card {
+  min-width: 0;
+  align-self: start;
+}
+.resource-badges {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 15px;
+}
+.resource-badges > span:last-child {
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.resource-placement {
+  display: grid;
+  gap: 6px;
+  margin: 13px 0;
+  font-size: 11px;
+  color: var(--accent);
+}
+.resource-placement a {
+  width: fit-content;
+}
+.resource-guide {
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.resource-guide summary {
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--accent);
+}
+.resource-moment {
+  margin-top: 16px;
+}
+.resource-moment > summary {
+  font-weight: 600;
+}
+.resource-plan {
+  font-size: 12px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+.resource-plan h4 {
+  font-size: 12px;
+  margin: 19px 0 8px;
+}
+.resource-plan ul,
+.resource-plan ol {
+  padding-left: 19px;
+}
+.resource-plan li {
+  margin: 6px 0;
+}
+.resource-plan a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.resource-catalog-notes {
+  border-top: 1px solid var(--border);
+  margin-top: 18px;
+  padding-top: 4px;
+}
+.resource-topic-links {
+  display: grid;
+  gap: 7px;
+}
+.resource-open {
+  margin-top: 17px;
+  font-size: 11px;
+}
+.resource-topic-group {
+  margin-top: 24px;
+}
+.resource-topic-group > h3 {
+  margin-bottom: 16px;
+}
+.resource-learning-card .resource-meta {
+  flex-wrap: wrap;
+}
+@media (max-width: 700px) {
+  .resource-toolbar > select {
+    width: 100%;
+  }
+  .resource-view-tabs button {
+    flex: 1 1 140px;
+    white-space: normal;
+  }
+  .resource-plan {
+    font-size: 13px;
+  }
+}
+.project-resource-guide {
+  margin-top: 15px;
+  border-top: 1px solid var(--border);
+  padding-top: 13px;
+}
+.project-resource-guide > summary {
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--accent);
+}
+.project-resource-guide > .resource-card {
+  margin-top: 14px;
+}

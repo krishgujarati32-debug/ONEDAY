@@ -1,0 +1,1443 @@
+{
+  "cs50": {
+    "priority": "optional",
+    "topicId": "0.1",
+    "stageType": "start_here",
+    "prerequisites": [],
+    "focusSections": [
+      "Computer representation",
+      "Binary and bytes",
+      "Algorithms and problem solving",
+      "How source becomes execution"
+    ],
+    "objectives": [
+      "Explain the difference between a program and a running process",
+      "Trace a small computation"
+    ],
+    "startWhen": "Start after the Phase 00 introduction, while studying Computer Fundamentals. Use the introductory computer-systems and problem-solving material only.",
+    "why": "These ideas give names to the hardware and execution behavior you will inspect in the next OS topic.",
+    "task": "Draw the path from source code to a running program, then solve one small algorithmic exercise.",
+    "criteria": [
+      "Identify CPU, RAM and storage roles correctly",
+      "Explain one solution and verify its result"
+    ],
+    "nextTopicId": "0.2",
+    "projects": ["project-1"],
+    "notes": "Selected sections only: finishing every CS50 problem set is not a gate for continuing."
+  },
+  "ostep": {
+    "priority": "core",
+    "topicId": "0.2",
+    "stageType": "during_topic",
+    "prerequisites": ["0.1"],
+    "focusSections": [
+      "Introduction to operating systems",
+      "Processes",
+      "CPU scheduling",
+      "Address spaces and virtual memory",
+      "Concurrency introduction",
+      "Persistence overview"
+    ],
+    "objectives": [
+      "Explain process isolation and scheduling",
+      "Distinguish virtual memory from physical RAM"
+    ],
+    "startWhen": "Open after Computer Fundamentals and while studying Operating Systems in Phase 00. Read the introductory chapters before concurrency details.",
+    "why": "You can now connect CPU and RAM concepts to how an OS shares them between real programs.",
+    "task": "Open two ordinary local applications or supplied shell examples, inspect their process IDs and memory in the system process viewer, and explain what happens when one exits. No Python knowledge is required yet.",
+    "criteria": [
+      "Record two real process observations",
+      "Distinguish a program file, a process and its allocated memory"
+    ],
+    "nextTopicId": "0.3",
+    "projects": ["project-1", "project-7"],
+    "notes": "Return to concurrency chapters in Phase 09; the whole textbook is not a prerequisite."
+  },
+  "algorithms": {
+    "priority": "core",
+    "topicId": "2.8",
+    "stageType": "during_topic",
+    "prerequisites": ["1.1", "1.2", "2.2"],
+    "focusSections": [
+      "Algorithm analysis",
+      "Asymptotic complexity",
+      "Arrays and hashing",
+      "Searching and sorting",
+      "Trees",
+      "Breadth-first and depth-first search"
+    ],
+    "objectives": [
+      "Choose a suitable data structure",
+      "Derive time and space growth"
+    ],
+    "startWhen": "Open during Data Structures and Algorithms in Phase 02, after Python functions and the basic logic/sets material in Discrete Mathematics.",
+    "why": "You can implement and test an algorithm instead of trying to memorize a university lecture without programming practice.",
+    "task": "Implement binary search and BFS, solve selected exercises, and report edge cases and time/space complexity.",
+    "criteria": [
+      "Solutions handle empty or missing inputs",
+      "Complexity reasoning matches the code"
+    ],
+    "nextTopicId": "3.1",
+    "projects": ["project-1"],
+    "notes": "Selected lectures and exercises only; do not finish the entire course before continuing to build software."
+  },
+  "maths": {
+    "priority": "core",
+    "topicId": "2.1",
+    "stageType": "during_topic",
+    "prerequisites": ["1.1"],
+    "focusSections": [
+      "Arithmetic and percentages",
+      "Ratios and powers",
+      "Algebra and equations",
+      "Functions and graphs",
+      "Logarithms",
+      "Calculus foundations when needed"
+    ],
+    "objectives": [
+      "Translate a formula into code",
+      "Check units and interpret a graph"
+    ],
+    "startWhen": "Open alongside Python during Basic Mathematics in Phase 02. Return to the matching sections as later statistics or calculus lessons need them.",
+    "why": "Small numerical examples make functions, errors and training curves easier to reason about while you keep coding.",
+    "task": "Solve selected equations by hand, plot two functions in Python, and calculate a percentage error for a small prediction example.",
+    "criteria": [
+      "Hand and program results agree",
+      "Explain the function and units in a plotted example"
+    ],
+    "nextTopicId": "2.2",
+    "projects": ["project-2"],
+    "notes": "Maths is a parallel track, not a requirement to complete every course before Python or ML."
+  },
+  "information-theory": {
+    "priority": "core",
+    "topicId": "2.7",
+    "stageType": "during_topic",
+    "prerequisites": ["2.3", "2.4"],
+    "focusSections": [
+      "Information content",
+      "Entropy",
+      "Conditional entropy",
+      "Mutual information",
+      "Selected introductory probability examples"
+    ],
+    "objectives": [
+      "Relate entropy to uncertainty",
+      "Distinguish entropy and cross-entropy"
+    ],
+    "startWhen": "Open after Statistics and Probability, while studying Information Theory Basics in Phase 02. Revisit the interpretation during LLM Internals in Phase 06.",
+    "why": "You already understand probability distributions, so uncertainty measures have a concrete meaning instead of being unexplained loss-function names.",
+    "task": "Compute entropy for two tiny distributions and explain why a language-model loss penalizes confident wrong predictions.",
+    "criteria": [
+      "Calculations state the log base and assumptions",
+      "Explain uncertainty without treating entropy as factual correctness"
+    ],
+    "nextTopicId": "2.8",
+    "projects": ["project-2", "project-6"],
+    "notes": "Use selected lectures. Deep coding exercises and the full coding-theory treatment are optional."
+  },
+  "builders": {
+    "priority": "core",
+    "topicId": "9.1",
+    "stageType": "during_topic",
+    "prerequisites": ["0.3", "7.1", "7.3", "7.6"],
+    "focusSections": [
+      "Timeouts and bounded retries",
+      "Backoff with jitter",
+      "Idempotent APIs",
+      "Availability and failure isolation",
+      "Caching trade-offs"
+    ],
+    "objectives": [
+      "Explain a failure boundary",
+      "Choose a reliability policy using workload assumptions"
+    ],
+    "startWhen": "Open during System Design Fundamentals in Phase 09 after building an API and handling basic provider failures. Select articles about the problem your project actually has.",
+    "why": "You now have request lifecycles and real failure cases against which to judge architecture advice.",
+    "task": "Write an architecture decision for CCAI covering a timeout/retry budget, idempotency and one availability trade-off.",
+    "criteria": [
+      "State the workload and failure assumptions",
+      "Justify a concrete choice and its downside"
+    ],
+    "nextTopicId": "9.2",
+    "projects": ["project-6", "project-7"],
+    "notes": "AI Backend Reliability is topic 7.6 in Phase 07; later observability is 10.8. Do not read every article at once."
+  },
+  "vllm": {
+    "priority": "advanced",
+    "topicId": "11.3",
+    "stageType": "later_reference",
+    "prerequisites": ["5.4", "6.4", "11.1"],
+    "focusSections": [
+      "Serving quickstart and supported hardware",
+      "KV cache",
+      "Continuous batching",
+      "Throughput and latency",
+      "Memory limits",
+      "Benchmarking"
+    ],
+    "objectives": [
+      "Interpret a serving benchmark",
+      "Compare memory and latency under a fixed workload"
+    ],
+    "startWhen": "Return in Phase 11 after GPU fundamentals, LLM Internals and the introductory model-serving lessons within Model Serving and Inference Optimization.",
+    "why": "Serving optimizations make sense only when you understand inference, memory budgets and the workload you intend to improve.",
+    "task": "Where compatible hardware exists, compare a simple baseline with one vLLM configuration. Otherwise analyze a documented benchmark and write the experiment plan.",
+    "criteria": [
+      "Record model, hardware and workload",
+      "Report measured or clearly labeled reference results without unsupported capacity claims"
+    ],
+    "nextTopicId": "11.4",
+    "projects": ["project-7"],
+    "notes": "Advanced optional implementation. No paid GPU or mastery of multiple serving engines is required."
+  },
+  "owasp-web": {
+    "priority": "core",
+    "topicId": "10.1",
+    "stageType": "during_topic",
+    "prerequisites": ["3.2", "7.1", "7.3"],
+    "focusSections": [
+      "Broken access control",
+      "Injection",
+      "Authentication failures",
+      "Security misconfiguration",
+      "Dependency risk",
+      "Selected prevention guidance"
+    ],
+    "objectives": [
+      "Identify a trust boundary",
+      "Test object-level authorization"
+    ],
+    "startWhen": "Open during Application Security in Phase 10 after API Engineering, Backend Architecture and Database Engineering with PostgreSQL.",
+    "why": "You have data routes and identities to threat-model, so the risk categories can become actionable tests.",
+    "task": "Threat-model your own API and test allowed and denied requests with two local test accounts.",
+    "criteria": [
+      "Document asset and threat boundaries",
+      "Demonstrate that a non-owner cannot read or change another account’s records"
+    ],
+    "nextTopicId": "10.2",
+    "projects": ["project-3", "project-6", "project-7"],
+    "notes": "Study current categories from the linked official edition rather than memorizing a dated ranking."
+  },
+  "pytest": {
+    "priority": "core",
+    "topicId": "1.5",
+    "stageType": "during_topic",
+    "prerequisites": ["1.1", "1.2", "1.3", "1.4"],
+    "focusSections": [
+      "Getting started and assertions",
+      "Test functions",
+      "Fixtures",
+      "Parametrization",
+      "Monkeypatch and mocking",
+      "Failure reports"
+    ],
+    "objectives": ["Test observable behavior", "Isolate external dependencies"],
+    "startWhen": "Open after Functions and Modular Programming, OOP and exception-handling basics, while studying Python Professional Development in Phase 01.",
+    "why": "Your functions now have inputs, outputs and failure cases that can be checked independently.",
+    "task": "Write pytest tests for the student records app, covering valid input, malformed input and one injected dependency failure.",
+    "criteria": [
+      "Tests detect a deliberate broken behavior",
+      "Explain fixture lifetime and why a mock is appropriate"
+    ],
+    "nextTopicId": "1.6-javascript",
+    "projects": ["project-1", "project-3"],
+    "notes": "Revisit API/integration testing in Phase 07 and Software and API Testing in Phase 10."
+  },
+  "mongodb": {
+    "priority": "optional",
+    "topicId": "3.3",
+    "stageType": "during_topic",
+    "prerequisites": ["1.6-sql", "3.2"],
+    "focusSections": [
+      "Document model",
+      "Collections and documents",
+      "CRUD queries",
+      "Embedding versus references",
+      "Indexes",
+      "Schema and query trade-offs"
+    ],
+    "objectives": [
+      "Compare document and relational modeling",
+      "Choose storage from access patterns"
+    ],
+    "startWhen": "Open after SQL and PostgreSQL relational design, while studying NoSQL Fundamentals in Phase 03.",
+    "why": "A relational baseline lets you compare trade-offs instead of treating a document database as an automatic replacement.",
+    "task": "Model the same small application in tables and documents; compare two real queries, updates and integrity rules.",
+    "criteria": [
+      "Both models support the stated access pattern",
+      "Document one consistency or duplication cost"
+    ],
+    "nextTopicId": "3.4",
+    "projects": ["project-3"],
+    "notes": "Optional comparison tool. PostgreSQL remains the primary relational path."
+  },
+  "go": {
+    "priority": "optional",
+    "topicId": "1.7-go",
+    "stageType": "later_reference",
+    "prerequisites": ["1.5", "7.3", "9.5", "9.6"],
+    "focusSections": [
+      "Tour and modules",
+      "Structs and interfaces",
+      "Goroutines",
+      "Channels and cancellation",
+      "HTTP services",
+      "Testing"
+    ],
+    "objectives": [
+      "Explain bounded concurrency in Go",
+      "Compare a small service with its Python version"
+    ],
+    "startWhen": "Although this optional topic belongs to Phase 01, return only after the core Python, backend and distributed-systems foundations, when an infrastructure project justifies Go.",
+    "why": "A second language is useful when you can compare its runtime and operational trade-offs against an application you already understand.",
+    "task": "If choosing this path, implement a tiny bounded-concurrency service and test cancellation and invalid input.",
+    "criteria": [
+      "Demonstrate correct shutdown and bounded work",
+      "Explain why this service benefits from Go rather than assuming faster is always better"
+    ],
+    "nextTopicId": "9.7",
+    "projects": ["project-7"],
+    "notes": "Do not place this optional path before the main Python, ML or backend sequence."
+  },
+  "java": {
+    "priority": "optional",
+    "topicId": "1.7-java",
+    "stageType": "later_reference",
+    "prerequisites": ["1.3", "1.5"],
+    "focusSections": [
+      "Language and JVM basics",
+      "Classes and interfaces",
+      "Collections and generics",
+      "Exception handling",
+      "Testing",
+      "Small HTTP service"
+    ],
+    "objectives": [
+      "Connect Java OOP to prior Python concepts",
+      "Recognize when JVM work is relevant"
+    ],
+    "startWhen": "Open after OOP fundamentals and Python Professional Development, only when a Java backend role or existing JVM application makes the optional Phase 01 path useful.",
+    "why": "You can reuse your OOP understanding and focus on language/runtime differences rather than delaying AI foundations.",
+    "task": "Build and test a small records service, comparing interfaces and exception behavior with the Python student project.",
+    "criteria": [
+      "Provide working tests and an edge case",
+      "Explain one JVM/runtime or type-system difference"
+    ],
+    "nextTopicId": "7.3",
+    "projects": ["project-1"],
+    "notes": "Java mastery is not a prerequisite for ML or LLM engineering."
+  },
+  "cpp": {
+    "priority": "optional",
+    "topicId": "1.7-cpp",
+    "stageType": "later_reference",
+    "prerequisites": ["0.2", "1.5", "2.8"],
+    "focusSections": [
+      "Compilation and builds",
+      "Values and references",
+      "Object lifetime",
+      "RAII and smart pointers",
+      "Containers",
+      "Profiling and sanitizers"
+    ],
+    "objectives": [
+      "Explain ownership and lifetime",
+      "Recognize memory-safety failures"
+    ],
+    "startWhen": "Return to the optional C++ path after DSA, process/memory concepts and programming practice, when a systems or kernel experiment needs it.",
+    "why": "Low-level control is useful only after you can reason about correctness, complexity and resource lifetime.",
+    "task": "Create a small RAII-based utility, test an invalid input and use a sanitizer or a documented diagnostic example to analyze a lifetime error.",
+    "criteria": [
+      "Explain who owns each resource",
+      "Distinguish a measured optimization from an unsafe shortcut"
+    ],
+    "nextTopicId": "11.3",
+    "projects": ["project-7"],
+    "notes": "Optional supporting language. Custom kernels are never required for the general portfolio."
+  },
+  "privacy-india": {
+    "priority": "optional",
+    "topicId": "10.10",
+    "stageType": "later_reference",
+    "prerequisites": ["3.5", "10.1", "10.2"],
+    "focusSections": [
+      "Current official data-protection material",
+      "Government notices and updates",
+      "Data lifecycle obligations where applicable",
+      "Official implementation guidance"
+    ],
+    "objectives": [
+      "Find the current official source",
+      "Identify questions requiring qualified legal review"
+    ],
+    "startWhen": "Open during Privacy, Governance, and Responsible AI in Phase 10 after application/AI security and data access control, when your processing activity may fall under Indian requirements.",
+    "why": "You can describe what data your app handles and then investigate the applicable official material with that specific context.",
+    "task": "Create a data inventory and a list of retention, access and legal-applicability questions with links to the current government pages.",
+    "criteria": [
+      "Record access date and source provenance",
+      "Separate engineering observations from legal conclusions"
+    ],
+    "nextTopicId": "11.1",
+    "projects": ["project-6", "project-7"],
+    "notes": "This is an awareness resource, not legal advice. Recheck current official material before any real compliance decision."
+  },
+  "privacy-eu": {
+    "priority": "optional",
+    "topicId": "10.10",
+    "stageType": "later_reference",
+    "prerequisites": ["3.5", "10.1", "10.2"],
+    "focusSections": [
+      "EU data-protection overview",
+      "Lawful processing information",
+      "Data-subject rights overview",
+      "Official guidance relevant to the use case"
+    ],
+    "objectives": [
+      "Recognize jurisdiction-dependent applicability",
+      "Map stored data to a documented lifecycle"
+    ],
+    "startWhen": "Open during the Phase 10 privacy topic only when understanding EU data protection or planning a service whose processing may fall within those rules.",
+    "why": "The app’s data flows and user context determine the useful questions; a generic checklist cannot establish legal applicability.",
+    "task": "Document the personal data, purpose, retention and access paths for one example feature and list questions for qualified review.",
+    "criteria": [
+      "Use current official sources and record their dates",
+      "Avoid claiming legal compliance from a technical diagram alone"
+    ],
+    "nextTopicId": "11.1",
+    "projects": ["project-6", "project-7"],
+    "notes": "Applicability depends on jurisdiction and the processing activity. This guide does not provide legal advice."
+  },
+  "python": {
+    "priority": "core",
+    "topicId": "1.1",
+    "stageType": "start_here",
+    "prerequisites": ["0.4"],
+    "focusSections": [
+      "Using the interpreter",
+      "Numbers and strings",
+      "Control flow",
+      "Lists and dictionaries",
+      "Functions",
+      "Modules, classes and exceptions in later matching topics"
+    ],
+    "objectives": [
+      "Read and predict a short Python program",
+      "Build a validated command-line tool"
+    ],
+    "startWhen": "Open the interpreter and basic-syntax sections alongside Python Setup and Fundamentals in Phase 01 after its first worked variable/control-flow examples. The official tutorial assumes some programming familiarity; use the roadmap examples as the beginner introduction.",
+    "why": "The interpreter and small programs give immediate feedback before you add AI libraries.",
+    "task": "Reproduce a short example without copying, then build a marks calculator with input validation and at least three test cases.",
+    "criteria": [
+      "Predict and explain each branch",
+      "Handle invalid input and explain a data-structure choice"
+    ],
+    "nextTopicId": "1.2",
+    "projects": ["project-1"],
+    "notes": "Use the matching chapter at each Python topic, not the whole tutorial at once. The tutorial assumes basic programming familiarity; async and typing use the selected official standard-library guides. No optional course is a prerequisite."
+  },
+  "git": {
+    "priority": "core",
+    "topicId": "0.5",
+    "stageType": "during_topic",
+    "prerequisites": ["0.4"],
+    "focusSections": [
+      "Getting started",
+      "Recording changes",
+      "Branches",
+      "Merging and conflicts",
+      "Remotes",
+      "Collaboration"
+    ],
+    "objectives": [
+      "Describe a commit and branch",
+      "Recover and review a code change"
+    ],
+    "startWhen": "Open after Command Line and Linux basics, while studying Git and GitHub in Phase 00.",
+    "why": "You can navigate project files and now need a reproducible record of changes before the first serious build.",
+    "task": "Create a local repository, branch, merge a deliberate conflict and write a useful README for a practice project.",
+    "criteria": [
+      "History shows the intended changes",
+      "Explain the resolved conflict and ignored files"
+    ],
+    "nextTopicId": "1.1",
+    "projects": [
+      "project-1",
+      "project-2",
+      "project-3",
+      "project-4",
+      "project-5",
+      "project-6",
+      "project-7"
+    ],
+    "notes": "Later project use reuses this record; it does not require reading the whole book again."
+  },
+  "web": {
+    "priority": "core",
+    "topicId": "0.3",
+    "stageType": "during_topic",
+    "prerequisites": ["0.2"],
+    "focusSections": [
+      "How the web works",
+      "HTTP requests and responses",
+      "Status codes and headers",
+      "Browser network tools",
+      "Relevant Web APIs"
+    ],
+    "objectives": [
+      "Trace a browser-to-server request",
+      "Separate transport and application errors"
+    ],
+    "startWhen": "Open during Computer Networking in Phase 00 after OS fundamentals. Return to JavaScript sections only during the supporting web-language topic.",
+    "why": "A visible request makes networking terms concrete without requiring a full frontend curriculum.",
+    "task": "Inspect a successful and a failed HTTP request in browser developer tools; record method, headers, status and timing.",
+    "criteria": [
+      "Explain the response and failure category",
+      "Distinguish HTTP behavior from an application’s business logic"
+    ],
+    "nextTopicId": "0.4",
+    "projects": ["project-3", "project-6"],
+    "notes": "Only selected networking, JavaScript and accessibility material is required for the AI backend path."
+  },
+  "typescript": {
+    "priority": "core",
+    "topicId": "1.6-javascript",
+    "stageType": "during_topic",
+    "prerequisites": ["1.2", "1.5"],
+    "focusSections": [
+      "Everyday types",
+      "Object types and interfaces",
+      "Unions",
+      "Narrowing",
+      "Generics",
+      "Modules",
+      "Typed API boundaries"
+    ],
+    "objectives": [
+      "Model an API contract statically",
+      "Explain why network data still needs runtime validation"
+    ],
+    "startWhen": "Open in the TypeScript portion of JavaScript and TypeScript in Phase 01 after the JavaScript variables, functions, objects, modules and async/await lessons in that topic.",
+    "why": "You already understand JavaScript execution, so types can expose mistakes without being mistaken for runtime validation.",
+    "task": "Type a small request/response client and validate an untrusted response before displaying it.",
+    "criteria": [
+      "The type checker catches an incompatible value",
+      "Malformed network data produces a visible handled error"
+    ],
+    "nextTopicId": "1.6-sql",
+    "projects": ["project-3", "project-6"],
+    "notes": "Provider/framework syntax is supporting application knowledge, not a requirement to master every frontend tool."
+  },
+  "postgres": {
+    "priority": "core",
+    "topicId": "3.2",
+    "stageType": "during_topic",
+    "prerequisites": ["1.6-sql", "3.1"],
+    "focusSections": [
+      "Tutorial: tables, SELECT and joins",
+      "Tutorial: foreign keys and transactions",
+      "SQL language: constraints and schema design",
+      "Indexes chapter",
+      "Performance Tips: Using EXPLAIN"
+    ],
+    "objectives": [
+      "Enforce data integrity",
+      "Read an execution plan for a selected query"
+    ],
+    "startWhen": "Open during Database Engineering with PostgreSQL in Phase 03 after the SQL fundamentals path in Phase 01.",
+    "why": "You can write basic queries and are ready to add durable relationships, constraints and transactional correctness.",
+    "task": "Create users, documents and requests tables; test a rejected invalid relationship and inspect one indexed query.",
+    "criteria": [
+      "Constraints protect a real invariant",
+      "A transaction rolls back a failed multi-step operation"
+    ],
+    "nextTopicId": "3.3",
+    "projects": ["project-3", "project-4", "project-6"],
+    "notes": "Read setup/admin material only when the project needs it. Revisit persistence during backend implementation."
+  },
+  "numpy": {
+    "priority": "core",
+    "topicId": "4.1",
+    "stageType": "during_topic",
+    "prerequisites": ["1.1", "1.2", "2.5"],
+    "focusSections": [
+      "Array creation",
+      "Shapes and dtypes",
+      "Indexing",
+      "Broadcasting",
+      "Vectorized operations",
+      "Reductions"
+    ],
+    "objectives": [
+      "Check tensor/array dimensions",
+      "Explain a vectorized computation"
+    ],
+    "startWhen": "Open at the start of Data Science Fundamentals in Phase 04 after Python functions and basic vectors/matrices from Phase 02.",
+    "why": "Array shapes and numerical operations now connect familiar mathematical objects to executable data processing.",
+    "task": "Load a tiny numerical dataset, compute summaries and a dot product, and compare a loop with a vectorized implementation.",
+    "criteria": [
+      "Shapes and expected values are correct",
+      "Explain broadcasting and one numerical limitation"
+    ],
+    "nextTopicId": "4.2",
+    "projects": ["project-2"],
+    "notes": "You may consult tiny array examples while revising maths; full NumPy mastery is not a prerequisite to all mathematics."
+  },
+  "pandas": {
+    "priority": "core",
+    "topicId": "4.1",
+    "stageType": "during_topic",
+    "prerequisites": ["1.2", "1.4", "2.3"],
+    "focusSections": [
+      "Series and DataFrames",
+      "Loading data",
+      "Inspection and dtypes",
+      "Missing values and duplicates",
+      "Grouping",
+      "Transformations and joins"
+    ],
+    "objectives": [
+      "Inspect dataset quality",
+      "Create a reproducible cleaning procedure"
+    ],
+    "startWhen": "Open after the NumPy array lessons within Data Science Fundamentals in Phase 04. Use a small dataset before exploring large analytical workflows.",
+    "why": "You can reason about array values and now need labeled columns, missingness and reproducible transformations.",
+    "task": "Clean a real small dataset, document each rule and produce a grouped summary with row-count checks.",
+    "criteria": [
+      "Explain every removed or transformed record category",
+      "The notebook reruns from the raw data with the same result"
+    ],
+    "nextTopicId": "4.2",
+    "projects": ["project-2"],
+    "notes": "An earlier, smaller ingestion-focused visit is available in Phase 03."
+  },
+  "sklearn": {
+    "priority": "core",
+    "topicId": "4.2",
+    "stageType": "during_topic",
+    "prerequisites": ["1.2", "2.3", "2.4", "4.1"],
+    "focusSections": [
+      "Getting started: estimator interface",
+      "Train/test split",
+      "Basic preprocessing",
+      "A simple supervised baseline",
+      "Predict and inspect errors"
+    ],
+    "objectives": [
+      "Prevent leakage",
+      "Compare models under a consistent validation procedure"
+    ],
+    "startWhen": "Open during Machine Learning Fundamentals in Phase 04 after basic statistics, probability and the NumPy/Pandas/EDA lessons.",
+    "why": "You have a cleaned dataset and can interpret a metric, so fitting an estimator can become a controlled experiment.",
+    "task": "Fit one simple baseline with a preprocessing step and a held-out split, make predictions and inspect one error. Compare estimator families, cross-validation and search in the later matching topics.",
+    "criteria": [
+      "Preprocessing is fit on training data only",
+      "The saved split and one held-out error are explained"
+    ],
+    "nextTopicId": "4.3",
+    "projects": ["project-2", "project-3"],
+    "notes": "Return to only the estimator or evaluation sections needed by each later ML topic."
+  },
+  "pytorch": {
+    "priority": "core",
+    "topicId": "5.2",
+    "stageType": "during_topic",
+    "prerequisites": ["2.5", "2.6", "4.2", "5.1"],
+    "focusSections": [
+      "Tensors",
+      "Tensor shapes and operations",
+      "Automatic differentiation and autograd",
+      "Neural network modules",
+      "Loss functions",
+      "Optimizers",
+      "Training and evaluation loops",
+      "Saving and loading weights"
+    ],
+    "objectives": [
+      "Trace gradients and tensor shapes",
+      "Implement and verify a training loop"
+    ],
+    "startWhen": "Open during PyTorch in Phase 05 after Linear Algebra, basic Calculus, Machine Learning Fundamentals and Deep Learning Fundamentals.",
+    "why": "The earlier maths and loss concepts explain what tensor operations and gradients mean, rather than leaving a training loop as unexplained boilerplate.",
+    "task": "Train a small classifier, inspect loss, save weights, reload the model and compare evaluation predictions.",
+    "criteria": [
+      "A tiny batch produces the expected shapes",
+      "Reloaded evaluation predictions agree with the saved model"
+    ],
+    "nextTopicId": "5.3",
+    "projects": ["project-2", "project-3"],
+    "notes": "Use CPU-compatible examples first. GPU access is not a condition for completing the foundational material."
+  },
+  "huggingface": {
+    "priority": "core",
+    "topicId": "6.6",
+    "stageType": "during_topic",
+    "prerequisites": ["1.4", "5.2", "6.1", "6.2", "6.4"],
+    "focusSections": [
+      "Tokenizer and token IDs",
+      "Transformer concepts",
+      "Loading models",
+      "Datasets",
+      "Model cards and licensing",
+      "Inference",
+      "Optional fine-tuning overview"
+    ],
+    "objectives": [
+      "Load compatible model/tokenizer revisions",
+      "Interpret context limits and model-card constraints"
+    ],
+    "startWhen": "Open the relevant course material after NLP and language-model fundamentals in Phase 06; use the full ecosystem walkthrough during Hugging Face Ecosystem.",
+    "why": "You understand what tokens and inference are and can now judge whether a selected model and its license fit a small application.",
+    "task": "Load a small pretrained tokenizer or CPU-compatible model, inspect token IDs and run a fixed inference example with recorded settings.",
+    "criteria": [
+      "Record the exact model revision and license",
+      "Explain input/output shapes and one model limitation"
+    ],
+    "nextTopicId": "7.1",
+    "projects": ["project-4", "project-5", "project-6"],
+    "notes": "No expensive compute is required. Fine-tuning sections are optional until a measured use case justifies them."
+  },
+  "fastapi": {
+    "priority": "core",
+    "topicId": "7.2",
+    "stageType": "during_topic",
+    "prerequisites": ["1.2", "1.3", "1.4", "1.6-sql", "7.1"],
+    "focusSections": [
+      "First steps and routes",
+      "Path and query parameters",
+      "Request bodies",
+      "Pydantic validation",
+      "Dependencies",
+      "Errors",
+      "Tests",
+      "Database integration as needed"
+    ],
+    "objectives": [
+      "Expose a typed model interface",
+      "Handle invalid requests predictably"
+    ],
+    "startWhen": "Open while implementing FastAPI in Phase 07 after Python functions/OOP, advanced Python basics, SQL and API Engineering.",
+    "why": "You have a model or use case to expose and understand HTTP, so framework syntax can implement a known contract.",
+    "task": "Create the ML Prediction API with a validated request, response schema, health route and tests for valid and invalid input.",
+    "criteria": [
+      "The client receives documented status codes",
+      "Validation and a simulated dependency failure are covered by tests"
+    ],
+    "nextTopicId": "7.3",
+    "projects": ["project-3", "project-6"],
+    "notes": "Use a durable queue only when task requirements exceed the simple in-process background-task model."
+  },
+  "redis": {
+    "priority": "core",
+    "topicId": "9.2",
+    "stageType": "during_topic",
+    "prerequisites": ["3.2", "7.3", "9.1"],
+    "focusSections": [
+      "Core data structures",
+      "Expiration and TTL",
+      "Cache-aside",
+      "Invalidation",
+      "Atomic operations introduction (rate limiting returns in topic 9.3)"
+    ],
+    "objectives": [
+      "Measure cache behavior",
+      "Enforce a concurrent usage limit correctly"
+    ],
+    "startWhen": "Open during Caching and Redis in Phase 09 after a working backend, PostgreSQL and System Design Fundamentals. Return to atomic counters during Rate Limiting.",
+    "why": "An existing backend provides a baseline against which you can measure latency, hit rate and consistency costs.",
+    "task": "Add tenant-aware cache keys and TTL to a working endpoint, measure cache hits/misses and test invalidation after a source change. Implement and concurrently test the limiter during the separate Rate Limiting revisit.",
+    "criteria": [
+      "Stale entries are invalidated under the documented policy",
+      "The measurement records hits, misses, latency and a tenant-isolation check"
+    ],
+    "nextTopicId": "9.3",
+    "projects": ["project-6", "project-7"],
+    "notes": "Caching is a trade-off; do not cache private results under shared keys or add Redis to every small API."
+  },
+  "docker": {
+    "priority": "core",
+    "topicId": "10.5",
+    "stageType": "during_topic",
+    "prerequisites": ["0.4", "7.2", "10.3"],
+    "focusSections": [
+      "Images and containers",
+      "Dockerfile",
+      "Build and run",
+      "Ports",
+      "Volumes",
+      "Networks",
+      "Compose",
+      "Multi-stage builds"
+    ],
+    "objectives": [
+      "Package a repeatable runtime",
+      "Keep persistent state and secrets outside the image"
+    ],
+    "startWhen": "Open during Docker and Containers in Phase 10 after building and testing a working Python API and understanding its environment settings.",
+    "why": "You now have an application whose runtime can be reproduced; packaging a non-working service would hide the real problem.",
+    "task": "Containerize the existing prediction API, add a health check and document configuration and persistent data boundaries.",
+    "criteria": [
+      "The service starts from a clean build",
+      "No credentials or mutable database data are baked into the image"
+    ],
+    "nextTopicId": "10.6",
+    "projects": ["project-3", "project-7"],
+    "notes": "A later revisit connects the image to CI. Do not introduce orchestration before the first simple deployment."
+  },
+  "kubernetes": {
+    "priority": "advanced",
+    "topicId": "10.7",
+    "stageType": "later_reference",
+    "prerequisites": ["9.1", "10.5", "10.6"],
+    "focusSections": [
+      "Pods",
+      "Deployments",
+      "Services",
+      "ConfigMaps and secrets",
+      "Probes",
+      "Scaling",
+      "Local learning cluster"
+    ],
+    "objectives": [
+      "Explain orchestration boundaries",
+      "Operate one small service in a controlled cluster"
+    ],
+    "startWhen": "Return during DevOps and CI/CD only after Docker networking and a successful basic cloud deployment, when orchestration solves an actual need.",
+    "why": "You can compare orchestration costs with a simpler deployment rather than treating Kubernetes as a compulsory first step.",
+    "task": "Deploy one small service in a local learning cluster, exercise readiness checks and document configuration boundaries.",
+    "criteria": [
+      "Explain the service/deployment/pod relationship",
+      "Demonstrate recovery from one stopped pod without exposing secrets"
+    ],
+    "nextTopicId": "10.8",
+    "projects": ["project-7"],
+    "notes": "Preserves the technology’s advanced classification. Do not require a cloud cluster or Kubernetes before the first deployment."
+  },
+  "mlflow": {
+    "priority": "core",
+    "topicId": "10.9",
+    "stageType": "during_topic",
+    "prerequisites": ["4.6", "10.3", "10.6"],
+    "focusSections": [
+      "ML lifecycle",
+      "Experiment records",
+      "Artifacts and reproducibility",
+      "Model versions",
+      "Registry",
+      "Promotion and rollback"
+    ],
+    "objectives": [
+      "Connect data/code/model versions",
+      "Define a repeatable model promotion decision"
+    ],
+    "startWhen": "Open the lifecycle sections during MLOps in Phase 10 after model training, testing and basic deployment. The first tracking-only visit occurs earlier in Phase 04.",
+    "why": "You have real model artifacts and deployment context, so registry and reproducibility concepts have a concrete purpose.",
+    "task": "Register one evaluated model with data/code provenance, compare it with a candidate and document a promotion and rollback rule.",
+    "criteria": [
+      "A model version can be traced to its experiment and dataset",
+      "The comparison uses consistent evaluation criteria"
+    ],
+    "nextTopicId": "10.10",
+    "projects": ["project-2", "project-7"],
+    "notes": "One resource, two main learning stages. Track experiments first; do not learn every lifecycle feature before the first model."
+  },
+  "otel": {
+    "priority": "core",
+    "topicId": "10.8",
+    "stageType": "during_topic",
+    "prerequisites": ["7.1", "7.2", "7.3", "9.1"],
+    "focusSections": [
+      "Logs, metrics and traces",
+      "Instrumentation",
+      "Trace/span relationships",
+      "Context propagation",
+      "HTTP request lifecycle",
+      "Sensitive-data filtering"
+    ],
+    "objectives": [
+      "Trace a request across components",
+      "Choose telemetry that diagnoses a concrete failure"
+    ],
+    "startWhen": "Open during Logging, Monitoring, and Observability in Phase 10 after API Engineering, FastAPI, Backend Architecture and basic request logging.",
+    "why": "You can now identify the request path and use traces to locate latency instead of adding unexplained dashboards.",
+    "task": "Instrument a backend request across retrieval and provider calls with a request ID, latency metric and linked spans.",
+    "criteria": [
+      "A failed request can be followed across components",
+      "Logs and traces omit credentials and private document content"
+    ],
+    "nextTopicId": "10.9",
+    "projects": ["project-6", "project-7"],
+    "notes": "Start with the signals needed for one request. Avoid duplicate instrumentation and high-cardinality labels."
+  },
+  "neo4j": {
+    "priority": "optional",
+    "topicId": "8.5",
+    "stageType": "during_topic",
+    "prerequisites": ["2.2", "8.1", "8.3"],
+    "focusSections": [
+      "Nodes, edges and properties",
+      "Relationship modeling",
+      "Graph queries",
+      "Traversal",
+      "Source provenance",
+      "Bounded subgraph retrieval"
+    ],
+    "objectives": [
+      "Represent evidence-backed relationships",
+      "Compare graph retrieval with a vector baseline"
+    ],
+    "startWhen": "Open during Graph Theory and Knowledge Graphs in Phase 08 after basic graph concepts, embeddings and a traditional RAG baseline.",
+    "why": "A baseline lets you test whether explicit relationships improve your chosen questions instead of assuming graphs are universally better.",
+    "task": "Build a small knowledge graph with source-backed edges, retrieve a bounded subgraph and compare relationship questions against vector retrieval.",
+    "criteria": [
+      "Every example edge has a supporting source",
+      "Document an extraction error and a query where the graph helps or does not help"
+    ],
+    "nextTopicId": "8.6",
+    "projects": ["project-5"],
+    "notes": "Neo4j is an optional implementation. Graph RAG is not a universal replacement for ordinary RAG."
+  },
+  "langgraph": {
+    "priority": "optional",
+    "topicId": "8.8",
+    "stageType": "during_topic",
+    "prerequisites": ["6.4", "7.4", "8.7"],
+    "focusSections": [
+      "State",
+      "Nodes and edges",
+      "Graph execution",
+      "Persistence",
+      "Human approval",
+      "Failure and resume behavior"
+    ],
+    "objectives": [
+      "Model a bounded stateful workflow",
+      "Locate permissions outside model-generated choices"
+    ],
+    "startWhen": "Open after AI Agents and a small deterministic tool workflow, while studying AI Frameworks and Protocols in Phase 08.",
+    "why": "You already understand a loop, state and tool calls; the framework now has a known responsibility to simplify.",
+    "task": "Build a small stateful workflow with a read-only tool, an interruption/resume path and a human approval gate for a proposed consequential step.",
+    "criteria": [
+      "State transitions can be inspected",
+      "The workflow stops on its budget and never bypasses application permissions"
+    ],
+    "nextTopicId": "9.1",
+    "projects": ["project-6"],
+    "notes": "Learn the plain architecture first. A framework is optional, not a substitute for understanding control flow."
+  },
+  "mcp": {
+    "priority": "core",
+    "topicId": "8.8",
+    "stageType": "during_topic",
+    "prerequisites": ["7.1", "7.4", "8.7"],
+    "focusSections": [
+      "Architecture",
+      "Clients and servers",
+      "Tool discovery",
+      "Resources and prompts",
+      "Communication",
+      "Permission boundaries",
+      "Current specification"
+    ],
+    "objectives": [
+      "Explain the protocol boundary",
+      "Connect a minimal read-only server to a client"
+    ],
+    "startWhen": "Open during AI Frameworks and Protocols in Phase 08 after API Engineering, basic tool calling and AI Agents.",
+    "why": "You can distinguish an application workflow from a protocol that exposes capabilities to compatible clients.",
+    "task": "Build or inspect a minimal read-only MCP server, connect a compatible client and document discovery and authorization behavior.",
+    "criteria": [
+      "Schemas match observed tool inputs",
+      "Explain which layer grants permission and how untrusted tool output is handled"
+    ],
+    "nextTopicId": "9.1",
+    "projects": ["project-6"],
+    "notes": "Check the current protocol specification and client support. Discovery does not itself grant authority to execute a tool."
+  },
+  "owasp": {
+    "priority": "core",
+    "topicId": "10.2",
+    "stageType": "during_topic",
+    "prerequisites": ["8.3", "8.7", "10.1"],
+    "focusSections": [
+      "Prompt injection",
+      "Sensitive disclosure",
+      "Insecure output handling",
+      "Excessive agency",
+      "Tool permissions",
+      "RAG data access",
+      "Denial-of-service risks"
+    ],
+    "objectives": [
+      "Threat-model model-assisted features",
+      "Enforce security outside prompting"
+    ],
+    "startWhen": "Open during AI and LLM Security in Phase 10 after Application Security and a working RAG or agent workflow.",
+    "why": "You can now trace how untrusted documents and model proposals reach real data and actions.",
+    "task": "Threat-model CCAI and run authorized tests for prompt injection, cross-tenant retrieval and excessive tool permission.",
+    "criteria": [
+      "A denied user cannot retrieve another tenant’s content",
+      "A tool proposal is validated before any action"
+    ],
+    "nextTopicId": "10.3",
+    "projects": ["project-4", "project-6", "project-7"],
+    "notes": "Only test systems you own or are authorized to test. Never include real secrets or private user records in adversarial fixtures."
+  },
+  "aws": {
+    "priority": "core",
+    "topicId": "10.6",
+    "stageType": "during_topic",
+    "prerequisites": ["0.3", "0.4", "7.2", "10.5"],
+    "focusSections": [
+      "Getting Started with AWS and IAM least-privilege basics",
+      "Choosing an AWS compute service decision guide",
+      "One chosen compute guide: EC2 or ECS getting started, not both",
+      "Amazon S3 User Guide: object storage basics",
+      "Amazon VPC User Guide: networking boundaries",
+      "Amazon RDS getting started only if a managed database is used",
+      "CloudWatch monitoring basics and Billing/Cost Management budgets"
+    ],
+    "objectives": [
+      "Design least-privilege deployment access",
+      "Estimate the costs and recovery plan"
+    ],
+    "startWhen": "Open during Cloud Computing in Phase 10 after Linux, networking, Docker and a working backend. Read only the services chosen for that deployment.",
+    "why": "A concrete service makes IAM, networking and operating cost decisions testable instead of an endless catalog of products.",
+    "task": "Plan and, with your own approval and budget, deploy one small backend; record architecture, permissions, cost controls and restoration steps.",
+    "criteria": [
+      "Explain every selected service and access grant",
+      "Provide a reproducible deployment and recovery checklist"
+    ],
+    "nextTopicId": "10.7",
+    "projects": ["project-7"],
+    "notes": "Use the named service-guide areas for one small planned deployment; the optional RDS branch is unnecessary if the project does not use it. Documentation is free to read. No billable resource is created by the website or by reading the guides."
+  },
+  "ml-course": {
+    "priority": "core",
+    "topicId": "4.2",
+    "stageType": "during_topic",
+    "prerequisites": ["1.1", "2.1", "2.3", "2.4"],
+    "focusSections": [
+      "Linear models",
+      "Loss",
+      "Gradient descent",
+      "Classification",
+      "Data preparation",
+      "Generalization",
+      "Model evaluation"
+    ],
+    "objectives": [
+      "Explain a baseline learning objective",
+      "Connect metrics to mistakes in held-out examples"
+    ],
+    "startWhen": "Open selected modules alongside Machine Learning Fundamentals in Phase 04 after Python, basic maths, statistics and probability.",
+    "why": "You have enough notation to connect the conceptual diagrams with a small reproducible model.",
+    "task": "Reproduce one selected exercise, compare it with your own baseline and explain one error rather than reporting only a headline score.",
+    "criteria": [
+      "The training/test boundary is clear",
+      "Explain loss, generalization and the limitation of the chosen metric"
+    ],
+    "nextTopicId": "4.3",
+    "projects": ["project-2"],
+    "notes": "Read the module matching your current topic; do not delay data practice until every course unit is complete."
+  },
+  "linear-algebra": {
+    "priority": "core",
+    "topicId": "2.5",
+    "stageType": "during_topic",
+    "prerequisites": ["2.1"],
+    "focusSections": [
+      "Vectors and matrices",
+      "Matrix multiplication",
+      "Linear transformations",
+      "Vector spaces",
+      "Eigenvalues and eigenvectors"
+    ],
+    "objectives": [
+      "Calculate a compatible matrix product",
+      "Connect transformations to embeddings and neural layers"
+    ],
+    "startWhen": "Open selected MIT lectures during Linear Algebra in Phase 02 after Basic Mathematics and the topic’s introductory vector/matrix lessons.",
+    "why": "Small coordinate examples make later tensor shapes and embedding similarity understandable.",
+    "task": "Solve tiny matrix operations by hand, verify with Python where useful and draw a two-dimensional transformation.",
+    "criteria": [
+      "Show the dimensions at every operation",
+      "Explain a geometric interpretation instead of only manipulating symbols"
+    ],
+    "nextTopicId": "2.6",
+    "projects": ["project-2"],
+    "notes": "Selected lectures and assignments are sufficient at first; a full university course is not a programming prerequisite."
+  },
+  "statistics": {
+    "priority": "core",
+    "topicId": "2.3",
+    "stageType": "during_topic",
+    "prerequisites": ["1.1", "2.1"],
+    "focusSections": [
+      "Descriptive statistics examples",
+      "Sample summaries and spread",
+      "Missing-value awareness",
+      "Descriptive comparisons before inference"
+    ],
+    "objectives": [
+      "Compute and interpret descriptive statistics",
+      "State the sample context and limitations before attempting inference"
+    ],
+    "startWhen": "Open selected Python examples during Statistics in Phase 02 after mean, median, variance and standard deviation; revisit distribution/testing examples during Probability.",
+    "why": "You can interpret the quantities before calling a statistics function, so code does not replace reasoning.",
+    "task": "Analyze a tiny dataset, report count, center and spread with units, and inspect missingness or an outlier. Save distribution and inferential-test examples for the Probability revisit.",
+    "criteria": [
+      "The summary includes units, sample size and missing-value treatment",
+      "Explain why descriptive observations alone do not establish a population claim"
+    ],
+    "nextTopicId": "2.4",
+    "projects": ["project-2"],
+    "notes": "Use the matching sections rather than the entire SciPy API. Probability-specific examples are a later learning moment."
+  },
+  "k6": {
+    "priority": "core",
+    "topicId": "9.8",
+    "stageType": "during_topic",
+    "prerequisites": ["7.2", "9.1"],
+    "focusSections": [
+      "Test scripts and scenarios",
+      "Virtual users and arrival rate",
+      "Thresholds",
+      "Latency percentiles",
+      "Error rate",
+      "Controlled load and stress tests"
+    ],
+    "objectives": [
+      "Design a repeatable workload",
+      "Report the system’s measured operating range"
+    ],
+    "startWhen": "Open after the introductory Load and Stress Testing concepts in Phase 09 and once your own API runs correctly with ordinary tests.",
+    "why": "You have a known target and workload, so traffic generation can answer a capacity question instead of producing an unsupported large number.",
+    "task": "Run a small controlled test against your own API and report P50/P95/P99, throughput, errors, CPU and memory with the test environment.",
+    "criteria": [
+      "The exact workload and stop conditions are documented",
+      "Claims stay within observed evidence"
+    ],
+    "nextTopicId": "10.1",
+    "projects": ["project-7"],
+    "notes": "Use only authorized endpoints. Start with low traffic and bound test duration; do not claim million-request capacity without measurements."
+  },
+  "pgvector": {
+    "priority": "core",
+    "topicId": "8.2",
+    "stageType": "during_topic",
+    "prerequisites": ["3.2", "8.1"],
+    "focusSections": [
+      "Vector columns",
+      "Insert and query",
+      "Distance operators",
+      "Exact search baseline",
+      "Approximate indexes",
+      "Metadata filtering",
+      "Recall and latency"
+    ],
+    "objectives": [
+      "Implement permission-filtered similarity search",
+      "Compare index recall and cost with exact search"
+    ],
+    "startWhen": "Open during Vector Databases in Phase 08 after PostgreSQL and Embeddings and Vector Search. Use it in Traditional RAG once the storage/query baseline works.",
+    "why": "You understand both relational ownership and embedding geometry, so a vector index is a measured extension to familiar storage.",
+    "task": "Store a small set of chunks and embeddings, enforce tenant filters, then compare exact and indexed retrieval on labeled queries.",
+    "criteria": [
+      "Model/dimensions match stored vectors",
+      "Report recall and latency without leaking another tenant’s content"
+    ],
+    "nextTopicId": "8.3",
+    "projects": ["project-4", "project-5"],
+    "notes": "PostgreSQL plus pgvector is a first practical option; learning every vector database is unnecessary."
+  },
+  "linux": {
+    "priority": "core",
+    "topicId": "0.4",
+    "stageType": "during_topic",
+    "prerequisites": ["0.1", "0.2"],
+    "focusSections": [
+      "Install WSL and choose a distribution",
+      "Basic WSL commands",
+      "Set up a WSL development environment",
+      "Working across Windows and Linux file systems",
+      "Running commands across the Windows/Linux boundary"
+    ],
+    "objectives": [
+      "Operate a local Linux environment",
+      "Connect process and filesystem behavior to development"
+    ],
+    "startWhen": "Open during Command Line and Linux in Phase 00 after basic computer/OS concepts and Windows terminal navigation, if using Windows.",
+    "why": "You can practice server-like commands locally before adding containers or a cloud account.",
+    "task": "If using Windows, set up a WSL development environment and run a supplied hello-world command or program. Record the interpreter, working directory and Windows/Linux file paths. On Linux/macOS use the existing environment.",
+    "criteria": [
+      "Explain where the interpreter and project files live",
+      "Demonstrate the supplied command and identify the path boundary without requiring prior Python programming"
+    ],
+    "nextTopicId": "0.5",
+    "projects": ["project-1", "project-7"],
+    "notes": "WSL is platform-specific; Linux/macOS learners may use their existing shell without installing it."
+  },
+  "ragas": {
+    "priority": "optional",
+    "topicId": "10.4",
+    "stageType": "during_topic",
+    "prerequisites": ["6.4", "8.1", "8.2", "8.3", "10.3"],
+    "focusSections": [
+      "Evaluation datasets",
+      "Faithfulness",
+      "Answer relevance",
+      "Context precision and recall",
+      "Experiment comparison",
+      "Failure inspection"
+    ],
+    "objectives": [
+      "Separate retrieval and response evaluation",
+      "Interpret score limitations and compare the same cases"
+    ],
+    "startWhen": "Open the full evaluation workflow during AI and LLM Evaluation in Phase 10. First try a small RAG-specific evaluation after a working Traditional RAG baseline in Phase 08.",
+    "why": "Evaluation concepts are core, but this optional tool is useful once you can capture questions, retrieved evidence and answers from a real application.",
+    "task": "Compare baseline and improved retrieval for the document assistant using a fixed dataset; inspect low-scoring examples and write a short report.",
+    "criteria": [
+      "Keep the dataset and settings fixed across comparisons",
+      "Check sampled judge results manually and record limitations"
+    ],
+    "nextTopicId": "10.5",
+    "projects": ["project-4", "project-5", "project-6"],
+    "notes": "Choose Ragas or DeepEval for the first evaluation project, not both. Judge calls may incur API costs; use bounded fixtures or a suitable local judge."
+  },
+  "deepeval": {
+    "priority": "optional",
+    "topicId": "10.4",
+    "stageType": "during_topic",
+    "prerequisites": ["6.4", "8.3", "10.3", "8.7"],
+    "focusSections": [
+      "Test cases and evaluation datasets",
+      "Relevancy and faithfulness metrics",
+      "Hallucination evaluation and judge limits",
+      "RAG evaluation",
+      "Agent/tool-use and multi-turn evaluation after AI Agents",
+      "Custom metrics and rubrics",
+      "Regression tests",
+      "Optional CI integration"
+    ],
+    "objectives": [
+      "Create repeatable quality tests",
+      "Explain judge disagreement and failure cases"
+    ],
+    "startWhen": "Open during AI and LLM Evaluation in Phase 10 after testing fundamentals and a working LLM application. Choose DeepEval or Ragas for the first evaluation workflow; compare the second tool later only if useful.",
+    "why": "A stable application and explicit rubrics let an evaluation framework detect regressions rather than assign unexplained numbers.",
+    "task": "Create normal, boundary and unsupported-question cases for CCAI or the document assistant, compare two versions and inspect failed assertions.",
+    "criteria": [
+      "Tests distinguish an intentionally degraded response",
+      "Document model/judge settings and manually inspect disputed scores"
+    ],
+    "nextTopicId": "10.7",
+    "projects": ["project-4", "project-6"],
+    "notes": "Optional alternative/comparison to Ragas. Hosted dashboards and model calls can have separate charges even though documentation is free."
+  },
+  "promptfoo": {
+    "priority": "optional",
+    "topicId": "10.2",
+    "stageType": "during_topic",
+    "prerequisites": ["6.7", "7.4", "10.1"],
+    "focusSections": [
+      "Prompt tests and assertions",
+      "Provider/prompt comparison",
+      "Regression checks",
+      "Authorized red-team quickstart",
+      "Prompt injection and disclosure tests",
+      "CI reports"
+    ],
+    "objectives": [
+      "Test normal and adversarial prompts",
+      "Verify a mitigation with the same fixed cases"
+    ],
+    "startWhen": "Open during AI and LLM Security in Phase 10 after prompt/context design, provider integration and OWASP application-security concepts; read the relevant LLM threat material first.",
+    "why": "You can describe the trust boundary and then test whether a prompt change or tool permission actually improves safety.",
+    "task": "Run bounded tests against your own CCAI test endpoint with synthetic inputs, document a failure, apply a mitigation and rerun the same cases.",
+    "criteria": [
+      "No real secrets or private records appear in fixtures",
+      "Reports explain both detected risks and test limitations"
+    ],
+    "nextTopicId": "10.3",
+    "projects": ["project-6", "project-7"],
+    "notes": "Only test owned/authorized endpoints. External provider tests may incur costs; record budgets and use small controlled case counts."
+  },
+  "cuda": {
+    "priority": "optional",
+    "topicId": "5.4",
+    "stageType": "during_topic",
+    "prerequisites": ["1.2", "2.5", "5.2"],
+    "focusSections": [
+      "Programming-model overview",
+      "Parallel execution",
+      "GPU memory",
+      "Threads and blocks conceptually",
+      "Memory hierarchy",
+      "Host/device movement",
+      "Basic performance measurement"
+    ],
+    "objectives": [
+      "Explain CPU/GPU data movement",
+      "Estimate and inspect device-memory use"
+    ],
+    "startWhen": "Open only the introductory concepts during GPU and Model Training Fundamentals in Phase 05 after PyTorch tensor operations. Return to kernel programming in Phase 11 only if choosing that specialization.",
+    "why": "GPU and memory understanding is core; reading a selected implementation guide can clarify those ideas without making custom kernels compulsory.",
+    "task": "Where compatible NVIDIA hardware exists, measure a tiny tensor operation and memory use. Otherwise trace a documented execution diagram and write a measurement plan.",
+    "criteria": [
+      "Distinguish transfer time from computation time",
+      "Explain the memory budget or clearly label reference-only observations"
+    ],
+    "nextTopicId": "6.1",
+    "projects": ["project-7"],
+    "notes": "Do not require CUDA installation, paid GPU access or custom kernels. Advanced kernel work is a separate optional revisit."
+  },
+  "ray": {
+    "priority": "advanced",
+    "topicId": "11.3",
+    "stageType": "later_reference",
+    "prerequisites": ["1.4", "5.4", "6.4", "9.4", "9.5", "9.6", "11.1"],
+    "focusSections": [
+      "Ray Core tasks",
+      "Actors",
+      "Object references",
+      "CPU/GPU resource scheduling",
+      "Distributed execution",
+      "Fault tolerance",
+      "Ray Serve only when justified"
+    ],
+    "objectives": [
+      "Compare sequential and parallel execution",
+      "Explain resource and failure constraints"
+    ],
+    "startWhen": "Return in Phase 11 during Model Serving and Inference Optimization after Python concurrency, queues, distributed systems and basic model inference.",
+    "why": "You can now determine whether distributed execution solves a measured workload problem rather than replacing a simple queue by fashion.",
+    "task": "Run a small sequential and Ray task-based workload, compare overhead and speed, then consider Serve only for a real serving requirement.",
+    "criteria": [
+      "Record workload, resources and elapsed time",
+      "Explain one case where distribution does not help"
+    ],
+    "nextTopicId": "11.4",
+    "projects": ["project-7"],
+    "notes": "Advanced optional exploration. Celery is a durable background-task queue; Ray targets parallel/distributed computing. Neither replaces the other by default."
+  },
+  "terraform": {
+    "priority": "optional",
+    "topicId": "10.7",
+    "stageType": "project",
+    "prerequisites": ["0.3", "0.4", "0.5", "10.5", "10.6"],
+    "focusSections": [
+      "Infrastructure as Code",
+      "Providers and resources",
+      "Variables and outputs",
+      "State protection",
+      "Modules",
+      "Core workflow: write, plan and approved apply",
+      "Destroy and lifecycle safety: read and plan only",
+      "Environment separation"
+    ],
+    "objectives": [
+      "Review an infrastructure plan",
+      "Protect state and separate environments"
+    ],
+    "startWhen": "Open after your first successful manual cloud deployment, during DevOps and CI/CD in Phase 10 or the production-platform project.",
+    "why": "A known working deployment gives you a baseline to encode and review before introducing infrastructure automation.",
+    "task": "Define a minimal learning environment, validate the configuration and review a plan; document state access, expected cost and cleanup decisions.",
+    "criteria": [
+      "Explain every planned resource/change",
+      "Document secret/state protection and the approval boundary for real changes"
+    ],
+    "nextTopicId": "10.8",
+    "projects": ["project-7"],
+    "notes": "Never run apply or destroy against real infrastructure without explicit user approval. The website does not execute cloud changes."
+  },
+  "github-actions": {
+    "priority": "core",
+    "topicId": "10.7",
+    "stageType": "during_topic",
+    "prerequisites": ["0.5", "1.5", "10.3"],
+    "focusSections": [
+      "Workflows and events",
+      "Jobs and steps",
+      "Runners",
+      "YAML configuration",
+      "Build/test/typecheck/lint steps",
+      "Secrets",
+      "Environment protection"
+    ],
+    "objectives": [
+      "Create a small reproducible CI workflow",
+      "Keep deployment credentials out of untrusted jobs"
+    ],
+    "startWhen": "Open during DevOps and CI/CD in Phase 10 after Git, Python Professional Development and Software and API Testing.",
+    "why": "You already have meaningful checks to automate, so a workflow can provide useful feedback without unnecessary release complexity.",
+    "task": "Create a CI pipeline for curriculum validation, TypeScript, lint, tests and build; keep any later deployment in a separately controlled workflow.",
+    "criteria": [
+      "A deliberate failing check fails the job",
+      "Secrets and environment protection are documented before deployment is added"
+    ],
+    "nextTopicId": "10.8",
+    "projects": ["project-7"],
+    "notes": "Preserves the existing core tool classification. GitHub-hosted execution and products may have plan-specific costs; the documentation itself is free."
+  },
+  "celery": {
+    "priority": "core",
+    "topicId": "9.4",
+    "stageType": "during_topic",
+    "prerequisites": ["1.2", "1.3", "1.4", "7.2"],
+    "focusSections": [
+      "First steps",
+      "Brokers and workers",
+      "Task execution and states",
+      "Acknowledgement",
+      "Retries and idempotency",
+      "Periodic tasks",
+      "Monitoring",
+      "Result handling"
+    ],
+    "objectives": [
+      "Design durable background work",
+      "Handle duplicate delivery safely"
+    ],
+    "startWhen": "Open during Queues and Background Processing in Phase 09 after Python async concepts, FastAPI and the introductory queue/broker lessons.",
+    "why": "You can distinguish an in-process background task from work that needs a separate worker, durable delivery and recovery.",
+    "task": "Implement a background document-ingestion job with a stable idempotency key, bounded retries and an inspectable failure state.",
+    "criteria": [
+      "Duplicate delivery does not create duplicate logical documents",
+      "A worker failure leaves a documented retry or dead-letter path"
+    ],
+    "nextTopicId": "9.5",
+    "projects": ["project-4", "project-7"],
+    "notes": "Preserves the existing core selected implementation. Do not add a queue to every API or replace Celery with Ray without a concrete requirement."
+  },
+  "prompt-engineering": {
+    "priority": "optional",
+    "topicId": "6.7",
+    "stageType": "during_topic",
+    "prerequisites": ["6.2", "6.4"],
+    "focusSections": [
+      "Message roles and instructions",
+      "Task and context structure",
+      "Zero-shot and examples",
+      "Typed prompt variables",
+      "Code-managed templates and versioning",
+      "Structured outputs with validation",
+      "Fixed prompt evaluations"
+    ],
+    "objectives": [
+      "Write a testable prompt contract",
+      "Compare prompt variants without trusting fluent output"
+    ],
+    "startWhen": "Open during Prompt Engineering and Context Design in Phase 06 after Language Model Fundamentals and LLM Internals.",
+    "why": "You can distinguish context and inference from model training, so prompt behavior can be tested as part of an application contract.",
+    "task": "Build two or three code-managed prompt variants, test the same normal and edge inputs and record response quality, tokens and latency; validate any JSON output.",
+    "criteria": [
+      "Keep test fixtures and prompt versions reproducible",
+      "Explain one regression and one provider-specific behavior"
+    ],
+    "nextTopicId": "6.5",
+    "projects": ["project-4", "project-6"],
+    "notes": "Prompt/context fundamentals are core; this provider’s API details are an optional reference. Other providers differ. No API call is required by the learning website or the offline comparison exercise."
+  }
+}

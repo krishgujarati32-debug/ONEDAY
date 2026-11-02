@@ -180,6 +180,37 @@ const packs = [
       "A deployable platform with a reproducible capacity report, security tests and recovery playbook. No unsupported million-request claims.",
   },
 ];
+// These extend the learning plan; persisted checklist keys still use raw requirements.
+const learningMilestones: Record<number, string[]> = {
+  2: [
+    "Track two comparable experiments in MLflow during Phase 04, retaining parameters, metrics, artifacts and data/code provenance.",
+  ],
+  4: [
+    "Version representative answerable and unanswerable questions with expected evidence; capture retrieval, sources, answers and a baseline report before optimizing.",
+    "Choose Ragas or DeepEval after the working baseline, inspect retrieval and answer-quality failures, then compare one improvement on the same dataset.",
+  ],
+  5: [
+    "Reuse the document-assistant evaluation set and add relationship questions; compare graph-assisted and vector-only evidence, quality, latency and extraction failures.",
+  ],
+  6: [
+    "Version prompts and context templates; test two variants on fixed inputs and compare routing quality, token cost and latency.",
+    "Use an optional Promptfoo suite on owned endpoints with synthetic normal/adversarial cases; document vulnerabilities, fixes and regression results with bounded provider calls.",
+  ],
+  7: [
+    "Verify Celery job idempotency, bounded retries and worker-failure recovery for durable document processing; explain when in-process background tasks would suffice.",
+    "Run curriculum validation, type checks, lint, tests and production build in a small GitHub Actions workflow; review secrets, permissions and environment protection before any deployment.",
+  ],
+};
+const learningExtensions: Record<number, string[]> = {
+  4: [
+    "Compare the second evaluation tool later; learning both Ragas and DeepEval at once is unnecessary.",
+  ],
+  7: [
+    "Terraform plan and state design after a first manual deployment; require explicit approval before real apply or destroy.",
+    "Phase 11 only: compare sequential and Ray Core execution; consider Ray Serve only for a measured distributed-serving requirement.",
+    "Phase 11 only: benchmark vLLM or advanced CUDA on suitable hardware; CPU-only study and supplied benchmark analysis remain valid.",
+  ],
+};
 export const projects: Project[] = raw.map((p, i) => ({
   id: `project-${p.number}`,
   slug: slugify(p.title),
@@ -187,6 +218,8 @@ export const projects: Project[] = raw.map((p, i) => ({
   difficulty: i < 1 ? "beginner" : i < 4 ? "intermediate" : "advanced",
   requirements: p.requirements,
   ...packs[i],
+  milestones: [...packs[i].milestones, ...(learningMilestones[p.number] ?? [])],
+  extensions: [...packs[i].extensions, ...(learningExtensions[p.number] ?? [])],
 }));
 export const projectBySlug = Object.fromEntries(
   projects.map((p) => [p.slug, p]),

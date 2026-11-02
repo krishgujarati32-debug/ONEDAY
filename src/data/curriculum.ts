@@ -1,7 +1,7 @@
 import outline from "./outline.json";
 import knowledge from "./knowledge.json";
 import definitions from "./lessons.json";
-import { phaseResources, topicResources } from "./resources";
+import { phaseResources, topicResources, resources } from "./resources";
 import type { Phase, Topic, Priority } from "@/lib/types";
 import { slugify } from "@/lib/slug";
 const shortTitles = [
@@ -80,7 +80,14 @@ export const phases: Phase[] = outline.map((p) => {
     const pack = knowledge[t.id as keyof typeof knowledge];
     const priority: Priority =
       p.number === 11 || optionalTopicIds.has(t.id) ? "advanced" : "core";
-    const resourceIds = topicResources[t.id] ?? phaseResources[p.number];
+    const resourceIds = [
+      ...new Set([
+        ...(topicResources[t.id] ?? phaseResources[p.number]),
+        ...resources
+          .filter((r) => r.relatedTopicIds.includes(t.id))
+          .map((r) => r.id),
+      ]),
+    ];
     const subtopics = t.subtopics.map((title, si) => {
       const explanation = (definitions as Record<string, string[]>)[t.id][si];
       const optional =

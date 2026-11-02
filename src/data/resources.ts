@@ -1,4 +1,4 @@
-import type { Resource } from "@/lib/types";
+import { enrichResources } from "./resource-learning";
 const rows: [string, string, string, string, string, string, number[]][] = [
   [
     "cs50",
@@ -379,8 +379,89 @@ const rows: [string, string, string, string, string, string, number[]][] = [
     "https://learn.microsoft.com/en-us/windows/wsl/",
     [0],
   ],
+  [
+    "ragas",
+    "Ragas Documentation",
+    "Ragas project",
+    "MLOps",
+    "Optional evaluation tooling for a measured RAG baseline and later regressions.",
+    "https://docs.ragas.io/en/latest/",
+    [8, 10],
+  ],
+  [
+    "deepeval",
+    "DeepEval Documentation",
+    "Confident AI",
+    "MLOps",
+    "An alternative evaluation framework for LLM, retrieval and agent test cases.",
+    "https://deepeval.com/docs/introduction",
+    [10],
+  ],
+  [
+    "promptfoo",
+    "Promptfoo Documentation",
+    "Promptfoo",
+    "Security",
+    "Controlled prompt comparisons, assertions, security tests and CI regression reports.",
+    "https://www.promptfoo.dev/docs/getting-started/",
+    [10],
+  ],
+  [
+    "cuda",
+    "NVIDIA CUDA Programming Guide",
+    "NVIDIA",
+    "Deep Learning",
+    "Introductory GPU execution and memory concepts, with advanced kernel material saved for later.",
+    "https://docs.nvidia.com/cuda/cuda-programming-guide/",
+    [5, 11],
+  ],
+  [
+    "ray",
+    "Ray Documentation",
+    "Ray project",
+    "System Design",
+    "Advanced distributed Python tasks and actors; serving only when a workload justifies it.",
+    "https://docs.ray.io/en/latest/",
+    [11],
+  ],
+  [
+    "terraform",
+    "Terraform Documentation",
+    "HashiCorp",
+    "DevOps",
+    "Optional Infrastructure as Code after a first manual cloud deployment.",
+    "https://developer.hashicorp.com/terraform/docs",
+    [10],
+  ],
+  [
+    "github-actions",
+    "GitHub Actions Documentation",
+    "GitHub",
+    "DevOps",
+    "A small secure workflow for validation, tests and builds before controlled deployment.",
+    "https://docs.github.com/en/actions/get-started/understand-github-actions",
+    [10],
+  ],
+  [
+    "celery",
+    "Celery Documentation",
+    "Celery project",
+    "System Design",
+    "Durable background tasks, worker failures, retries and idempotent processing.",
+    "https://docs.celeryq.dev/en/stable/",
+    [9],
+  ],
+  [
+    "prompt-engineering",
+    "OpenAI Prompt Engineering Guide",
+    "OpenAI",
+    "LLMs",
+    "One provider implementation guide for core prompt and context design concepts.",
+    "https://developers.openai.com/api/docs/guides/prompt-engineering",
+    [6],
+  ],
 ];
-export const resources: Resource[] = rows.map(
+const baseResources = rows.map(
   ([id, title, provider, category, description, url, phases]) => ({
     id,
     title,
@@ -399,11 +480,10 @@ export const resources: Resource[] = rows.map(
       "maths",
       "information-theory",
     ].includes(id)
-      ? "course"
-      : "official_docs",
+      ? ("course" as const)
+      : ("official_docs" as const),
   }),
 );
-export const resourceById = Object.fromEntries(resources.map((r) => [r.id, r]));
 export const phaseResources: string[][] = [
   ["git", "web", "linux"],
   ["python", "typescript", "postgres"],
@@ -515,15 +595,26 @@ export const resourceGroups: Record<string, string[]> = {
   DSA: ["algorithms"],
   "Data Science": ["numpy", "pandas", "statistics"],
   "Machine Learning": ["sklearn", "ml-course"],
-  "Deep Learning": ["pytorch"],
+  "Deep Learning": ["pytorch", "cuda"],
   NLP: ["huggingface"],
-  LLMs: ["huggingface", "mcp", "vllm"],
-  RAG: ["pgvector", "neo4j", "langgraph", "huggingface"],
-  Backend: ["fastapi", "postgres", "mongodb"],
-  "System Design": ["builders", "redis", "k6", "otel", "ostep"],
-  Security: ["owasp", "owasp-web", "privacy-india", "privacy-eu"],
+  LLMs: ["huggingface", "mcp", "vllm", "prompt-engineering"],
+  RAG: ["pgvector", "neo4j", "langgraph", "huggingface", "ragas", "deepeval"],
+  Backend: ["fastapi", "postgres", "mongodb", "celery"],
+  "System Design": [
+    "builders",
+    "redis",
+    "k6",
+    "otel",
+    "ostep",
+    "celery",
+    "ray",
+  ],
+  Security: ["owasp", "owasp-web", "privacy-india", "privacy-eu", "promptfoo"],
   Cloud: ["aws"],
-  DevOps: ["docker", "kubernetes", "git"],
-  MLOps: ["mlflow", "otel"],
+  DevOps: ["docker", "kubernetes", "git", "github-actions", "terraform"],
+  MLOps: ["mlflow", "otel", "ragas", "deepeval", "promptfoo"],
   "Data Engineering": ["pandas", "mongodb", "postgres"],
 };
+
+export const resources = enrichResources(baseResources, topicResources);
+export const resourceById = Object.fromEntries(resources.map((r) => [r.id, r]));

@@ -10,6 +10,13 @@ import {
   Search,
 } from "lucide-react";
 import { technologies } from "@/data/technologies";
+import {
+  filterResources,
+  groupResourceMoments,
+  phaseNumber,
+  resourceStages,
+} from "@/lib/resource-learning";
+import { ResourceCard } from "./resource-card";
 import { resources, resourceGroups } from "@/data/resources";
 import { projects } from "@/data/projects";
 import { phaseIndex, topicIndex, formatPercent } from "@/lib/progress";
@@ -22,7 +29,6 @@ import {
   PageHeading,
   Pill,
   ProgressBar,
-  ResourceCard,
 } from "./ui";
 export function TechnologyLibrary() {
   const [query, setQuery] = useState(""),
@@ -152,30 +158,56 @@ export function TechnologyLibrary() {
 export function ResourceLibrary() {
   const [query, setQuery] = useState(""),
     [category, setCategory] = useState("all"),
-    [phase, setPhase] = useState("all");
-  const categories = Object.keys(resourceGroups);
-  const list = resources.filter(
-    (r) =>
-      (category === "all" || resourceGroups[category]?.includes(r.id)) &&
-      (phase === "all" || r.phases.includes(Number(phase))) &&
-      (r.title + " " + r.provider + " " + r.description)
-        .toLowerCase()
-        .includes(query.toLowerCase()),
-  );
+    [phase, setPhase] = useState("all"),
+    [priority, setPriority] = useState("all"),
+    [timing, setTiming] = useState("all"),
+    [view, setView] = useState("library");
+  const list = filterResources(resources, {
+    query,
+    categoryIds: category === "all" ? undefined : resourceGroups[category],
+    phase,
+    priority,
+    timing,
+  });
+  const groups = groupResourceMoments(list);
   return (
     <>
       <PageHeading
         eyebrow="LESS NOISE. BETTER SOURCES."
         title="Your learning library."
-        description="Official documentation and free course material, connected to the roadmap. Read actively, try the examples, and keep what helps."
+        description="Know when to open each guide, which sections to read and what to build next. Follow the roadmap at your own pace."
         action={<Pill tone="green">{resources.length} curated resources</Pill>}
       />
-      <div className="library-toolbar">
+      <div
+        className="view-tabs resource-view-tabs"
+        role="tablist"
+        aria-label="Resource view"
+      >
+        <button
+          role="tab"
+          id="resource-library-tab"
+          aria-controls="resource-results"
+          aria-selected={view === "library"}
+          onClick={() => setView("library")}
+        >
+          Resource Library
+        </button>
+        <button
+          role="tab"
+          id="resource-order-tab"
+          aria-controls="resource-results"
+          aria-selected={view === "order"}
+          onClick={() => setView("order")}
+        >
+          Recommended Learning Order
+        </button>
+      </div>
+      <div className="library-toolbar resource-toolbar">
         <label className="search-field">
           <Search size={16} />
           <input
             aria-label="Search resources"
-            placeholder="Search titles, providers, ideas…"
+            placeholder="Search topics, prerequisites, exercises…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -186,7 +218,7 @@ export function ResourceLibrary() {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="all">Every subject</option>
-          {categories.map((c) => (
+          {Object.keys(resourceGroups).map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
@@ -198,41 +230,98 @@ export function ResourceLibrary() {
           <option value="all">All phases</option>
           {phaseIndex.map((p) => (
             <option key={p.id} value={p.number}>
-              Phase {p.number} · {p.shortTitle}
+              Phase {phaseNumber(p.number)} · {p.shortTitle}
             </option>
           ))}
         </select>
-        <span className="muted">{list.length} resources</span>
+        <select
+          aria-label="Resource priority"
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+        >
+          <option value="all">Every priority</option>
+          {["core", "optional", "advanced"].map((p) => (
+            <option key={p} value={p}>
+              {p[0].toUpperCase() + p.slice(1)}
+            </option>
+          ))}
+        </select>
+        <select
+          aria-label="Resource timing"
+          value={timing}
+          onChange={(e) => setTiming(e.target.value)}
+        >
+          <option value="all">Every timing</option>
+          {Object.entries(resourceStages).map(([id, label]) => (
+            <option key={id} value={id}>
+              {label}
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="resources-grid">
-        {list.map((r) => (
-          <div id={r.id} key={r.id}>
-            <ResourceCard resource={r} />
-            <div className="resource-relations">
-              <span className="tiny-text">Connect it to your roadmap</span>
-              {topicIndex
-                .filter((t) => t.resources.includes(r.id))
-                .slice(0, 2)
-                .map((t) => (
-                  <Link href={"/learn/" + t.slug} key={t.id}>
-                    {t.title}
-                    <ArrowUpRight size={12} />
-                  </Link>
-                ))}
-            </div>
+      <p className="muted resource-results-count" aria-live="polite">
+        {list.length} resources ·{" "}
+        {list.reduce((sum, r) => sum + r.moments.length, 0)} learning moments.
+        One bookmark per resource, across every visit.
+      </p>
+      <div
+        id="resource-results"
+        role="tabpanel"
+        aria-labelledby={
+          view === "library" ? "resource-library-tab" : "resource-order-tab"
+        }
+      >
+        {view === "library" ? (
+          <div className="resources-grid">
+            {list.map(({ resource, moments }) => (
+              <ResourceCard
+                id={resource.id}
+                key={resource.id}
+                resource={resource}
+                moments={moments}
+              />
+            ))}
           </div>
-        ))}
+        ) : (
+          groups
+            .filter((g) => g.entries.length)
+            .map(({ phase, entries }) => (
+              <section className="resource-phase-group" key={phase.id}>
+                <div className="section-heading compact">
+                  <div>
+                    <span className="eyebrow">
+                      PHASE {phaseNumber(phase.number)}
+                    </span>
+                    <h2>{phase.shortTitle}</h2>
+                  </div>
+                  <Link className="text-link" href={"/roadmap/" + phase.slug}>
+                    Review phase <ArrowRight size={13} />
+                  </Link>
+                </div>
+                <div className="resources-grid">
+                  {entries.map(({ resource, moments }) => (
+                    <ResourceCard
+                      id={resource.id + "-phase-" + phase.number}
+                      key={resource.id}
+                      resource={resource}
+                      moments={moments}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))
+        )}
       </div>
       {!list.length && (
         <Empty
           title="No resources found"
-          description="Change the subject or try another search term."
+          description="Try a broader search or change the phase, priority or timing filter."
         />
       )}
       <div className="resource-footnote">
-        Links checked against official sources on November 1, 2026. “Free to
-        read” refers to the linked material; hosted products, compute and
-        optional certifications may have separate costs.
+        Verification dates appear in each guide. Free to read refers to the
+        linked material; hosted services, hardware and API calls may have
+        separate costs. Resource reading does not change lesson completion.
       </div>
     </>
   );

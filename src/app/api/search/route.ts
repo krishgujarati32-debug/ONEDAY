@@ -1,3 +1,4 @@
+import { resourceSearchText } from "@/lib/resource-learning";
 import { NextRequest, NextResponse } from "next/server";
 import { phases, topics } from "@/data/curriculum";
 import { projects } from "@/data/projects";
@@ -41,6 +42,7 @@ const records = [
     type: "Resource",
     description: r.provider + " · " + r.description,
     href: "/resources#" + r.id,
+    searchText: resourceSearchText(r),
   })),
 ];
 export async function GET(request: NextRequest) {
@@ -56,7 +58,15 @@ export async function GET(request: NextRequest) {
   const results = records
     .filter((r) =>
       words.every((w) =>
-        (r.label + " " + r.description).toLowerCase().includes(w),
+        (
+          r.label +
+          " " +
+          r.description +
+          " " +
+          ("searchText" in r ? r.searchText : "")
+        )
+          .toLowerCase()
+          .includes(w),
       ),
     )
     .sort(
@@ -65,5 +75,12 @@ export async function GET(request: NextRequest) {
         Number(a.label.toLowerCase().includes(q)),
     )
     .slice(0, 40);
-  return NextResponse.json({ results });
+  return NextResponse.json({
+    results: results.map(({ label, type, description, href }) => ({
+      label,
+      type,
+      description,
+      href,
+    })),
+  });
 }

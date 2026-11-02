@@ -12,7 +12,9 @@
     "check:curriculum": "tsx scripts/validate-curriculum.ts",
     "curriculum:index": "tsx scripts/build-manifest.ts",
     "test:routes": "tsx scripts/smoke-routes.ts",
-    "format": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern \"src/**/*.{ts,tsx,css,json}\" \"scripts/*.ts\" \"tests/*.ts\" \"*.{json,ts,mjs,md}\" \"docs/*.md\""
+    "format": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern \"src/**/*.{ts,tsx,css,json}\" \"scripts/*.ts\" \"tests/*.ts\" \"*.{json,ts,mjs,md}\" \"docs/*.md\"",
+    "check:resource-links": "tsx scripts/check-resource-links.ts",
+    "check:resource-internal-links": "tsx scripts/check-resource-internal-links.ts"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",

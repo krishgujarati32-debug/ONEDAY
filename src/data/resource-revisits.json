@@ -1,0 +1,1371 @@
+{
+  "cs50:1.1": {
+    "prerequisiteTopicIds": ["0.1", "0.4"],
+    "focusSections": [
+      "Week 6 Python: variables and types",
+      "Conditionals and loops",
+      "Lists and dictionaries",
+      "Functions and exceptions"
+    ],
+    "startWhen": "Revisit only CS50's Python material during Python Setup and Fundamentals in Phase 01, after the topic's first syntax lessons.",
+    "whyAtThisStage": "The Python week supplies a second worked explanation of the program constructs you are now practicing, without requiring the full course.",
+    "practicalTask": "Trace a short Python loop from the lecture, then adapt it to validate and summarize three student marks.",
+    "learningObjectives": [
+      "Predict a loop result before running it",
+      "Explain how a list or dictionary organizes the marks"
+    ],
+    "completionCriteria": [
+      "The summary handles an empty list and invalid input",
+      "Explain the revised code without copying the lecture"
+    ],
+    "projectIds": ["project-1"],
+    "nextTopicId": "1.2",
+    "stageType": "during_topic"
+  },
+  "ostep:9.5": {
+    "prerequisiteTopicIds": ["0.2", "9.4"],
+    "focusSections": [
+      "Distributed Systems chapter: communication",
+      "Unreliable networks",
+      "Remote procedure calls",
+      "Distributed file-system examples as background"
+    ],
+    "startWhen": "Revisit the Distributed Systems chapter during Phase 09 Distributed Systems, after operating-system basics and queues.",
+    "whyAtThisStage": "The book moves beyond one machine to explain why a remote call can fail ambiguously; it is a foundation, not a complete cloud reliability recipe.",
+    "practicalTask": "Draw a remote request with a delayed or lost reply and explain why the caller cannot infer whether the operation completed. Relate this to an idempotent document job.",
+    "learningObjectives": [
+      "Distinguish a local process failure from a lost message",
+      "Explain an ambiguous RPC outcome"
+    ],
+    "completionCriteria": [
+      "The timeline includes sender, receiver and missing acknowledgement",
+      "Document the retry decision and remaining uncertainty"
+    ],
+    "projectIds": ["project-7"],
+    "nextTopicId": "9.6",
+    "stageType": "during_topic"
+  },
+  "ostep:9.6": {
+    "prerequisiteTopicIds": ["0.2", "9.5"],
+    "focusSections": [
+      "Concurrency: an introduction",
+      "Threads",
+      "Locks",
+      "Condition variables",
+      "Concurrency bugs",
+      "Event-based concurrency"
+    ],
+    "startWhen": "Return to the concurrency chapters during Concurrency and Performance in Phase 09, after distributed failure fundamentals.",
+    "whyAtThisStage": "Thread interleavings, synchronization and event loops explain the behavior you must measure before increasing worker counts.",
+    "practicalTask": "Trace two interleavings of a shared-counter example, then explain one lock-based fix and one condition-variable use. Connect the result to a bounded worker design.",
+    "learningObjectives": [
+      "Identify a race and its shared state",
+      "Explain why more threads need not improve throughput"
+    ],
+    "completionCriteria": [
+      "Show a failing interleaving and a corrected invariant",
+      "Record the assumptions behind the worker limit"
+    ],
+    "projectIds": ["project-7"],
+    "nextTopicId": "9.7",
+    "stageType": "during_topic"
+  },
+  "maths:2.2": {
+    "prerequisiteTopicIds": ["2.1"],
+    "focusSections": [
+      "Counting and permutations",
+      "Combinations",
+      "Sets and Venn diagrams",
+      "Logical reasoning exercises where available"
+    ],
+    "startWhen": "Open the counting and set material while studying Discrete Mathematics and Logic in Phase 02, after Basic Mathematics.",
+    "whyAtThisStage": "Counting small cases and visualizing set intersections supports this topic; Khan Academy is supplementary to the roadmap's proof and graph lessons.",
+    "practicalTask": "Count possible student-course assignments in a tiny example and verify the answer by listing cases. Draw a Venn diagram for two course groups.",
+    "learningObjectives": [
+      "Distinguish permutations from combinations",
+      "Interpret a set intersection in an application"
+    ],
+    "completionCriteria": [
+      "Enumerated and calculated counts agree",
+      "State which proof or graph concept still needs the roadmap lesson"
+    ],
+    "projectIds": ["project-1"],
+    "nextTopicId": "2.3",
+    "stageType": "during_topic"
+  },
+  "maths:2.4": {
+    "prerequisiteTopicIds": ["2.1", "2.3"],
+    "focusSections": [
+      "Probability basics",
+      "Independent and dependent events",
+      "Conditional probability",
+      "Bayes examples"
+    ],
+    "startWhen": "Open the probability units during Probability in Phase 02 after descriptive statistics.",
+    "whyAtThisStage": "Worked event diagrams make conditional probability interpretable before a statistics API is used.",
+    "practicalTask": "Calculate a conditional probability using a small frequency table, then simulate repeated trials to check the scale of the result.",
+    "learningObjectives": [
+      "Distinguish independence from conditional probability",
+      "Interpret the denominator in a conditional event"
+    ],
+    "completionCriteria": [
+      "The frequency table and calculation agree",
+      "Explain simulation variation rather than expecting exact equality"
+    ],
+    "projectIds": ["project-2"],
+    "nextTopicId": "2.5",
+    "stageType": "during_topic"
+  },
+  "maths:2.6": {
+    "prerequisiteTopicIds": ["2.1", "2.5"],
+    "focusSections": [
+      "Limits and continuity introduction",
+      "Derivatives",
+      "Chain rule",
+      "Gradient and optimization intuition"
+    ],
+    "startWhen": "Return to selected calculus units during Calculus and Optimization in Phase 02 after functions and linear algebra.",
+    "whyAtThisStage": "Derivatives explain how a small parameter change affects a loss; arithmetic revision alone no longer addresses the learning need.",
+    "practicalTask": "Differentiate a one-variable squared-error function, check a finite-difference estimate, and show one gradient-descent update.",
+    "learningObjectives": [
+      "Interpret a derivative as local change",
+      "Relate a gradient step to a loss value"
+    ],
+    "completionCriteria": [
+      "The analytic and numerical derivatives approximately agree",
+      "State the step size and a case where a large step fails"
+    ],
+    "projectIds": ["project-2"],
+    "nextTopicId": "2.7",
+    "stageType": "during_topic"
+  },
+  "builders:9.3": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "9.2"],
+    "focusSections": [
+      "Timeouts, retries and backoff with jitter",
+      "Avoiding overload",
+      "Load shedding and client backoff"
+    ],
+    "startWhen": "Read overload and retry guidance during Rate Limiting in Phase 09, after caching and basic system design.",
+    "whyAtThisStage": "A client that retries too aggressively can defeat a server's capacity plan; these articles complement the limiter implementation.",
+    "practicalTask": "Write a client retry policy for a 429 response with a total attempt budget and jitter, then show how it interacts with a token-bucket limit.",
+    "learningObjectives": [
+      "Explain retry amplification",
+      "Choose a bounded overload response"
+    ],
+    "completionCriteria": [
+      "A timeline shows the retry and stop conditions",
+      "The policy respects the server's retry signal without an unbounded loop"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "9.4",
+    "stageType": "during_topic"
+  },
+  "builders:9.4": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "9.3"],
+    "focusSections": [
+      "Making retries safe with idempotent APIs",
+      "Avoiding insurmountable queue backlogs",
+      "Timeout and retry budgets"
+    ],
+    "startWhen": "Read the idempotency and queue-backlog articles while building a durable job in Phase 09 Queues and Background Processing.",
+    "whyAtThisStage": "A queued task may be delivered more than once, and a growing backlog is an operational failure even if requests are accepted.",
+    "practicalTask": "Design an idempotency record and bounded retry/dead-letter policy for document ingestion; simulate a duplicate delivery on paper or locally.",
+    "learningObjectives": [
+      "Separate delivery attempts from one logical operation",
+      "Recognize backlog growth and recovery limits"
+    ],
+    "completionCriteria": [
+      "Duplicate deliveries resolve to one logical document",
+      "The policy includes a retry limit and observable failure state"
+    ],
+    "projectIds": ["project-4", "project-7"],
+    "nextTopicId": "9.5",
+    "stageType": "during_topic"
+  },
+  "builders:9.5": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "9.4"],
+    "focusSections": [
+      "Making retries safe with idempotent APIs",
+      "Timeouts, retries and backoff with jitter",
+      "Failure isolation"
+    ],
+    "startWhen": "Revisit remote-failure and idempotency guidance during Distributed Systems in Phase 09 after queues.",
+    "whyAtThisStage": "An ambiguous timeout can trigger a second execution; the articles provide design patterns to apply to the distributed-systems concepts.",
+    "practicalTask": "Draw success, lost-reply and repeated-request timelines for one CCAI operation and state the durable identity needed to reconcile them.",
+    "learningObjectives": [
+      "Explain why timeout does not prove non-execution",
+      "Keep retry side effects bounded"
+    ],
+    "completionCriteria": [
+      "Every timeline has a defined final state",
+      "Document one consistency or availability trade-off"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "9.6",
+    "stageType": "during_topic"
+  },
+  "builders:9.6": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "9.5"],
+    "focusSections": [
+      "Using load shedding to avoid overload",
+      "Timeout budgets",
+      "Workload and concurrency limits"
+    ],
+    "startWhen": "Read the overload-management articles during Concurrency and Performance in Phase 09 after distributed failure concepts.",
+    "whyAtThisStage": "A concurrency setting is useful only with an admission and overload policy; this source supports that policy rather than teaching Python profiling APIs.",
+    "practicalTask": "Write a bounded admission policy for a slow dependency and compare expected queue wait under two concurrency limits using measured or explicitly assumed numbers.",
+    "learningObjectives": [
+      "Connect work limits to queueing delay",
+      "Explain graceful rejection under overload"
+    ],
+    "completionCriteria": [
+      "Units and workload assumptions are stated",
+      "Separate actual measurements from estimates"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "9.7",
+    "stageType": "during_topic"
+  },
+  "builders:9.7": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "9.6"],
+    "focusSections": [
+      "Load shedding and admission control",
+      "Queue backlog recovery",
+      "Retry budgets",
+      "Failure isolation"
+    ],
+    "startWhen": "Read the scalability and overload articles during Scalable AI Systems in Phase 09 after concurrency and performance.",
+    "whyAtThisStage": "Model inference consumes bounded workers and memory; ordinary request scaling advice must be tested against that workload.",
+    "practicalTask": "Design bounded inference admission, per-tenant quotas and an overload response for CCAI. Explain how a retry budget prevents an outage cascade.",
+    "learningObjectives": [
+      "Identify the scarce inference resource",
+      "Define a safe overload behavior"
+    ],
+    "completionCriteria": [
+      "The design includes limits and a recovery path",
+      "Capacity claims are tied to stated measurements or assumptions"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "9.8",
+    "stageType": "during_topic"
+  },
+  "builders:11.1": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "10.8"],
+    "focusSections": [
+      "Failure isolation",
+      "Retry budgets",
+      "Availability trade-offs",
+      "Operational simplicity"
+    ],
+    "startWhen": "Revisit selected reliability articles during AI System Architecture in Phase 11 after system design and observability.",
+    "whyAtThisStage": "A complete CCAI design can now expose the dependency and failure boundaries that an isolated pattern cannot establish.",
+    "practicalTask": "Annotate one CCAI request diagram with timeout budgets, isolation boundaries and the signals used to detect failure.",
+    "learningObjectives": [
+      "Map a pattern to a concrete dependency boundary",
+      "Explain its operational downside"
+    ],
+    "completionCriteria": [
+      "Each proposed control has an owner and measurement",
+      "The note includes one simpler alternative"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "11.2",
+    "stageType": "during_topic"
+  },
+  "builders:11.2": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "10.4", "11.1"],
+    "focusSections": [
+      "Timeouts and bounded retries",
+      "Idempotent APIs",
+      "Failure isolation and graceful degradation"
+    ],
+    "startWhen": "Return to failure-handling articles during Intelligent Model Routing in Phase 11 after architecture and evaluation fundamentals.",
+    "whyAtThisStage": "Provider fallback is a distributed reliability decision; these articles support fallback policy rather than teaching model-capability ranking.",
+    "practicalTask": "Write CCAI fallback rules for a timed-out provider, including remaining latency/token budget and duplicate-accounting protection.",
+    "learningObjectives": [
+      "Separate retry from provider fallback",
+      "Preserve a request budget across routing attempts"
+    ],
+    "completionCriteria": [
+      "The policy stops when its budget is exhausted",
+      "A failed attempt cannot charge usage twice"
+    ],
+    "projectIds": ["project-6"],
+    "nextTopicId": "11.3",
+    "stageType": "during_topic"
+  },
+  "builders:11.4": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "10.8", "11.3"],
+    "focusSections": [
+      "Failure isolation",
+      "Reducing dependency impact",
+      "Timeout and retry policy",
+      "Recovery practices"
+    ],
+    "startWhen": "Read availability-focused articles during High Availability and Reliability in Phase 11 after a measured serving baseline.",
+    "whyAtThisStage": "The architecture now has real dependencies whose failure and recovery behavior can be rehearsed.",
+    "practicalTask": "Plan and run a small owned-service dependency-failure drill, recording detection, fallback and recovery observations.",
+    "learningObjectives": [
+      "Relate an availability goal to a failure boundary",
+      "Separate recovery evidence from an availability claim"
+    ],
+    "completionCriteria": [
+      "Record observed recovery time and affected work",
+      "Document one failure the drill did not cover"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "11.5",
+    "stageType": "during_topic"
+  },
+  "builders:11.5": {
+    "prerequisiteTopicIds": ["7.6", "9.1", "11.4"],
+    "focusSections": [
+      "Reliability pattern trade-offs",
+      "Operational simplicity",
+      "Retry and queueing costs"
+    ],
+    "startWhen": "Return to only the relevant engineering articles during Architecture Trade-offs in Phase 11 after the reliability exercises.",
+    "whyAtThisStage": "Examples from operating real services help challenge assumptions, but do not establish that the same architecture fits your workload.",
+    "practicalTask": "Write one architecture decision comparing a simple queue-based service with a more distributed design, citing the relevant reliability argument and your own workload evidence.",
+    "learningObjectives": [
+      "Explain a design consequence instead of copying a pattern",
+      "State the evidence that would reverse the decision"
+    ],
+    "completionCriteria": [
+      "The decision contains assumptions, costs and a simpler alternative",
+      "A trigger for reevaluating the decision is explicit"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "",
+    "stageType": "during_topic"
+  },
+  "pytest:3.1": {
+    "prerequisiteTopicIds": ["1.5"],
+    "focusSections": [
+      "Fixtures",
+      "Parametrization",
+      "Monkeypatching dependencies",
+      "Test discovery and layout"
+    ],
+    "startWhen": "Reopen the fixture and test-organization sections during Software Engineering Fundamentals in Phase 03 after Python Professional Development.",
+    "whyAtThisStage": "Tests provide a behavior boundary for a small refactor; pytest does not replace the topic's requirements or architecture work.",
+    "practicalTask": "Refactor one student-record function behind a small interface while keeping behavior tests green, then add a failure-case fixture.",
+    "learningObjectives": [
+      "Use tests to preserve observable behavior",
+      "Isolate a dependency in a fixture"
+    ],
+    "completionCriteria": [
+      "The tests pass before and after the refactor",
+      "A deliberate behavior change makes a relevant assertion fail"
+    ],
+    "projectIds": ["project-1", "project-3"],
+    "nextTopicId": "3.2",
+    "stageType": "during_topic"
+  },
+  "pytest:10.3": {
+    "prerequisiteTopicIds": ["1.5", "7.2", "10.2"],
+    "focusSections": [
+      "Fixtures and parametrization",
+      "Monkeypatch and mocking",
+      "Temporary files",
+      "Database integration fixtures",
+      "Failure reporting"
+    ],
+    "startWhen": "Return to pytest during Software and API Testing in Phase 10 after a working API and AI security fundamentals.",
+    "whyAtThisStage": "You now need contract, permission and dependency-failure checks at real boundaries instead of only isolated function examples.",
+    "practicalTask": "Add valid, invalid, unauthorized and failed-provider API cases with deterministic fixtures, plus one isolated database integration check.",
+    "learningObjectives": [
+      "Distinguish unit and integration boundaries",
+      "Assert failure behavior without paid provider calls"
+    ],
+    "completionCriteria": [
+      "A known authorization regression fails the suite",
+      "Tests run independently with no shared fixture state"
+    ],
+    "projectIds": ["project-3", "project-6", "project-7"],
+    "nextTopicId": "10.4",
+    "stageType": "during_topic"
+  },
+  "python:1.2": {
+    "prerequisiteTopicIds": ["1.1"],
+    "focusSections": [
+      "More on defining functions",
+      "Keyword and default arguments",
+      "Modules",
+      "Packages",
+      "Executing modules as scripts"
+    ],
+    "startWhen": "Read the functions and Modules chapters during Functions and Modular Programming in Phase 01 after control flow and collections.",
+    "whyAtThisStage": "Function contracts and module boundaries let the same student-record behavior be reused and tested.",
+    "practicalTask": "Split mark validation and aggregation into functions in a module, import them from a small CLI, and exercise positional/default/keyword arguments.",
+    "learningObjectives": [
+      "Explain argument binding and a return contract",
+      "Distinguish importing a module from running its CLI"
+    ],
+    "completionCriteria": [
+      "Invalid marks are handled consistently",
+      "The module can be imported without starting interactive input"
+    ],
+    "projectIds": ["project-1"],
+    "nextTopicId": "1.3",
+    "stageType": "during_topic"
+  },
+  "python:1.3": {
+    "prerequisiteTopicIds": ["1.2"],
+    "focusSections": [
+      "Classes",
+      "Class and instance variables",
+      "Inheritance",
+      "Iterators",
+      "Exceptions as supporting revision"
+    ],
+    "startWhen": "Read the Classes chapter during Object-Oriented Programming in Phase 01 after functions and modules.",
+    "whyAtThisStage": "The tutorial now explains the object and method behavior needed to model records and interchangeable repositories.",
+    "practicalTask": "Create Student and StudentRepository objects, compare a file-backed and an in-memory implementation, and test that instance data is not shared accidentally.",
+    "learningObjectives": [
+      "Distinguish class attributes from instance state",
+      "Use composition or an interface to replace storage"
+    ],
+    "completionCriteria": [
+      "Two instances keep independent records",
+      "The same caller works with both repository implementations"
+    ],
+    "projectIds": ["project-1"],
+    "nextTopicId": "1.4",
+    "stageType": "during_topic"
+  },
+  "python:1.4": {
+    "prerequisiteTopicIds": ["1.2", "1.3"],
+    "focusSections": [
+      "Errors and exceptions",
+      "Iterators and generators",
+      "Input and output",
+      "Predefined clean-up actions",
+      "Standard-library overview"
+    ],
+    "startWhen": "Return to the exception, generator and file-cleanup sections during Advanced Python in Phase 01 after classes.",
+    "whyAtThisStage": "These selected tutorial sections cover iteration and resource handling; typing and async details need the linked standard-library references.",
+    "practicalTask": "Write a generator-based JSON-to-CSV transformation with a context-managed file and a custom validation exception. Use the separate asyncio guide only for the topic's later async exercise.",
+    "learningObjectives": [
+      "Explain lazy iteration and resource lifetime",
+      "Keep invalid records separate from successful output"
+    ],
+    "completionCriteria": [
+      "A failing input closes files and produces a controlled error",
+      "The generator does not require loading the whole dataset"
+    ],
+    "projectIds": ["project-1"],
+    "nextTopicId": "1.5",
+    "stageType": "during_topic"
+  },
+  "python:1.5": {
+    "prerequisiteTopicIds": ["1.4"],
+    "focusSections": [
+      "Virtual environments and packages",
+      "Brief tour: quality control",
+      "Brief tour: performance measurement",
+      "Modules and package layout"
+    ],
+    "startWhen": "Revisit environments, quality-control and timing examples during Python Professional Development in Phase 01 after Advanced Python.",
+    "whyAtThisStage": "The language tutorial supplies environment and standard-library context; pytest, formatter and linter setup use their own documentation.",
+    "practicalTask": "Create an isolated environment for the student app, reproduce its dependency setup and time one function using the documented standard-library approach.",
+    "learningObjectives": [
+      "Separate dependency isolation from source packaging",
+      "Measure a function without guessing its bottleneck"
+    ],
+    "completionCriteria": [
+      "A second local environment can reproduce the run",
+      "The timing records input size and method"
+    ],
+    "projectIds": ["project-1"],
+    "nextTopicId": "1.6-javascript",
+    "stageType": "during_topic"
+  },
+  "git:3.1": {
+    "prerequisiteTopicIds": ["0.5", "1.5"],
+    "focusSections": [
+      "Distributed workflows",
+      "Contributing to a project",
+      "Branching workflows",
+      "Inspecting diffs and commit history"
+    ],
+    "startWhen": "Revisit the collaboration chapters during Software Engineering Fundamentals in Phase 03 after the initial Git and Python project.",
+    "whyAtThisStage": "A reviewable branch and commit history make a refactor inspectable; the book supports version-control practice rather than requirements design itself.",
+    "practicalTask": "Put one small student-app refactor on a branch, inspect the diff and write a review note explaining behavior preserved and tests run.",
+    "learningObjectives": [
+      "Keep a coherent change separate from unrelated work",
+      "Explain a diff to another reviewer"
+    ],
+    "completionCriteria": [
+      "The branch contains a focused change and useful commit message",
+      "A reviewed diff matches the stated behavior"
+    ],
+    "projectIds": ["project-1", "project-3"],
+    "nextTopicId": "3.2",
+    "stageType": "during_topic"
+  },
+  "git:10.7": {
+    "prerequisiteTopicIds": ["0.5", "10.3", "10.6"],
+    "focusSections": [
+      "Tagging",
+      "Distributed workflows",
+      "Git hooks",
+      "Inspecting commit history"
+    ],
+    "startWhen": "Revisit release identity and workflow sections during DevOps and CI/CD in Phase 10 after local checks and the first cloud deployment.",
+    "whyAtThisStage": "Git identifies the exact source being built; GitHub Actions documentation supplies the CI YAML and runner behavior.",
+    "practicalTask": "Tag a local practice release, identify its commit and describe how a CI artifact should retain that identity. Use the separate GitHub Actions resource for the workflow file.",
+    "learningObjectives": [
+      "Distinguish a Git tag from a deployment",
+      "Trace an artifact back to reviewed source"
+    ],
+    "completionCriteria": [
+      "The tag resolves to the expected commit",
+      "The release note records tests and a rollback source revision"
+    ],
+    "projectIds": ["project-7"],
+    "nextTopicId": "10.8",
+    "stageType": "during_topic"
+  },
+  "web:7.1": {
+    "prerequisiteTopicIds": ["0.3", "1.5"],
+    "focusSections": [
+      "HTTP overview",
+      "Request methods",
+      "Status codes",
+      "Headers",
+      "Browser network inspection"
+    ],
+    "startWhen": "Revisit HTTP and web API reference material during API Engineering in Phase 07 after programming and the networking introduction.",
+    "whyAtThisStage": "Transport semantics explain a prediction endpoint's observable contract; MDN is the HTTP reference, not the generator of your application schema.",
+    "practicalTask": "Inspect sample success, validation-error and unauthorized requests and specify methods, statuses and headers for one prediction endpoint.",
+    "learningObjectives": [
+      "Distinguish transport status from response data",
+      "Explain an HTTP request/response boundary"
+    ],
+    "completionCriteria": [
+      "The three cases have justified methods and statuses",
+      "An untrusted response is validated before display"
+    ],
+    "projectIds": ["project-3", "project-6"],
+    "nextTopicId": "7.2",
+    "stageType": "during_topic"
+  },
+  "postgres:3.3": {
+    "prerequisiteTopicIds": ["1.6-sql", "3.2"],
+    "focusSections": [
+      "Tutorial: tables and joins",
+      "SQL language: constraints",
+      "SQL language: JSON types",
+      "Transactions"
+    ],
+    "startWhen": "Use the relational and JSON sections as a comparison during NoSQL Fundamentals in Phase 03, after PostgreSQL database engineering.",
+    "whyAtThisStage": "A relational baseline helps you decide whether documents simplify actual queries; PostgreSQL documentation does not teach MongoDB's API.",
+    "practicalTask": "Represent one document-metadata example as normalized rows and as a JSON column, then compare update and integrity requirements with the separate MongoDB exercise.",
+    "learningObjectives": [
+      "Compare relational constraints with document flexibility",
+      "Choose a model using concrete query patterns"
+    ],
+    "completionCriteria": [
+      "Both PostgreSQL examples answer the same sample query",
+      "Document which integrity rule each design enforces"
+    ],
+    "projectIds": ["project-3", "project-4"],
+    "nextTopicId": "3.4",
+    "stageType": "during_topic"
+  },
+  "postgres:3.5": {
+    "prerequisiteTopicIds": ["3.2", "3.4"],
+    "focusSections": [
+      "SQL language: constraints",
+      "Data definition and schemas",
+      "JSON types",
+      "Indexes",
+      "EXPLAIN as a later query check"
+    ],
+    "startWhen": "Revisit schema and constraint material during Data Modeling and Storage for AI in Phase 03 after PostgreSQL and data pipelines.",
+    "whyAtThisStage": "Documents, source versions and ownership need a durable relational model before embedding indexes are added.",
+    "practicalTask": "Design users, documents and chunks tables with tenant ownership and source-version references; test a foreign-key failure and a deletion rule.",
+    "learningObjectives": [
+      "Model provenance and ownership as data",
+      "Separate relational integrity from vector similarity"
+    ],
+    "completionCriteria": [
+      "A cross-tenant lookup cannot bypass the ownership filter",
+      "Deletion behavior is demonstrated on a local fixture"
+    ],
+    "projectIds": ["project-4", "project-6"],
+    "nextTopicId": "4.1",
+    "stageType": "during_topic"
+  },
+  "postgres:7.3": {
+    "prerequisiteTopicIds": ["3.2", "7.2"],
+    "focusSections": [
+      "Transactions",
+      "Application interfaces overview",
+      "Connection management concepts",
+      "Constraints and error handling"
+    ],
+    "startWhen": "Return to transaction and application-interface sections during Backend Architecture in Phase 07 after a working FastAPI route.",
+    "whyAtThisStage": "A repository boundary must preserve database correctness when requests fail; the source supports persistence behavior rather than the whole backend architecture.",
+    "practicalTask": "Implement or sketch one transaction-backed document repository and test a failed multi-step write using the topic's selected Python driver.",
+    "learningObjectives": [
+      "Keep a business operation atomic",
+      "Place connection and transaction ownership explicitly"
+    ],
+    "completionCriteria": [
+      "A failure rolls back the partial write",
+      "The test identifies its driver and isolation assumptions"
+    ],
+    "projectIds": ["project-3", "project-4", "project-6"],
+    "nextTopicId": "7.4",
+    "stageType": "during_topic"
+  },
+  "numpy:2.6": {
+    "prerequisiteTopicIds": ["1.2", "2.5"],
+    "focusSections": [
+      "Array creation and dtypes",
+      "Elementwise operations",
+      "Broadcasting",
+      "Reductions"
+    ],
+    "startWhen": "Use tiny NumPy arrays to check calculations during Calculus and Optimization in Phase 02 after matrix shapes.",
+    "whyAtThisStage": "Vectorized numerical examples can check a derivative estimate, but the derivative and optimization reasoning belong to the mathematics lesson.",
+    "practicalTask": "Evaluate a quadratic loss at nearby parameter values, compare its finite-difference slope with the hand derivative and perform one update.",
+    "learningObjectives": [
+      "Use shapes and reductions consistently",
+      "Distinguish a numerical estimate from an analytic derivative"
+    ],
+    "completionCriteria": [
+      "Hand and numerical slopes approximately agree",
+      "The result states epsilon, dtype and step size"
+    ],
+    "projectIds": ["project-2"],
+    "nextTopicId": "2.7",
+    "stageType": "during_topic"
+  },
+  "sklearn:4.3": {
+    "prerequisiteTopicIds": ["4.1", "4.2"],
+    "focusSections": [
+      "Linear models",
+      "Decision trees",
+      "Random forests",
+      "Preprocessing pipelines",
+      "Cross-validation basics"
+    ],
+    "startWhen": "Read selected supervised-estimator guides during Supervised Learning in Phase 04 after the estimator interface and data preparation.",
+    "whyAtThisStage": "You can now compare model assumptions instead of merely learning fit and predict syntax.",
+    "practicalTask": "Compare a linear model, tree and forest on the same split and preprocessing, reporting one relevant held-out metric and error pattern.",
+    "learningObjectives": [
+      "Connect estimator assumptions to a task",
+      "Keep model comparisons leakage-free"
+    ],
+    "completionCriteria": [
+      "All candidates use the same held-out cases",
+      "Explain one error pattern and a model trade-off"
+    ],
+    "projectIds": ["project-2", "project-3"],
+    "nextTopicId": "4.4",
+    "stageType": "during_topic"
+  },
+  "sklearn:4.4": {
+    "prerequisiteTopicIds": ["4.1", "4.2", "4.3"],
+    "focusSections": [
+      "Clustering: K-means",
+      "Clustering: DBSCAN",
+      "Decomposition: PCA",
+      "Scaling",
+      "Clustering evaluation limits"
+    ],
+    "startWhen": "Read clustering and PCA guides during Unsupervised Learning in Phase 04 after the estimator interface and scaling.",
+    "whyAtThisStage": "Unlabeled structure needs different interpretation from supervised accuracy; cluster IDs are not known semantic labels.",
+    "practicalTask": "Scale a small dataset, compare K-means and DBSCAN and inspect a PCA projection with clearly stated evaluation limits.",
+    "learningObjectives": [
+      "Interpret clustering without invented ground truth",
+      "Explain how scaling affects distances"
+    ],
+    "completionCriteria": [
+      "Record parameters and a noise/outlier example",
+      "Avoid treating cluster numbers as meaningful categories"
+    ],
+    "projectIds": ["project-2"],
+    "nextTopicId": "4.5",
+    "stageType": "during_topic"
+  },
+  "sklearn:4.5": {
+    "prerequisiteTopicIds": ["4.1", "4.2", "4.3", "4.4"],
+    "focusSections": [
+      "Model evaluation: classification metrics",
+      "Confusion matrix",
+      "Precision, recall and F scores",
+      "Cross-validation",
+      "Threshold interpretation"
+    ],
+    "startWhen": "Read the metrics and validation guides during Model Evaluation in Phase 04 after fitting initial models.",
+    "whyAtThisStage": "A fitted model gives each metric a concrete mistake pattern; this is the point to assess what a headline score hides.",
+    "practicalTask": "Compute a tiny confusion matrix by hand, check it with scikit-learn and compare two decision thresholds on held-out examples.",
+    "learningObjectives": [
+      "Relate metric changes to false positives and negatives",
+      "Keep threshold selection separate from final test evaluation"
+    ],
+    "completionCriteria": [
+      "Hand and library counts agree",
+      "Explain the chosen operating threshold and one subgroup limitation"
+    ],
+    "projectIds": ["project-2", "project-3"],
+    "nextTopicId": "4.6",
+    "stageType": "during_topic"
+  },
+  "sklearn:4.6": {
+    "prerequisiteTopicIds": ["4.1", "4.2", "4.5"],
+    "focusSections": [
+      "Pipeline and ColumnTransformer",
+      "Hyperparameter search",
+      "Cross-validation",
+      "Common pitfalls and data leakage",
+      "Model persistence and trust boundaries"
+    ],
+    "startWhen": "Read pipeline, search and reproducibility guidance during Model Training and Improvement in Phase 04 after evaluation fundamentals.",
+    "whyAtThisStage": "A controlled search must fit preprocessing only on training folds and preserve the same inference transformations.",
+    "practicalTask": "Compare a small hyperparameter search with a baseline in a Pipeline, log settings and save the complete trusted inference pipeline.",
+    "learningObjectives": [
+      "Avoid preprocessing leakage during search",
+      "Preserve training/inference transformations"
+    ],
+    "completionCriteria": [
+      "The search space and validation method are recorded",
+      "Reloading the trusted artifact reproduces predictions"
+    ],
+    "projectIds": ["project-2", "project-3"],
+    "nextTopicId": "5.1",
+    "stageType": "during_topic"
+  },
+  "pytorch:5.3": {
+    "prerequisiteTopicIds": ["2.5", "5.1", "5.2"],
+    "focusSections": [
+      "Neural networks tutorial",
+      "Convolutional networks",
+      "Data loading",
+      "Training/evaluation mode",
+      "Saving model weights"
+    ],
+    "startWhen": "Revisit network modules and architecture examples during Neural Network Architectures in Phase 05 after the first PyTorch training loop.",
+    "whyAtThisStage": "Tensor operations now support an architectural comparison; repeating only the tensor introduction would not explain the new layer choices.",
+    "practicalTask": "Compare a tiny fully connected model and CNN on the same small image fixture, tracing shapes and evaluation behavior.",
+    "learningObjectives": [
+      "Trace shapes through different layer types",
+      "Separate training mode from evaluation mode"
+    ],
+    "completionCriteria": [
+      "Inputs and outputs have documented shapes",
+      "A measured comparison uses the same fixture and metric"
+    ],
+    "projectIds": ["project-2", "project-3"],
+    "nextTopicId": "5.4",
+    "stageType": "during_topic"
+  },
+  "pytorch:5.4": {
+    "prerequisiteTopicIds": ["2.5", "5.2", "5.3"],
+    "focusSections": [
+      "Moving tensors between devices",
+      "Pinned memory and non-blocking transfers",
+      "Performance measurement",
+      "Mixed precision introduction"
+    ],
+    "startWhen": "Read device and transfer tutorials during GPU and Model Training Fundamentals in Phase 05 after tensor and architecture practice.",
+    "whyAtThisStage": "Memory placement and transfers explain throughput bottlenecks; compatible hardware is optional for the conceptual work.",
+    "practicalTask": "Estimate parameter/gradient memory and measure a small available-device workload with synchronized timing, or annotate supplied timings if no GPU is available.",
+    "learningObjectives": [
+      "Separate compute time from data-transfer time",
+      "State precision and memory assumptions"
+    ],
+    "completionCriteria": [
+      "The report identifies actual versus reference-only results",
+      "No unsupported speed claim is made without the device and workload"
+    ],
+    "projectIds": ["project-7"],
+    "nextTopicId": "6.1",
+    "stageType": "during_topic"
+  },
+  "pytorch:6.3": {
+    "prerequisiteTopicIds": ["2.5", "5.2", "6.2"],
+    "focusSections": [
+      "Scaled dot-product attention tutorial",
+      "Tensor shapes",
+      "Masking",
+      "Reference attention calculation"
+    ],
+    "startWhen": "Open the attention tutorial during Transformer Architecture in Phase 06 after the topic's attention equations and the PyTorch basics.",
+    "whyAtThisStage": "Small matrices let you verify the attention operation before adding an entire pretrained model.",
+    "practicalTask": "Implement a tiny attention calculation and causal mask, then compare valid shapes and one masked output with the reference explanation.",
+    "learningObjectives": [
+      "Connect attention equations to tensor dimensions",
+      "Explain why future-token masking matters"
+    ],
+    "completionCriteria": [
+      "The causal mask blocks the intended positions",
+      "The comparison records input shapes and tolerance"
+    ],
+    "projectIds": ["project-4", "project-6"],
+    "nextTopicId": "6.4",
+    "stageType": "during_topic"
+  },
+  "huggingface:6.3": {
+    "prerequisiteTopicIds": ["5.2", "6.1", "6.2"],
+    "focusSections": [
+      "Chapter 1: How Transformers work",
+      "Transformer architectures",
+      "Chapter 2: model inputs and tokenization"
+    ],
+    "startWhen": "Read the transformer overview sections during Transformer Architecture in Phase 06 after basic language-model concepts.",
+    "whyAtThisStage": "The course connects tokenization and pretrained model families to the architecture lesson; the low-level attention exercise uses the PyTorch resource.",
+    "practicalTask": "Compare encoder, decoder and encoder-decoder use cases and trace token IDs into one selected model's input contract.",
+    "learningObjectives": [
+      "Distinguish transformer families",
+      "Explain the tokenizer/model input boundary"
+    ],
+    "completionCriteria": [
+      "Each family has a justified task example",
+      "The trace labels token and hidden-state shapes without claiming to train a full model"
+    ],
+    "projectIds": ["project-4", "project-6"],
+    "nextTopicId": "6.4",
+    "stageType": "during_topic"
+  },
+  "huggingface:6.4": {
+    "prerequisiteTopicIds": ["5.2", "6.2", "6.3"],
+    "focusSections": [
+      "Chapter 1: inference with LLMs",
+      "Chapter 2: tokenization and model inputs",
+      "Model outputs and limitations"
+    ],
+    "startWhen": "Revisit inference and tokenization material during LLM Internals in Phase 06 after the transformer overview.",
+    "whyAtThisStage": "Concrete token inputs and outputs make inference/context behavior inspectable; advanced serving optimization is a later resource.",
+    "practicalTask": "Trace a short inference example with fixed settings and compare input token count, output length and a documented context limit using a small model or supplied trace.",
+    "learningObjectives": [
+      "Separate tokenization from generation",
+      "Interpret a model output without assuming factual correctness"
+    ],
+    "completionCriteria": [
+      "The model/tokenizer and settings are identified",
+      "A context or generation limitation is documented"
+    ],
+    "projectIds": ["project-4", "project-6"],
+    "nextTopicId": "6.7",
+    "stageType": "during_topic"
+  },
+  "huggingface:6.5": {
+    "prerequisiteTopicIds": ["5.2", "6.4", "6.7"],
+    "focusSections": [
+      "Chapter 3: fine-tuning a pretrained model",
+      "Datasets library",
+      "Training and evaluation split",
+      "Advanced LLM fine-tuning as a later subset"
+    ],
+    "startWhen": "Read the fine-tuning introduction during LLM Training and Adaptation in Phase 06 after LLM Internals and prompt/context design.",
+    "whyAtThisStage": "A prompt-only baseline gives you something to compare against adaptation; the advanced course chapters are optional extensions.",
+    "practicalTask": "Prepare a tiny licensed dataset and disjoint evaluation set, then compare a prompt-only baseline with a small adaptation plan or CPU-feasible example.",
+    "learningObjectives": [
+      "Distinguish prompting from weight updates",
+      "Prevent evaluation examples from leaking into adaptation"
+    ],
+    "completionCriteria": [
+      "The data split and license are explicit",
+      "The report states cost, overfitting risk and whether training actually ran"
+    ],
+    "projectIds": ["project-4", "project-6"],
+    "nextTopicId": "6.6",
+    "stageType": "during_topic"
+  },
+  "huggingface:7.4": {
+    "prerequisiteTopicIds": ["6.4", "6.6", "7.3"],
+    "focusSections": [
+      "Chapter 2: loading models and tokenizers",
+      "Model input/output objects",
+      "Inference examples",
+      "Model cards and limitations"
+    ],
+    "startWhen": "Revisit only local model/tokenizer interface examples during AI Provider Integration in Phase 07 after the Hugging Face ecosystem topic.",
+    "whyAtThisStage": "A known input/output contract helps isolate one local adapter; commercial API authentication, retries and provider billing use their own provider guides.",
+    "practicalTask": "Wrap a tiny local or mocked Hugging Face inference call behind the CCAI adapter interface and normalize its output without exposing implementation details.",
+    "learningObjectives": [
+      "Separate a local model adapter from a hosted-provider API",
+      "Normalize an output contract"
+    ],
+    "completionCriteria": [
+      "The adapter is testable with supplied responses",
+      "The note identifies which hosted-provider behaviors this course does not cover"
+    ],
+    "projectIds": ["project-6"],
+    "nextTopicId": "7.5",
+    "stageType": "during_topic"
+  },
+  "huggingface:7.5": {
+    "prerequisiteTopicIds": ["6.4", "6.6", "7.4"],
+    "focusSections": [
+      "Tokenizers library introduction",
+      "Token IDs and lengths",
+      "Truncation and padding",
+      "Model context limitations"
+    ],
+    "startWhen": "Reopen tokenization and truncation sections during Token and Cost Engineering in Phase 07 after provider integration.",
+    "whyAtThisStage": "The tokenizer supports length estimation; the course is not a current price list or a guarantee of another provider's billing tokenizer.",
+    "practicalTask": "Count tokens for several inputs with one identified tokenizer, reserve output capacity and compare a truncation policy. Keep provider prices and billing counts separately configurable.",
+    "learningObjectives": [
+      "Explain tokenizer-dependent length",
+      "Distinguish estimated usage from billed usage"
+    ],
+    "completionCriteria": [
+      "The tokenizer and context budget are recorded",
+      "The estimate is not presented as an exact unrelated provider charge"
+    ],
+    "projectIds": ["project-6"],
+    "nextTopicId": "7.6",
+    "stageType": "during_topic"
+  },
+  "huggingface:8.1": {
+    "prerequisiteTopicIds": ["2.5", "6.2", "6.6"],
+    "focusSections": [
+      "Course: semantic search with FAISS",
+      "Embeddings and pooling",
+      "Dataset preparation",
+      "Model and tokenizer selection"
+    ],
+    "startWhen": "Read the semantic-search worked example during Embeddings and Vector Search in Phase 08 after linear algebra and model/tokenizer fundamentals.",
+    "whyAtThisStage": "The course provides an executable embedding/search example; storage, tenant filtering and pgvector operators belong to their respective resources.",
+    "practicalTask": "Inspect the example's embedding model and pooling, embed a tiny corpus and test two queries with known relevant results.",
+    "learningObjectives": [
+      "Distinguish retrieval embeddings from arbitrary token hidden states",
+      "Keep one model and dimension convention"
+    ],
+    "completionCriteria": [
+      "Record the embedding model and vector shape",
+      "Inspect a failed query instead of assuming all embeddings are comparable"
+    ],
+    "projectIds": ["project-4", "project-5"],
+    "nextTopicId": "8.2",
+    "stageType": "during_topic"
+  },
+  "huggingface:8.3": {
+    "prerequisiteTopicIds": ["6.6", "8.1", "8.2"],
+    "focusSections": [
+      "Semantic search with FAISS worked example",
+      "Dataset rows and source metadata",
+      "Tokenization and truncation",
+      "Model input/output limitations"
+    ],
+    "startWhen": "Revisit the embedding/search and input-preparation examples while building Traditional RAG in Phase 08 after a vector-search baseline.",
+    "whyAtThisStage": "This source supports the embedding and context-input parts of RAG; document authorization, vector SQL and evaluation need the other roadmap resources.",
+    "practicalTask": "Preserve source IDs while preparing a tiny embedding dataset, inspect the retrieved rows for two queries and ensure the chosen context fits the tokenizer budget.",
+    "learningObjectives": [
+      "Keep source identity through preprocessing",
+      "Distinguish a retriever result from a supported generated answer"
+    ],
+    "completionCriteria": [
+      "Retrieved rows can be traced to original sources",
+      "The report identifies an unanswerable or missing-evidence case"
+    ],
+    "projectIds": ["project-4", "project-5"],
+    "nextTopicId": "8.4",
+    "stageType": "during_topic"
+  },
+  "huggingface:8.4": {
+    "prerequisiteTopicIds": ["6.6", "8.1", "8.3"],
+    "focusSections": [
+      "Semantic-search example",
+      "Dataset filtering and mapping",
+      "Tokenizer truncation",
+      "Model choice and input limits"
+    ],
+    "startWhen": "Use the course's search/data-preparation sections as a supporting reference during Advanced RAG in Phase 08, after measuring the basic RAG baseline.",
+    "whyAtThisStage": "A preprocessing or embedding change can alter retrieval, but this course is not a complete hybrid/reranking architecture manual.",
+    "practicalTask": "Change one dataset or embedding-preparation choice and compare retrieved source IDs on fixed questions; use the separate pgvector/evaluation guidance for indexed retrieval and answer scores.",
+    "learningObjectives": [
+      "Control one preprocessing change",
+      "Explain the source's limits for advanced retrieval design"
+    ],
+    "completionCriteria": [
+      "The before/after cases and source IDs are retained",
+      "No unsupported claim about end-to-end RAG quality is based only on vector similarity"
+    ],
+    "projectIds": ["project-4", "project-5"],
+    "nextTopicId": "8.5",
+    "stageType": "during_topic"
+  },
+  "huggingface:11.2": {
+    "prerequisiteTopicIds": ["6.6", "7.4", "10.4", "11.1"],
+    "focusSections": [
+      "Transformer model families",
+      "Model cards and limitations",
+      "Tokenization and context limits",
+      "Fixed inference examples"
+    ],
+    "startWhen": "Revisit model-family and context-limit material during Intelligent Model Routing in Phase 11 after provider adapters and evaluation.",
+    "whyAtThisStage": "Model descriptions inform a capability registry, but routing policy, pricing and availability must be measured or configured elsewhere.",
+    "practicalTask": "Record input limits and task suitability for two candidate models in CCAI's registry, separating documented claims from your own fixed-input evaluation.",
+    "learningObjectives": [
+      "Distinguish declared capability from measured suitability",
+      "Keep tokenizer/context assumptions per model"
+    ],
+    "completionCriteria": [
+      "Every registry claim has a source or labeled measurement",
+      "A fallback rule is justified independently of model popularity"
+    ],
+    "projectIds": ["project-6"],
+    "nextTopicId": "11.3",
+    "stageType": "during_topic"
+  },
+  "huggingface:11.3": {
+    "prerequisiteTopicIds": ["5.4", "6.4", "6.6", "11.2"],
+    "focusSections": [
+      "Loading a pretrained model",
+      "Tokenizer and inference pipeline",
+      "Batching/padding concepts",
+      "Model and dataset limitations"
+    ],
+    "startWhen": "Use the course only to prepare a reproducible single-model inference baseline during Phase 11 Model Serving and Inference Optimization, before comparing a serving engine.",
+    "whyAtThisStage": "A stable model/input baseline is required before vLLM, CUDA or Ray changes can be interpreted; engine deployment is outside this course's scope.",
+    "practicalTask": "Record a small model's fixed input, tokenizer, output and resource assumptions, then use the selected serving-engine resource for one controlled performance comparison.",
+    "learningObjectives": [
+      "Keep model/input identity stable across benchmarks",
+      "Separate application baseline work from serving-engine configuration"
+    ],
+    "completionCriteria": [
+      "The baseline is reproducible or clearly labeled reference-only",
+      "The serving comparison names its separate engine documentation"
+    ],
+    "projectIds": ["project-7"],
+    "nextTopicId": "11.4",
+    "stageType": "during_topic"
+  },
+  "fastapi:7.3": {
+    "prerequisiteTopicIds": ["1.4", "3.2", "7.1", "7.2"],
+    "focusSections": [
+      "Bigger applications and APIRouter",
+      "Dependencies",
+      "Dependencies with yield",
+      "Testing dependency overrides"
+    ],
+    "startWhen": "Read application-structure and dependency sections during Backend Architecture in Phase 07 after your first FastAPI API and database concepts.",
+    "whyAtThisStage": "The framework supplies explicit request/dependency lifetimes for a service/repository design; it does not choose the business architecture for you.",
+    "practicalTask": "Move one prediction endpoint into a router, inject a repository and override it in tests, checking cleanup on a failed request.",
+    "learningObjectives": [
+      "Separate routing from business logic",
+      "Explain the lifetime of an injected dependency"
+    ],
+    "completionCriteria": [
+      "The same route works with a test repository",
+      "Failure releases the request-scoped resource"
+    ],
+    "projectIds": ["project-3", "project-6"],
+    "nextTopicId": "7.4",
+    "stageType": "during_topic"
+  },
+  "fastapi:7.4": {
+    "prerequisiteTopicIds": ["1.4", "7.2", "7.3"],
+    "focusSections": [
+      "Request body models",
+      "Response models",
+      "Async and dependencies",
+      "Testing overrides",
+      "Handling errors"
+    ],
+    "startWhen": "Reopen validation, dependency and response-model sections during AI Provider Integration in Phase 07 after backend architecture.",
+    "whyAtThisStage": "Provider adapters need a validated application boundary; provider role syntax, SDK retries and pricing come from that provider's own documentation.",
+    "practicalTask": "Inject a mocked provider into a validated route, normalize its response and reject malformed generated data without logging credentials or private prompts.",
+    "learningObjectives": [
+      "Keep provider details behind an interface",
+      "Validate untrusted model output at the API boundary"
+    ],
+    "completionCriteria": [
+      "Valid and malformed mock responses have deterministic tests",
+      "A failure returns a controlled error contract"
+    ],
+    "projectIds": ["project-6"],
+    "nextTopicId": "7.5",
+    "stageType": "during_topic"
+  },
+  "fastapi:7.6": {
+    "prerequisiteTopicIds": ["1.4", "7.2", "7.3", "7.4", "7.5"],
+    "focusSections": [
+      "Handling errors",
+      "Dependencies and cleanup",
+      "Async request handlers",
+      "Testing error paths",
+      "Background-task limitations"
+    ],
+    "startWhen": "Use the error-handling and testing sections during AI Backend Reliability in Phase 07 after provider integration and usage accounting.",
+    "whyAtThisStage": "FastAPI exposes controlled responses and cleanup; backoff, retry budgets and circuit breakers must be designed separately for the provider client.",
+    "practicalTask": "Simulate timeout and malformed-provider responses behind a dependency, assert the mapped status/error and verify cleanup. Document the separate bounded retry policy.",
+    "learningObjectives": [
+      "Separate framework error mapping from provider retry policy",
+      "Keep resources and usage accounting consistent on failure"
+    ],
+    "completionCriteria": [
+      "No failed call leaves a request resource open",
+      "The test shows controlled errors without retrying indefinitely"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "8.1",
+    "stageType": "during_topic"
+  },
+  "redis:9.3": {
+    "prerequisiteTopicIds": ["7.3", "9.1", "9.2"],
+    "focusSections": [
+      "Atomic operations",
+      "Transactions or scripts",
+      "Expiration",
+      "Counters",
+      "Rate-limiting patterns"
+    ],
+    "startWhen": "Read atomic counter and expiry guidance during Rate Limiting in Phase 09 after the caching/Redis introduction.",
+    "whyAtThisStage": "Concurrent requests need an atomic decision, not independent read-then-write counters.",
+    "practicalTask": "Implement a small tenant-scoped limiter, test simultaneous calls and expiry, and document the failure policy when Redis is unavailable.",
+    "learningObjectives": [
+      "Preserve an atomic counter/expiry invariant",
+      "Explain per-tenant key boundaries"
+    ],
+    "completionCriteria": [
+      "A concurrent test does not admit excess requests under the chosen rule",
+      "Denied requests include a controlled retry signal"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "9.4",
+    "stageType": "during_topic"
+  },
+  "docker:10.7": {
+    "prerequisiteTopicIds": ["0.5", "10.3", "10.5", "10.6"],
+    "focusSections": [
+      "Build and tag images",
+      "Multi-stage builds",
+      "Build cache",
+      "Image registries",
+      "Container health and configuration"
+    ],
+    "startWhen": "Return to build/tag and image-publishing sections during DevOps and CI/CD in Phase 10 after the first container and cloud deployment.",
+    "whyAtThisStage": "Docker documentation defines the artifact; GitHub Actions documentation defines the workflow that builds it.",
+    "practicalTask": "Build a tagged prediction-API image locally, record its source revision and test startup/health behavior. Draft the CI invocation using the separate Actions guide.",
+    "learningObjectives": [
+      "Separate image creation from CI orchestration",
+      "Trace a runtime artifact to source"
+    ],
+    "completionCriteria": [
+      "The image runs with documented configuration",
+      "The source revision and rollback image identity are recorded"
+    ],
+    "projectIds": ["project-3", "project-7"],
+    "nextTopicId": "10.8",
+    "stageType": "during_topic"
+  },
+  "mlflow:10.4": {
+    "prerequisiteTopicIds": ["4.6", "8.3", "10.3"],
+    "focusSections": [
+      "LLMs and Agents: tracing",
+      "Evaluation datasets",
+      "Evaluation experiments and scorers",
+      "Recording feedback and comparison"
+    ],
+    "startWhen": "Open the LLMs and Agents evaluation documentation during AI and LLM Evaluation in Phase 10 after a working LLM application and testing; do not use the traditional model-registry section for this visit.",
+    "whyAtThisStage": "MLflow can retain LLM traces, evaluation cases and comparisons; lifecycle/registry work belongs to the later MLOps visit.",
+    "practicalTask": "Record a small fixed document-assistant or CCAI evaluation with input/source/output provenance and one changed version, inspecting failed or disputed scores.",
+    "learningObjectives": [
+      "Distinguish LLM evaluation from traditional model registry",
+      "Keep comparison data and scorer settings reproducible"
+    ],
+    "completionCriteria": [
+      "The two versions use identical cases",
+      "A failure trace and scorer limitation are documented"
+    ],
+    "projectIds": ["project-4", "project-6"],
+    "nextTopicId": "10.5",
+    "stageType": "during_topic"
+  },
+  "otel:11.1": {
+    "prerequisiteTopicIds": ["7.3", "9.1", "10.8"],
+    "focusSections": [
+      "Trace context propagation",
+      "Spans and semantic conventions",
+      "Resource attributes",
+      "Sampling",
+      "Sensitive-data handling"
+    ],
+    "startWhen": "Revisit propagation and instrumentation design during AI System Architecture in Phase 11 after implementing basic observability.",
+    "whyAtThisStage": "The architecture now spans several boundaries, so an isolated request log is insufficient to explain a slow or failed flow.",
+    "practicalTask": "Annotate a CCAI request diagram with span boundaries, propagation, safe attributes and sampling decisions; identify where private context must be excluded.",
+    "learningObjectives": [
+      "Connect a dependency boundary to a trace",
+      "Choose useful low-cardinality attributes"
+    ],
+    "completionCriteria": [
+      "A request can be followed across the proposed boundaries",
+      "The plan excludes secrets and raw private document content"
+    ],
+    "projectIds": ["project-6", "project-7"],
+    "nextTopicId": "11.2",
+    "stageType": "during_topic"
+  },
+  "neo4j:8.6": {
+    "prerequisiteTopicIds": ["8.1", "8.3", "8.5"],
+    "focusSections": [
+      "Cypher relationship patterns",
+      "Bounded traversals",
+      "Properties and source provenance",
+      "Indexes and query plans"
+    ],
+    "startWhen": "Read relationship-query and traversal sections during Graph RAG in Phase 08 after a working vector RAG baseline and graph fundamentals.",
+    "whyAtThisStage": "The graph database implements relationship retrieval; extraction quality and answer grounding must still be evaluated separately.",
+    "practicalTask": "Retrieve a bounded provenance-bearing subgraph for a relationship question and compare its evidence with vector-only retrieval on the same question set.",
+    "learningObjectives": [
+      "Bound graph expansion",
+      "Preserve provenance in retrieved relationships"
+    ],
+    "completionCriteria": [
+      "Every returned relationship has a source",
+      "The report includes one extraction error and a case where the graph does not help"
+    ],
+    "projectIds": ["project-5"],
+    "nextTopicId": "8.7",
+    "stageType": "during_topic"
+  },
+  "owasp:10.10": {
+    "prerequisiteTopicIds": ["3.5", "10.1", "10.2"],
+    "focusSections": [
+      "Sensitive information disclosure",
+      "Data and model poisoning",
+      "Unsafe output handling",
+      "Unbounded consumption",
+      "Risk mitigations"
+    ],
+    "startWhen": "Revisit disclosure and data-handling risks during Privacy, Governance, and Responsible AI in Phase 10 after the security topics.",
+    "whyAtThisStage": "OWASP supports engineering controls and threat analysis; current legal applicability must come from the official jurisdiction-specific sources.",
+    "practicalTask": "Review one CCAI data flow for prompt/log disclosure, retention exposure and cross-tenant access, then separate engineering findings from legal questions.",
+    "learningObjectives": [
+      "Map an AI risk to a concrete data boundary",
+      "Distinguish a security control from proof of compliance"
+    ],
+    "completionCriteria": [
+      "The review names a testable mitigation and its limits",
+      "No claim of legal compliance relies only on OWASP"
+    ],
+    "projectIds": ["project-4", "project-6", "project-7"],
+    "nextTopicId": "11.1",
+    "stageType": "during_topic"
+  },
+  "ml-course:5.1": {
+    "prerequisiteTopicIds": ["4.2", "4.5", "4.6"],
+    "focusSections": [
+      "Neural networks module",
+      "Activation functions",
+      "Backpropagation intuition",
+      "Overfitting and regularization"
+    ],
+    "startWhen": "Read the neural-network modules during Deep Learning Fundamentals in Phase 05 after ML evaluation and model training.",
+    "whyAtThisStage": "The conceptual course connects earlier loss/gradient ideas to hidden layers; the PyTorch resource supplies implementation details later.",
+    "practicalTask": "Sketch a tiny network's forward computation and explain how a parameter update could reduce loss, then compare two supplied training/validation curves.",
+    "learningObjectives": [
+      "Explain the role of an activation",
+      "Identify overfitting from separate training and validation evidence"
+    ],
+    "completionCriteria": [
+      "The sketch labels inputs, parameters and output",
+      "The curve interpretation proposes a testable regularization change"
+    ],
+    "projectIds": ["project-2", "project-3"],
+    "nextTopicId": "5.2",
+    "stageType": "during_topic"
+  },
+  "pgvector:8.1": {
+    "prerequisiteTopicIds": ["2.5", "3.2"],
+    "focusSections": [
+      "Getting started: vector type and dimensions",
+      "Querying: distance operators",
+      "Exact nearest-neighbor search",
+      "Storing vectors"
+    ],
+    "startWhen": "Use only the vector type and exact-search sections during Embeddings and Vector Search in Phase 08 after the introductory similarity lessons. Defer ANN indexes until Vector Databases.",
+    "whyAtThisStage": "A small SQL example connects embedding geometry to a durable query without making index tuning a prerequisite for embeddings.",
+    "practicalTask": "Store a few supplied same-model vectors and compare exact rankings under cosine and inner-product operators, retaining source IDs.",
+    "learningObjectives": [
+      "Keep dimensions and model identity consistent",
+      "Interpret a distance operator's ranking"
+    ],
+    "completionCriteria": [
+      "Document vector provenance and dimensions",
+      "One expected relevant result is checked manually"
+    ],
+    "projectIds": ["project-4", "project-5"],
+    "nextTopicId": "8.2",
+    "stageType": "during_topic"
+  },
+  "pgvector:8.3": {
+    "prerequisiteTopicIds": ["3.2", "8.1", "8.2"],
+    "focusSections": [
+      "Querying nearest neighbors",
+      "Filtering",
+      "Joins and source metadata",
+      "Index query behavior"
+    ],
+    "startWhen": "Revisit filtering and vector-query sections during Traditional RAG in Phase 08 after an exact/indexed search baseline.",
+    "whyAtThisStage": "The database must return authorized evidence with provenance; pgvector itself does not generate grounded answers.",
+    "practicalTask": "Write a tenant-filtered retrieval query that joins chunk/source metadata, then test an allowed query and a denied cross-tenant fixture.",
+    "learningObjectives": [
+      "Combine similarity and ownership constraints",
+      "Keep retrieved chunks traceable to sources"
+    ],
+    "completionCriteria": [
+      "Another tenant's chunks cannot appear",
+      "Returned evidence includes source IDs and the query/model version"
+    ],
+    "projectIds": ["project-4", "project-5"],
+    "nextTopicId": "8.4",
+    "stageType": "during_topic"
+  },
+  "pgvector:8.4": {
+    "prerequisiteTopicIds": ["3.2", "8.1", "8.2", "8.3"],
+    "focusSections": [
+      "HNSW and IVFFlat indexes",
+      "Filtering and approximate search",
+      "Iterative scans where supported",
+      "Exact-search comparison",
+      "Query plans"
+    ],
+    "startWhen": "Read index/filter tuning sections during Advanced RAG in Phase 08 only after measuring a working RAG baseline.",
+    "whyAtThisStage": "Approximate search and metadata filters can change recall; source-level measurements must precede a tuning claim.",
+    "practicalTask": "Compare exact retrieval with one ANN configuration on fixed labeled queries under the same tenant filter; record recall, latency and query settings.",
+    "learningObjectives": [
+      "Measure recall against an exact baseline",
+      "Explain filter/index interactions"
+    ],
+    "completionCriteria": [
+      "The same authorized cases are used for both runs",
+      "The report records index parameters and one failure case"
+    ],
+    "projectIds": ["project-4", "project-5"],
+    "nextTopicId": "8.5",
+    "stageType": "during_topic"
+  },
+  "linux:1.6-bash": {
+    "prerequisiteTopicIds": ["0.4", "1.5"],
+    "focusSections": [
+      "WSL basic commands",
+      "Set up a WSL development environment",
+      "Windows/Linux file interoperability",
+      "Running Linux commands from Windows"
+    ],
+    "startWhen": "Consult the WSL environment and interoperability sections while studying Bash in Phase 01, after the command-line setup. This is an environment reference, not a Bash-language manual.",
+    "whyAtThisStage": "You need to know where a shell script runs and how paths cross the Windows/Linux boundary; the Bash lessons supply language concepts.",
+    "practicalTask": "Run a supplied harmless input-checking script in a temporary WSL directory and document its working directory, interpreter and Windows/Linux path mapping.",
+    "learningObjectives": [
+      "Identify the shell environment and file boundary",
+      "Distinguish WSL setup from Bash syntax"
+    ],
+    "completionCriteria": [
+      "The supplied script runs in the documented environment",
+      "Linux/macOS learners can state the equivalent existing-shell setup without installing WSL"
+    ],
+    "projectIds": ["project-1", "project-7"],
+    "nextTopicId": "3.1",
+    "stageType": "later_reference"
+  }
+}

@@ -23,16 +23,23 @@ const index = phases.map(({ topics, ...p }) => ({
     })),
   })),
 }));
-writeFileSync("src/data/index.json", JSON.stringify(index));
+writeFileSync("src/data/index.json", JSON.stringify(index, null, 2) + "\n");
 writeFileSync(
   "src/data/ids.json",
-  JSON.stringify({
-    topics: phases.flatMap((p) => p.topics.map((t) => t.id)),
-    subtopics: phases.flatMap((p) =>
-      p.topics.flatMap((t) => t.subtopics.map((s) => s.id)),
-    ),
-    projects: projects.map((p) => ({ id: p.id, count: p.requirements.length })),
-    resources: resources.map((r) => r.id),
-  }),
+  JSON.stringify(
+    {
+      topics: phases.flatMap((p) => p.topics.map((t) => t.id)),
+      subtopics: phases.flatMap((p) =>
+        p.topics.flatMap((t) => t.subtopics.map((s) => s.id)),
+      ),
+      projects: projects.map((p) => ({
+        id: p.id,
+        count: p.requirements.length,
+      })),
+      resources: resources.map((r) => r.id),
+    },
+    null,
+    2,
+  ) + "\n",
 );
 console.log("Generated lean curriculum index.");

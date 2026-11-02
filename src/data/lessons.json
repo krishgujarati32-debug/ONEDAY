@@ -901,7 +901,7 @@
     "Generation uses the prompt and retrieved context to produce an answer.",
     "Source citations connect answer claims to identifiable supporting material.",
     "Retrieval quality measures whether useful evidence appears among returned results.",
-    "RAG evaluation separates retrieval performance from answer quality and cost.",
+    "Evaluate retrieval separately from generation using a fixed set of representative questions, expected evidence, captured contexts and answers. Record a baseline before changing chunking or retrieval, inspect unsupported answers, and compare the same cases after each change.",
     "RAG fails through missing evidence, poor parsing, bad ranking or unsupported generation."
   ],
   "8.4": [
@@ -1235,8 +1235,8 @@
     "Hallucination evaluation checks unsupported or false claims under a stated rubric.",
     "Human evaluation collects expert or user judgments with clear guidance.",
     "Automated evaluation computes repeatable metrics or model-based scores.",
-    "LLM judges may be biased, inconsistent and sensitive to answer style or ordering.",
-    "Regression evaluation repeats fixed checks after model, prompt or retrieval changes.",
+    "An LLM judge can score responses using a rubric, but can be biased, inconsistent and sensitive to ordering or style. Record judge configuration and sample human disagreements rather than treating one generated score as ground truth.",
+    "Regression evaluation repeats a fixed, versioned test set after prompt, model, tool or retrieval changes. Compare quality, cost and latency with a saved baseline and inspect the failing examples before accepting a change.",
     "Prompt evaluation compares task outcomes under controlled prompt variants.",
     "Agent evaluation measures task completion, action correctness and policy violations.",
     "Trade-off analysis compares answer quality with cost and latency rather than one score."
@@ -1432,5 +1432,29 @@
     "Caching improves reuse but requires a policy for stale data.",
     "Synchronous work returns inline; asynchronous work introduces job state and eventual completion.",
     "Build-versus-buy decisions compare control, integration effort, lifetime cost and vendor dependence."
+  ],
+  "6.7": [
+    "Prompt engineering systematically changes instructions and context, then measures whether model behavior better satisfies a task. It does not update model weights.",
+    "System-level messages carry high-priority operating instructions in APIs that support this role. Exact role support and precedence vary by provider.",
+    "Developer instructions encode application rules and output expectations separately from a changing user request. Check the selected provider’s role contract.",
+    "A user message supplies a requested task and data. Content quoted inside it can be untrusted evidence rather than an instruction your application should execute.",
+    "Instruction hierarchy distinguishes trusted operating instructions from lower-trust requests and retrieved content. Enforce permissions in application code; model obedience is not access control.",
+    "A useful prompt separates the task, constraints, relevant context, examples and output contract so conflicting expectations can be spotted and tested.",
+    "A clear task specifies an observable result, allowed scope and success criteria. Replace subjective instructions with examples of acceptable and unacceptable behavior.",
+    "Useful context supplies relevant facts with source identity and boundaries. More context is not always better: irrelevant or conflicting evidence can reduce quality.",
+    "Few-shot prompting includes a small set of representative input/output examples. Choose diverse examples and keep evaluation cases separate from prompt examples.",
+    "Zero-shot prompting describes a task without demonstration examples. Establish this simple baseline before adding examples or a more complex workflow.",
+    "Structured output constrains response shape where a provider supports it. A valid schema does not guarantee factual correctness or safe actions.",
+    "Parse generated JSON and validate it against a runtime schema before using it. Handle missing fields, wrong types, unexpected values and invalid semantic content explicitly.",
+    "A code-managed prompt builder combines stable instructions with controlled inputs. Keep templates near the feature, with tests and code review; avoid copying one evolving string across services.",
+    "Prompt variables insert changing values through typed or validated inputs. Distinguish user-supplied data from trusted instructions and do not interpolate secrets into demonstrations.",
+    "Version prompt builders, fixtures and relevant model settings in source control. A meaningful experiment records which exact combination produced an output.",
+    "Reuse shared contracts and well-tested components while allowing task-specific instructions. One universal template often hides conflicting requirements.",
+    "Count compatible input tokens, reserve output capacity and select evidence within a budget. Truncating blindly can remove the instruction or source needed for a correct answer.",
+    "Context engineering decides what instructions, history, retrieved evidence, tool results and state reach a model at each step. Selection, provenance and access checks belong in the application.",
+    "Prompt injection attempts to turn untrusted text into instructions. Delimiters can clarify intent but do not replace authorization, restricted tools or checks on generated actions.",
+    "Test prompts on fixed normal, edge and adversarial inputs using explicit rubrics. Inspect both response content and any proposed tool operations.",
+    "Optimize against representative measurements, changing one major factor at a time. Compare quality, cost and latency rather than selecting the best-looking single answer.",
+    "A regression suite reruns fixed cases when prompts, models, retrieval or context assembly change. Track failures and uncertainty so a local improvement does not hide broader degradation."
   ]
 }

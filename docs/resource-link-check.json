@@ -1,0 +1,378 @@
+{
+  "checkedAt": "2026-11-02T21:16:14.943Z",
+  "note": "Reachability is not a content/access-price audit. Bot blocks and network restrictions need manual official-page review. This command does not modify catalog verification dates.",
+  "results": [
+    {
+      "url": "https://aws.amazon.com/builders-library/",
+      "status": 200,
+      "finalUrl": "https://builder.aws.com/learn/topics/builders-library",
+      "result": "reachable"
+    },
+    {
+      "url": "https://commission.europa.eu/law/law-topic/data-protection_en",
+      "status": 200,
+      "finalUrl": "https://commission.europa.eu/law/law-topic/data-protection_en",
+      "result": "reachable"
+    },
+    {
+      "url": "https://cs50.harvard.edu/x/",
+      "status": 200,
+      "finalUrl": "https://cs50.harvard.edu/x/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://deepeval.com/docs/introduction",
+      "status": 200,
+      "finalUrl": "https://deepeval.com/docs/introduction",
+      "result": "reachable"
+    },
+    {
+      "url": "https://dev.java/learn/",
+      "status": 200,
+      "finalUrl": "https://dev.java/learn/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://developer.hashicorp.com/terraform/docs",
+      "status": 200,
+      "finalUrl": "https://developer.hashicorp.com/terraform/docs",
+      "result": "reachable"
+    },
+    {
+      "url": "https://developer.hashicorp.com/terraform/intro/core-workflow",
+      "status": 200,
+      "finalUrl": "https://developer.hashicorp.com/terraform/intro/core-workflow",
+      "result": "reachable"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+      "status": 200,
+      "finalUrl": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+      "result": "reachable"
+    },
+    {
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "status": 200,
+      "finalUrl": "https://developers.google.com/machine-learning/crash-course",
+      "result": "reachable"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/",
+      "status": 200,
+      "finalUrl": "https://docs.aws.amazon.com/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.celeryq.dev/en/stable/",
+      "status": 200,
+      "finalUrl": "https://docs.celeryq.dev/en/stable/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html",
+      "status": 200,
+      "finalUrl": "https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.docker.com/get-started/",
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/get-started/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "status": 200,
+      "finalUrl": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/",
+      "status": 200,
+      "finalUrl": "https://docs.nvidia.com/cuda/cuda-programming-guide/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.pytest.org/en/stable/",
+      "status": 200,
+      "finalUrl": "https://docs.pytest.org/en/stable/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.python.org/3/library/asyncio.html",
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/asyncio.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.python.org/3/library/typing.html",
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/typing.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/",
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/tutorial/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.ragas.io/en/latest/",
+      "status": 200,
+      "finalUrl": "https://docs.ragas.io/en/latest/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.ray.io/en/latest/",
+      "status": 200,
+      "finalUrl": "https://docs.ray.io/en/latest/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.ray.io/en/latest/ray-core/key-concepts.html",
+      "status": 200,
+      "finalUrl": "https://docs.ray.io/en/latest/ray-core/key-concepts.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.ray.io/en/latest/serve/",
+      "status": 200,
+      "finalUrl": "https://docs.ray.io/en/latest/serve/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/tutorial/stats.html",
+      "status": 200,
+      "finalUrl": "https://docs.scipy.org/doc/scipy/tutorial/stats.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://docs.vllm.ai/en/latest/",
+      "status": 200,
+      "finalUrl": "https://docs.vllm.ai/en/latest/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "status": 200,
+      "finalUrl": "https://fastapi.tiangolo.com/tutorial/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://genai.owasp.org/",
+      "status": 200,
+      "finalUrl": "https://genai.owasp.org/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://git-scm.com/book/en/v2",
+      "status": 200,
+      "finalUrl": "https://git-scm.com/book/en/v2",
+      "result": "reachable"
+    },
+    {
+      "url": "https://github.com/pgvector/pgvector",
+      "status": 200,
+      "finalUrl": "https://github.com/pgvector/pgvector",
+      "result": "reachable"
+    },
+    {
+      "url": "https://go.dev/doc/",
+      "status": 200,
+      "finalUrl": "https://go.dev/doc/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://grafana.com/docs/k6/latest/",
+      "status": 200,
+      "finalUrl": "https://grafana.com/docs/k6/latest/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+      "status": 200,
+      "finalUrl": "https://huggingface.co/learn/llm-course/chapter1/1",
+      "result": "reachable"
+    },
+    {
+      "url": "https://huggingface.co/learn/llm-course/en/chapter5/6",
+      "status": 200,
+      "finalUrl": "https://huggingface.co/learn/llm-course/en/chapter5/6",
+      "result": "reachable"
+    },
+    {
+      "url": "https://kubernetes.io/docs/tutorials/",
+      "status": 200,
+      "finalUrl": "https://kubernetes.io/docs/tutorials/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170",
+      "status": 200,
+      "finalUrl": "https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170",
+      "result": "reachable"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/",
+      "status": 200,
+      "finalUrl": "https://learn.microsoft.com/en-us/windows/wsl/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://mlflow.org/docs/latest/",
+      "status": 200,
+      "finalUrl": "https://mlflow.org/docs/latest/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "status": 200,
+      "finalUrl": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
+      "result": "reachable"
+    },
+    {
+      "url": "https://neo4j.com/docs/getting-started/",
+      "status": 200,
+      "finalUrl": "https://neo4j.com/docs/getting-started/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://numpy.org/doc/stable/user/",
+      "status": 200,
+      "finalUrl": "https://numpy.org/doc/stable/user/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://ocw.mit.edu/courses/6-441-information-theory-spring-2010/",
+      "status": 200,
+      "finalUrl": "https://ocw.mit.edu/courses/6-441-information-theory-spring-2010/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://opentelemetry.io/docs/",
+      "status": 200,
+      "finalUrl": "https://opentelemetry.io/docs/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://owasp.org/www-project-top-ten/",
+      "status": 200,
+      "finalUrl": "https://owasp.org/projects/top-ten",
+      "result": "reachable"
+    },
+    {
+      "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "status": 200,
+      "finalUrl": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://pandas.pydata.org/docs/getting_started/",
+      "status": 200,
+      "finalUrl": "https://pandas.pydata.org/docs/getting_started/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://pytorch.org/tutorials/",
+      "status": 200,
+      "finalUrl": "https://docs.pytorch.org/tutorials/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://redis.io/docs/latest/",
+      "status": 200,
+      "finalUrl": "https://redis.io/docs/latest/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "status": 200,
+      "finalUrl": "https://scikit-learn.org/stable/user_guide.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.khanacademy.org/math",
+      "status": 200,
+      "finalUrl": "https://www.khanacademy.org/math",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.meity.gov.in/",
+      "status": 200,
+      "finalUrl": "https://www.meity.gov.in/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.mongodb.com/docs/manual/introduction/",
+      "status": 200,
+      "finalUrl": "https://www.mongodb.com/docs/manual/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/indexes.html",
+      "status": 200,
+      "finalUrl": "https://www.postgresql.org/docs/current/indexes.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/tutorial.html",
+      "status": 200,
+      "finalUrl": "https://www.postgresql.org/docs/current/tutorial.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "status": 200,
+      "finalUrl": "https://www.postgresql.org/docs/current/using-explain.html",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.promptfoo.dev/docs/getting-started/",
+      "status": 200,
+      "finalUrl": "https://www.promptfoo.dev/docs/getting-started/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.promptfoo.dev/docs/integrations/ci-cd/",
+      "status": 200,
+      "finalUrl": "https://www.promptfoo.dev/docs/integrations/ci-cd/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.promptfoo.dev/docs/red-team/quickstart/",
+      "status": 200,
+      "finalUrl": "https://www.promptfoo.dev/docs/red-team/quickstart/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/",
+      "status": 200,
+      "finalUrl": "https://www.typescriptlang.org/docs/",
+      "result": "reachable"
+    }
+  ]
+}

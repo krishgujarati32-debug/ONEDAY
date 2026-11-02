@@ -48,11 +48,40 @@ async function main() {
     )
   )
     failures.push("Search does not link to the specific self-attention lesson");
+  for (const [query, resourceId] of [
+    ["idempotency", "celery"],
+    ["faithfulness", "ragas"],
+    ["prompt context design", "prompt-engineering"],
+  ]) {
+    const response = await fetch(
+      new URL("/api/search?q=" + encodeURIComponent(query), origin),
+    );
+    const data = await response.json();
+    if (
+      !response.ok ||
+      !data.results?.some(
+        (r: { type: string; href: string }) =>
+          r.type === "Resource" && r.href === "/resources#" + resourceId,
+      )
+    )
+      failures.push("Resource metadata search failed: " + query);
+  }
+  const resourceHtml = await (
+    await fetch(new URL("/resources", origin))
+  ).text();
+  for (const marker of [
+    "Recommended Learning Order",
+    "Resource priority",
+    "Resource timing",
+    "When to open:",
+  ])
+    if (!resourceHtml.includes(marker))
+      failures.push("Missing resource UI: " + marker);
   const state = await fetch(new URL("/api/state", origin));
   if (![200, 401].includes(state.status))
     failures.push("State endpoint failed");
   console.log(
-    `${completed}/${paths.length} public/page routes returned usable HTML. 404, lesson search and state endpoint checked.`,
+    `${completed}/${paths.length} public/page routes returned usable HTML. 404, lesson/resource metadata search, resource controls and state endpoint checked.`,
   );
   if (failures.length) {
     console.error(failures.join("\n"));

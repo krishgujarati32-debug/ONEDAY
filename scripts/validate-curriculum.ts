@@ -1,3 +1,4 @@
+import { validateResourceLearning } from "./validate-resource-learning";
 import assert from "node:assert/strict";
 import { phases, topics, subtopics } from "../src/data/curriculum";
 import outline from "../src/data/outline.json";
@@ -6,6 +7,7 @@ import { resources, resourceById } from "../src/data/resources";
 import { technologies } from "../src/data/technologies";
 import index from "../src/data/index.json";
 export function validateCurriculum() {
+  validateResourceLearning();
   const unique = (items: string[], name: string) =>
     assert.equal(new Set(items).size, items.length, `Duplicate ${name}`);
   assert.equal(phases.length, 12);
@@ -122,6 +124,16 @@ export function validateCurriculum() {
     })),
     "Regenerate the lean index after editing the curriculum",
   );
+  for (const phase of index)
+    for (const t of phase.topics) {
+      const actual = topics.find((x) => x.id === t.id)!;
+      assert.deepEqual(
+        t.resources,
+        actual.resources,
+        `Stale resource index ${t.id}`,
+      );
+      assert.equal(t.priority, actual.priority);
+    }
   return {
     phases: phases.length,
     topics: topics.length,

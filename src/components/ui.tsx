@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import {
-  ArrowUpRight,
   Bookmark,
   Check,
   CheckCircle2,
@@ -246,40 +245,6 @@ export function NotesEditor({
         </button>
       </div>
     </section>
-  );
-}
-export function ResourceCard({
-  resource,
-}: {
-  resource: {
-    id: string;
-    title: string;
-    provider: string;
-    description: string;
-    url: string;
-    type: string;
-  };
-}) {
-  return (
-    <article className="resource-card">
-      <div className="between">
-        <span className="eyebrow">{resource.provider}</span>
-        <BookmarkButton itemKey={"resource:" + resource.id} small />
-      </div>
-      <h3>
-        <a href={resource.url} target="_blank" rel="noreferrer">
-          {resource.title}
-          <ArrowUpRight size={17} />
-        </a>
-      </h3>
-      <p>{resource.description}</p>
-      <div className="resource-meta">
-        <Pill tone="green">Free to read</Pill>
-        <span>
-          {resource.type === "course" ? "Course" : "Official documentation"}
-        </span>
-      </div>
-    </article>
   );
 }
 export function PageHeading({

@@ -472,5 +472,11 @@
     "why": "Good engineering makes the cost of each decision visible.",
     "application": "Choosing CCAI's first deployable architecture.",
     "assignment": "Write three architecture decisions comparing realistic alternatives with measured or estimated costs. State assumptions, consequences and conditions that would change each decision."
+  },
+  "6.7": {
+    "explanation": "Prompt engineering and context design turn a vague model request into an explicit, testable contract. You choose instructions, examples, evidence and output rules, then evaluate the resulting behavior on fixed cases. These techniques change the supplied information rather than the learned model weights.",
+    "why": "Reliable AI applications need clear instructions and deliberate context selection, plus independent validation and regression tests. Fluent output alone is not evidence that a task was solved.",
+    "application": "Designing CCAI request templates, validating model outputs and assembling evidence for a document assistant.",
+    "assignment": "Write zero-shot and few-shot versions of one task using a small code-managed template. Run both against the same normal, edge and adversarial fixtures, validate structured responses with a schema, and record quality, latency and token usage. Keep credentials and private data out of fixtures; you may use supplied sample responses instead of calling a paid model."
   }
 }

@@ -1,0 +1,435 @@
+[
+  {
+    "id": "cs50",
+    "url": "https://cs50.harvard.edu/x/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "ostep",
+    "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "algorithms",
+    "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "maths",
+    "url": "https://www.khanacademy.org/math",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "information-theory",
+    "url": "https://ocw.mit.edu/courses/6-441-information-theory-spring-2010/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "builders",
+    "url": "https://aws.amazon.com/builders-library/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "vllm",
+    "url": "https://docs.vllm.ai/en/latest/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "owasp-web",
+    "url": "https://owasp.org/www-project-top-ten/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "pytest",
+    "url": "https://docs.pytest.org/en/stable/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "mongodb",
+    "url": "https://www.mongodb.com/docs/manual/introduction/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "go",
+    "url": "https://go.dev/doc/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "java",
+    "url": "https://dev.java/learn/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "cpp",
+    "url": "https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "privacy-india",
+    "url": "https://www.meity.gov.in/",
+    "verificationStatus": "needs_review",
+    "verificationNotes": "The official MeitY portal is reachable, but its client-rendered data-protection material could not be inspected in this environment. The original URL is retained; verify current official notices and legal source documents manually before relying on them."
+  },
+  {
+    "id": "privacy-eu",
+    "url": "https://commission.europa.eu/law/law-topic/data-protection_en",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "python",
+    "url": "https://docs.python.org/3/tutorial/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "git",
+    "url": "https://git-scm.com/book/en/v2",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "web",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "typescript",
+    "url": "https://www.typescriptlang.org/docs/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "postgres",
+    "url": "https://www.postgresql.org/docs/current/tutorial.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "numpy",
+    "url": "https://numpy.org/doc/stable/user/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "pandas",
+    "url": "https://pandas.pydata.org/docs/getting_started/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "sklearn",
+    "url": "https://scikit-learn.org/stable/user_guide.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "pytorch",
+    "url": "https://pytorch.org/tutorials/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "huggingface",
+    "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "fastapi",
+    "url": "https://fastapi.tiangolo.com/tutorial/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "redis",
+    "url": "https://redis.io/docs/latest/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "docker",
+    "url": "https://docs.docker.com/get-started/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "kubernetes",
+    "url": "https://kubernetes.io/docs/tutorials/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "mlflow",
+    "url": "https://mlflow.org/docs/latest/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "otel",
+    "url": "https://opentelemetry.io/docs/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "neo4j",
+    "url": "https://neo4j.com/docs/getting-started/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "langgraph",
+    "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "mcp",
+    "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "owasp",
+    "url": "https://genai.owasp.org/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "aws",
+    "url": "https://docs.aws.amazon.com/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "ml-course",
+    "url": "https://developers.google.com/machine-learning/crash-course",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "linear-algebra",
+    "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "statistics",
+    "url": "https://docs.scipy.org/doc/scipy/tutorial/stats.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "k6",
+    "url": "https://grafana.com/docs/k6/latest/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "pgvector",
+    "url": "https://github.com/pgvector/pgvector",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "linux",
+    "url": "https://learn.microsoft.com/en-us/windows/wsl/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "ragas",
+    "url": "https://docs.ragas.io/en/latest/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "deepeval",
+    "url": "https://deepeval.com/docs/introduction",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "promptfoo",
+    "url": "https://www.promptfoo.dev/docs/getting-started/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "cuda",
+    "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "ray",
+    "url": "https://docs.ray.io/en/latest/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "terraform",
+    "url": "https://developer.hashicorp.com/terraform/docs",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "github-actions",
+    "url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "celery",
+    "url": "https://docs.celeryq.dev/en/stable/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "prompt-engineering",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "promptfoo-redteam",
+    "url": "https://www.promptfoo.dev/docs/red-team/quickstart/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "promptfoo-ci",
+    "url": "https://www.promptfoo.dev/docs/integrations/ci-cd/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "ray-core",
+    "url": "https://docs.ray.io/en/latest/ray-core/key-concepts.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "ray-serve",
+    "url": "https://docs.ray.io/en/latest/serve/",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "terraform-workflow",
+    "url": "https://developer.hashicorp.com/terraform/intro/core-workflow",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "celery-start",
+    "url": "https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public page retrieved. Documentation is free to read; execution, hardware and hosted services may have separate costs."
+  },
+  {
+    "id": "python-asyncio",
+    "url": "https://docs.python.org/3/library/asyncio.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public documentation retrieved and its selected subject area inspected during the final audit. Reading does not require running a hosted service."
+  },
+  {
+    "id": "python-typing",
+    "url": "https://docs.python.org/3/library/typing.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public documentation retrieved and its selected subject area inspected during the final audit. Reading does not require running a hosted service."
+  },
+  {
+    "id": "postgres-indexes",
+    "url": "https://www.postgresql.org/docs/current/indexes.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public documentation retrieved and its selected subject area inspected during the final audit. Reading does not require running a hosted service."
+  },
+  {
+    "id": "postgres-explain",
+    "url": "https://www.postgresql.org/docs/current/using-explain.html",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public documentation retrieved and its selected subject area inspected during the final audit. Reading does not require running a hosted service."
+  },
+  {
+    "id": "huggingface-semantic-search",
+    "url": "https://huggingface.co/learn/llm-course/en/chapter5/6",
+    "verificationStatus": "verified",
+    "verifiedAt": "2026-11-03",
+    "verificationNotes": "Official public documentation retrieved and its selected subject area inspected during the final audit. Reading does not require running a hosted service."
+  }
+]

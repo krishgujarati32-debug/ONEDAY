@@ -12,14 +12,8 @@ import {
 import type { Topic, Status } from "@/lib/types";
 import { useLearning } from "./learning-provider";
 import { progress, formatPercent } from "@/lib/progress";
-import {
-  BookmarkButton,
-  LiveProgress,
-  Modal,
-  NotesEditor,
-  Pill,
-  ResourceCard,
-} from "./ui";
+import { BookmarkButton, LiveProgress, Modal, NotesEditor, Pill } from "./ui";
+import { TopicResourcePanel } from "./topic-resource-panel";
 import { resourceById } from "@/data/resources";
 const statuses: [Status, string][] = [
   ["not_started", "Not started"],
@@ -340,11 +334,7 @@ export function LessonRoom({ topic }: { topic: Topic }) {
                 <h2>Read. Try. Come back stronger.</h2>
               </div>
             </div>
-            <div className="resources-grid compact-grid">
-              {topic.resources.map((id) => (
-                <ResourceCard resource={resourceById[id]} key={id} />
-              ))}
-            </div>
+            <TopicResourcePanel topicId={topic.id} />
           </section>
           <section className="content-card top-space" id="notes">
             <NotesEditor itemKey={"topic:" + topic.id} />
