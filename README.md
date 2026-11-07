@@ -1,146 +1,389 @@
-# AI Systems Engineer — Learning Roadmap
+# ONEDAY — AI Systems Engineer Learning Roadmap
 
-**From Programming Fundamentals to Intelligent, Scalable AI Systems.**
+<p align="center">
+  <strong>From Programming Fundamentals to Intelligent, Scalable AI Systems.</strong>
+</p>
 
-A personal learning platform built with Next.js App Router, React, strict TypeScript, Tailwind CSS, Lucide, Zod and Supabase. Includes all 12 requested phases, all 79 original topics, 3 optional supporting-language topics, 1,291 individually tracked lessons, 7 detailed projects and a curated official-source library.
+<p align="center">
+  A structured learning platform to plan your journey, master essential technologies, build real-world projects, and track your progress toward becoming an AI Systems Engineer.
+</p>
 
-## What works
+<p align="center">
+  <a href="https://oneday-rosy.vercel.app/resources"><strong>🚀 Live Demo</strong></a> •
+  <a href="https://github.com/krishgujarati32-debug/ONEDAY"><strong>💻 GitHub Repository</strong></a>
+</p>
 
-- Public career introduction, complete roadmap, phase overviews and dedicated topic pages.
-- Distinct definitions for all original 1,276 subtopics, plus supporting-language lessons. Every lesson includes study guidance, application context, an exercise, completion criteria and references.
-- Four lesson statuses, immediate progress calculations, undo, revision lists, topic and lesson bookmarks, resource bookmarks and project bookmarks.
-- Private topic, lesson and project notes with explicit save status. Unsaved note drafts survive navigation in the same browser tab.
-- Dashboard with actual study logs, weekly activity, overall/core/optional completion, phase progress, recommendations and recently visited/completed topics.
-- Project milestones, persistent functional checklists, technology categories, resource filters and a searchable saved-items collection.
-- Global search with Ctrl/Cmd+K; roadmap filters and sorting; light, dark and system themes; mobile navigation.
-- Validated JSON import with explicit merge/replace confirmation, export and confirmed reset.
-- Supabase SSR sign-up, sign-in, confirmation, password recovery, session refresh and sign-out. Private state is stored in PostgreSQL with RLS when configured.
-- A clearly labeled browser-local preview when Supabase is absent. No hardcoded demo account or fabricated progress.
+---
 
-## Run locally
+## 📌 About the Project
 
-Use Node.js 22 LTS or another supported current Node release (at least the minimum documented by the installed Next.js version). This workspace was checked with Node 26.
+**ONEDAY** is a personal learning and progress-tracking platform designed around a long-term journey toward becoming an **AI Systems Engineer**.
 
-```powershell
-cd D:\ONEDAY
+The platform organizes a comprehensive technical curriculum into structured phases, topics, individual lessons, practical exercises, projects, and curated learning resources.
+
+It is built to make learning more organized, measurable, and practical.
+
+### 📊 Curriculum at a Glance
+
+| Metric | Included |
+|---|---:|
+| Learning Phases | 12 |
+| Original Core Topics | 79 |
+| Optional Supporting-Language Topics | 3 |
+| Individually Tracked Lessons | 1,291 |
+| Guided Projects | 7 |
+| Curated Learning Resources | 42 |
+
+*The original curriculum contains 1,276 subtopics, alongside additional supporting-language lessons.*
+
+---
+
+## ✨ Key Features
+
+### 📚 Structured Learning Roadmap
+- 12 organized learning phases.
+- Detailed topic and lesson pages.
+- Study guidance and practical application context.
+- Exercises, completion criteria, and learning references.
+- English explanations with selected Hinglish learning aids.
+
+### 📈 Progress Tracking
+- Four lesson completion statuses.
+- Real-time progress calculations.
+- Undo support and revision lists.
+- Topic and lesson bookmarks.
+- Overall, core, optional, and phase-wise progress.
+
+### 🧠 Personal Learning Dashboard
+- Actual study logs and weekly activity.
+- Learning recommendations.
+- Recently visited and completed topics.
+- Phase-wise progress overview.
+- Study history and completion analytics.
+
+### 🛠️ Project Workspace
+- Seven guided projects.
+- Project milestones.
+- Persistent functional checklists.
+- Technology categories.
+- Project bookmarks.
+
+### 🔖 Resources & Saved Items
+- Curated learning resources.
+- Resource filters and topic relationships.
+- Searchable saved-items collection.
+- Bookmarks for topics, lessons, resources, and projects.
+
+### 📝 Personal Notes
+- Private topic, lesson, and project notes.
+- Explicit save status.
+- Unsaved note drafts survive navigation in the same browser tab.
+
+### ⚡ Search & User Experience
+- Global search with `Ctrl/Cmd + K`.
+- Roadmap filtering and sorting.
+- Light, Dark, and System themes.
+- Responsive mobile navigation.
+
+### 🔐 Authentication & Data Management
+- Supabase SSR authentication.
+- Sign-up, sign-in, email confirmation, and password recovery.
+- Session refresh and sign-out.
+- PostgreSQL-based private user data with Row Level Security (RLS), when configured.
+- Validated JSON import and export.
+- Explicit merge/replace confirmation and confirmed reset.
+- Clearly labeled browser-local preview mode when Supabase is not configured.
+
+---
+
+## 🧰 Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js App Router | Application framework |
+| React | User interface |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Styling and responsive design |
+| Lucide | Icons |
+| Zod | Data validation |
+| Supabase | Authentication and cloud integration |
+| PostgreSQL | Database |
+| PGlite | PostgreSQL integration testing |
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run ONEDAY locally.
+
+### Prerequisites
+
+- Node.js 22 LTS or another version supported by the installed Next.js release.
+- npm
+- Git
+
+A Supabase project is optional for browser-local preview mode, but required for cloud accounts and synchronized progress.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/krishgujarati32-debug/ONEDAY.git
+```
+
+### 2. Open the Project
+
+```bash
+cd ONEDAY
+```
+
+### 3. Install Dependencies
+
+```bash
 npm ci
+```
+
+### 4. Start the Development Server
+
+```bash
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000). To choose a different port:
+### 5. Open in Browser
 
-```powershell
+Visit:
+
+```text
+http://localhost:3000
+```
+
+To use another port:
+
+```bash
 npm run dev -- --port 3001
 ```
 
-No environment variables are needed for preview mode. Preview progress is saved only in the current browser and origin. Changing the port or switching between `localhost` and `127.0.0.1` creates a separate preview store. Export before changing environments.
+**Note:** No environment variables are needed for preview mode. Preview progress is stored in the current browser and origin. Export your progress before switching environments.
 
-## Environment
+---
 
-Copy the example, then enter your own project's **public** values:
+## 🔐 Environment Configuration
+
+To connect your own Supabase project, copy the example environment file:
 
 ```powershell
 Copy-Item .env.example .env.local
 ```
 
-```dotenv
+Add your Supabase public configuration:
+
+```env
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 ```
 
-Get these values from the Supabase project's Connect dialog. A publishable key is intentionally browser-visible; access is controlled by the authenticated JWT and database policies. Never put a database password, service-role key or secret API key in a `NEXT_PUBLIC_` variable. This application needs no privileged key and no paid AI API.
+Get these values from your Supabase project's **Connect** dialog.
 
-Restart development after changing environment variables. On Vercel these variables are embedded during build, so redeploy after changing them.
+### Security Guidelines
 
-## Supabase setup
+- Never commit `.env.local`.
+- Never expose database passwords or service-role keys.
+- Never put secret API keys in `NEXT_PUBLIC_` variables.
+- Use authenticated JWTs and database policies to control access.
 
-1. Create a Supabase project. Use separate projects for production and experiments when practical.
-2. Run `supabase/migrations/202611010001_learning_platform.sql` in the SQL editor of a **new** project. It creates six user-owned tables, RLS policies and two transactional RPC functions. Alternatively link the Supabase CLI and run `supabase db push`.
-3. Enable email/password authentication. Keep email confirmation enabled for production. Choose an appropriate password policy and configure production SMTP if required by your email volume.
-4. Under Authentication → URL Configuration, set the Site URL to your canonical deployed origin. Add exact allowed redirects for `http://localhost:3000/auth/callback`, `http://localhost:3000/auth/callback?next=/auth/update-password`, and the corresponding production URLs. If using port 3001, add that origin too. Restrict preview URLs to environments you control.
-5. The app supports the default PKCE email redirect through `/auth/callback`. It also supports token-hash templates through `/auth/confirm`:
-   - Confirmation: `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email`
-   - Recovery: `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery`
-     Use a Site URL appropriate to the project/environment. Check real emails before launch.
-6. Set the environment values, restart the app and create your first account at `/auth/sign-up`.
-7. Confirm the email and sign in. The header now reflects account storage. A new account starts at 0%.
-8. If you learned in preview, export your progress first, then import it after signing in. Preview data is never silently merged into your account.
-9. Sign in from a second browser and verify progress, notes and study history. Complete the [production verification checklist](docs/deployment.md).
+This application does not require a paid AI API or a privileged Supabase key.
 
-Public curriculum stays viewable without authentication. When Supabase is configured, `/dashboard`, `/settings` and `/saved` require a session. Unauthenticated lesson edits redirect to sign-in; they do not silently fall back to local persistence.
+---
 
-## Commands
+## 🗄️ Supabase Setup
 
-| Command                    | Purpose                                                      |
-| -------------------------- | ------------------------------------------------------------ |
-| `npm run dev`              | Start the development server                                 |
-| `npm run build`            | Build the production application                             |
-| `npm start`                | Serve the production build                                   |
-| `npm run typecheck`        | Strict TypeScript checks                                     |
-| `npm run lint`             | ESLint and React/Next.js checks                              |
-| `npm test`                 | Domain tests and real local PostgreSQL/RLS integration test  |
-| `npm run check:curriculum` | Validate content, IDs, prerequisites and references          |
-| `npm run curriculum:index` | Regenerate the lean client index after curriculum edits      |
-| `npm run test:routes`      | Smoke-test a running server; default `http://localhost:3000` |
-| `npm run format`           | Format source, data, tests and documentation                 |
+1. Create a Supabase project.
+2. Run the migration file in a new project's SQL Editor:
 
-For route checks on a different port, set `SMOKE_BASE_URL` before running `npm run test:routes`.
+   `supabase/migrations/202611010001_learning_platform.sql`
 
-## Structure
+3. Alternatively, link the Supabase CLI and run:
+
+   ```bash
+   supabase db push
+   ```
+
+4. Enable email/password authentication.
+5. Configure the Site URL and allowed redirect URLs under Authentication → URL Configuration.
+6. Add the required environment variables to `.env.local`.
+7. Restart the development server.
+8. Create an account at `/auth/sign-up`.
+9. Confirm your email and sign in.
+10. Test account persistence using a second browser.
+
+The migration creates six user-owned tables, RLS policies, and two transactional RPC functions.
+
+**Important:** Public curriculum pages remain available without authentication. When Supabase is configured, `/dashboard`, `/settings`, and `/saved` require a session.
+
+For detailed production verification, see [`docs/deployment.md`](docs/deployment.md).
+
+---
+
+## 💻 Available Commands
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Build production application |
+| `npm start` | Run production build |
+| `npm run typecheck` | Run strict TypeScript checks |
+| `npm run lint` | Run ESLint and React/Next.js checks |
+| `npm test` | Run domain and PostgreSQL/RLS integration tests |
+| `npm run check:curriculum` | Validate curriculum content and references |
+| `npm run curriculum:index` | Regenerate the curriculum index |
+| `npm run test:routes` | Run route smoke tests |
+| `npm run format` | Format source code and documentation |
+
+For route checks on another port, set `SMOKE_BASE_URL` before running `npm run test:routes`.
+
+---
+
+## 📁 Project Structure
 
 ```text
-src/app/                  App Router pages, search and authenticated state endpoints
-src/components/           Responsive shell, lesson room, dashboard and workspace tools
-src/data/outline.json     Original curriculum structure and ordered lesson titles
-src/data/knowledge.json   Topic-specific explanations and practical assignments
-src/data/lessons.json     Individual subtopic definitions, indexed by stable topic ID
-src/data/curriculum.ts    Typed curriculum assembly and priority rules
-src/data/index.json       Generated lean index without full lesson content
-src/data/ids.json         Generated ID allowlists for data validation
-src/data/projects.ts      Seven project plans and milestones
-src/data/resources.ts     Verified resource catalog and topic relationships
-src/data/technologies.ts  Technology learning map
-src/lib/                  State validation, progress logic and Supabase clients
-src/proxy.ts              Next.js 16 session refresh and private-page redirects
-supabase/migrations/      Reproducible PostgreSQL schema, RLS and transactional RPCs
-tests/                    Domain and PostgreSQL isolation tests
-scripts/                  Curriculum indexing, validation and HTTP smoke checks
-docs/                     Architecture, data, progress, auth, RLS and deployment guides
+ONEDAY/
+│
+├── src/
+│   ├── app/                  # App Router pages and endpoints
+│   ├── components/           # UI components and workspace tools
+│   ├── data/
+│   │   ├── outline.json      # Curriculum structure
+│   │   ├── knowledge.json    # Topic explanations and assignments
+│   │   ├── lessons.json      # Individual lesson definitions
+│   │   ├── curriculum.ts     # Curriculum assembly and priorities
+│   │   ├── index.json        # Generated curriculum index
+│   │   ├── ids.json          # Data validation IDs
+│   │   ├── projects.ts       # Project plans and milestones
+│   │   ├── resources.ts      # Learning resource catalog
+│   │   └── technologies.ts   # Technology learning map
+│   │
+│   ├── lib/                  # State, validation and Supabase logic
+│   └── proxy.ts              # Session refresh and private redirects
+│
+├── supabase/
+│   └── migrations/           # PostgreSQL schema and RLS
+│
+├── tests/                    # Domain and database tests
+├── scripts/                  # Validation and utility scripts
+├── docs/                     # Technical documentation
+│
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
-The `.psv` files are readable editorial source copies for the initial lesson and topic packs. Runtime code imports the JSON. If editing PSV, update the corresponding JSON too; there is no implicit PSV runtime loader.
+The `.psv` files are editorial source copies. Runtime code imports JSON, so update the corresponding JSON when editing a PSV file.
 
-## Deploy to Vercel
+---
+
+## ☁️ Deployment
+
+ONEDAY can be deployed using **Vercel**.
+
+### Deployment Steps
 
 1. Run the checks and production build locally.
-2. Create a GitHub repository and push this directory, including `package-lock.json`. Do not commit `.env.local` or generated output.
-3. Import the repository into Vercel. Select the **Next.js** preset; use `npm ci` and `npm run build`. Leave the output directory at its framework default.
-4. Configure the two public Supabase variables for the intended Preview and Production environments. Prefer a separate preview database; never copy private keys into frontend variables.
-5. Deploy. Update Supabase Site URL and redirect allowlist for the actual canonical domain.
-6. Verify account creation, real email confirmation, password recovery, sign-out and a fresh session on the deployed domain. Check two-account isolation and cross-device persistence.
+2. Push the repository to GitHub.
+3. Import the repository into Vercel.
+4. Select the **Next.js** framework preset.
+5. Configure:
+   - Install Command: `npm ci`
+   - Build Command: `npm run build`
+   - Output Directory: Framework default
+6. Add the two public Supabase environment variables for the intended environments.
+7. Deploy the application.
+8. Update Supabase Site URL and redirect URLs.
+9. Verify authentication, email confirmation, password recovery, and cloud progress.
 
-Do not use static export: authentication, search and persistence use server routes. A Vercel-specific config file is unnecessary because the supported framework preset discovers this app.
+**Important:** Do not use static export. Authentication, search, and persistence rely on server routes.
 
-## Testing status and limits
+---
 
-The included suite exercises curriculum completeness, progress math, import rejection, redirect safety, database migrations, owner-only SELECT/INSERT/UPDATE/DELETE, anonymous access denial, state round-trips, stale revisions and transaction rollback. The PostgreSQL integration test uses PGlite in memory and mocks only Supabase's `auth.users` and `auth.uid()`; actual PostgreSQL policies and functions execute unchanged.
+## 🧪 Testing & Verification
 
-Live Supabase email delivery, session refresh, two-device synchronization and Vercel deployment require your external project and credentials. These cannot be certified from a local unconfigured preview. See [testing notes](docs/testing.md) for verification evidence and remaining checks.
+The included test suite covers:
 
-Hinglish aids are supplied for selected topics; every topic retains English explanations. Lesson estimates are planning aids, not promises, and project/revision time may exceed them. Lessons are structured study guides paired with authoritative references, rather than a replacement for the full referenced textbooks or documentation.
+- Curriculum completeness.
+- Progress calculations.
+- Import validation and rejection.
+- Redirect safety.
+- Database migrations.
+- Owner-only database operations.
+- Anonymous access denial.
+- State round-trips.
+- Stale revision handling.
+- Transaction rollback.
 
-## Troubleshooting
+The PostgreSQL integration test uses PGlite in memory and mocks only Supabase's `auth.users` and `auth.uid()`. The actual PostgreSQL policies and functions execute unchanged.
 
-- **Preview notice still showing:** set both public variables, then restart or redeploy.
-- **Could not load cloud progress:** confirm the migration ran in the project selected by your URL/key. Check the browser's network status and server logs.
-- **Invalid or expired email link:** request a fresh link, check Site URL/redirect configuration and verify the template uses a supported callback.
-- **Change in another tab/device:** the revision check prevented an overwrite. Reload saved data before retrying; copy an unsaved note first if needed.
-- **Import rejected:** use a version 1 export with IDs from this curriculum. Invalid records are rejected before any write.
-- **Local preview differs between browsers:** this is expected. Use export/import or connect Supabase for account persistence.
-- **Turbopack worker connection blocked by a Windows sandbox:** build in a normal local terminal. The application does not need a network service during build.
-- **Development origin blocked:** use the exact local URL printed by the server. Production does not depend on development HMR endpoints.
-- **Browser storage disabled/full:** preview saves roll back and show an error; export regularly and use cloud mode for durable authenticated storage.
-#   O N E D A Y  
- #   O N E D A Y  
- #   O N E D A Y  
- 
+### External Verification Still Required
+
+The following require a configured external project and cannot be certified from an unconfigured local preview:
+
+- Live Supabase email delivery.
+- Session refresh.
+- Two-device synchronization.
+- Production Vercel deployment.
+
+See [`docs/testing.md`](docs/testing.md) for testing evidence and remaining checks.
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem | Solution |
+|---|---|
+| Preview notice still appears | Configure both public Supabase variables and restart or redeploy. |
+| Cloud progress cannot load | Check the Supabase project, migration, URL, key, and server logs. |
+| Email link is invalid or expired | Request a new link and verify redirect configuration. |
+| Data changes in another tab/device | Reload saved data before retrying; copy unsaved notes first. |
+| JSON import is rejected | Use a version 1 export with valid curriculum IDs. |
+| Preview differs between browsers | This is expected; use export/import or Supabase for account persistence. |
+| Turbopack is blocked by a Windows sandbox | Try building in a normal local terminal. |
+| Browser storage is unavailable or full | Export regularly or use authenticated cloud mode. |
+
+---
+
+## 🎯 Project Vision
+
+The goal of ONEDAY is to make a complex technical learning journey more structured and achievable.
+
+The roadmap supports a path toward becoming an **AI Systems Engineer**, combining:
+
+- Programming and computer science foundations.
+- Machine Learning and Data Science.
+- Deep Learning and Large Language Models.
+- Backend engineering and APIs.
+- System design and scalability.
+- Production engineering and cloud technologies.
+
+The platform is intended to evolve alongside the learning journey, with improvements to its curriculum, resources, projects, and tracking experience.
+
+---
+
+## 👨‍💻 Author
+
+**Krish Gujarati**
+
+AI Systems Engineer Learning Journey
+
+- GitHub: [@krishgujarati32-debug](https://github.com/krishgujarati32-debug)
+- Project: [ONEDAY — Live Website](https://oneday-rosy.vercel.app/resources)
+
+---
+
+## 📄 License
+
+No license is currently specified. Reuse, distribution, and contribution permissions should be defined in a separate license file if the project is opened for those purposes.
+
+---
+
+<p align="center">
+  <strong>Learn Consistently. Build Real Projects. Track Your Progress.</strong>
+  <br/>
+  <em>One day at a time. 🚀</em>
+</p>
