@@ -1,37 +1,42 @@
-import outline from "./outline.json";
-import knowledge from "./knowledge.json";
-import definitions from "./lessons.json";
-import { phaseResources, topicResources, resources } from "./resources";
-import type { Phase, Topic, Priority } from "@/lib/types";
-import { slugify } from "@/lib/slug";
-const shortTitles = [
-  "Computer Science Foundations",
-  "Python & Programming",
-  "Mathematics & Problem Solving",
-  "Software, Data & Databases",
-  "Data Science & Machine Learning",
-  "Deep Learning & PyTorch",
-  "NLP, Transformers & LLMs",
-  "Backend & AI Engineering",
-  "RAG, Agents & Knowledge",
-  "System Design & Scalability",
-  "Production, Security & MLOps",
-  "Advanced AI Architecture",
-];
-const durations = [
-  "3–4 weeks",
-  "6–8 weeks",
-  "Parallel · ongoing",
-  "4–6 weeks",
-  "6–8 weeks",
-  "5–7 weeks",
-  "5–7 weeks",
-  "6–8 weeks",
-  "5–7 weeks",
-  "8–10 weeks",
-  "6–8 weeks",
-  "6–10 weeks",
-];
+import type { Phase, Subtopic, Topic } from "@/lib/types";
+import { topics as previousTopics } from "./legacy-curriculum";
+import { resources, resourceById } from "./resources";
+import { sequence, excludedLessons } from "./course-sequence";
+import { labs, type Lab } from "./course-labs";
+import { foundations } from "./course-foundations";
+import { pythonTopics } from "./course-python";
+import { softwareTopics, databaseTopics } from "./course-software-data";
+import { mathTopics, servingTopics } from "./course-math-serving";
+import { v5Foundations } from "./course-v5-foundations";
+import { v5Python } from "./course-v5-python";
+import { v5MachineLearning } from "./course-v5-ml";
+import { v5DeepLearning } from "./course-v5-deep-learning";
+import { v5LanguageModels } from "./course-v5-nlp";
+import { v5Backend } from "./course-v5-backend";
+import { v5Systems } from "./course-v5-systems";
+import { v5Deployment } from "./course-v5-deployment";
+import { v5Production } from "./course-v5-production";
+import { v5Ingestion } from "./course-v5-ingestion";
+import { v5ProviderIntegration } from "./course-v5-provider";
+import { v5Retrieval } from "./course-v5-retrieval";
+import { v5Agents, v5Mcp } from "./course-v5-agents";
+import { v5AiEvaluation, v5AiSafety } from "./course-v5-ai-evaluation";
+import { servingDepth } from "./course-v5-serving";
+import {
+  refineExistingTopics,
+  softwareDepth,
+  databaseDepth,
+  mathDepth,
+} from "./course-v5-refinements";
+import {
+  depthLabels,
+  materializeDepthBatch,
+  v5Requirements,
+  type DepthRow,
+} from "./course-v5-types";
+import v5Baseline from "./v5-baseline.json";
+import { jobReadyCriteria } from "./job-ready";
+
 const colors = [
   "#7360d9",
   "#4f82cb",
@@ -46,236 +51,306 @@ const colors = [
   "#5d929a",
   "#746fbc",
 ];
-const prereqNumbers: number[][] = [
-  [],
-  [0],
-  [1],
-  [1],
-  [1, 2, 3],
-  [2, 4],
-  [5],
-  [1, 3],
-  [6, 7],
-  [3, 7],
-  [7],
-  [8, 9, 10],
-];
-const exerciseStarts = [
-  "Create a labeled diagram or safe local experiment",
-  "Write and run a small self-contained program",
-  "Calculate a tiny example by hand, then verify it with Python",
-  "Build a minimal schema or data-processing example",
-  "Run a small notebook experiment on held-out examples",
-  "Run a tiny tensor or training experiment",
-  "Trace a tiny text or probability example",
-  "Write a small API example with a valid and an invalid request",
-  "Build a tiny retrieval or tool-workflow example",
-  "Simulate a small workload or failure case on your own service",
-  "Create a reproducible configuration, test or threat-model example",
-  "Write a measured design experiment or architecture decision",
-];
-const optionalTopicIds = new Set(["6.5", "8.4", "8.6"]);
-export const phases: Phase[] = outline.map((p) => {
-  const topics: Topic[] = p.topics.map((t, ti) => {
-    const pack = knowledge[t.id as keyof typeof knowledge];
-    const priority: Priority =
-      p.number === 11 || optionalTopicIds.has(t.id) ? "advanced" : "core";
-    const resourceIds = [
-      ...new Set([
-        ...(topicResources[t.id] ?? phaseResources[p.number]),
-        ...resources
-          .filter((r) => r.relatedTopicIds.includes(t.id))
-          .map((r) => r.id),
-      ]),
-    ];
-    const subtopics = t.subtopics.map((title, si) => {
-      const explanation = (definitions as Record<string, string[]>)[t.id][si];
-      const optional =
-        /Apache Spark|Distributed training|CUDA|Kubernetes|Terraform|Qdrant|Weaviate|Triton|Generation Inference|vLLM/.test(
-          title,
-        );
-      return {
-        id: `${t.id}.${si + 1}`,
-        title,
-        explanation,
-        why: `${pack.why} This lesson focuses on ${title.toLowerCase()} so you can explain the relevant behavior before adding complexity.`,
-        study: [
-          explanation,
-          `Identify the assumptions and limitations of ${title.toLowerCase()}.`,
-          `Connect this concept to ${pack.application.charAt(0).toLowerCase() + pack.application.slice(1)}`,
-        ],
-        application: pack.application,
-        exercise: `${exerciseStarts[p.number]} focused on ${title.toLowerCase()}. Use the definition above to predict the result first; record the actual result and one edge case. Apply the result to the topic assignment below.`,
-        criteria: [
-          `Explain ${title.toLowerCase()} in your own words without reading the definition.`,
-          `Produce the exercise artifact and explain why the observed result matches or differs from your prediction.`,
-          `Show one limitation or failing case and describe what to study next.`,
-        ],
-        minutes: p.number < 2 ? 30 : p.number < 7 ? 45 : 60,
-        priority: optional ? ("optional" as Priority) : priority,
-        resources: resourceIds.slice(0, 3),
-      };
+const phaseId = (number: number) => "track-" + String(number).padStart(2, "0");
+const previousById = new Map(previousTopics.map((topic) => [topic.id, topic]));
+const validResources = (ids: string[]) => ids.filter((id) => resourceById[id]);
+
+function labLesson(lab: Lab): Subtopic {
+  return {
+    id: lab.id,
+    title: lab.title,
+    explanation: lab.explanation,
+    why: lab.why,
+    application: lab.example,
+    study: [
+      "Identify these concepts in the worked example: " +
+        lab.concepts.join(", ") +
+        ".",
+      "Predict the outcome before starting the exercise.",
+    ],
+    exercise: lab.exercise,
+    criteria: lab.criteria,
+    minutes: lab.minutes,
+    priority: "core",
+    resources: validResources(lab.resources),
+    workedExample: lab.example,
+  };
+}
+
+const portfolio: Topic = {
+  id: "v2-portfolio",
+  slug: "ccai-production-capstone",
+  title: "CCAI integration and operational evidence",
+  phase: 14,
+  explanation:
+    "Integrate the preceding API, model, retrieval and orchestration work. Prove routing, tenant isolation and recovery with repeatable tests and recorded measurements.",
+  why: "A portfolio capstone should expose how the system behaves when its assumptions fail.",
+  application:
+    "Operate a documented backend that chooses one eligible model, handles a bounded failure and measures the result.",
+  assignment:
+    "Deliver a repeatable capstone evidence pack with the architecture, a measured workload, tenant isolation tests, one bounded provider failure and a verified rollback.",
+  depth: {
+    targetDepth: "L5",
+    targetDepthLabel: depthLabels.L5,
+    whatToLearn: [
+      "Policy-based model routing",
+      "Cross-service failure recovery",
+      "Reproducible capacity evidence",
+      "Operational handoff",
+    ],
+    howDeepToLearn:
+      "Integrate a bounded multi-provider backend and show which performance and failure properties you can reproduce.",
+    whatTheLearnerMustBeAbleToDo:
+      "Explain and reproduce the routing, access-control, load and rollback evidence for the capstone.",
+    practiceEvidence:
+      "Deliver a repeatable capstone evidence pack with the architecture, a measured workload, tenant isolation tests, one bounded provider failure and a verified rollback.",
+    completionCriteria: [
+      "An independent reader can replay the tests, find measured limits, reproduce a denied cross-tenant operation and see the service recover to a verified version.",
+    ],
+    outOfScopeAtThisLevel:
+      "Use an owned fixture environment or approved deployment with documented scale, provider and hardware assumptions.",
+    estimatedStudyHours: [3, 6],
+  },
+  outcomes: [
+    "Trace a request through the routing policy.",
+    "Produce repeatable evidence for failure handling and capacity.",
+  ],
+  prerequisites: [],
+  difficulty: "advanced",
+  priority: "core",
+  subtopics: [],
+  hours: 0,
+  resources: [],
+  guidance: [],
+};
+
+const oldLessons = new Map(
+  previousTopics.flatMap((topic) =>
+    topic.subtopics.map((lesson) => [lesson.id, lesson] as const),
+  ),
+);
+type TopicBatch = readonly (readonly [
+  string,
+  string,
+  readonly string[],
+  string,
+  string,
+])[];
+function materializeTopics(
+  specs: TopicBatch,
+  phase: number,
+  slugPrefix: string,
+): Topic[] {
+  return specs.map(([id, title, lessonIds, workedExample, exercise]) => {
+    const old = previousById.get(id);
+    const lessons = lessonIds.map((lessonId) => {
+      const lab = labs.find((item) => item.id === lessonId);
+      return lab ? labLesson(lab) : oldLessons.get(lessonId)!;
     });
+    if (!lessons.some((lesson) => lesson.workedExample)) {
+      lessons.push(
+        labLesson({
+          id: id + "-exercise",
+          group: id,
+          title: title + " · worked exercise",
+          explanation: workedExample,
+          why: "The exercise tests whether you can predict the behavior before depending on it in a service.",
+          concepts: [title],
+          example: workedExample,
+          exercise,
+          minutes: 25,
+          resources: [],
+          criteria: [
+            "Record the input, expected behavior and actual result or reasoning.",
+            "Explain the failure or boundary case requested in the exercise.",
+          ],
+        }),
+      );
+    }
     return {
-      id: t.id,
-      slug: slugify(t.title),
-      title: t.title,
-      phase: p.number,
-      ...pack,
-      priority,
-      difficulty:
-        p.number < 4 ? "beginner" : p.number < 9 ? "intermediate" : "advanced",
-      prerequisites:
-        ti > 0
-          ? [
-              p.topics
-                .slice(0, ti)
-                .filter((x) => !optionalTopicIds.has(x.id))
-                .at(-1)?.id ?? p.topics[0].id,
-            ]
-          : [],
-      subtopics,
-      hours: subtopics.reduce((n, s) => n + s.minutes, 0) / 60,
-      resources: resourceIds,
+      id,
+      title,
+      slug: old?.slug ?? id.replace(/^v2-/, slugPrefix),
+      phase,
+      explanation: workedExample + " " + exercise,
+      why: workedExample,
+      application: workedExample,
+      assignment: exercise,
       outcomes: [
-        `Explain and demonstrate ${t.subtopics[0].toLowerCase()}.`,
-        `Apply ${t.subtopics[Math.floor(t.subtopics.length / 2)].toLowerCase()} in a small worked example.`,
-        `Complete the practical assignment and document ${t.subtopics.at(-1)?.toLowerCase()}.`,
+        "Predict the behavior described in the example.",
+        "Produce and explain the evidence requested in the assignment.",
       ],
-      guidance: ("guidance" in t ? t.guidance : []) ?? [],
+      prerequisites: [],
+      difficulty: "beginner",
+      priority: "core",
+      subtopics: lessons,
+      hours: 0,
+      resources: [],
+      guidance: [],
     };
   });
+}
+const batches: Partial<Record<number, Topic[]>> = {
+  1: materializeTopics(foundations, 1, "foundation-"),
+  2: materializeTopics(pythonTopics, 2, "python-"),
+  3: materializeTopics(softwareTopics, 3, "software-"),
+  4: materializeTopics(databaseTopics, 4, "database-"),
+  5: materializeTopics(mathTopics, 5, "math-data-"),
+  13: materializeTopics(servingTopics, 13, "serving-"),
+};
+
+const authoredDepthBatches: Partial<Record<number, readonly DepthRow[]>> = {
+  1: v5Foundations,
+  2: v5Python,
+  3: refineExistingTopics(batches[3]!, softwareDepth),
+  4: refineExistingTopics(batches[4]!, databaseDepth),
+  5: refineExistingTopics(batches[5]!, mathDepth),
+  6: v5MachineLearning,
+  7: v5DeepLearning,
+  8: v5LanguageModels,
+  9: v5Backend,
+  10: [
+    ...v5ProviderIntegration,
+    ...v5Ingestion,
+    ...v5Retrieval,
+    ...v5Agents,
+    ...v5Mcp,
+    ...v5AiEvaluation,
+    ...v5AiSafety,
+  ],
+  11: v5Systems,
+  12: [...v5Deployment, ...v5Production],
+  13: servingDepth(batches[13]!),
+};
+export const v5AuthoredPhases = Object.keys(authoredDepthBatches).map(Number);
+export const v5IngestionSpan = [16, 29] as const;
+export const v5DeploymentSpan = [1, 16] as const;
+const checkpointTopics = new Set([
+  ...v5Deployment.map(([id]) => id),
+  ...jobReadyCriteria.map(({ topicId }) => topicId),
+]);
+
+function withPublishedLessons(source: Topic): Topic {
   return {
-    id: `phase-${p.number}`,
-    slug: slugify(shortTitles[p.number]),
-    number: p.number,
-    title: p.title,
-    shortTitle: shortTitles[p.number],
-    purpose: p.purpose,
-    why: topics[0].why,
-    weeks: durations[p.number],
-    difficulty:
-      p.number < 4 ? "beginner" : p.number < 9 ? "intermediate" : "advanced",
-    priority: p.number === 11 ? "advanced" : "core",
-    prerequisites: prereqNumbers[p.number].map((n) => `phase-${n}`),
-    outcomes: topics.slice(0, 3).map((t) => t.assignment),
+    ...source,
+    subtopics: [
+      ...source.subtopics.filter((lesson) => !excludedLessons.has(lesson.id)),
+      ...labs.filter((lab) => lab.group === source.id).map(labLesson),
+    ],
+  };
+}
+
+let precedingTopic: Topic | undefined;
+export const phases: Phase[] = sequence.map((entry, index) => {
+  const number = index + 1;
+  const difficulty =
+    number <= 5 ? "beginner" : number <= 10 ? "intermediate" : "advanced";
+  const existingSources =
+    batches[number] ??
+    (entry.groups.length
+      ? entry.groups.map((id) => previousById.get(id)!)
+      : [portfolio]);
+  const depthRows = authoredDepthBatches[number];
+  const published = batches[number]
+    ? existingSources
+    : existingSources.map(withPublishedLessons);
+  const sources = depthRows
+    ? materializeDepthBatch(number, depthRows, published)
+    : [...published];
+  const topics = sources.map((source): Topic => {
+    const topicResources = resources.filter((resource) =>
+      resource.relatedTopicIds.includes(source.id),
+    );
+    const ownedResources = topicResources.map((resource) => resource.id);
+    const subtopics: Subtopic[] = source.subtopics
+      .filter((lesson) => !excludedLessons.has(lesson.id))
+      .map((lesson) => ({
+        ...lesson,
+        ...(source.depth ? { targetDepth: source.depth.targetDepth } : {}),
+        contributesToJobReadyCheckpoint: checkpointTopics.has(source.id),
+        priority: "core",
+        resources: [
+          ...new Set([
+            ...(lesson.workedExample ? lesson.resources : []),
+            ...topicResources
+              .filter((resource) =>
+                resource.learningMoments.some(
+                  (moment) =>
+                    moment.topicId === source.id &&
+                    moment.previousLessonIds.includes(lesson.id),
+                ),
+              )
+              .map((resource) => resource.id),
+          ]),
+        ],
+      }));
+    const topic: Topic = {
+      ...source,
+      phase: number,
+      difficulty,
+      priority: "core",
+      prerequisites: precedingTopic ? [precedingTopic.id] : [],
+      guidance: [],
+      resources: ownedResources,
+      subtopics,
+      hours:
+        subtopics.reduce((total, lesson) => total + lesson.minutes, 0) / 60,
+    };
+    precedingTopic = topic;
+    return topic;
+  });
+  return {
+    id: phaseId(number),
+    slug: entry.slug,
+    number,
+    title:
+      v5Requirements.find((phase) => phase.phase === number)?.title ??
+      entry.title,
+    shortTitle: entry.shortTitle,
+    purpose: entry.purpose,
+    why: entry.purpose,
+    difficulty,
+    priority: "core",
+    prerequisites: index ? [phaseId(index)] : [],
+    outcomes: topics.at(-1)!.outcomes,
+    weeks: "Self-paced",
     topics,
-    color: colors[p.number],
+    color: colors[index % colors.length],
   };
 });
-const supporting = [
-  {
-    id: "1.7-java",
-    title: "Java — Optional Backend Path",
-    explanation:
-      "Java is a statically typed language widely used for enterprise services. Explore it when maintaining an existing JVM service or when a role requires it; it is not needed before machine learning.",
-    terms: [
-      "JVM and compilation",
-      "Classes and interfaces",
-      "Collections and generics",
-      "HTTP service fundamentals",
-      "Testing with JUnit",
-    ],
-    defs: [
-      "The JVM executes portable bytecode produced by the Java compiler.",
-      "Classes define implementations; interfaces define contracts for interchangeable objects.",
-      "Collections organize values while generics preserve compile-time element-type relationships.",
-      "An HTTP service maps requests to validated application behavior.",
-      "JUnit runs automated tests that compare behavior with explicit expectations.",
-    ],
-  },
-  {
-    id: "1.7-go",
-    title: "Go — Optional Infrastructure Path",
-    explanation:
-      "Go is a compiled language with a small syntax and built-in concurrency primitives. Explore it for infrastructure or networking work after building your first AI application.",
-    terms: [
-      "Go modules and tooling",
-      "Structs and interfaces",
-      "Goroutines",
-      "Channels and synchronization",
-      "HTTP services and tests",
-    ],
-    defs: [
-      "Modules identify versioned dependency units; go tooling builds and tests packages.",
-      "Structs group data; interfaces are satisfied by compatible method sets.",
-      "Goroutines are concurrently scheduled functions managed by the Go runtime.",
-      "Channels communicate values; synchronization still needs clear ownership and cancellation.",
-      "The standard library supports HTTP handlers and table-driven behavior tests.",
-    ],
-  },
-  {
-    id: "1.7-cpp",
-    title: "C++ — Optional Systems Path",
-    explanation:
-      "C++ offers close control over memory and performance. Explore it when low-level serving or accelerator work demands it, after the core Python and ML path.",
-    terms: [
-      "Compilation and build systems",
-      "Values and references",
-      "RAII and smart pointers",
-      "Standard containers",
-      "Profiling and memory safety",
-    ],
-    defs: [
-      "C++ source is compiled and linked into native programs using build configuration.",
-      "Values own data; references and pointers refer to objects with defined lifetimes.",
-      "RAII ties resource cleanup to object lifetime; smart pointers express ownership.",
-      "Standard containers implement common structures such as vectors and hash maps.",
-      "Profilers and sanitizers find measured bottlenecks and memory errors.",
-    ],
-  },
-];
-for (const x of supporting) {
-  phases[1].topics.push({
-    id: x.id,
-    slug: slugify(x.title),
-    title: x.title,
-    phase: 1,
-    explanation: x.explanation,
-    why: "This is a situational supporting language, not a prerequisite for the main AI path.",
-    application:
-      "Maintaining an infrastructure service that uses this language.",
-    assignment: `Build a small command-line program in ${x.title.split(" —")[0]}, add behavior tests and document when you would choose it over Python.`,
-    outcomes: [
-      "Build a small program.",
-      "Explain its memory and execution model.",
-    ],
-    prerequisites: ["1.5"],
-    difficulty: "intermediate",
-    priority: "optional",
-    hours: 5,
-    resources: [
-      x.id === "1.7-java" ? "java" : x.id === "1.7-go" ? "go" : "cpp",
-    ],
-    guidance: ["Explore only when a project or role calls for it."],
-    subtopics: x.terms.map((title, i) => ({
-      id: `${x.id}.${i + 1}`,
-      title,
-      explanation: x.defs[i],
-      why: "The concept makes the language usable for its intended service work.",
-      study: [x.defs[i], "Compare this behavior with the Python equivalent."],
-      application: "A small independently tested infrastructure utility.",
-      exercise: `Write a minimal example of ${title.toLowerCase()}, run it and document one failing input.`,
-      criteria: [
-        "Show working code and one error case.",
-        "Explain how the behavior differs from Python.",
-      ],
-      minutes: 60,
-      priority: "optional",
-      resources: [
-        x.id === "1.7-java" ? "java" : x.id === "1.7-go" ? "go" : "cpp",
-      ],
-    })),
-  });
-}
-export const topics = phases.flatMap((p) => p.topics);
-export const subtopics = topics.flatMap((t) => t.subtopics);
-export const topicBySlug = Object.fromEntries(topics.map((t) => [t.slug, t]));
-export const topicById = Object.fromEntries(topics.map((t) => [t.id, t]));
-export const phaseBySlug = Object.fromEntries(phases.map((p) => [p.slug, p]));
+export const topics = phases.flatMap((phase) => phase.topics);
+export const subtopics = topics.flatMap((topic) => topic.subtopics);
+export const topicBySlug = Object.fromEntries(
+  topics.map((topic) => [topic.slug, topic]),
+);
+export const topicById = Object.fromEntries(
+  topics.map((topic) => [topic.id, topic]),
+);
+const currentTopicByLesson = new Map(
+  topics.flatMap((topic) =>
+    topic.subtopics.map((lesson) => [lesson.id, topic] as const),
+  ),
+);
+export const v5TopicRedirects = Object.fromEntries(
+  v5Baseline.phases.flatMap((phase) =>
+    phase.topics.flatMap((prior) => {
+      if (Object.hasOwn(topicBySlug, prior.slug)) return [];
+      const target = prior.lessons
+        .map((id) => currentTopicByLesson.get(id))
+        .find(Boolean);
+      return target ? [[prior.slug, target.slug] as const] : [];
+    }),
+  ),
+);
+export const phaseBySlug = Object.fromEntries(
+  phases.map((phase) => [phase.slug, phase]),
+);
+export const phaseByNumber = Object.fromEntries(
+  phases.map((phase) => [phase.number, phase]),
+);
 export const lessonCounts = {
   phases: phases.length,
   topics: topics.length,
   subtopics: subtopics.length,
-  core: subtopics.filter((s) => s.priority === "core").length,
+  core: subtopics.length,
 };

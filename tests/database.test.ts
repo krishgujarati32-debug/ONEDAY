@@ -43,6 +43,19 @@ test("PostgreSQL migration, RLS ownership, RPC round-trip, atomic rollback and r
       completedAt: "2026-11-01T05:00:00.000Z",
     };
     state.notes["topic:0.1"] = "Private note A";
+    state.notes["topic:1.6-javascript"] = "Historical note";
+    state.progress["1.6-javascript.1"] = {
+      status: "completed",
+      completedAt: "2026-11-01T05:00:00.000Z",
+    };
+    state.progress["v2-http-contract"] = {
+      status: "completed",
+      completedAt: "2026-11-01T06:00:00.000Z",
+    };
+    state.progress["evidence:0.1"] = state.progress["0.1.1"];
+    state.progress["job-ready:concurrency"] = state.progress["0.1.1"];
+    state.projectChecks["portfolio-python-toolkit.0"] = true;
+    state.projectChecks["portfolio-rag-backend.0"] = true;
     state.bookmarks = ["topic:0.1"];
     state.sessions = [
       {
@@ -132,6 +145,74 @@ test("PostgreSQL migration, RLS ownership, RPC round-trip, atomic rollback and r
       );
     await assert.rejects(read(), /permission denied/);
     await assert.rejects(save(emptyState(), 0), /permission denied/);
+
+    await db.exec("reset role");
+    const archiveMigration = readFileSync(
+      "supabase/migrations/202611080001_preserve_planner_archive.sql",
+      "utf8",
+    );
+    await db.exec(archiveMigration);
+    const readWorkspace = async () =>
+      (
+        await db.query<{ value: { data: unknown; revision: number } }>(
+          "select public.read_learning_workspace() as value",
+        )
+      ).rows[0].value;
+    const saveWorkspace = async (data: unknown, revision: number) =>
+      db.query("select public.save_learning_workspace($1::jsonb,$2::bigint)", [
+        JSON.stringify(data),
+        revision,
+      ]);
+    await as(A);
+    assert.deepEqual(await readWorkspace(), { data: state, revision: 1 });
+    const planner = {
+      version: 1,
+      custom: {},
+      unknown: { nested: ["keep this", true] },
+    } as const;
+    const archived = { ...state, planner };
+    await saveWorkspace(archived, 1);
+    assert.deepEqual(stateSchema.parse((await readWorkspace()).data), archived);
+    await assert.rejects(
+      saveWorkspace({ ...archived, planner: { version: "1" } }, 2),
+      /invalid_planner_archive/,
+    );
+    await assert.rejects(
+      saveWorkspace(
+        { ...archived, planner: { version: 1 }, sessions: invalid.sessions },
+        2,
+      ),
+      /check constraint/,
+    );
+    await assert.rejects(saveWorkspace(archived, 1), /revision_conflict/);
+    assert.deepEqual(await readWorkspace(), { data: archived, revision: 2 });
+    await saveWorkspace(state, 2);
+    await save(state, 3);
+    assert.deepEqual(await readWorkspace(), { data: archived, revision: 4 });
+    await db.exec("reset role");
+    await db.exec(archiveMigration);
+    await as(A);
+    assert.deepEqual(await readWorkspace(), { data: archived, revision: 4 });
+    await as(B);
+    assert.deepEqual(await readWorkspace(), {
+      data: emptyState(),
+      revision: 1,
+    });
+    assert.equal(
+      (
+        await db.query(
+          "select planner from public.user_settings where user_id=$1",
+          [A],
+        )
+      ).rows.length,
+      0,
+    );
+    await as("", "anon");
+    await assert.rejects(readWorkspace(), /permission denied/);
+    await assert.rejects(saveWorkspace(archived, 4), /permission denied/);
+    await as(A);
+    await saveWorkspace({ ...state, planner: null }, 4);
+    assert.deepEqual(await readWorkspace(), { data: state, revision: 5 });
   } finally {
     await db.close();
   }

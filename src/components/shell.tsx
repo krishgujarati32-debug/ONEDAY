@@ -6,21 +6,17 @@ import {
   ArrowRight,
   ArrowUpRight,
   BookOpen,
-  Bookmark,
   ChevronRight,
   Command,
-  Compass,
   GraduationCap,
   Layers3,
   LayoutDashboard,
-  LibraryBig,
   Map,
   Menu,
   Monitor,
   Search,
   Settings2,
   Sun,
-  Terminal,
   WifiOff,
   X,
 } from "lucide-react";
@@ -33,13 +29,9 @@ import {
   phaseIndex,
 } from "@/lib/progress";
 const nav = [
-  { href: "/", label: "Overview", icon: Compass },
-  { href: "/dashboard", label: "My dashboard", icon: LayoutDashboard },
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/roadmap", label: "Learning roadmap", icon: Map },
-  { href: "/projects", label: "Build projects", icon: Layers3 },
-  { href: "/technology-stack", label: "Technology stack", icon: Terminal },
-  { href: "/resources", label: "Resource library", icon: LibraryBig },
-  { href: "/saved", label: "Saved for later", icon: Bookmark },
+  { href: "/projects", label: "Projects", icon: Layers3 },
 ];
 type SearchResult = {
   label: string;
@@ -168,14 +160,12 @@ export function Shell({ children }: { children: React.ReactNode }) {
     pending,
     setTheme,
     reload,
+    loadFailure,
     dismiss,
   } = useLearning();
   const [search, setSearch] = useState(false),
     [mobile, setMobile] = useState(false);
-  const p = progress(
-    subtopicIndex.filter((s) => s.priority === "core"),
-    state,
-  );
+  const p = progress(subtopicIndex, state);
   const name =
     state.settings.name || user?.email?.split("@")[0] || "Your learning space";
   useEffect(() => {
@@ -299,10 +289,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <strong>A little better, every day.</strong>
             <p>Great engineers are built one concept at a time.</p>
             <div className="between">
-              <small>CORE JOURNEY</small>
+              <small>LEARNING PROGRESS</small>
               <b>{ready ? formatPercent(p.percent) : "…"}</b>
             </div>
-            <ProgressBar value={p.percent} label="Core curriculum progress" />
+            <ProgressBar value={p.percent} label="Curriculum progress" />
             <Link href="/roadmap">
               Keep exploring
               <ArrowUpRight size={15} />
@@ -314,7 +304,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             onClick={() => setMobile(false)}
           >
             <Settings2 size={18} />
-            Settings & preferences
+            Account & data
           </Link>
           <Link
             href={mode === "cloud" ? "/settings" : "/auth/sign-in"}
@@ -351,7 +341,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
                   (path.startsWith("/learn")
                     ? "Learning room"
                     : path.startsWith("/settings")
-                      ? "Settings & preferences"
+                      ? "Account & data"
                       : path.startsWith("/auth")
                         ? "Account"
                         : "Learning roadmap")}
@@ -398,7 +388,13 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <div className="notice notice-error">
             <WifiOff size={15} />
             <span>We couldn’t load your saved data. Changes are paused.</span>
-            <button onClick={() => void reload()}>Retry</button>
+            {loadFailure && <span>{loadFailure.message}</span>}
+            {loadFailure?.original != null && (
+              <Link href="/settings#data">Account &amp; data</Link>
+            )}
+            <button disabled={pending} onClick={() => void reload()}>
+              {pending ? "Retrying…" : "Retry"}
+            </button>
           </div>
         ) : mode === "preview" ? (
           <div className="notice">

@@ -11,7 +11,12 @@ import {
 } from "lucide-react";
 import type { Topic, Status } from "@/lib/types";
 import { useLearning } from "./learning-provider";
-import { progress, formatPercent } from "@/lib/progress";
+import {
+  progress,
+  formatPercent,
+  lessonNeighbors,
+  topicEvidenceId,
+} from "@/lib/progress";
 import { BookmarkButton, LiveProgress, Modal, NotesEditor, Pill } from "./ui";
 import { TopicResourcePanel } from "./topic-resource-panel";
 import { resourceById } from "@/data/resources";
@@ -68,6 +73,10 @@ export function LessonRoom({ topic }: { topic: Topic }) {
         return;
       }
       const target = document.getElementById(id);
+      if (!target) {
+        const moved = lessonNeighbors(id)?.current;
+        if (moved && moved.topic.id !== topic.id) location.replace(moved.href);
+      }
       if (target?.tagName === "DETAILS") {
         target.setAttribute("open", "");
         target.scrollIntoView({ block: "start" });
@@ -81,6 +90,7 @@ export function LessonRoom({ topic }: { topic: Topic }) {
     };
   }, [topic.id]);
   const p = progress(topic.subtopics, state);
+  const evidenceId = topicEvidenceId(topic.id);
   return (
     <>
       <div className="lesson-intro content-card">
@@ -144,6 +154,7 @@ export function LessonRoom({ topic }: { topic: Topic }) {
           <div className="lesson-list">
             {topic.subtopics.map((s, i) => {
               const status = state.progress[s.id]?.status ?? "not_started";
+              const order = lessonNeighbors(s.id);
               return (
                 <details
                   id={s.id}
@@ -179,14 +190,35 @@ export function LessonRoom({ topic }: { topic: Topic }) {
                     <span className="lesson-summary-title">
                       <strong>{s.title}</strong>
                       <small>
-                        {s.minutes} min · {s.priority}
+                        {order?.current.number} · {s.minutes} min
                         {status === "needs_revision" ? " · Needs revision" : ""}
                       </small>
                     </span>
                     <ChevronDown size={17} className="lesson-chevron" />
                   </summary>
                   <div className="lesson-body">
+                    {s.targetDepth && (
+                      <p className="tiny-text">Target depth {s.targetDepth}</p>
+                    )}
+                    {s.contributesToJobReadyCheckpoint && (
+                      <p className="tiny-text">
+                        Practice for the Job-Ready Foundation Checkpoint
+                      </p>
+                    )}
                     <p className="lesson-definition">{s.explanation}</p>
+                    {s.workedExample && (
+                      <>
+                        <h4>Worked example</h4>
+                        <p>{s.workedExample}</p>
+                      </>
+                    )}
+                    {order?.previous && (
+                      <p>
+                        <a className="text-link" href={order.previous.href}>
+                          Prerequisite review · {order.previous.lesson.title}
+                        </a>
+                      </p>
+                    )}
                     <div className="two-columns">
                       <div>
                         <h4>What to study</h4>
@@ -237,6 +269,23 @@ export function LessonRoom({ topic }: { topic: Topic }) {
                         );
                       })}
                     </div>
+                    {evidenceId &&
+                    i + 1 === topic.subtopics.length &&
+                    state.progress[evidenceId]?.status !== "completed" ? (
+                      <p>
+                        <a className="text-link" href="#assignment">
+                          Next · Topic practice
+                        </a>
+                      </p>
+                    ) : (
+                      order?.next && (
+                        <p>
+                          <a className="text-link" href={order.next.href}>
+                            Next lesson · {order.next.lesson.title}
+                          </a>
+                        </p>
+                      )
+                    )}
                     <div className="lesson-controls">
                       <label>
                         Status
@@ -294,33 +343,77 @@ export function LessonRoom({ topic }: { topic: Topic }) {
                 <span className="eyebrow">CONNECT THE CONCEPTS</span>
                 <h2>Your practical assignment</h2>
               </div>
-              <Pill tone="purple">1 integrated build</Pill>
+              <Pill tone="purple">
+                {topic.depth ? "Practice evidence" : "1 integrated build"}
+              </Pill>
             </div>
             <p>{topic.assignment}</p>
             <h3>Completion criteria</h3>
-            <ul className="check-list">
-              <li>
-                <CheckCircle2 size={16} />
-                <span>
-                  Produce a working artifact: code, a calculation, a diagram or
-                  a reproducible experiment appropriate to this assignment.
-                </span>
-              </li>
-              <li>
-                <CheckCircle2 size={16} />
-                <span>
-                  Demonstrate the normal case and at least one error or boundary
-                  case.
-                </span>
-              </li>
-              <li>
-                <CheckCircle2 size={16} />
-                <span>
-                  Explain your decisions, verify the output and document what
-                  you would improve.
-                </span>
-              </li>
-            </ul>
+            {topic.depth ? (
+              <>
+                <ul className="check-list">
+                  {topic.depth.completionCriteria.map((check) => (
+                    <li key={check}>
+                      <CheckCircle2 size={16} />
+                      <span>{check}</span>
+                    </li>
+                  ))}
+                </ul>
+                {evidenceId && (
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={
+                        state.progress[evidenceId]?.status === "completed"
+                      }
+                      disabled={
+                        !ready ||
+                        pending ||
+                        p.remaining > 0 ||
+                        mode === "error" ||
+                        mode === "guest"
+                      }
+                      onChange={(event) =>
+                        void setStatus(
+                          evidenceId,
+                          event.target.checked ? "completed" : "not_started",
+                        )
+                      }
+                    />{" "}
+                    I completed the topic practice and checked the evidence
+                  </label>
+                )}
+                {p.remaining > 0 && (
+                  <p>
+                    Finish the required lessons before recording topic practice.
+                  </p>
+                )}
+              </>
+            ) : (
+              <ul className="check-list">
+                <li>
+                  <CheckCircle2 size={16} />
+                  <span>
+                    Produce a working artifact: code, a calculation, a diagram
+                    or a reproducible experiment appropriate to this assignment.
+                  </span>
+                </li>
+                <li>
+                  <CheckCircle2 size={16} />
+                  <span>
+                    Demonstrate the normal case and at least one error or
+                    boundary case.
+                  </span>
+                </li>
+                <li>
+                  <CheckCircle2 size={16} />
+                  <span>
+                    Explain your decisions, verify the output and document what
+                    you would improve.
+                  </span>
+                </li>
+              </ul>
+            )}
             <small>
               Mark lessons complete only after you can demonstrate the skill.
               Assignment completion is your self-assessment, not an automatic
@@ -427,7 +520,7 @@ export function LessonRoom({ topic }: { topic: Topic }) {
             </ol>
             <small>
               Estimates are flexible. All lessons count toward this topic;
-              dashboard core progress excludes optional lessons.
+              dashboard counts only the current sequence.
             </small>
           </div>
         </aside>
@@ -439,8 +532,8 @@ export function LessonRoom({ topic }: { topic: Topic }) {
       >
         <p>
           Mark all {topic.subtopics.length} lessons as Needs Revision. Their
-          completion dates will be cleared, and core progress will adjust. Your
-          notes and bookmarks stay available.
+          completion dates will be cleared, and learning progress will adjust.
+          Your notes and bookmarks stay available.
         </p>
         <div className="modal-actions">
           <button

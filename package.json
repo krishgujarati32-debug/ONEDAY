@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "check:curriculum": "tsx scripts/validate-curriculum.ts",
+    "check:curriculum:v5": "tsx scripts/validate-v5-depth.ts",
     "curriculum:index": "tsx scripts/build-manifest.ts",
     "test:routes": "tsx scripts/smoke-routes.ts",
     "format": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern \"src/**/*.{ts,tsx,css,json}\" \"scripts/*.ts\" \"tests/*.ts\" \"*.{json,ts,mjs,md}\" \"docs/*.md\"",

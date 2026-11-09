@@ -7,6 +7,8 @@ import {
   Braces,
   Check,
   Compass,
+  Cpu,
+  Flag,
   Database,
   GitBranch,
   GraduationCap,
@@ -34,6 +36,8 @@ const icons = [
   Route,
   ShieldCheck,
   Compass,
+  Cpu,
+  Flag,
 ];
 const roles = [
   [
@@ -149,7 +153,7 @@ export default function Home() {
           </svg>
           <Link
             className="diagram-node node-code"
-            href={"/roadmap/" + phases[1].slug}
+            href={"/roadmap/" + phases[0].slug}
           >
             <span className="node-icon">
               <Braces size={23} />
@@ -162,7 +166,7 @@ export default function Home() {
           </Link>
           <Link
             className="diagram-node node-model"
-            href={"/roadmap/" + phases[4].slug}
+            href={"/roadmap/" + phases[5].slug}
           >
             <span className="node-icon blue">
               <BrainCircuit size={23} />
@@ -182,7 +186,7 @@ export default function Home() {
           </div>
           <Link
             className="diagram-node node-system"
-            href={"/roadmap/" + phases[9].slug}
+            href={"/roadmap/" + phases[10].slug}
           >
             <span className="node-icon green">
               <Network size={23} />
@@ -195,7 +199,7 @@ export default function Home() {
           </Link>
           <Link
             className="diagram-node node-production"
-            href={"/roadmap/" + phases[10].slug}
+            href={"/roadmap/" + phases[11].slug}
           >
             <span className="node-icon amber">
               <Server size={23} />
@@ -245,7 +249,7 @@ export default function Home() {
         </div>
         <div className="journey-grid">
           {phases.map((p, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i] ?? Compass;
             return (
               <Link
                 className="journey-phase"
@@ -266,7 +270,7 @@ export default function Home() {
                 <h3>{p.shortTitle}</h3>
                 <p>{p.purpose}</p>
                 <div className="journey-phase-footer">
-                  <span>{p.number === 2 ? "Parallel track" : p.weeks}</span>
+                  <span>{p.weeks}</span>
                   <ArrowUpRight size={17} />
                 </div>
               </Link>
@@ -324,7 +328,7 @@ export default function Home() {
             <span className="eyebrow">LESS WATCHING. MORE BUILDING.</span>
             <h2>Turn understanding into working software.</h2>
             <p>
-              Seven projects that grow with your skills, from a Python app to a
+              Five projects that grow with your skills, from a Python app to a
               production AI platform.
             </p>
           </div>
@@ -334,7 +338,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="project-preview-grid">
-          {[projects[0], projects[3], projects[5]].map((p, i) => (
+          {[projects[0], projects[3], projects.at(-1)!].map((p, i) => (
             <Link
               className={`project-preview project-preview-${i}`}
               key={p.id}
@@ -348,14 +352,14 @@ export default function Home() {
                 ) : (
                   <Route size={45} strokeWidth={1.3} />
                 )}
-                <span>BUILD {p.id.split("-")[1].padStart(2, "0")}</span>
+                <span>{p.subtitle.toUpperCase()}</span>
               </div>
               <div className="project-preview-body">
                 <Pill tone={i === 2 ? "purple" : "neutral"}>
                   {i === 2 ? "Flagship project" : p.difficulty}
                 </Pill>
                 <h3>{p.title}</h3>
-                <p>{p.subtitle}</p>
+                <p>{p.purpose}</p>
                 <span className="text-link">
                   See the build plan
                   <ArrowUpRight size={15} />
@@ -381,14 +385,15 @@ export default function Home() {
             className="button button-primary"
             href={"/learn/" + phases[0].topics[0].slug}
           >
-            Start with Phase 0<ArrowRight size={16} />
+            Start with Phase 01
+            <ArrowRight size={16} />
           </Link>
         </div>
         <div className="how-steps">
           {[
             [
               "Find your starting point",
-              "Begin at Phase 0. Read the overview and follow the recommended topic order.",
+              "Begin at Phase 01. Read the overview and follow the recommended topic order.",
             ],
             [
               "Understand, then practice",

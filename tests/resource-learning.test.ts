@@ -1,16 +1,31 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { resources, resourceById } from "../src/data/resources";
+import { resources, resourceById } from "../src/data/legacy-resources";
 import {
-  filterResources,
-  groupResourceMoments,
-  topicResourceGroups,
-  resourceSearchText,
+  filterResources as filter,
+  groupResourceMoments as group,
+  topicResourceGroups as topicGroups,
+  resourceSearchText as searchText,
   stageLabel,
 } from "../src/lib/resource-learning";
 import { emptyState, parseImport, stateSchema } from "../src/lib/state";
 import { progress, subtopicIndex } from "../src/lib/progress";
 import baseline from "../docs/resource-upgrade-baseline.json";
+import legacyIndex from "../src/data/legacy-index.json";
+import type { Resource } from "../src/lib/types";
+import type {
+  ResourceFilters,
+  ResourceMatch,
+} from "../src/lib/resource-learning";
+
+const filterResources = (resources: Resource[], options?: ResourceFilters) =>
+  filter(resources, options, legacyIndex);
+const groupResourceMoments = (matches: ResourceMatch[]) =>
+  group(matches, legacyIndex);
+const topicResourceGroups = (resources: Resource[], topic: string) =>
+  topicGroups(resources, topic, legacyIndex);
+const resourceSearchText = (resource: Resource) =>
+  searchText(resource, legacyIndex);
 test("phase and timing filters intersect on the same learning moment", () => {
   const mlflow = resourceById.mlflow;
   assert.equal(

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { Fragment } from "react";
+import { notFound, redirect } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
@@ -7,11 +8,20 @@ import {
   CheckCircle2,
   Flag,
 } from "lucide-react";
-import { phases, phaseBySlug } from "@/data/curriculum";
+import {
+  phases,
+  phaseBySlug,
+  phaseByNumber,
+  topicById,
+  v5DeploymentSpan,
+} from "@/data/curriculum";
+import { legacyPhaseAliases } from "@/data/curriculum-legacy-links";
 import { projects } from "@/data/projects";
+import { jobReadyCriteria } from "@/data/job-ready";
+import { JobReadyCheckpoint } from "@/components/job-ready-checkpoint";
 import { phaseIndex } from "@/lib/progress";
 import { TopicCard } from "@/components/roadmap";
-import { LiveProgress, PageHeading, Pill } from "@/components/ui";
+import { LiveProgress, PageHeading } from "@/components/ui";
 export function generateStaticParams() {
   return phases.map((p) => ({ phaseSlug: p.slug }));
 }
@@ -28,12 +38,17 @@ export default async function PhasePage({
 }: {
   params: Promise<{ phaseSlug: string }>;
 }) {
-  const phase = phaseBySlug[(await params).phaseSlug];
-  if (!phase) notFound();
+  const { phaseSlug } = await params;
+  const phase = phaseBySlug[phaseSlug];
+  if (!phase) {
+    const alias = legacyPhaseAliases[phaseSlug];
+    if (alias) redirect("/roadmap/" + phaseByNumber[alias].slug);
+    notFound();
+  }
   const summary = phaseIndex.find((p) => p.id === phase.id)!;
   const items = phase.topics.flatMap((t) => t.subtopics);
-  const prev = phases[phase.number - 1],
-    next = phases[phase.number + 1];
+  const prev = phaseByNumber[phase.number - 1],
+    next = phaseByNumber[phase.number + 1];
   return (
     <>
       <Link className="back-link" href="/roadmap">
@@ -42,28 +57,14 @@ export default async function PhasePage({
       </Link>
       <PageHeading
         eyebrow={"PHASE " + String(phase.number).padStart(2, "0")}
-        title={phase.shortTitle}
+        title={phase.title}
         description={phase.purpose}
-        action={
-          <Pill tone={phase.priority === "core" ? "purple" : "amber"}>
-            {phase.priority === "core"
-              ? "Core learning path"
-              : "Advanced · optional"}
-          </Pill>
-        }
       />
       <div className="detail-layout">
         <div>
           <div className="content-card">
             <h2>Build the right foundation.</h2>
             <p>{phase.why}</p>
-            {phase.number === 2 && (
-              <div className="callout">
-                This is a parallel learning track. Keep writing code while you
-                study maths; revisit the relevant sections as ML concepts need
-                them.
-              </div>
-            )}
             <h3>What you’ll be able to do</h3>
             <ul className="check-list">
               {phase.outcomes.map((x) => (
@@ -99,7 +100,27 @@ export default async function PhasePage({
           </div>
           <div className="topic-list">
             {summary.topics.map((t, i) => (
-              <TopicCard key={t.id} topic={t} number={i + 1} />
+              <Fragment key={t.id}>
+                <TopicCard topic={t} number={i + 1} />
+                {phase.number === 12 && i + 1 === v5DeploymentSpan[1] && (
+                  <JobReadyCheckpoint
+                    foundations={summary.topics.slice(0, v5DeploymentSpan[1])}
+                    criteria={jobReadyCriteria.map(({ id, text, topicId }) => ({
+                      id,
+                      text,
+                      href: "/learn/" + topicById[topicId].slug,
+                    }))}
+                    projects={projects
+                      .filter((project) => project.targetDepth === "L3")
+                      .map((project) => ({
+                        id: project.id,
+                        title: project.title,
+                        href: "/projects/" + project.slug,
+                        milestoneCount: project.milestones.length,
+                      }))}
+                  />
+                )}
+              </Fragment>
             ))}
           </div>
           <section className="content-card top-space">
@@ -122,7 +143,7 @@ export default async function PhasePage({
             <h3>Phase completion criteria</h3>
             <ul className="plain-list">
               <li>
-                Complete the core lessons and reproduce their exercises without
+                Complete the lessons and reproduce their exercises without
                 copying.
               </li>
               <li>
@@ -133,8 +154,8 @@ export default async function PhasePage({
                 Document questions and revisit lessons marked for revision.
               </li>
               <li>
-                Optional exploration does not block your core path. Elapsed time
-                never marks a lesson complete.
+                Record completion after you reproduce the exercise and meet its
+                criteria.
               </li>
             </ul>
           </section>
@@ -181,10 +202,7 @@ export default async function PhasePage({
               Start this phase
               <ArrowRight size={16} />
             </Link>
-            <small>
-              Phase progress includes every lesson in this phase. Core progress
-              on the dashboard excludes optional and advanced lessons.
-            </small>
+            <small>Phase progress uses the active lessons in this phase.</small>
           </section>
         </aside>
       </div>

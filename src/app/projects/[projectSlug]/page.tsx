@@ -1,74 +1,86 @@
-import { resources } from "@/data/resources";
-import { ResourceCard } from "@/components/resource-card";
-import { phaseNumber } from "@/lib/resource-learning";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, Flag } from "lucide-react";
+import { notFound, redirect } from "next/navigation";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projects, projectBySlug } from "@/data/projects";
-import { phases } from "@/data/curriculum";
-import { BookmarkButton, PageHeading } from "@/components/ui";
+import {
+  legacyProjectBySlug,
+  projectSuccessors,
+} from "@/data/curriculum-legacy-links";
+import { technologies } from "@/data/technologies";
+import { depthLabels } from "@/data/course-v5-types";
+import { resources } from "@/data/resources";
+import { lessonNeighbors } from "@/lib/progress";
+import { PageHeading } from "@/components/ui";
 import { ProjectWorkspace } from "@/components/libraries";
+
 export function generateStaticParams() {
-  return projects.map((p) => ({ projectSlug: p.slug }));
+  return projects.map(({ slug }) => ({ projectSlug: slug }));
 }
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ projectSlug: string }>;
-}) {
-  const p = projectBySlug[(await params).projectSlug];
-  return { title: p?.title ?? "Project not found" };
+type Props = { params: Promise<{ projectSlug: string }> };
+export async function generateMetadata({ params }: Props) {
+  return {
+    title:
+      projectBySlug[(await params).projectSlug]?.title ?? "Project not found",
+  };
 }
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ projectSlug: string }>;
-}) {
-  const project = projectBySlug[(await params).projectSlug];
-  if (!project) notFound();
-  const i = projects.indexOf(project);
+
+export default async function ProjectPage({ params }: Props) {
+  const { projectSlug } = await params;
+  const project = projectBySlug[projectSlug];
+  if (!project) {
+    const legacy = legacyProjectBySlug[projectSlug];
+    if (legacy) {
+      const successor = projects.find(
+        (candidate) => candidate.id === (projectSuccessors[legacy] ?? legacy),
+      );
+      redirect(successor ? "/projects/" + successor.slug : "/projects");
+    }
+    notFound();
+  }
+  const position = projects.indexOf(project);
+  const relatedTopics = new Set(
+    project.prerequisiteLessons?.map(
+      (id) => lessonNeighbors(id)?.current.topic.id,
+    ),
+  );
+  const references = resources.filter(
+    (resource) =>
+      resource.relatedTopicIds.some((id) => relatedTopics.has(id)) ||
+      resource.learningMoments.some((moment) =>
+        moment.projectIds.includes(project.id),
+      ),
+  );
   return (
     <>
       <Link className="back-link" href="/projects">
-        <ArrowLeft size={14} />
-        All build projects
+        <ArrowLeft size={14} /> All projects
       </Link>
       <PageHeading
-        eyebrow={
-          "PROJECT " +
-          String(i + 1).padStart(2, "0") +
-          " · " +
-          project.difficulty.toUpperCase()
-        }
+        eyebrow={project.subtitle.toUpperCase()}
         title={project.title}
         description={project.purpose}
-        action={<BookmarkButton itemKey={"project:" + project.id} />}
       />
       <div className="detail-layout">
         <div>
           <section className="content-card">
-            <span className="eyebrow">BUILD WITH INTENTION</span>
-            <h2>{project.subtitle}</h2>
-            <h3>What you are working toward</h3>
+            <h2>Expected outcome</h2>
+            {project.targetDepth && (
+              <p>
+                Target depth {project.targetDepth} ·{" "}
+                {depthLabels[project.targetDepth]}
+              </p>
+            )}
             <p>{project.result}</p>
-            <h3>Why this project matters</h3>
-            <p>{project.purpose}</p>
-            <h3>Step-by-step milestones</h3>
-            <ol className="project-milestones">
-              {project.milestones.map((m, i) => (
-                <li key={m}>
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  <p>{m}</p>
-                </li>
-              ))}
-            </ol>
-            <h3>Learning objectives</h3>
-            <ul className="check-list">
-              {project.milestones.map((m) => (
-                <li key={m}>
-                  <CheckCircle2 size={15} />
-                  <span>{m}</span>
-                </li>
+            <h3>Architecture and data flow</h3>
+            <p>{project.architecture}</p>
+            <h3>Repository structure</h3>
+            <p>
+              <code>{project.folderStructure}</code>
+            </p>
+            <h3>Acceptance tests</h3>
+            <ul className="plain-list">
+              {project.checks?.map((check) => (
+                <li key={check}>{check}</li>
               ))}
             </ul>
           </section>
@@ -76,135 +88,80 @@ export default async function Page({
             <ProjectWorkspace project={project} />
           </div>
           <section className="content-card top-space">
-            <h2>Resources for your milestones</h2>
-            <p>
-              Open each guide at its recommended phase. Optional tools and
-              advanced extensions can wait; choose one implementation for the
-              first baseline.
-            </p>
-            {resources
-              .filter((r) =>
-                r.learningMoments.some((m) =>
-                  m.projectIds.includes(project.id),
-                ),
-              )
-              .map((resource) => {
-                const moments = resource.learningMoments.filter((m) =>
-                  m.projectIds.includes(project.id),
-                );
-                return (
-                  <details className="project-resource-guide" key={resource.id}>
-                    <summary>
-                      {resource.title} · Phase{" "}
-                      {phaseNumber(moments[0].phaseNumber)} ·{" "}
-                      {resource.priority}
-                    </summary>
-                    <ResourceCard resource={resource} moments={moments} />
-                  </details>
-                );
-              })}
-          </section>
-          <section className="content-card top-space">
-            <h2>Make the result reviewable.</h2>
-            <h3>Your GitHub documentation should contain</h3>
-            <ul className="plain-list">
-              <li>The problem, intended user and scope of the solution.</li>
-              <li>
-                Architecture and data flow, plus important design decisions.
-              </li>
-              <li>
-                Reproducible setup commands and environment variable names
-                without credentials.
-              </li>
-              <li>
-                Examples, test commands, evaluation results and known
-                limitations.
-              </li>
-              <li>Dataset and model provenance and licenses where relevant.</li>
-            </ul>
-            <h3>Deployment requirements</h3>
+            <h2>Delivery and review</h2>
             <p>{project.deployment}</p>
-            <h3>Completion criteria</h3>
             <p>
-              {project.result} Verify every functional requirement, demonstrate
-              failure handling, run your tests and explain the choices in your
-              README.
+              Document the problem, API or CLI contract, setup, configuration
+              names, security boundaries, tests, measured results and
+              limitations. Include failure recovery for services that retain
+              data.
             </p>
-            <h3>Optional extensions</h3>
-            <ul className="plain-list">
-              {project.extensions.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
           </section>
         </div>
         <aside className="detail-aside">
           <section className="content-card">
-            <span className="phase-icon">
-              <Flag size={22} />
-            </span>
-            <h3>Your project toolkit</h3>
-            <div className="tech-tags">
-              {project.technologies.map((t) => (
-                <span key={t}>{t}</span>
-              ))}
+            <h2>Prerequisite lessons</h2>
+            <div className="related-links">
+              {project.prerequisiteLessons?.map((id) => {
+                const entry = lessonNeighbors(id)?.current;
+                return (
+                  entry && (
+                    <Link href={entry.href} key={id}>
+                      <span>
+                        {entry.number} · {entry.lesson.title}
+                      </span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  )
+                );
+              })}
             </div>
-            <h3>Required skills & topics</h3>
-            <p>
-              Review the relevant skills before each milestone; you can explore
-              the plan at any time.
-            </p>
-            <div className="project-prerequisites">
-              {project.phases.map((n) => (
-                <details key={n}>
-                  <summary>
-                    Phase {n} · {phases[n].shortTitle}
-                  </summary>
-                  <Link
-                    className="text-link"
-                    href={"/roadmap/" + phases[n].slug}
-                  >
-                    Review phase
-                    <ArrowRight size={12} />
-                  </Link>
-                  {phases[n].topics
-                    .filter((t) => t.priority === "core" || n === 11)
-                    .map((t) => (
-                      <Link key={t.id} href={"/learn/" + t.slug}>
-                        {t.title}
-                        <ArrowRight size={11} />
-                      </Link>
-                    ))}
-                </details>
+            <h3>Technology stack</h3>
+            <ul className="plain-list">
+              {project.technologies.map((name) => (
+                <li key={name}>
+                  <strong>{name}</strong> ·{" "}
+                  {technologies.find((tool) => tool.name === name)?.description}
+                </li>
               ))}
-            </div>
+            </ul>
+            {references.length > 0 && (
+              <>
+                <h3>Reference documentation</h3>
+                <ul className="plain-list">
+                  {references.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        className="text-link"
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </section>
         </aside>
       </div>
       <nav className="prev-next" aria-label="Project navigation">
-        {i > 0 ? (
-          <Link href={"/projects/" + projects[i - 1].slug}>
-            <ArrowLeft size={16} />
-            <span>
-              <small>PREVIOUS BUILD</small>
-              {projects[i - 1].title}
-            </span>
+        {position > 0 ? (
+          <Link href={"/projects/" + projects[position - 1].slug}>
+            <ArrowLeft size={14} /> {projects[position - 1].title}
           </Link>
         ) : (
           <span />
         )}
-        {i < projects.length - 1 ? (
-          <Link href={"/projects/" + projects[i + 1].slug}>
-            <span>
-              <small>NEXT BUILD</small>
-              {projects[i + 1].title}
-            </span>
-            <ArrowRight size={16} />
+        {position < projects.length - 1 ? (
+          <Link href={"/projects/" + projects[position + 1].slug}>
+            {projects[position + 1].title} <ArrowRight size={14} />
           </Link>
         ) : (
           <Link href="/dashboard">
-            Review your journey
-            <ArrowRight size={16} />
+            Back to your dashboard <ArrowRight size={14} />
           </Link>
         )}
       </nav>

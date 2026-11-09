@@ -1,21 +1,11 @@
-# Progress calculations
+# Learning progress and retained data
 
-Every lesson is independently marked `not_started`, `in_progress`, `completed` or `needs_revision`. A completed record has an ISO UTC `completedAt`; all other statuses have a null completion date. Checkbox completion can be undone. Topic revision is explicit and can be reversed without overwriting unrelated topics.
+The dashboard uses the active lesson manifest as its denominator. The recommendation follows the ordered lessons and pauses at topic practice after that topic’s lessons are complete. Visiting another topic does not change that recommendation. An empty path is zero percent, and the final lesson and practice leave no next step.
 
-For any set of lessons:
+Lesson states remain not started, in progress, completed and needs revision. Completing a lesson stores its UTC timestamp. The learner can undo the completion or explicitly mark it for revision. Opening a page never completes a lesson.
 
-`percentage = completed lesson count / actual lesson count × 100`
+Retained lessons use their existing IDs. A moved lesson carries the saved state and timestamp to its new location automatically through that ID. Retired IDs remain valid in saved state, including version 1 exports. They do not add active lesson credit. Project milestones retain their keys when the expected work is the same. The combined ingestion, RAG and MCP project uses separate keys. Prior RAG and MCP checks remain in backups.
 
-An empty set is 0%. Display rounds to at most one decimal; stored calculations keep full precision. Five completed lessons out of eight display 62.5%.
+The existing Supabase revision checks, RLS and authenticated save transaction apply to both active and historical records. Browser preview keeps the original local storage key. The V5 evidence and checkpoint IDs use the current progress table. The planner archive uses the additive planner compatibility migration. To transfer preview progress to a cloud account, export JSON, sign in, then review and confirm the import through Account & data.
 
-- Topic/phase percentages include **all** lessons in that topic/phase, as their labels explain.
-- Core percentage includes only lessons whose priority is `core`.
-- Optional percentage combines `optional` and `advanced` lessons.
-- Overall percentage includes both groups.
-- `needs_revision` is not complete. Revision takes precedence in topic status, followed by partial/in-progress behavior. A topic is complete only when every lesson is complete.
-
-The next recommendation finds the earliest incomplete core lesson's topic. Only after core completion does it suggest optional material. Continue Learning resumes an incomplete last-visited topic, otherwise uses that recommendation. No topic is completed because time elapsed.
-
-Study minutes come only from submitted sessions. The weekly chart groups by the learner's local Monday–Sunday calendar week; date-only session values avoid converting local study dates through UTC. Completion timestamps are grouped by the browser's local date. Revision clears current completion timestamps, so the chart shows currently completed lessons rather than an immutable activity history.
-
-The weekly goal is seven times the daily goal. The completion estimate divides remaining core lesson minutes by the goal and rounds up; it is expressed as study days, not a guaranteed graduation date. Projects and revision add time. Project checklists are tracked independently of lesson completion.
+The [original migration map](../src/data/curriculum-migration-map.json) and the [V5 migration map](../src/data/v5-migration-map.json) record the two generations of curriculum changes. See [database schema](database.md) for the persistence boundary.

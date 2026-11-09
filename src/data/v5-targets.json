@@ -1,0 +1,2500 @@
+[
+  {
+    "phase": 1,
+    "title": "Computer Science, Linux, Networking, and Engineering Foundations",
+    "topics": [
+      [
+        1,
+        "Introduction to Computer Science and Software Engineering",
+        "L1"
+      ],
+      [
+        2,
+        "How a Computer Executes Instructions",
+        "L1"
+      ],
+      [
+        3,
+        "CPU, Cores, RAM, Storage, and Memory Basics",
+        "L1"
+      ],
+      [
+        4,
+        "Bits, Bytes, Binary, and Data Representation (one focused practical topic; do not over-expand digital logic)",
+        "L1"
+      ],
+      [
+        5,
+        "Operating System Fundamentals",
+        "L1"
+      ],
+      [
+        6,
+        "Processes, Threads, and Basic Scheduling Concepts",
+        "L1"
+      ],
+      [
+        7,
+        "Filesystems, Paths, Environment Variables, and Process Environment",
+        "L2"
+      ],
+      [
+        8,
+        "Command-Line Fundamentals: pwd, ls, cd, cat, less, mkdir, cp, mv, and rm safely",
+        "L2"
+      ],
+      [
+        9,
+        "Linux Fundamentals and the Linux Filesystem",
+        "L2"
+      ],
+      [
+        10,
+        "Linux Permissions, Ownership, Users, and Groups",
+        "L2"
+      ],
+      [
+        11,
+        "Linux Processes, Services, Signals, and Resource Inspection",
+        "L2"
+      ],
+      [
+        12,
+        "Linux Text Processing and Search: grep, find, pipes, redirection, and exit codes",
+        "L2"
+      ],
+      [
+        13,
+        "Bash Shell Scripting: variables, arguments, conditions, loops, functions, and safe script execution",
+        "L2"
+      ],
+      [
+        14,
+        "Practical Linux Troubleshooting Commands: ps, top/htop, ss, lsof, curl, journalctl, df, du, and free. Teach ss as the modern first choice for socket inspection; mention netstat only as legacy context if encountered",
+        "L2"
+      ],
+      [
+        15,
+        "SSH, Secure Remote Access, and Basic File Transfer",
+        "L2"
+      ],
+      [
+        16,
+        "Git Fundamentals and Version Control",
+        "L3"
+      ],
+      [
+        17,
+        "Git Branches, Commits, Merges, and Conflict Resolution",
+        "L2"
+      ],
+      [
+        18,
+        "GitHub, Pull Requests, and Code Review Basics",
+        "L2"
+      ],
+      [
+        19,
+        "Networking Fundamentals: IP Addresses, Subnets at a basic level, Ports, DNS, and Routing Concepts",
+        "L2"
+      ],
+      [
+        20,
+        "TCP and UDP: what they do and when the distinction matters",
+        "L2"
+      ],
+      [
+        21,
+        "HTTP Request/Response Lifecycle, Methods, Headers, Status Codes, and TLS/HTTPS",
+        "L3"
+      ],
+      [
+        22,
+        "Client-Server Architecture, REST Concepts, JSON, and Serialization",
+        "L3"
+      ],
+      [
+        23,
+        "APIs, Authentication Concepts, and API Documentation",
+        "L3"
+      ],
+      [
+        24,
+        "Basic Web-Service Security and Engineering Practices",
+        "L2"
+      ]
+    ]
+  },
+  {
+    "phase": 2,
+    "title": "Python Programming and Concurrency: Beginner to Professional",
+    "topics": [
+      [
+        1,
+        "Python Installation and Development Setup",
+        "L3"
+      ],
+      [
+        2,
+        "Running Python Programs and Understanding the Interpreter",
+        "L3"
+      ],
+      [
+        3,
+        "Variables, Naming, and Basic Data Types",
+        "L3"
+      ],
+      [
+        4,
+        "Input, Output, and Type Conversion",
+        "L3"
+      ],
+      [
+        5,
+        "Operators and Expressions",
+        "L3"
+      ],
+      [
+        6,
+        "Conditional Statements",
+        "L3"
+      ],
+      [
+        7,
+        "Loops and Loop Control",
+        "L3"
+      ],
+      [
+        8,
+        "Strings and String Operations",
+        "L3"
+      ],
+      [
+        9,
+        "Lists and List Operations",
+        "L3"
+      ],
+      [
+        10,
+        "Tuples and Sets",
+        "L3"
+      ],
+      [
+        11,
+        "Dictionaries and Nested Data",
+        "L3"
+      ],
+      [
+        12,
+        "Functions and Reusable Code",
+        "L3"
+      ],
+      [
+        13,
+        "Parameters, Arguments, Return Values, Scope, and Mutability",
+        "L3"
+      ],
+      [
+        14,
+        "Lambda Functions and Functional Basics (short practical lesson)",
+        "L1"
+      ],
+      [
+        15,
+        "List, Dictionary, and Set Comprehensions (teach together with simple examples)",
+        "L2"
+      ],
+      [
+        16,
+        "Modules, Imports, and Packages",
+        "L3"
+      ],
+      [
+        17,
+        "Project Structure and the Python Module System",
+        "L3"
+      ],
+      [
+        18,
+        "File Handling and pathlib",
+        "L3"
+      ],
+      [
+        19,
+        "Working with JSON, CSV, and Common Data Formats",
+        "L3"
+      ],
+      [
+        20,
+        "Exception Handling and Custom Exceptions",
+        "L3"
+      ],
+      [
+        21,
+        "Object-Oriented Programming",
+        "L3"
+      ],
+      [
+        22,
+        "Classes, Objects, Attributes, and Methods",
+        "L3"
+      ],
+      [
+        23,
+        "Encapsulation, Inheritance, and Polymorphism",
+        "L3"
+      ],
+      [
+        24,
+        "Abstraction and Composition",
+        "L3"
+      ],
+      [
+        25,
+        "Dataclasses and Practical Object Modeling",
+        "L2"
+      ],
+      [
+        26,
+        "Iterators and Generators (practical use in memory-efficient processing)",
+        "L2"
+      ],
+      [
+        27,
+        "Decorators (understand and write a simple decorator; do not over-focus on metaprogramming)",
+        "L1"
+      ],
+      [
+        28,
+        "Context Managers and with (understand resource cleanup and write a simple context manager only after using built-in ones)",
+        "L2"
+      ],
+      [
+        29,
+        "Type Hints and Typed Interfaces",
+        "L3"
+      ],
+      [
+        30,
+        "Virtual Environments and Dependency Management",
+        "L2"
+      ],
+      [
+        31,
+        "Package Installation, Locking, and Reproducible Environments",
+        "L2"
+      ],
+      [
+        32,
+        "Logging and Debugging",
+        "L3"
+      ],
+      [
+        33,
+        "Unit Testing with pytest",
+        "L3"
+      ],
+      [
+        34,
+        "Synchronous vs Asynchronous Programming: when each model is appropriate",
+        "L2"
+      ],
+      [
+        35,
+        "async/await, coroutines, and the asyncio event loop",
+        "L3"
+      ],
+      [
+        36,
+        "Tasks, task groups where supported, gather, and concurrent I/O workflows",
+        "L3"
+      ],
+      [
+        37,
+        "Async timeouts, cancellation, semaphores, and bounded concurrency",
+        "L3"
+      ],
+      [
+        38,
+        "Async HTTP requests and safe concurrent calls to external APIs",
+        "L3"
+      ],
+      [
+        39,
+        "Async context managers and asynchronous resource cleanup",
+        "L2"
+      ],
+      [
+        40,
+        "Threads, thread pools, and asyncio.to_thread for blocking I/O",
+        "L2"
+      ],
+      [
+        41,
+        "Multiprocessing and process pools for CPU-bound work",
+        "L2"
+      ],
+      [
+        42,
+        "I/O-bound vs CPU-bound workloads, the GIL at a practical level, and choosing async vs threads vs processes",
+        "L3"
+      ],
+      [
+        43,
+        "Race Conditions, Locks, Shared State, and Thread-Safety Fundamentals",
+        "L2"
+      ],
+      [
+        44,
+        "Blocking-call mistakes in async applications and how to detect/fix them",
+        "L3"
+      ],
+      [
+        45,
+        "Backpressure, concurrency limits, and protecting external APIs from overload",
+        "L3"
+      ],
+      [
+        46,
+        "Code Quality, Refactoring, and Reusable Components",
+        "L3"
+      ],
+      [
+        47,
+        "Building and Packaging a Small Python Application",
+        "L3"
+      ]
+    ]
+  },
+  {
+    "phase": 3,
+    "title": "Data Structures, Algorithms, and Software Engineering",
+    "topics": [
+      [
+        1,
+        "Computational and Algorithmic Thinking",
+        "L3"
+      ],
+      [
+        2,
+        "Problem Decomposition and Pseudocode",
+        "L3"
+      ],
+      [
+        3,
+        "Time Complexity and Space Complexity",
+        "L3"
+      ],
+      [
+        4,
+        "Big O Notation",
+        "L3"
+      ],
+      [
+        5,
+        "Arrays and Strings",
+        "L3"
+      ],
+      [
+        6,
+        "Hash Tables and Dictionaries",
+        "L3"
+      ],
+      [
+        7,
+        "Linked Lists",
+        "L2"
+      ],
+      [
+        8,
+        "Stacks and Queues",
+        "L3"
+      ],
+      [
+        9,
+        "Searching Algorithms",
+        "L3"
+      ],
+      [
+        10,
+        "Sorting Algorithms",
+        "L3"
+      ],
+      [
+        11,
+        "Recursion and Backtracking Fundamentals",
+        "L2"
+      ],
+      [
+        12,
+        "Trees and Binary Trees",
+        "L2"
+      ],
+      [
+        13,
+        "Binary Search Trees",
+        "L2"
+      ],
+      [
+        14,
+        "Heaps and Priority Queues",
+        "L2"
+      ],
+      [
+        15,
+        "Graph Fundamentals",
+        "L2"
+      ],
+      [
+        16,
+        "Breadth-First Search and Depth-First Search",
+        "L2"
+      ],
+      [
+        17,
+        "Basic Dynamic Programming",
+        "L2"
+      ],
+      [
+        18,
+        "Choosing Data Structures for Real Problems",
+        "L3"
+      ],
+      [
+        19,
+        "Clean Code and Separation of Responsibilities",
+        "L3"
+      ],
+      [
+        20,
+        "Object-Oriented Design Principles",
+        "L3"
+      ],
+      [
+        21,
+        "SOLID Principles at a Practical Level",
+        "L2"
+      ],
+      [
+        22,
+        "Common Design Patterns Used in Backend Systems",
+        "L2"
+      ],
+      [
+        23,
+        "Unit, Integration, and Regression Testing",
+        "L3"
+      ],
+      [
+        24,
+        "Test Doubles, Mocking, and Dependency Isolation",
+        "L2"
+      ],
+      [
+        25,
+        "Git Branching, Pull Requests, and Review Workflow in Team Projects",
+        "L2"
+      ],
+      [
+        26,
+        "Debugging, Profiling, and Root-Cause Analysis Basics",
+        "L2"
+      ]
+    ]
+  },
+  {
+    "phase": 4,
+    "title": "SQL, PostgreSQL, and Database Engineering",
+    "topics": [
+      [
+        1,
+        "Database Concepts and Relational Database Fundamentals",
+        "L3"
+      ],
+      [
+        2,
+        "Tables, Rows, Columns, and Data Types",
+        "L3"
+      ],
+      [
+        3,
+        "Relational Modeling and Entity Relationships",
+        "L3"
+      ],
+      [
+        4,
+        "Primary Keys, Foreign Keys, and Constraints",
+        "L3"
+      ],
+      [
+        5,
+        "SQL SELECT and Filtering",
+        "L3"
+      ],
+      [
+        6,
+        "INSERT, UPDATE, and DELETE",
+        "L3"
+      ],
+      [
+        7,
+        "ORDER BY, LIMIT, and OFFSET",
+        "L3"
+      ],
+      [
+        8,
+        "Aggregate Functions and GROUP BY",
+        "L3"
+      ],
+      [
+        9,
+        "Joins and Relationship Queries",
+        "L3"
+      ],
+      [
+        10,
+        "Subqueries and Common Table Expressions",
+        "L3"
+      ],
+      [
+        11,
+        "Window Functions",
+        "L2"
+      ],
+      [
+        12,
+        "Database Normalization",
+        "L2"
+      ],
+      [
+        13,
+        "PostgreSQL Installation and Core Features",
+        "L2"
+      ],
+      [
+        14,
+        "PostgreSQL Data Types and Schema Design",
+        "L3"
+      ],
+      [
+        15,
+        "Indexes and Index Selection",
+        "L3"
+      ],
+      [
+        16,
+        "Query Plans and EXPLAIN/EXPLAIN ANALYZE",
+        "L2"
+      ],
+      [
+        17,
+        "Query Optimization and Performance Troubleshooting",
+        "L3"
+      ],
+      [
+        18,
+        "Transactions and ACID Properties",
+        "L3"
+      ],
+      [
+        19,
+        "Isolation Levels, Locks, and Deadlocks",
+        "L2"
+      ],
+      [
+        20,
+        "Connection Management and Connection Pooling",
+        "L3"
+      ],
+      [
+        21,
+        "Database Migrations and Schema Versioning",
+        "L2"
+      ],
+      [
+        22,
+        "Backup, Restore, and Data Integrity",
+        "L2"
+      ],
+      [
+        23,
+        "JSON/JSONB Use Cases in PostgreSQL",
+        "L2"
+      ],
+      [
+        24,
+        "Data Import, Export, and Batch Processing Basics",
+        "L2"
+      ],
+      [
+        25,
+        "Database Security and Least-Privilege Access",
+        "L2"
+      ]
+    ]
+  },
+  {
+    "phase": 5,
+    "title": "Mathematics, Statistics, and Data Analysis for AI",
+    "topics": [
+      [
+        1,
+        "Algebra Refresher and Mathematical Notation",
+        "L1"
+      ],
+      [
+        2,
+        "Functions, Graphs, and Basic Transformations",
+        "L2"
+      ],
+      [
+        3,
+        "Vectors and Vector Operations",
+        "L3"
+      ],
+      [
+        4,
+        "Dot Product and Vector Similarity",
+        "L3"
+      ],
+      [
+        5,
+        "Matrices and Matrix Operations",
+        "L2"
+      ],
+      [
+        6,
+        "Matrix Multiplication",
+        "L2"
+      ],
+      [
+        7,
+        "Linear Transformations",
+        "L2"
+      ],
+      [
+        8,
+        "Eigenvalues and Eigenvectors at an introductory level",
+        "L1"
+      ],
+      [
+        9,
+        "Limits and Derivatives",
+        "L2"
+      ],
+      [
+        10,
+        "Partial Derivatives",
+        "L2"
+      ],
+      [
+        11,
+        "Chain Rule",
+        "L2"
+      ],
+      [
+        12,
+        "Gradients and Gradient-Based Optimization",
+        "L2"
+      ],
+      [
+        13,
+        "Probability Fundamentals",
+        "L2"
+      ],
+      [
+        14,
+        "Conditional Probability",
+        "L2"
+      ],
+      [
+        15,
+        "Bayes' Theorem",
+        "L2"
+      ],
+      [
+        16,
+        "Random Variables",
+        "L2"
+      ],
+      [
+        17,
+        "Common Probability Distributions",
+        "L2"
+      ],
+      [
+        18,
+        "Mean, Median, Variance, and Standard Deviation",
+        "L2"
+      ],
+      [
+        19,
+        "Sampling and Sampling Distributions",
+        "L1"
+      ],
+      [
+        20,
+        "Confidence Intervals",
+        "L1"
+      ],
+      [
+        21,
+        "Hypothesis Testing and p-values",
+        "L1"
+      ],
+      [
+        22,
+        "Correlation and Covariance",
+        "L2"
+      ],
+      [
+        23,
+        "Statistical Experimentation and A/B Testing Basics",
+        "L1"
+      ],
+      [
+        24,
+        "Loss Functions and Optimization Intuition",
+        "L2"
+      ],
+      [
+        25,
+        "Gradient Descent and Learning-Rate Intuition",
+        "L2"
+      ],
+      [
+        26,
+        "NumPy Arrays and Vectorized Operations",
+        "L3"
+      ],
+      [
+        27,
+        "Pandas Series and DataFrames",
+        "L3"
+      ],
+      [
+        28,
+        "Data Loading and Data Cleaning",
+        "L3"
+      ],
+      [
+        29,
+        "Missing Values, Duplicates, and Outliers",
+        "L2"
+      ],
+      [
+        30,
+        "Data Transformation and Aggregation",
+        "L2"
+      ],
+      [
+        31,
+        "Exploratory Data Analysis",
+        "L3"
+      ],
+      [
+        32,
+        "Basic Data Visualization",
+        "L2"
+      ],
+      [
+        33,
+        "Feature Preparation",
+        "L2"
+      ],
+      [
+        34,
+        "Training, Validation, and Test Splits",
+        "L3"
+      ],
+      [
+        35,
+        "Data Leakage and Dataset Quality",
+        "L3"
+      ]
+    ]
+  },
+  {
+    "phase": 6,
+    "title": "Machine Learning Engineering",
+    "topics": [
+      [
+        1,
+        "Introduction to Machine Learning",
+        "L2"
+      ],
+      [
+        2,
+        "Machine Learning Problem Types and Workflows",
+        "L3"
+      ],
+      [
+        3,
+        "Supervised and Unsupervised Learning",
+        "L2"
+      ],
+      [
+        4,
+        "Regression Problems and Baselines",
+        "L3"
+      ],
+      [
+        5,
+        "Linear Regression",
+        "L3"
+      ],
+      [
+        6,
+        "Logistic Regression",
+        "L3"
+      ],
+      [
+        7,
+        "Classification Workflows",
+        "L3"
+      ],
+      [
+        8,
+        "Decision Trees",
+        "L2"
+      ],
+      [
+        9,
+        "Random Forests",
+        "L2"
+      ],
+      [
+        10,
+        "Gradient Boosting Fundamentals",
+        "L2"
+      ],
+      [
+        11,
+        "Clustering and K-Means",
+        "L2"
+      ],
+      [
+        12,
+        "Feature Engineering",
+        "L3"
+      ],
+      [
+        13,
+        "Categorical and Numerical Feature Processing",
+        "L3"
+      ],
+      [
+        14,
+        "Feature Scaling and Encoding",
+        "L3"
+      ],
+      [
+        15,
+        "Preprocessing Pipelines",
+        "L3"
+      ],
+      [
+        16,
+        "Training, Validation, and Cross-Validation",
+        "L3"
+      ],
+      [
+        17,
+        "Overfitting, Underfitting, and Bias-Variance",
+        "L2"
+      ],
+      [
+        18,
+        "Regularization",
+        "L2"
+      ],
+      [
+        19,
+        "Regression Evaluation Metrics",
+        "L3"
+      ],
+      [
+        20,
+        "Classification Evaluation Metrics",
+        "L3"
+      ],
+      [
+        21,
+        "Confusion Matrix, Precision, Recall, and F1 Score",
+        "L3"
+      ],
+      [
+        22,
+        "ROC-AUC and Threshold Selection",
+        "L2"
+      ],
+      [
+        23,
+        "Class Imbalance",
+        "L2"
+      ],
+      [
+        24,
+        "Hyperparameter Tuning",
+        "L2"
+      ],
+      [
+        25,
+        "Model Interpretability and Feature Importance",
+        "L2"
+      ],
+      [
+        26,
+        "scikit-learn Pipelines and Estimators",
+        "L3"
+      ],
+      [
+        27,
+        "Model Serialization and Loading",
+        "L2"
+      ],
+      [
+        28,
+        "Reproducible Experiments and Random Seeds",
+        "L2"
+      ],
+      [
+        29,
+        "Building an End-to-End ML Pipeline",
+        "L3"
+      ],
+      [
+        30,
+        "ML Error Analysis and Model Limitations",
+        "L2"
+      ]
+    ]
+  },
+  {
+    "phase": 7,
+    "title": "Deep Learning and Neural Networks",
+    "topics": [
+      [
+        1,
+        "Introduction to Deep Learning",
+        "L2"
+      ],
+      [
+        2,
+        "Artificial Neurons and Perceptrons",
+        "L2"
+      ],
+      [
+        3,
+        "Neural Network Layers and Parameters",
+        "L2"
+      ],
+      [
+        4,
+        "Weights and Biases",
+        "L2"
+      ],
+      [
+        5,
+        "Activation Functions",
+        "L2"
+      ],
+      [
+        6,
+        "Forward Propagation",
+        "L3"
+      ],
+      [
+        7,
+        "Loss Functions",
+        "L3"
+      ],
+      [
+        8,
+        "Backpropagation",
+        "L3"
+      ],
+      [
+        9,
+        "Computational Graphs and Automatic Differentiation",
+        "L3"
+      ],
+      [
+        10,
+        "Gradient Descent and Optimizers",
+        "L3"
+      ],
+      [
+        11,
+        "Learning Rates and Learning-Rate Schedules",
+        "L2"
+      ],
+      [
+        12,
+        "Batch, Mini-Batch, and Epoch",
+        "L2"
+      ],
+      [
+        13,
+        "Regularization and Dropout",
+        "L2"
+      ],
+      [
+        14,
+        "PyTorch Fundamentals",
+        "L3"
+      ],
+      [
+        15,
+        "Tensors, Shapes, and Tensor Operations",
+        "L3"
+      ],
+      [
+        16,
+        "Autograd and Gradient Tracking",
+        "L3"
+      ],
+      [
+        17,
+        "Dataset and DataLoader",
+        "L3"
+      ],
+      [
+        18,
+        "Training Loops and Validation Loops",
+        "L3"
+      ],
+      [
+        19,
+        "Model Checkpoints and Reproducibility",
+        "L3"
+      ],
+      [
+        20,
+        "GPU Fundamentals for Deep Learning",
+        "L2"
+      ],
+      [
+        21,
+        "Convolutional Neural Network Concepts",
+        "L1"
+      ],
+      [
+        22,
+        "Recurrent Neural Network and LSTM Concepts",
+        "L1"
+      ],
+      [
+        23,
+        "Attention Mechanisms",
+        "L2"
+      ],
+      [
+        24,
+        "Transformer Architecture Overview",
+        "L2"
+      ],
+      [
+        25,
+        "Encoder, Decoder, and Encoder-Decoder Concepts",
+        "L1"
+      ]
+    ]
+  },
+  {
+    "phase": 8,
+    "title": "NLP, LLM Internals, and Transformer Engineering",
+    "topics": [
+      [
+        1,
+        "Natural Language Processing Fundamentals",
+        "L2"
+      ],
+      [
+        2,
+        "Text Normalization and Preprocessing",
+        "L1"
+      ],
+      [
+        3,
+        "Tokenization Concepts",
+        "L3"
+      ],
+      [
+        4,
+        "Tokenizers and Subword Tokenization",
+        "L3"
+      ],
+      [
+        5,
+        "Tokens, Token IDs, and Token Counting",
+        "L3"
+      ],
+      [
+        6,
+        "Word and Token Embeddings",
+        "L3"
+      ],
+      [
+        7,
+        "Positional Information and Positional Encoding",
+        "L2"
+      ],
+      [
+        8,
+        "Self-Attention",
+        "L3"
+      ],
+      [
+        9,
+        "Query, Key, and Value Intuition",
+        "L3"
+      ],
+      [
+        10,
+        "Scaled Dot-Product Attention",
+        "L3"
+      ],
+      [
+        11,
+        "Multi-Head Attention",
+        "L3"
+      ],
+      [
+        12,
+        "Transformer Blocks",
+        "L3"
+      ],
+      [
+        13,
+        "Normalization, Residual Connections, and Feed-Forward Layers",
+        "L3"
+      ],
+      [
+        14,
+        "Decoder-Only Transformer Architecture",
+        "L3"
+      ],
+      [
+        15,
+        "Next-Token Prediction",
+        "L2"
+      ],
+      [
+        16,
+        "Pretraining and Training Data Concepts",
+        "L1"
+      ],
+      [
+        17,
+        "Instruction Tuning and Supervised Fine-Tuning",
+        "L2"
+      ],
+      [
+        18,
+        "Preference Optimization Concepts",
+        "L2"
+      ],
+      [
+        19,
+        "Fine-Tuning Fundamentals",
+        "L2"
+      ],
+      [
+        20,
+        "LoRA and Parameter-Efficient Fine-Tuning",
+        "L2"
+      ],
+      [
+        21,
+        "Hugging Face Tokenizers, Models, and Datasets",
+        "L3"
+      ],
+      [
+        22,
+        "Model Checkpoints and Model Weights",
+        "L2"
+      ],
+      [
+        23,
+        "Context Windows and Context Limits",
+        "L3"
+      ],
+      [
+        24,
+        "Sampling, Temperature, and Top-P",
+        "L2"
+      ],
+      [
+        25,
+        "Quantization Fundamentals",
+        "L2"
+      ],
+      [
+        26,
+        "Model Size, RAM, VRAM, and Memory Requirements",
+        "L2"
+      ],
+      [
+        27,
+        "LLM Inference Lifecycle",
+        "L3"
+      ],
+      [
+        28,
+        "Latency, Throughput, and Tokens per Second",
+        "L3"
+      ],
+      [
+        29,
+        "LLM Cost and Token Economics",
+        "L3"
+      ],
+      [
+        30,
+        "Hosted and Local Model Execution Concepts",
+        "L2"
+      ],
+      [
+        31,
+        "Model Limitations, Hallucinations, and Knowledge Boundaries",
+        "L2"
+      ]
+    ]
+  },
+  {
+    "phase": 9,
+    "title": "Python Backend Engineering for AI Systems",
+    "topics": [
+      [
+        1,
+        "Backend Architecture and Service Responsibilities",
+        "L2"
+      ],
+      [
+        2,
+        "HTTP Methods, Status Codes, Headers, and Request Lifecycle",
+        "L2"
+      ],
+      [
+        3,
+        "REST API Design Principles and Resource Modeling",
+        "L2"
+      ],
+      [
+        4,
+        "FastAPI Project Setup and Application Structure",
+        "L3"
+      ],
+      [
+        5,
+        "Path, Query, and Request Parameters",
+        "L3"
+      ],
+      [
+        6,
+        "Request and Response Models with Pydantic",
+        "L3"
+      ],
+      [
+        7,
+        "Validation, Serialization, and Safe Error Responses",
+        "L3"
+      ],
+      [
+        8,
+        "OpenAPI and Interactive API Documentation",
+        "L3"
+      ],
+      [
+        9,
+        "Dependency Injection in FastAPI",
+        "L3"
+      ],
+      [
+        10,
+        "Middleware and Request Lifecycle Hooks",
+        "L3"
+      ],
+      [
+        11,
+        "Centralized Error Handling",
+        "L3"
+      ],
+      [
+        12,
+        "Application Configuration and Environment Management",
+        "L3"
+      ],
+      [
+        13,
+        "Secure Secret Handling",
+        "L3"
+      ],
+      [
+        14,
+        "Authentication Fundamentals",
+        "L3"
+      ],
+      [
+        15,
+        "Password Hashing and Credential Safety",
+        "L3"
+      ],
+      [
+        16,
+        "JWT Concepts and Secure Token Handling",
+        "L3"
+      ],
+      [
+        17,
+        "OAuth 2.0 Concepts and External Identity Flows (focus on using and securing standard flows, not implementing the protocol from scratch)",
+        "L3"
+      ],
+      [
+        18,
+        "Authorization and Role-Based Access Control",
+        "L3"
+      ],
+      [
+        19,
+        "Secure Session and User-Access Design",
+        "L3"
+      ],
+      [
+        20,
+        "PostgreSQL Integration",
+        "L3"
+      ],
+      [
+        21,
+        "SQLAlchemy ORM/Core and Safe Query Practices",
+        "L3"
+      ],
+      [
+        22,
+        "Alembic Database Migrations",
+        "L3"
+      ],
+      [
+        23,
+        "Transactions, Connection Pools, and Database Session Lifecycle",
+        "L3"
+      ],
+      [
+        24,
+        "Async FastAPI Endpoints: when to use async def and when synchronous endpoints are appropriate",
+        "L3"
+      ],
+      [
+        25,
+        "Async Database and HTTP Client Usage",
+        "L3"
+      ],
+      [
+        26,
+        "Concurrency Limits for Slow LLM/API Calls: semaphores, request timeouts, and provider quotas",
+        "L3"
+      ],
+      [
+        27,
+        "Avoiding Blocking I/O Inside Async Endpoints",
+        "L3"
+      ],
+      [
+        28,
+        "Thread Pools and Process Pools in Backend Workloads: when background execution is appropriate",
+        "L3"
+      ],
+      [
+        29,
+        "Background Tasks vs Durable Job Queues: understand the reliability boundary",
+        "L3"
+      ],
+      [
+        30,
+        "Server-Sent Events and Streaming Responses for token-by-token output",
+        "L2"
+      ],
+      [
+        31,
+        "WebSocket Fundamentals and Appropriate Use Cases (working knowledge, not a separate specialization)",
+        "L1"
+      ],
+      [
+        32,
+        "Pagination, Filtering, and API Versioning",
+        "L2"
+      ],
+      [
+        33,
+        "Idempotent API Design and Safe Retry Behavior",
+        "L2"
+      ],
+      [
+        34,
+        "Unit and Integration Testing for APIs",
+        "L3"
+      ],
+      [
+        35,
+        "API Logging, Request IDs, and Correlation IDs",
+        "L2"
+      ],
+      [
+        36,
+        "Health Checks, Readiness Checks, and Graceful Shutdown",
+        "L2"
+      ],
+      [
+        37,
+        "API Rate-Limit Integration and Handling Provider Rate Limits",
+        "L2"
+      ],
+      [
+        38,
+        "Building a Deployment-Ready FastAPI Service",
+        "L2"
+      ]
+    ]
+  },
+  {
+    "phase": 10,
+    "title": "LLM Application Engineering, Data Ingestion, RAG, Agents, MCP, and AI Safety",
+    "topics": [
+      [
+        1,
+        "Calling an LLM API from Python",
+        "L3"
+      ],
+      [
+        2,
+        "API Authentication and Secure Key Management",
+        "L3"
+      ],
+      [
+        3,
+        "Provider-Neutral Adapter Design",
+        "L3"
+      ],
+      [
+        4,
+        "Prompt Engineering Fundamentals",
+        "L3"
+      ],
+      [
+        5,
+        "System Instructions and User Messages",
+        "L3"
+      ],
+      [
+        6,
+        "Structured Outputs and Schema Validation",
+        "L3"
+      ],
+      [
+        7,
+        "Function Calling and Tool Calling",
+        "L3"
+      ],
+      [
+        8,
+        "Streaming LLM Responses",
+        "L2"
+      ],
+      [
+        9,
+        "Token Budgeting and Context Management",
+        "L2"
+      ],
+      [
+        10,
+        "Model Selection and Model Routing",
+        "L2"
+      ],
+      [
+        11,
+        "Provider Fallback and Failure Handling",
+        "L3"
+      ],
+      [
+        12,
+        "Retries, Timeouts, Exponential Backoff, and Jitter",
+        "L3"
+      ],
+      [
+        13,
+        "Token Usage Tracking",
+        "L3"
+      ],
+      [
+        14,
+        "Cost Accounting and Per-User Usage Limits",
+        "L3"
+      ],
+      [
+        15,
+        "LLM Application Logging and Tracing",
+        "L3"
+      ],
+      [
+        16,
+        "Structured vs Unstructured Data and Common AI Data Sources",
+        "L2"
+      ],
+      [
+        17,
+        "ETL/ELT Fundamentals and the Data Pipeline Lifecycle",
+        "L2"
+      ],
+      [
+        18,
+        "Ingestion Pipeline Design: source → extract → normalize → clean → validate → enrich → chunk → embed → index",
+        "L2"
+      ],
+      [
+        19,
+        "Extracting Text from PDFs with pypdf (including limitations of scanned/image-only PDFs)",
+        "L2"
+      ],
+      [
+        20,
+        "Extracting and Cleaning HTML with BeautifulSoup",
+        "L2"
+      ],
+      [
+        21,
+        "Handling Markdown, TXT, CSV, JSON, and DOCX Documents",
+        "L2"
+      ],
+      [
+        22,
+        "Reading Documents from APIs and exported knowledge bases; understand a Notion-like source as an API/export integration, not as a separate technology track",
+        "L2"
+      ],
+      [
+        23,
+        "Audio Ingestion Concepts: transcription output, timestamps, speaker/segment metadata, and when audio belongs in a product. Do not make speech-model training a core requirement",
+        "L1"
+      ],
+      [
+        24,
+        "Text Normalization, Encoding, Whitespace, Tables, Headers, and Document Structure",
+        "L2"
+      ],
+      [
+        25,
+        "Data Validation, Duplicate Detection, Metadata Extraction, and Source Tracking",
+        "L3"
+      ],
+      [
+        26,
+        "Batch vs Incremental Ingestion and Change Detection",
+        "L2"
+      ],
+      [
+        27,
+        "Idempotent Ingestion, Retries, Checkpoints, and Failed-Document Handling",
+        "L3"
+      ],
+      [
+        28,
+        "Secure Ingestion: access permissions, tenant boundaries, sensitive data, and deletion/update propagation",
+        "L2"
+      ],
+      [
+        29,
+        "Data Quality Checks and Ingestion Observability",
+        "L2"
+      ],
+      [
+        30,
+        "Embeddings Fundamentals",
+        "L3"
+      ],
+      [
+        31,
+        "Vector Similarity and Distance Measures",
+        "L3"
+      ],
+      [
+        32,
+        "Semantic Search",
+        "L3"
+      ],
+      [
+        33,
+        "Text Chunking Strategies: fixed-size, structure-aware, recursive, and semantic chunking",
+        "L3"
+      ],
+      [
+        34,
+        "Chunk Size, Overlap, Metadata, and Retrieval Trade-Offs",
+        "L3"
+      ],
+      [
+        35,
+        "Vector Indexing Concepts",
+        "L2"
+      ],
+      [
+        36,
+        "PostgreSQL with pgvector",
+        "L3"
+      ],
+      [
+        37,
+        "Retrieval Pipelines and Query Transformation Basics",
+        "L3"
+      ],
+      [
+        38,
+        "Metadata Filtering and Access-Control-Aware Retrieval",
+        "L3"
+      ],
+      [
+        39,
+        "Hybrid Search Concepts",
+        "L2"
+      ],
+      [
+        40,
+        "Reranking Fundamentals",
+        "L2"
+      ],
+      [
+        41,
+        "RAG Architecture and End-to-End Data Flow",
+        "L3"
+      ],
+      [
+        42,
+        "RAG Context Construction, Source Attribution, and Citation Handling",
+        "L3"
+      ],
+      [
+        43,
+        "RAG Evaluation Datasets and Expected Answers",
+        "L3"
+      ],
+      [
+        44,
+        "Retrieval Quality Metrics and Failure Analysis",
+        "L3"
+      ],
+      [
+        45,
+        "Hallucination Reduction and Grounded Responses",
+        "L3"
+      ],
+      [
+        46,
+        "Agent Fundamentals and Appropriate Use Cases",
+        "L2"
+      ],
+      [
+        47,
+        "Deterministic Workflows vs Agentic Workflows",
+        "L2"
+      ],
+      [
+        48,
+        "Tool-Using Agents and Tool Contracts",
+        "L3"
+      ],
+      [
+        49,
+        "Planning and Execution Loops",
+        "L3"
+      ],
+      [
+        50,
+        "Agent State and Context Management",
+        "L3"
+      ],
+      [
+        51,
+        "Memory Concepts, Scope, Expiration, and Memory Boundaries",
+        "L2"
+      ],
+      [
+        52,
+        "Single-Agent Tool Workflow: build and evaluate one reliable agent",
+        "L3"
+      ],
+      [
+        53,
+        "Multi-Agent Systems: concepts, coordination overhead, and when multiple agents are justified",
+        "L1"
+      ],
+      [
+        54,
+        "Human Approval and Human-in-the-Loop Controls",
+        "L2"
+      ],
+      [
+        55,
+        "Agent Error Handling, Recovery, Tracing, and Evaluation",
+        "L3"
+      ],
+      [
+        56,
+        "Model Context Protocol Fundamentals and the problem it solves",
+        "L2"
+      ],
+      [
+        57,
+        "MCP Hosts, Clients, and Servers",
+        "L2"
+      ],
+      [
+        58,
+        "MCP Tools, Resources, and Prompts",
+        "L2"
+      ],
+      [
+        59,
+        "MCP Transport and Lifecycle Concepts (working understanding; do not over-focus on protocol internals)",
+        "L2"
+      ],
+      [
+        60,
+        "Building one MCP Server with the official Python SDK",
+        "L3"
+      ],
+      [
+        61,
+        "Connecting one MCP Client and invoking a tool safely",
+        "L3"
+      ],
+      [
+        62,
+        "Integrating an MCP server with the single-agent workflow",
+        "L3"
+      ],
+      [
+        63,
+        "MCP Authentication, Authorization, Consent, and Tool Permissions",
+        "L3"
+      ],
+      [
+        64,
+        "Testing, Debugging, and Versioning an MCP Integration",
+        "L2"
+      ],
+      [
+        65,
+        "Building a Golden Evaluation Dataset",
+        "L3"
+      ],
+      [
+        66,
+        "Evaluating Structured Output and Tool-Calling Accuracy",
+        "L3"
+      ],
+      [
+        67,
+        "RAG Evaluation and Retrieval Regression Testing",
+        "L3"
+      ],
+      [
+        68,
+        "Agent Trajectory and Multi-Step Evaluation",
+        "L2"
+      ],
+      [
+        69,
+        "Regression Evaluation Before Model or Prompt Changes",
+        "L3"
+      ],
+      [
+        70,
+        "Prompt Injection and Indirect Prompt Injection",
+        "L3"
+      ],
+      [
+        71,
+        "Unsafe Tool Execution and Permission Boundaries",
+        "L3"
+      ],
+      [
+        72,
+        "Data Leakage and Sensitive Information Protection",
+        "L3"
+      ],
+      [
+        73,
+        "Input Validation, Output Validation, and Guardrails",
+        "L3"
+      ],
+      [
+        74,
+        "Human Review for High-Impact Actions",
+        "L2"
+      ],
+      [
+        75,
+        "LLM Reliability, Failure Modes, and User-Facing Error Design",
+        "L3"
+      ]
+    ]
+  },
+  {
+    "phase": 11,
+    "title": "System Design and Distributed Systems",
+    "topics": [
+      [
+        1,
+        "Introduction to System Design and How to Approach a Design Question",
+        "L2"
+      ],
+      [
+        2,
+        "Functional and Non-Functional Requirements",
+        "L2"
+      ],
+      [
+        3,
+        "Requirement Clarification and Scope Definition",
+        "L2"
+      ],
+      [
+        4,
+        "Capacity Estimation and Back-of-the-Envelope Calculations",
+        "L3"
+      ],
+      [
+        5,
+        "Requests per Second, Throughput, Concurrency, and Workload Shape",
+        "L3"
+      ],
+      [
+        6,
+        "Average, p95, and p99 Latency",
+        "L3"
+      ],
+      [
+        7,
+        "Availability, Reliability, and Durability",
+        "L2"
+      ],
+      [
+        8,
+        "Service-Level Indicators and Objectives (basic purpose and examples)",
+        "L2"
+      ],
+      [
+        9,
+        "Modular Monoliths, Separation of Responsibilities, and Clear Service Boundaries",
+        "L3"
+      ],
+      [
+        10,
+        "Stateless and Stateful Services",
+        "L2"
+      ],
+      [
+        11,
+        "Horizontal and Vertical Scaling",
+        "L2"
+      ],
+      [
+        12,
+        "Reverse Proxies and Load Balancing Concepts",
+        "L2"
+      ],
+      [
+        13,
+        "Database Indexing and Connection Pool Impacts on Capacity",
+        "L3"
+      ],
+      [
+        14,
+        "Caching Fundamentals, Cache Keys, TTL, and Cache-Aside",
+        "L3"
+      ],
+      [
+        15,
+        "Redis Fundamentals and Core Data Structures",
+        "L3"
+      ],
+      [
+        16,
+        "Implementing one Redis-backed cache in a FastAPI service",
+        "L3"
+      ],
+      [
+        17,
+        "Cache Invalidation, Expiration, and Common Cache Failure Modes",
+        "L2"
+      ],
+      [
+        18,
+        "Rate-Limiting Fundamentals and Per-User/API Quotas",
+        "L3"
+      ],
+      [
+        19,
+        "Implementing a basic token-bucket or fixed/sliding-window rate limiter",
+        "L3"
+      ],
+      [
+        20,
+        "Redis Atomic Operations and Why Race Conditions Matter",
+        "L3"
+      ],
+      [
+        21,
+        "Distributed Rate Limiting with Redis",
+        "L4"
+      ],
+      [
+        22,
+        "Redis Lua Scripting for an atomic distributed rate limiter (advanced hands-on exercise)",
+        "L4"
+      ],
+      [
+        23,
+        "Background Jobs, Worker Concepts, and Durable Queue Requirements",
+        "L3"
+      ],
+      [
+        24,
+        "Retries, Exponential Backoff, Dead-Letter Handling, and Poison Messages",
+        "L3"
+      ],
+      [
+        25,
+        "Idempotency and Duplicate Request/Event Handling",
+        "L3"
+      ],
+      [
+        26,
+        "Timeouts, Circuit Breakers, Bulkheads, and Graceful Degradation",
+        "L3"
+      ],
+      [
+        27,
+        "Backpressure and Bounded Work Queues",
+        "L3"
+      ],
+      [
+        28,
+        "Database Replication",
+        "L2"
+      ],
+      [
+        29,
+        "Partitioning and Sharding: purpose, trade-offs, and operational cost",
+        "L2"
+      ],
+      [
+        30,
+        "Consistency Models",
+        "L2"
+      ],
+      [
+        31,
+        "CAP Theorem and Practical Trade-Offs",
+        "L2"
+      ],
+      [
+        32,
+        "Distributed Transactions and Sagas at an introductory architectural level",
+        "L2"
+      ],
+      [
+        33,
+        "Message Queues and Event-Driven Architecture",
+        "L2"
+      ],
+      [
+        34,
+        "Kafka Fundamentals and When Kafka Is Justified",
+        "L2"
+      ],
+      [
+        35,
+        "Kafka Topics, Partitions, and Consumer Groups",
+        "L3"
+      ],
+      [
+        36,
+        "Asynchronous Workers and Consumer Processing",
+        "L3"
+      ],
+      [
+        37,
+        "Ordering, Consumer Lag, Replay, and Delivery Semantics",
+        "L4"
+      ],
+      [
+        38,
+        "Service-to-Service Communication",
+        "L2"
+      ],
+      [
+        39,
+        "Microservices Fundamentals and the operational cost of splitting services",
+        "L1"
+      ],
+      [
+        40,
+        "Distributed Tracing and Request Correlation",
+        "L2"
+      ],
+      [
+        41,
+        "Multi-Tenant Architecture and Tenant Isolation",
+        "L2"
+      ],
+      [
+        42,
+        "Cost, Capacity, and Performance Trade-Offs",
+        "L3"
+      ],
+      [
+        43,
+        "Designing and measuring AI API workloads at increasing traffic levels",
+        "L4"
+      ],
+      [
+        44,
+        "Designing an AI platform targeting one million requests per day, with explicit average/peak calculations, model-provider limits, token cost, queueing, database load, and load-test evidence",
+        "L5"
+      ]
+    ]
+  },
+  {
+    "phase": 12,
+    "title": "Production Engineering, Cloud, MLOps, LLMOps, Security, and Observability",
+    "topics": [
+      [
+        1,
+        "Linux for Production Services and SSH-Based Server Access",
+        "L2"
+      ],
+      [
+        2,
+        "Environment Configuration and Development/Staging/Production Separation",
+        "L2"
+      ],
+      [
+        3,
+        "Secrets Management and Configuration Safety",
+        "L3"
+      ],
+      [
+        4,
+        "Docker Fundamentals and Why Containers Are Used",
+        "L3"
+      ],
+      [
+        5,
+        "Dockerfiles, Images, Containers, Ports, and Volumes",
+        "L3"
+      ],
+      [
+        6,
+        "Docker Compose for a Local FastAPI + PostgreSQL + Redis Stack",
+        "L3"
+      ],
+      [
+        7,
+        "Container Logs, Health Checks, and Basic Resource Limits",
+        "L2"
+      ],
+      [
+        8,
+        "CI/CD Fundamentals and Automated Test/Build Pipelines",
+        "L2"
+      ],
+      [
+        9,
+        "Deploying a Small Python API to a basic AWS compute environment",
+        "L3"
+      ],
+      [
+        10,
+        "AWS Identity and Access Management Fundamentals",
+        "L2"
+      ],
+      [
+        11,
+        "AWS Networking and VPC Concepts at a practical level",
+        "L1"
+      ],
+      [
+        12,
+        "Object Storage with Amazon S3",
+        "L2"
+      ],
+      [
+        13,
+        "Managed PostgreSQL and secure database connectivity",
+        "L2"
+      ],
+      [
+        14,
+        "Application Secrets, IAM Roles, and Least-Privilege Access",
+        "L3"
+      ],
+      [
+        15,
+        "Basic Cloud Logs, Health Monitoring, and Cost/Budget Awareness",
+        "L2"
+      ],
+      [
+        16,
+        "Secure Cloud Deployment Principles and Rollback Basics",
+        "L2"
+      ],
+      [
+        17,
+        "Container Networking and Volumes in Multi-Service Environments",
+        "L3"
+      ],
+      [
+        18,
+        "Container Image Security and Minimal Images",
+        "L3"
+      ],
+      [
+        19,
+        "Release Strategies, Deployment Pipelines, and Rollbacks",
+        "L3"
+      ],
+      [
+        20,
+        "Infrastructure as Code Fundamentals",
+        "L1"
+      ],
+      [
+        21,
+        "Terraform Fundamentals, State, and Safe Change Planning",
+        "L2"
+      ],
+      [
+        22,
+        "Kubernetes Architecture and Core Concepts",
+        "L2"
+      ],
+      [
+        23,
+        "Pods, Deployments, and Services",
+        "L2"
+      ],
+      [
+        24,
+        "ConfigMaps, Secrets, and Configuration Injection",
+        "L2"
+      ],
+      [
+        25,
+        "Readiness, Liveness, and Startup Probes",
+        "L2"
+      ],
+      [
+        26,
+        "Resource Requests, Limits, and Horizontal Autoscaling",
+        "L2"
+      ],
+      [
+        27,
+        "Rolling Updates, Rollbacks, and Deploying a Small Service",
+        "L3"
+      ],
+      [
+        28,
+        "MLOps Concepts and the ML Lifecycle",
+        "L2"
+      ],
+      [
+        29,
+        "Experiment Tracking with MLflow",
+        "L2"
+      ],
+      [
+        30,
+        "Model and Dataset Versioning Concepts",
+        "L2"
+      ],
+      [
+        31,
+        "Model Registry and Promotion Workflow",
+        "L1"
+      ],
+      [
+        32,
+        "Reproducible Model Training and Evaluation",
+        "L2"
+      ],
+      [
+        33,
+        "Packaging and Deploying an ML Model",
+        "L2"
+      ],
+      [
+        34,
+        "Basic Model Monitoring and Data/Prediction Quality Signals",
+        "L2"
+      ],
+      [
+        35,
+        "LLM Application Configuration and Prompt Versioning",
+        "L3"
+      ],
+      [
+        36,
+        "LLM Evaluation Pipelines and Regression Checks in CI",
+        "L3"
+      ],
+      [
+        37,
+        "Provider, Latency, Token, and Cost Monitoring",
+        "L3"
+      ],
+      [
+        38,
+        "AI Quality Monitoring and Feedback Signals",
+        "L2"
+      ],
+      [
+        39,
+        "Safe Model, Prompt, and Application Rollbacks",
+        "L2"
+      ],
+      [
+        40,
+        "Continuous Training and Automated Retraining Architecture (advanced concepts; do not require the learner to build a large enterprise retraining platform)",
+        "L1"
+      ],
+      [
+        41,
+        "Structured Logging and Useful Log Context",
+        "L3"
+      ],
+      [
+        42,
+        "Metrics and Service Instrumentation",
+        "L3"
+      ],
+      [
+        43,
+        "Distributed Tracing and Request Correlation",
+        "L3"
+      ],
+      [
+        44,
+        "OpenTelemetry Fundamentals",
+        "L3"
+      ],
+      [
+        45,
+        "Prometheus Metrics and Basic Instrumentation",
+        "L2"
+      ],
+      [
+        46,
+        "Grafana Dashboards and Alerts",
+        "L2"
+      ],
+      [
+        47,
+        "Error Monitoring and Incident Signals",
+        "L2"
+      ],
+      [
+        48,
+        "OWASP API Security Risks",
+        "L3"
+      ],
+      [
+        49,
+        "Authentication, Authorization, RBAC, and Tenant Isolation Review",
+        "L3"
+      ],
+      [
+        50,
+        "PII Protection, Redaction, and Data Privacy",
+        "L3"
+      ],
+      [
+        51,
+        "Encryption in Transit and at Rest",
+        "L3"
+      ],
+      [
+        52,
+        "Database Security, Backups, and Restore Verification",
+        "L3"
+      ],
+      [
+        53,
+        "Dependency and Software Supply-Chain Security",
+        "L3"
+      ],
+      [
+        54,
+        "AI-Specific Security Threats and Tool Permission Boundaries",
+        "L3"
+      ],
+      [
+        55,
+        "Incident Response and Operational Runbooks",
+        "L2"
+      ],
+      [
+        56,
+        "Load Testing with Locust",
+        "L3"
+      ],
+      [
+        57,
+        "Stress Testing and Bottleneck Analysis",
+        "L3"
+      ],
+      [
+        58,
+        "Production Readiness Review and Rollback Verification",
+        "L3"
+      ]
+    ]
+  },
+  {
+    "phase": 13,
+    "title": "Model Serving, GPU Infrastructure, and Inference Optimization",
+    "topics": [
+      [
+        1,
+        "Model Serving Fundamentals and When Self-Hosting Is Necessary",
+        "L3"
+      ],
+      [
+        2,
+        "Hosted API vs Self-Hosted Model: Cost, Control, Latency, and Operational Trade-Offs",
+        "L3"
+      ],
+      [
+        3,
+        "Inference Architecture and Request Lifecycle",
+        "L3"
+      ],
+      [
+        4,
+        "CPU and GPU Execution Differences",
+        "L2"
+      ],
+      [
+        5,
+        "GPU Architecture Fundamentals",
+        "L2"
+      ],
+      [
+        6,
+        "CUDA Concepts and the GPU Software Stack (conceptual and practical usage level; do not require kernel programming)",
+        "L2"
+      ],
+      [
+        7,
+        "GPU Memory, VRAM, and Memory Bandwidth",
+        "L2"
+      ],
+      [
+        8,
+        "Loading Model Weights and Runtime Memory Requirements",
+        "L2"
+      ],
+      [
+        9,
+        "Quantization and Precision Trade-Offs",
+        "L2"
+      ],
+      [
+        10,
+        "Batching and Dynamic Batching",
+        "L2"
+      ],
+      [
+        11,
+        "Prefill and Decode Stages",
+        "L2"
+      ],
+      [
+        12,
+        "KV Cache Fundamentals",
+        "L2"
+      ],
+      [
+        13,
+        "Inference Throughput, Latency, and Tokens per Second",
+        "L3"
+      ],
+      [
+        14,
+        "Concurrent Request Capacity and Queueing",
+        "L2"
+      ],
+      [
+        15,
+        "Memory Optimization Fundamentals",
+        "L2"
+      ],
+      [
+        16,
+        "Model Parallelism Concepts",
+        "L1"
+      ],
+      [
+        17,
+        "Distributed Inference Fundamentals (architecture overview before any cluster-level implementation)",
+        "L1"
+      ],
+      [
+        18,
+        "vLLM Fundamentals and Architecture",
+        "L3"
+      ],
+      [
+        19,
+        "OpenAI-Compatible Model Serving APIs",
+        "L2"
+      ],
+      [
+        20,
+        "Serving a Model Behind a FastAPI Backend",
+        "L3"
+      ],
+      [
+        21,
+        "GPU Utilization and Runtime Monitoring",
+        "L2"
+      ],
+      [
+        22,
+        "Profiling and Bottleneck Analysis",
+        "L4"
+      ],
+      [
+        23,
+        "Inference Optimization Techniques",
+        "L4"
+      ],
+      [
+        24,
+        "Autoscaling and Model Server Capacity",
+        "L4"
+      ],
+      [
+        25,
+        "Inference Reliability, Timeouts, and Recovery",
+        "L4"
+      ],
+      [
+        26,
+        "Performance and Cost Benchmarking",
+        "L4"
+      ]
+    ]
+  }
+]

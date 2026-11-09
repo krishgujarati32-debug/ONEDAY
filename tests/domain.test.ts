@@ -9,6 +9,9 @@ import {
 } from "../src/lib/state";
 import {
   continueTopic,
+  lessonNeighbors,
+  nextLesson,
+  orderedLessons,
   formatPercent,
   progress,
   recommend,
@@ -20,10 +23,10 @@ import {
 import { safeNextPath } from "../src/lib/slug";
 test("all master topics, lesson order, educational content and references are valid", () => {
   const counts = validateCurriculum();
-  assert.equal(counts.topics, 83);
-  assert.equal(counts.lessons, 1313);
+  assert.equal(counts.phases, 14);
+  assert.equal(counts.lessons, orderedLessons.length);
 });
-test("new learners start at a real zero and the first core topic", () => {
+test("new learners start at a real zero and the first topic", () => {
   const state = emptyState();
   assert.equal(progress(subtopicIndex, state).percent, 0);
   assert.equal(recommend(state)?.id, "0.1");
@@ -44,21 +47,20 @@ test("progress has the requested fractional precision and revision is not comple
   assert.equal(actual.revision, 1);
   assert.equal(formatPercent(actual.percent), "62.5%");
 });
-test("optional completion cannot inflate core completion", () => {
+test("retired completions remain in state and receive no new credit", () => {
   const state = emptyState();
-  const optional = subtopicIndex.find((s) => s.priority !== "core")!;
-  state.progress[optional.id] = {
+  state.progress["1.6-javascript.1"] = {
     status: "completed",
-    completedAt: new Date().toISOString(),
+    completedAt: "2026-11-01T05:00:00.000Z",
   };
-  assert.equal(
-    progress(
-      subtopicIndex.filter((s) => s.priority === "core"),
-      state,
-    ).completed,
-    0,
-  );
+  state.progress["0.1.1"] = {
+    status: "completed",
+    completedAt: "2026-11-01T06:00:00.000Z",
+  };
+  assert.deepEqual(stateSchema.parse(state), state);
   assert.equal(progress(subtopicIndex, state).completed, 1);
+  assert.equal(nextLesson(state)?.lesson.id, "0.1.2");
+  assert.equal(state.progress["v2-http-contract"], undefined);
 });
 test("topic completion requires every actual lesson; revision takes precedence", () => {
   const state = emptyState();
@@ -76,17 +78,29 @@ test("topic completion requires every actual lesson; revision takes precedence",
   };
   assert.equal(topicStatus(t.subtopics, state), "needs_revision");
 });
-test("continue resumes an incomplete last topic and skips a completed last topic", () => {
+test("continue follows the fixed sequence even after a later topic was visited", () => {
   const state = emptyState();
-  const t = topicIndex[2];
-  state.lastTopic = t.id;
-  assert.equal(continueTopic(state)?.id, t.id);
-  for (const s of t.subtopics)
-    state.progress[s.id] = {
-      status: "completed",
-      completedAt: new Date().toISOString(),
-    };
+  state.lastTopic = topicIndex[2].id;
   assert.equal(continueTopic(state)?.id, topicIndex[0].id);
+  const current = nextLesson(state)!;
+  assert.equal(current.number, "01.01.01");
+  assert.equal(lessonNeighbors(current.lesson.id)?.previous, undefined);
+  const next = lessonNeighbors(current.lesson.id)?.next;
+  state.progress[current.lesson.id] = {
+    status: "completed",
+    completedAt: "2026-11-01T05:00:00.000Z",
+  };
+  assert.deepEqual(nextLesson(state), next);
+  assert.equal(nextLesson(state, []), null);
+  assert.equal(progress([], state).percent, 0);
+  for (const phase of new Set(orderedLessons.map((entry) => entry.phase.id))) {
+    const first = orderedLessons.findIndex((entry) => entry.phase.id === phase);
+    if (first)
+      assert.equal(
+        lessonNeighbors(orderedLessons[first].lesson.id)?.previous?.href,
+        orderedLessons[first - 1].href,
+      );
+  }
 });
 test("a completed curriculum has no invented next lesson", () => {
   const state = emptyState();

@@ -10,14 +10,7 @@ import {
   Search,
 } from "lucide-react";
 import { technologies } from "@/data/technologies";
-import {
-  filterResources,
-  groupResourceMoments,
-  phaseNumber,
-  resourceStages,
-} from "@/lib/resource-learning";
-import { ResourceCard } from "./resource-card";
-import { resources, resourceGroups } from "@/data/resources";
+import { resources } from "@/data/resources";
 import { projects } from "@/data/projects";
 import { phaseIndex, topicIndex, formatPercent } from "@/lib/progress";
 import type { Project } from "@/lib/types";
@@ -32,12 +25,10 @@ import {
 } from "./ui";
 export function TechnologyLibrary() {
   const [query, setQuery] = useState(""),
-    [category, setCategory] = useState("all"),
-    [priority, setPriority] = useState("all");
+    [category, setCategory] = useState("all");
   const list = technologies.filter(
     (t) =>
       (category === "all" || t.category === category) &&
-      (priority === "all" || t.priority === priority) &&
       (t.name + " " + t.description)
         .toLowerCase()
         .includes(query.toLowerCase()),
@@ -46,9 +37,9 @@ export function TechnologyLibrary() {
   return (
     <>
       <PageHeading
-        eyebrow="A TOOLBOX, NOT A TO-DO LIST"
+        eyebrow="ENGINEERING STACK"
         title="Learn the right tool, at the right time."
-        description="Start with Python, SQL and one practical stack. Add alternatives only when a project gives you a reason."
+        description="Find where each technology is introduced in the learning sequence."
         action={
           <Pill tone="purple">
             {technologies.length} connected technologies
@@ -72,16 +63,6 @@ export function TechnologyLibrary() {
         >
           <option value="all">Every category</option>
           {categories.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-        <select
-          aria-label="Technology priority"
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-        >
-          <option value="all">Core + optional</option>
-          {["core", "optional", "advanced"].map((c) => (
             <option key={c}>{c}</option>
           ))}
         </select>
@@ -116,15 +97,18 @@ export function TechnologyLibrary() {
                           .slice(0, 2)
                           .join("")}
                       </span>
-                      <Pill tone={t.priority === "core" ? "purple" : "amber"}>
-                        {t.priority}
-                      </Pill>
                     </div>
                     <h3>{t.name}</h3>
                     <p>{t.description}</p>
                     <div className="technology-phase">
                       <span>LEARN IN</span>
-                      <Link href={"/roadmap/" + phaseIndex[t.phase].slug}>
+                      <Link
+                        href={
+                          "/roadmap/" +
+                          phaseIndex.find((phase) => phase.number === t.phase)!
+                            .slug
+                        }
+                      >
                         Phase {t.phase}
                         <ArrowRight size={13} />
                       </Link>
@@ -155,192 +139,14 @@ export function TechnologyLibrary() {
     </>
   );
 }
-export function ResourceLibrary() {
-  const [query, setQuery] = useState(""),
-    [category, setCategory] = useState("all"),
-    [phase, setPhase] = useState("all"),
-    [priority, setPriority] = useState("all"),
-    [timing, setTiming] = useState("all"),
-    [view, setView] = useState("library");
-  const list = filterResources(resources, {
-    query,
-    categoryIds: category === "all" ? undefined : resourceGroups[category],
-    phase,
-    priority,
-    timing,
-  });
-  const groups = groupResourceMoments(list);
-  return (
-    <>
-      <PageHeading
-        eyebrow="LESS NOISE. BETTER SOURCES."
-        title="Your learning library."
-        description="Know when to open each guide, which sections to read and what to build next. Follow the roadmap at your own pace."
-        action={<Pill tone="green">{resources.length} curated resources</Pill>}
-      />
-      <div
-        className="view-tabs resource-view-tabs"
-        role="tablist"
-        aria-label="Resource view"
-      >
-        <button
-          role="tab"
-          id="resource-library-tab"
-          aria-controls="resource-results"
-          aria-selected={view === "library"}
-          onClick={() => setView("library")}
-        >
-          Resource Library
-        </button>
-        <button
-          role="tab"
-          id="resource-order-tab"
-          aria-controls="resource-results"
-          aria-selected={view === "order"}
-          onClick={() => setView("order")}
-        >
-          Recommended Learning Order
-        </button>
-      </div>
-      <div className="library-toolbar resource-toolbar">
-        <label className="search-field">
-          <Search size={16} />
-          <input
-            aria-label="Search resources"
-            placeholder="Search topics, prerequisites, exercises…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
-        <select
-          aria-label="Resource category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="all">Every subject</option>
-          {Object.keys(resourceGroups).map((c) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-        <select
-          aria-label="Resource phase"
-          value={phase}
-          onChange={(e) => setPhase(e.target.value)}
-        >
-          <option value="all">All phases</option>
-          {phaseIndex.map((p) => (
-            <option key={p.id} value={p.number}>
-              Phase {phaseNumber(p.number)} · {p.shortTitle}
-            </option>
-          ))}
-        </select>
-        <select
-          aria-label="Resource priority"
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-        >
-          <option value="all">Every priority</option>
-          {["core", "optional", "advanced"].map((p) => (
-            <option key={p} value={p}>
-              {p[0].toUpperCase() + p.slice(1)}
-            </option>
-          ))}
-        </select>
-        <select
-          aria-label="Resource timing"
-          value={timing}
-          onChange={(e) => setTiming(e.target.value)}
-        >
-          <option value="all">Every timing</option>
-          {Object.entries(resourceStages).map(([id, label]) => (
-            <option key={id} value={id}>
-              {label}
-            </option>
-          ))}
-        </select>
-      </div>
-      <p className="muted resource-results-count" aria-live="polite">
-        {list.length} resources ·{" "}
-        {list.reduce((sum, r) => sum + r.moments.length, 0)} learning moments.
-        One bookmark per resource, across every visit.
-      </p>
-      <div
-        id="resource-results"
-        role="tabpanel"
-        aria-labelledby={
-          view === "library" ? "resource-library-tab" : "resource-order-tab"
-        }
-      >
-        {view === "library" ? (
-          <div className="resources-grid">
-            {list.map(({ resource, moments }) => (
-              <ResourceCard
-                id={resource.id}
-                key={resource.id}
-                resource={resource}
-                moments={moments}
-              />
-            ))}
-          </div>
-        ) : (
-          groups
-            .filter((g) => g.entries.length)
-            .map(({ phase, entries }) => (
-              <section className="resource-phase-group" key={phase.id}>
-                <div className="section-heading compact">
-                  <div>
-                    <span className="eyebrow">
-                      PHASE {phaseNumber(phase.number)}
-                    </span>
-                    <h2>{phase.shortTitle}</h2>
-                  </div>
-                  <Link className="text-link" href={"/roadmap/" + phase.slug}>
-                    Review phase <ArrowRight size={13} />
-                  </Link>
-                </div>
-                <div className="resources-grid">
-                  {entries.map(({ resource, moments }) => (
-                    <ResourceCard
-                      id={resource.id + "-phase-" + phase.number}
-                      key={resource.id}
-                      resource={resource}
-                      moments={moments}
-                    />
-                  ))}
-                </div>
-              </section>
-            ))
-        )}
-      </div>
-      {!list.length && (
-        <Empty
-          title="No resources found"
-          description="Try a broader search or change the phase, priority or timing filter."
-        />
-      )}
-      <div className="resource-footnote">
-        Verification dates appear in each guide. Free to read refers to the
-        linked material; hosted services, hardware and API calls may have
-        separate costs. Resource reading does not change lesson completion.
-      </div>
-    </>
-  );
-}
 export function ProjectLibrary() {
   const { state } = useLearning();
-  const [query, setQuery] = useState(""),
-    [difficulty, setDifficulty] = useState("all");
-  const list = projects.filter(
-    (p) =>
-      (difficulty === "all" || p.difficulty === difficulty) &&
-      (p.title + " " + p.purpose).toLowerCase().includes(query.toLowerCase()),
-  );
   return (
     <>
       <PageHeading
         eyebrow="KNOWLEDGE BECOMES CAPABILITY WHEN YOU BUILD"
         title="Your ideas, engineered."
-        description="Seven increasingly ambitious builds. Each comes with requirements, milestones and a clear definition of done."
+        description="Five backend and engineering builds that lead to the CCAI capstone."
       />
       <div className="flagship-banner">
         <div className="flagship-mark">
@@ -352,46 +158,24 @@ export function ProjectLibrary() {
           <p>A model-routing platform that connects everything you learn.</p>
         </div>
         <Link
-          href={"/projects/" + projects[5].slug}
+          href={"/projects/" + projects.at(-1)!.slug}
           className="button button-secondary"
         >
           Explore the flagship
           <ArrowUpRight size={16} />
         </Link>
       </div>
-      <div className="library-toolbar">
-        <label className="search-field">
-          <Search size={16} />
-          <input
-            aria-label="Search projects"
-            placeholder="Find your next build…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
-        <select
-          aria-label="Project difficulty"
-          value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}
-        >
-          <option value="all">Every difficulty</option>
-          {["beginner", "intermediate", "advanced"].map((x) => (
-            <option key={x}>{x}</option>
-          ))}
-        </select>
-        <span className="muted">{list.length} projects</span>
-      </div>
       <div className="projects-grid">
-        {list.map((p) => {
+        {projects.map((p, index) => {
           const complete = p.requirements.filter(
             (_, i) => state.projectChecks[`${p.id}.${i}`],
           ).length;
           return (
             <article className="build-card" key={p.id}>
               <div className="build-card-visual">
-                <span>PROJECT {p.id.split("-")[1].padStart(2, "0")}</span>
+                <span>PROJECT {String(index + 1).padStart(2, "0")}</span>
                 <div className="build-icon">
-                  {p.id === "project-6" ? (
+                  {index === projects.length - 1 ? (
                     <Braces size={42} strokeWidth={1.3} />
                   ) : (
                     <Boxes size={42} strokeWidth={1.3} />
@@ -403,7 +187,7 @@ export function ProjectLibrary() {
                 <h2>
                   <Link href={"/projects/" + p.slug}>{p.title}</Link>
                 </h2>
-                <p>{p.subtitle}</p>
+                <p>{p.purpose}</p>
                 <div className="tech-tags">
                   {p.technologies.slice(0, 4).map((t) => (
                     <span key={t}>{t}</span>
@@ -412,7 +196,7 @@ export function ProjectLibrary() {
                 <div className="build-progress">
                   <div className="between">
                     <span>
-                      {complete}/{p.requirements.length} requirements
+                      {complete}/{p.requirements.length} milestones
                     </span>
                     <span>
                       {formatPercent((complete / p.requirements.length) * 100)}
@@ -432,12 +216,6 @@ export function ProjectLibrary() {
           );
         })}
       </div>
-      {!list.length && (
-        <Empty
-          title="No matching projects"
-          description="Try another term or choose every difficulty."
-        />
-      )}
     </>
   );
 }
@@ -450,7 +228,7 @@ export function ProjectWorkspace({ project }: { project: Project }) {
     <>
       <section className="content-card">
         <div className="between">
-          <h2>Your functional checklist</h2>
+          <h2>Your milestones</h2>
           <span className="muted">
             {done}/{project.requirements.length}
           </span>

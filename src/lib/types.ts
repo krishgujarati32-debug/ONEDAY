@@ -55,6 +55,9 @@ export type Resource = {
   supplementalUrls: { title: string; url: string }[];
 };
 export type Subtopic = {
+  targetDepth?: import("@/data/course-v5-types").TargetDepth;
+  contributesToJobReadyCheckpoint?: boolean;
+  workedExample?: string;
   id: string;
   title: string;
   explanation: string;
@@ -68,6 +71,7 @@ export type Subtopic = {
   resources: string[];
 };
 export type Topic = {
+  depth?: import("@/data/course-v5-types").TopicDepth;
   id: string;
   slug: string;
   title: string;
@@ -102,6 +106,11 @@ export type Phase = {
   color: string;
 };
 export type Project = {
+  targetDepth?: import("@/data/course-v5-types").TargetDepth;
+  prerequisiteLessons?: string[];
+  architecture?: string;
+  folderStructure?: string;
+  checks?: string[];
   id: string;
   slug: string;
   title: string;

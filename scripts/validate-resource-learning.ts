@@ -2,10 +2,10 @@ import { readFileSync } from "node:fs";
 import plans from "../src/data/resource-plans.json";
 import revisits from "../src/data/resource-revisits.json";
 import assert from "node:assert/strict";
-import { phases, topics, subtopics } from "../src/data/curriculum";
-import { resources } from "../src/data/resources";
-import { technologies } from "../src/data/technologies";
-import { projects } from "../src/data/projects";
+import { phases, topics, subtopics } from "../src/data/legacy-curriculum";
+import { resources } from "../src/data/legacy-resources";
+import { technologies } from "../src/data/legacy-technologies";
+import { projects } from "../src/data/legacy-projects";
 import baseline from "../docs/resource-upgrade-baseline.json";
 import verification from "../src/data/resource-verification.json";
 export function validateResourceLearning() {

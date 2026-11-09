@@ -1,7 +1,43 @@
 import { z } from "zod";
-import ids from "@/data/ids.json";
+import active from "@/data/ids.json";
+import legacy from "@/data/legacy-ids.json";
+import baseline from "@/data/v5-baseline.json";
+import { jobReadyCriteria, jobReadyEvidenceId } from "@/data/job-ready";
+import {
+  archivedPlannerResources,
+  personalSessionTopic,
+  plannerArchiveSchema,
+  samePlannerArchive,
+} from "./planner-archive";
+
+const previousTopics = baseline.phases.flatMap((phase) => phase.topics);
+
+// Active progress is calculated by the ordered index. Reads and backups accept historical IDs.
+const ids = {
+  topics: [
+    ...active.topics,
+    ...legacy.topics,
+    ...previousTopics.map((topic) => topic.id),
+  ],
+  subtopics: [
+    ...active.subtopics,
+    ...legacy.subtopics,
+    ...previousTopics.flatMap((topic) => topic.lessons),
+  ],
+  resources: [
+    ...active.resources,
+    ...legacy.resources,
+    ...baseline.resources,
+    ...archivedPlannerResources,
+  ],
+  projects: [...active.projects, ...legacy.projects, ...baseline.projects],
+};
 const topicIds = new Set(ids.topics),
-  subtopicIds = new Set(ids.subtopics);
+  progressIds = new Set([
+    ...ids.subtopics,
+    ...Object.values(active.topicEvidence),
+    ...jobReadyCriteria.map(({ id }) => jobReadyEvidenceId(id)),
+  ]);
 const noteIds = new Set([
   ...ids.topics.map((x) => "topic:" + x),
   ...ids.subtopics.map((x) => "subtopic:" + x),
@@ -42,7 +78,9 @@ export const stateSchema = z
         z
           .object({
             id: z.string().uuid(),
-            topicId: z.string().refine((x) => topicIds.has(x)),
+            topicId: z
+              .string()
+              .refine((x) => topicIds.has(x) || x === personalSessionTopic),
             minutes: z.number().int().min(1).max(1440),
             date: z.iso.date(),
             notes: z.string().max(2000),
@@ -58,6 +96,7 @@ export const stateSchema = z
         language: z.enum(["english", "hinglish"]),
       })
       .strict(),
+    planner: plannerArchiveSchema.nullable().optional(),
     lastTopic: z
       .string()
       .nullable()
@@ -66,7 +105,7 @@ export const stateSchema = z
   .strict()
   .superRefine((x, ctx) => {
     for (const k of Object.keys(x.progress))
-      if (!subtopicIds.has(k))
+      if (!progressIds.has(k))
         ctx.addIssue({ code: "custom", message: "Unknown subtopic: " + k });
     for (const k of Object.keys(x.notes))
       if (!noteIds.has(k))
@@ -88,6 +127,15 @@ export const stateSchema = z
       ctx.addIssue({ code: "custom", message: "Too many notes" });
   });
 export type LearningState = z.infer<typeof stateSchema>;
+
+export function preservePlanner(
+  current: LearningState,
+  next: LearningState,
+): LearningState {
+  return next.planner === undefined && current.planner !== undefined
+    ? { ...next, planner: current.planner }
+    : next;
+}
 export const emptyState = (): LearningState => ({
   progress: {},
   notes: {},
@@ -119,9 +167,19 @@ export function mergeStates(
   current: LearningState,
   incoming: LearningState,
 ): LearningState {
+  if (
+    current.planner &&
+    incoming.planner &&
+    !samePlannerArchive(current.planner, incoming.planner)
+  ) {
+    throw new Error(
+      "Both backups contain different planner snapshots. Export your current data before choosing which backup to replace it with.",
+    );
+  }
   return stateSchema.parse({
     ...current,
     ...incoming,
+    ...(current.planner ? { planner: current.planner } : {}),
     progress: { ...current.progress, ...incoming.progress },
     notes: { ...current.notes, ...incoming.notes },
     projectChecks: { ...current.projectChecks, ...incoming.projectChecks },

@@ -8,7 +8,7 @@ export default function Roadmap() {
     <>
       <PageHeading
         eyebrow="YOUR NORTH STAR"
-        title="One path. Connected possibilities."
+        title="AI Systems Engineering Roadmap"
         description="A carefully ordered journey from your first foundations to production AI systems."
         action={
           <Pill tone="purple">
@@ -21,12 +21,10 @@ export default function Roadmap() {
       <div className="roadmap-intro">
         <div className="intro-marker">↳</div>
         <div>
-          <strong>Your roadmap, your pace.</strong>
+          <strong>Learning sequence</strong>
           <p>
-            Follow the core path in order, learn mathematics alongside
-            programming, and explore advanced topics whenever you’re curious.
-            Prerequisites are recommendations, not locked doors. Time estimates
-            are flexible.
+            Follow the phases and lessons in order. Revisit completed material
+            whenever you need a refresher.
           </p>
         </div>
       </div>

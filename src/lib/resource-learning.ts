@@ -35,7 +35,15 @@ export function stageLabel(resource: Resource, m: ResourceLearningMoment) {
     later_reference: "OPTIONAL REFERENCE",
   }[m.stageType];
 }
-export function resourceSearchText(r: Resource) {
+export function resourceSearchText(r: Resource, catalogIndex = index) {
+  const topicById =
+    catalogIndex === index
+      ? resourceTopicById
+      : Object.fromEntries(
+          catalogIndex.flatMap((phase) =>
+            phase.topics.map((topic) => [topic.id, topic]),
+          ),
+        );
   return [
     r.title,
     r.provider,
@@ -44,17 +52,17 @@ export function resourceSearchText(r: Resource) {
     resourceContentTypes[r.contentType],
     r.priority,
     r.usageNotes,
-    ...r.relatedTopicIds.map((id) => resourceTopicById[id]?.title ?? id),
+    ...r.relatedTopicIds.map((id) => topicById[id]?.title ?? id),
     ...r.learningMoments.flatMap((m) => [
-      resourcePhase(m.phaseNumber).shortTitle,
+      catalogIndex.find((phase) => phase.number === m.phaseNumber)?.shortTitle,
       `Phase ${phaseNumber(m.phaseNumber)}`,
-      resourceTopicById[m.topicId]?.title,
+      topicById[m.topicId]?.title,
       m.startWhen,
       m.recommendedTiming,
       m.whyAtThisStage,
       m.practicalTask,
       m.nextStep,
-      ...m.prerequisiteTopicIds.map((id) => resourceTopicById[id]?.title ?? id),
+      ...m.prerequisiteTopicIds.map((id) => topicById[id]?.title ?? id),
       ...m.focusSections,
       ...m.learningObjectives,
       ...m.completionCriteria,
@@ -75,6 +83,7 @@ export type ResourceMatch = {
 export function filterResources(
   catalog: Resource[],
   f: ResourceFilters = {},
+  catalogIndex = index,
 ): ResourceMatch[] {
   const words = (f.query ?? "")
     .trim()
@@ -92,7 +101,7 @@ export function filterResources(
         return [];
       if (
         !words.every((w) =>
-          resourceSearchText(resource).toLowerCase().includes(w),
+          resourceSearchText(resource, catalogIndex).toLowerCase().includes(w),
         )
       )
         return [];
@@ -112,8 +121,11 @@ export function filterResources(
         a.resource.title.localeCompare(b.resource.title),
     );
 }
-export function groupResourceMoments(matches: ResourceMatch[]) {
-  return index.map((phase) => ({
+export function groupResourceMoments(
+  matches: ResourceMatch[],
+  catalogIndex = index,
+) {
+  return catalogIndex.map((phase) => ({
     phase,
     entries: matches
       .flatMap(({ resource, moments }) => {
@@ -123,15 +135,27 @@ export function groupResourceMoments(matches: ResourceMatch[]) {
       .sort((a, b) => a.moments[0].sequenceOrder - b.moments[0].sequenceOrder),
   }));
 }
-export function topicResourceGroups(catalog: Resource[], topicId: string) {
+export function topicResourceGroups(
+  catalog: Resource[],
+  topicId: string,
+  catalogIndex = index,
+) {
+  const positions =
+    catalogIndex === index
+      ? topicPosition
+      : Object.fromEntries(
+          catalogIndex
+            .flatMap((phase) => phase.topics)
+            .map((topic, position) => [topic.id, position]),
+        );
   const groups: Record<string, ResourceMatch[]> = {};
   for (const resource of catalog.filter((r) =>
     r.relatedTopicIds.includes(topicId),
   )) {
     const exact = resource.learningMoments.filter((m) => m.topicId === topicId);
-    const currentPosition = topicPosition[topicId];
+    const currentPosition = positions[topicId];
     const upcoming = resource.learningMoments.find(
-      (m) => topicPosition[m.topicId] >= currentPosition,
+      (m) => positions[m.topicId] >= currentPosition,
     );
     const moments = exact.length
       ? exact
@@ -140,9 +164,7 @@ export function topicResourceGroups(catalog: Resource[], topicId: string) {
     const deferred = !exact.length
       ? Boolean(upcoming)
       : moments.every((m) =>
-          m.prerequisiteTopicIds.some(
-            (id) => topicPosition[id] > currentPosition,
-          ),
+          m.prerequisiteTopicIds.some((id) => positions[id] > currentPosition),
         );
     const group = deferred
       ? "Read later"

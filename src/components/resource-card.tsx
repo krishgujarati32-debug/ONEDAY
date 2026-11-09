@@ -160,9 +160,6 @@ export function ResourceCard({
       </h3>
       <p>{r.description}</p>
       <div className="resource-badges">
-        <Pill tone={r.priority === "core" ? "purple" : "amber"}>
-          {r.priority}
-        </Pill>
         <Pill>Phase {phaseNumber(first.phaseNumber)}</Pill>
         <span>{stageLabel(r, first)}</span>
       </div>

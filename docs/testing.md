@@ -2,11 +2,12 @@
 
 ## Automated
 
-`npm test` currently contains 13 tests. Domain checks cover original curriculum coverage/order, data integrity, real empty-state behavior, fractional progress, separate core/optional totals, revision, continuation, weekly calendar boundaries, export round-trips, invalid import rejection, safe merging and local-only auth redirects.
+The [V5 verification record](v5-implementation.md#verification-and-handoff) reports the latest measured results.
 
+`npm test` covers active sequence and retired state compatibility, current progress and next-lesson rules, JSON validation and merges, archived resource relationships, safe auth redirects and actual PostgreSQL behavior. See the [Version 2.0 verification record](curriculum-v2-migration.md#verification-and-handoff) for the measured run.
 The PostgreSQL integration test uses an in-memory PGlite database. It runs the actual migration and checks both RPCs, all six tables' RLS SELECT/INSERT/UPDATE/DELETE isolation, anonymous denial, stale revisions and rollback of a failing multi-table save. No external database or credentials are necessary for this test. Supabase authentication identity is represented by a minimal local auth schema.
 
-`npm run check:curriculum` validates all IDs, original topic/subtopic order, educational fields, references and generated indexes. After curriculum edits, regenerate the index before running checks.
+`npm run check:curriculum` validates active phase order, prerequisite order, retained objectives, generated index parity and old-ID coverage. `npm run check:curriculum:v5` checks exact title, position and L1–L5 target for all 484 required profiles, plus evidence, completion criteria and study ranges. After curriculum edits, regenerate the index before running checks.
 
 `npm run test:routes` checks every concrete page route against a running server, along with a missing-topic 404, a lesson-fragment search result and the state endpoint. Set `SMOKE_BASE_URL` for a non-default port.
 
@@ -14,7 +15,7 @@ Strict TypeScript, ESLint and an optimized production build are separate checks.
 
 ## Browser QA
 
-Use an isolated local origin for interaction tests so test progress does not populate the user's normal preview. Verify status changes, undo, note save and reload, bookmarks, search, filters, study logs, project requirements, appearance and mobile navigation. Check desktop, tablet and mobile widths and ensure the document does not overflow horizontally.
+Use an isolated local origin for interaction tests so test progress does not populate the user's normal preview. Verify status changes, undo, note save and reload, saved items, search, historical data export, project milestones, appearance and mobile navigation. Check desktop, tablet and mobile widths and ensure the document does not overflow horizontally.
 
 Test modal confirmations before import/reset and verify input validation. Native dialogs provide focus containment; mobile navigation traps focus and supports Escape. Unsaved note drafts are scoped to the browser tab and account. They are recovery copies, not cross-device saves.
 

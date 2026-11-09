@@ -1,226 +1,267 @@
-import raw from "./projects-outline.json";
-import { slugify } from "@/lib/slug";
 import type { Project } from "@/lib/types";
-const packs = [
+import { slugify } from "@/lib/slug";
+
+type Brief = {
+  key: string;
+  title: string;
+  phase: number;
+  completionPhase?: number;
+  purpose: string;
+  technologies: string[];
+  prerequisiteLessons: string[];
+  architecture: string;
+  folderStructure: string;
+  milestones: string[];
+  checks: string[];
+  deployment: string;
+  result: string;
+};
+const briefs: Brief[] = [
   {
-    subtitle: "Your first complete application",
+    key: "python-toolkit",
+    title: "Python Engineering Toolkit",
+    phase: 2,
     purpose:
-      "Turn Python knowledge into a usable command-line student records application. Practice validation, persistence and modular code before introducing AI libraries.",
-    phases: [0, 1],
-    technologies: ["Python", "JSON", "Pytest"],
+      "Build reusable CLI tools that validate JSON and CSV, report errors predictably and install cleanly.",
+    technologies: ["Python", "pytest", "Git"],
+    prerequisiteLessons: ["v2-python-package"],
+    architecture:
+      "CLI → input parser → validation and transformations → output and exit status",
+    folderStructure:
+      "src/toolkit/, tests/, fixtures/, pyproject.toml, README.md",
     milestones: [
-      "Define the student record schema and validation rules.",
-      "Implement create, update, delete and search as independently tested functions.",
-      "Add a repository interface and JSON file persistence with safe error handling.",
-      "Build the CLI, exercise malformed input and document usage.",
+      "Define file contracts and exit codes.",
+      "Implement pathlib input, parsing, typed transformations and logging.",
+      "Package the CLI and write valid, malformed and missing-file tests.",
+      "Install the built distribution in a clean environment and document its commands.",
     ],
-    extensions: ["SQLite persistence", "CSV export", "A small web interface"],
-    deployment:
-      "Run locally in a documented virtual environment. Publish source and tests to a repository; no cloud service is required.",
-    result:
-      "A command-line program that persists valid student records and survives invalid input.",
-  },
-  {
-    subtitle: "From raw data to a defensible prediction",
-    purpose:
-      "Analyze a public dataset, build a simple prediction baseline and explain what the evaluation does and does not establish.",
-    phases: [1, 2, 3, 4],
-    technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
-    milestones: [
-      "Choose a licensed public dataset and define a prediction target.",
-      "Split data before fitting preprocessing; profile quality and possible leakage.",
-      "Fit a baseline and a second model using a preprocessing pipeline.",
-      "Evaluate on held-out data, inspect errors and save the full pipeline.",
-    ],
-    extensions: [
-      "Calibration study",
-      "Subgroup error report",
-      "A reproducible experiment comparison",
-    ],
-    deployment:
-      "Keep a reproducible notebook and dependency file. Save model artifacts with training metadata and the data license.",
-    result:
-      "A reproducible analysis and model with measured held-out results and documented limitations.",
-  },
-  {
-    subtitle: "Give your model a reliable interface",
-    purpose:
-      "Expose a trained model through a validated Python API with predictable input, output and failure behavior.",
-    phases: [3, 4, 7],
-    technologies: ["FastAPI", "Pydantic", "Scikit-learn", "Pytest", "Docker"],
-    milestones: [
-      "Define request and response schemas with boundary cases.",
-      "Load the complete saved pipeline once and expose a prediction route.",
-      "Add health checks, structured errors and request logs.",
-      "Test valid, invalid and failing requests; package and document the service.",
-    ],
-    extensions: [
-      "Batch prediction",
-      "Model version endpoint",
-      "Request-level latency metrics",
+    checks: [
+      "An invalid file fails without overwriting the output.",
+      "A fresh install runs the same tests and exposes the documented entry point.",
     ],
     deployment:
-      "Use an ASGI host or container platform with environment configuration, health checks and a private model artifact.",
+      "Build a local distribution and install it in a fresh virtual environment. Record the tested Python and dependency versions.",
     result:
-      "A documented prediction API with validation and meaningful integration tests.",
+      "An installable CLI toolkit with fixtures, passing tests and usage documentation.",
   },
   {
-    subtitle: "Answers grounded in your documents",
+    key: "postgres-api",
+    title: "PostgreSQL-Backed FastAPI Service",
+    phase: 9,
     purpose:
-      "Build a document assistant that retrieves authorized evidence, answers with sources and admits when the corpus cannot answer.",
-    phases: [3, 6, 7, 8],
+      "Serve authenticated, tenant-scoped records through a documented Python API.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "Pydantic",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Alembic",
+      "pytest",
+    ],
+    prerequisiteLessons: [
+      "v2-postgres-window",
+      "v2-sqlalchemy-alembic",
+      "v5-async-limits-study",
+      "v5-async-http-study",
+      "v5-api-migrations-study",
+      "v5-api-concurrency-study",
+    ],
+    architecture:
+      "API client → FastAPI/auth → Pydantic → service → SQLAlchemy session → PostgreSQL",
+    folderStructure:
+      "app/api/, app/services/, app/db/, migrations/, tests/, README.md",
+    milestones: [
+      "Define the API contract and ownership schema.",
+      "Add a reproducible PostgreSQL migration and scoped data access.",
+      "Implement validation, authentication and consistent errors.",
+      "Test duplicate writes, cross-tenant denial, rollback and OpenAPI examples.",
+      "Add stable pagination and an async fixture endpoint with a deadline and bounded concurrent calls.",
+    ],
+    checks: [
+      "A caller cannot read or mutate another tenant's record.",
+      "Tied sort values paginate deterministically. A delayed fixture times out and observed in-flight calls stay within the configured limit.",
+      "A fresh PostgreSQL database upgrades through all revisions and the duplicate-write case leaves one row.",
+    ],
+    deployment:
+      "Run the service against a disposable PostgreSQL database and document migration order, readiness and rollback.",
+    result:
+      "A backend API with real persistence, OpenAPI examples, structured logs and a repeatable migration.",
+  },
+  {
+    key: "ml-pipeline",
+    title: "End-to-End Machine Learning Pipeline",
+    phase: 6,
+    completionPhase: 12,
+    purpose:
+      "Train a reproducible scikit-learn model from a documented dataset and report its limitations.",
+    technologies: [
+      "Python",
+      "NumPy",
+      "Pandas",
+      "scikit-learn",
+      "MLflow",
+      "pytest",
+    ],
+    prerequisiteLessons: [
+      "v2-split-before-transform",
+      "v2-ml-threshold",
+      "v5-ml-end-to-end-study",
+    ],
+    architecture:
+      "Dataset → analysis → split → preprocessing and estimator → evaluation → versioned artifact",
+    folderStructure:
+      "data/README.md, src/pipeline/, tests/, reports/, artifacts/",
+    milestones: [
+      "Record dataset provenance, license and target definition.",
+      "Build leakage-safe preprocessing and a simple baseline.",
+      "Train and evaluate against the chosen metric with fixed seeds and split.",
+      "Serialize the trusted model and document feature and failure cases.",
+      "During Phase 12, record a baseline and an improved run in local MLflow with parameters, metrics and the evaluation artifact.",
+    ],
+    checks: [
+      "Changing held-out rows leaves training-only preprocessing unchanged.",
+      "An independent run can reproduce the metric within a documented tolerance.",
+      "Both MLflow runs use a traceable dataset revision and report the same evaluation contract.",
+    ],
+    deployment:
+      "Keep the artifact private. Reproduce the build from a versioned dataset and load only an artifact you built or verified.",
+    result:
+      "A repeatable pipeline, artifact and evaluation report with real baseline results.",
+  },
+  {
+    key: "data-ingestion-rag-mcp",
+    title: "Data Ingestion, RAG, and MCP Backend",
+    phase: 10,
+    purpose:
+      "Ingest source documents into an authorized retrieval service and return evaluated answers. Expose a bounded tool through an MCP client and server.",
     technologies: [
       "Python",
       "FastAPI",
       "PostgreSQL",
       "pgvector",
-      "An embedding model",
+      "pypdf",
+      "BeautifulSoup",
+      "Hugging Face",
+      "LLM provider adapters",
+      "Official MCP Python SDK",
+      "pytest",
     ],
+    prerequisiteLessons: [
+      "v2-sqlalchemy-alembic",
+      "v5-ingest-pdf-study",
+      "v5-ingest-html-study",
+      "v5-ingest-chunk-provenance-study",
+      "v5-ingest-replay-study",
+      "8.2.2",
+      "8.3.19",
+      "v2-mcp-sdk",
+    ],
+    architecture:
+      "Authorized source → parser → normalized chunks → versioned tenant store → embeddings and filtered retrieval → cited answer. A separately authorized MCP host calls a scoped fixture tool.",
+    folderStructure:
+      "app/ingest/, app/retrieval/, app/providers/, app/tools/, evals/, migrations/, tests/fixtures/",
     milestones: [
-      "Collect permitted documents and preserve source IDs during parsing.",
-      "Implement chunking, embeddings and tenant-aware storage.",
-      "Build retrieval and a generation adapter with source references.",
-      "Evaluate answerable and unanswerable questions; test denied access and ingestion failure.",
+      "Create a licensed synthetic corpus with text PDFs and HTML. Extract text, record provenance and report image-only PDF pages separately.",
+      "Normalize content and compare structural and semantic chunk boundaries. Retain document, revision, page or section, tenant and extractor version.",
+      "Use bounded retries and tenant-scoped idempotency keys. Verify a replay preserves row counts and a failed replacement keeps the previous revision searchable.",
+      "Build pgvector retrieval with tenant filters and cite authorized chunk IDs in answers. Add an explicit no-evidence response.",
+      "Connect a local MCP server and client. Validate tool inputs at the server and require host approval for mutations.",
+      "Evaluate retrieval and citation correctness on a fixed corpus. Record latency, token use, cost and denial behavior.",
     ],
-    extensions: [
-      "Hybrid retrieval",
-      "Reranking",
-      "Document deletion and re-indexing",
+    checks: [
+      "A PDF page and HTML section resolve from their citations. An image-only page has a reported extraction outcome.",
+      "A replay creates no duplicates, and an interrupted replacement exposes no partial revision.",
+      "Wrong-tenant retrieval and tool calls are denied. An unanswerable case returns no-evidence behavior.",
+      "The host denies a mutation with missing approval. The server denies a cross-tenant argument even when the tool call is well formed.",
     ],
     deployment:
-      "Store provider credentials only on the server. Use protected object storage, durable metadata and a background worker for ingestion.",
+      "Run locally with a deterministic provider and MCP stdio fixture. Store credentials outside the repository and exercise source deletion, parser failure and a bounded retry before considering remote exposure.",
     result:
-      "A PDF-capable assistant with traceable sources, permission-filtered retrieval and an evaluation report.",
+      "A reproducible ingestion and RAG API with source provenance, an evaluation report, scoped tools and tested replay behavior.",
   },
   {
-    subtitle: "Follow the connections between ideas",
+    key: "ccai",
+    title: "CCAI Production-Grade Multi-Model AI Platform",
+    phase: 14,
     purpose:
-      "Compare relationship-aware retrieval with a vector baseline on questions requiring connected evidence. Document where the graph does not help.",
-    phases: [3, 6, 7, 8],
-    technologies: ["Python", "Neo4j", "pgvector", "FastAPI"],
-    milestones: [
-      "Select a small corpus with explicit relationship questions.",
-      "Extract and resolve entities, preserving provenance on every edge.",
-      "Implement bounded graph retrieval and optionally combine vector candidates.",
-      "Compare recall, answer support, latency and extraction errors against the baseline.",
-    ],
-    extensions: [
-      "Confidence-weighted edges",
-      "Graph update workflow",
-      "Human-reviewed entity resolution",
-    ],
-    deployment:
-      "Configure private graph access, backups and source deletion propagation. Record extraction cost and graph maintenance requirements.",
-    result:
-      "A measured graph-assisted retrieval experiment with inspectable nodes, edges and source provenance.",
-  },
-  {
-    subtitle: "The flagship · Centralized Contextual AI",
-    purpose:
-      "Build CCAI: a platform that classifies requests and chooses a suitable model using capability, context length, quality, cost, latency and provider availability.",
-    phases: [3, 6, 7, 8, 9, 10, 11],
+      "Combine the earlier backends into a production-oriented multi-provider system with verified tenant boundaries and measured performance.",
     technologies: [
+      "Python",
       "FastAPI",
       "PostgreSQL",
+      "pgvector",
       "Redis",
+      "Kafka",
+      "Official MCP Python SDK",
       "Docker",
-      "Provider adapters",
+      "Kubernetes",
+      "AWS",
+      "Terraform",
       "OpenTelemetry",
+      "Prometheus",
+      "Grafana",
+      "Locust",
+      "vLLM",
     ],
+    prerequisiteLessons: [
+      "v2-ccai-evidence",
+      "v2-kafka-replay",
+      "v2-redis-atomic",
+      "v2-locust-capacity",
+      "v2-vllm-benchmark",
+    ],
+    architecture:
+      "API client → FastAPI gateway → authorization and validation → task planner → model router → provider adapters or vLLM. Context and retrieval use PostgreSQL/pgvector. Redis guards limits and caching. Kafka feeds background workers. Telemetry and evaluation span the flow.",
+    folderStructure:
+      "app/gateway/, app/orchestration/, app/retrieval/, app/workers/, migrations/, infra/, tests/, evals/, load/, runbooks/",
     milestones: [
-      "Define a task taxonomy, evaluation set and model capability registry.",
-      "Build authenticated request intake, provider adapters and a deterministic routing baseline.",
-      "Enforce context limits, token budgets, tenant quotas and atomic usage accounting.",
-      "Add bounded retries, fallback, request history and routing decision logs.",
-      "Compare routing quality, cost and latency against a fixed-model baseline.",
-      "Harden secrets, permissions, observability and deployment; document architecture decisions.",
+      "Write the architecture, API contract, request model, workload assumptions and tenant threat model.",
+      "Implement authenticated request intake, model capability registry, context policy and deterministic provider selection.",
+      "Connect authorized retrieval, bounded MCP tools, atomic Redis limits and replay-safe Kafka jobs.",
+      "Add repeatable contract, isolation, regression and failure-injection tests with mock providers.",
+      "Capture measured latency, quality, model usage, cost and capacity using a documented workload.",
+      "Document Docker, AWS and Kubernetes delivery, dashboards, recovery and a tested rollback.",
+      "Demonstrate one conversation and RAG workflow with approved MCP tool use. Explain the Redis Lua atomic boundary and justify the use of Kafka or a bounded durable worker.",
     ],
-    extensions: [
-      "Task planner and context manager",
-      "RAG and graph retrieval",
-      "Approved tool workflows",
-      "Queued long-running jobs",
+    checks: [
+      "A wrong-tenant lookup is denied at every storage and tool boundary.",
+      "A replay or provider timeout does not double-charge the request.",
+      "Reports distinguish local mock tests from live providers and contain no unsupported production scale claim.",
+      "The runbook describes alert response, backup restoration and a repeatable rollback.",
+      "The request trace records one initial routing decision with an eligibility reason. Any fallback respects the original deadline, usage budget and required capability.",
+      "The evaluation demonstrates authorized ingestion, grounded citations, denied MCP actions and scoped conversation state. Record actual token and cost figures for the tested fixture.",
     ],
     deployment:
-      "Use your own provider credentials or mocked adapters. Deploy behind TLS with per-user access policies, database migrations and monitoring. The learning website itself needs no paid model API.",
+      "Start with Docker Compose and a disposable local environment. Document an AWS path using Terraform and Kubernetes, with private data services, secret references, probes, budgets and rollback. Deploy only after review.",
     result:
-      "A functioning, evaluated multi-provider router with honest cost and reliability measurements.",
-  },
-  {
-    subtitle: "A system you can operate with confidence",
-    purpose:
-      "Turn a working AI backend into a secure, observable service whose capacity and recovery behavior are measured and documented.",
-    phases: [7, 9, 10, 11],
-    technologies: [
-      "FastAPI",
-      "PostgreSQL",
-      "Redis",
-      "Celery",
-      "Docker",
-      "GitHub Actions",
-      "OpenTelemetry",
-      "k6",
-    ],
-    milestones: [
-      "Define service-level objectives and document a modest expected workload.",
-      "Add tenant isolation, distributed limits, queue idempotency and fallback.",
-      "Create container builds, CI checks and a repeatable deployment pipeline.",
-      "Instrument logs, traces, metrics and actionable alerts.",
-      "Run small controlled load and failure tests, then test backup restoration.",
-      "Publish environment-specific latency, errors, throughput, CPU and memory results.",
-    ],
-    extensions: [
-      "Canary rollout",
-      "Infrastructure as Code",
-      "One additional region when justified",
-    ],
-    deployment:
-      "Choose one cloud provider. Restrict IAM, configure budgets and backups, separate environments and prove rollback before expanding traffic.",
-    result:
-      "A deployable platform with a reproducible capacity report, security tests and recovery playbook. No unsupported million-request claims.",
+      "A measured backend portfolio with routing, tenant isolation, observability, load evidence, runbooks and documented limitations.",
   },
 ];
-// These extend the learning plan; persisted checklist keys still use raw requirements.
-const learningMilestones: Record<number, string[]> = {
-  2: [
-    "Track two comparable experiments in MLflow during Phase 04, retaining parameters, metrics, artifacts and data/code provenance.",
-  ],
-  4: [
-    "Version representative answerable and unanswerable questions with expected evidence; capture retrieval, sources, answers and a baseline report before optimizing.",
-    "Choose Ragas or DeepEval after the working baseline, inspect retrieval and answer-quality failures, then compare one improvement on the same dataset.",
-  ],
-  5: [
-    "Reuse the document-assistant evaluation set and add relationship questions; compare graph-assisted and vector-only evidence, quality, latency and extraction failures.",
-  ],
-  6: [
-    "Version prompts and context templates; test two variants on fixed inputs and compare routing quality, token cost and latency.",
-    "Use an optional Promptfoo suite on owned endpoints with synthetic normal/adversarial cases; document vulnerabilities, fixes and regression results with bounded provider calls.",
-  ],
-  7: [
-    "Verify Celery job idempotency, bounded retries and worker-failure recovery for durable document processing; explain when in-process background tasks would suffice.",
-    "Run curriculum validation, type checks, lint, tests and production build in a small GitHub Actions workflow; review secrets, permissions and environment protection before any deployment.",
-  ],
-};
-const learningExtensions: Record<number, string[]> = {
-  4: [
-    "Compare the second evaluation tool later; learning both Ragas and DeepEval at once is unnecessary.",
-  ],
-  7: [
-    "Terraform plan and state design after a first manual deployment; require explicit approval before real apply or destroy.",
-    "Phase 11 only: compare sequential and Ray Core execution; consider Ray Serve only for a measured distributed-serving requirement.",
-    "Phase 11 only: benchmark vLLM or advanced CUDA on suitable hardware; CPU-only study and supplied benchmark analysis remain valid.",
-  ],
-};
-export const projects: Project[] = raw.map((p, i) => ({
-  id: `project-${p.number}`,
-  slug: slugify(p.title),
-  title: p.title,
-  difficulty: i < 1 ? "beginner" : i < 4 ? "intermediate" : "advanced",
-  requirements: p.requirements,
-  ...packs[i],
-  milestones: [...packs[i].milestones, ...(learningMilestones[p.number] ?? [])],
-  extensions: [...packs[i].extensions, ...(learningExtensions[p.number] ?? [])],
+
+export const projects: Project[] = briefs.map((brief, index) => ({
+  id: "portfolio-" + brief.key,
+  slug: slugify(brief.title),
+  title: brief.title,
+  subtitle: "Project " + String(index + 1).padStart(2, "0"),
+  purpose: brief.purpose,
+  difficulty:
+    index === 0 ? "beginner" : index < 4 ? "intermediate" : "advanced",
+  phases: brief.completionPhase
+    ? [brief.phase, brief.completionPhase]
+    : [brief.phase],
+  targetDepth: brief.key === "ccai" ? "L5" : "L3",
+  technologies: brief.technologies,
+  requirements: brief.milestones,
+  milestones: brief.milestones,
+  extensions: [],
+  deployment: brief.deployment,
+  result: brief.result,
+  prerequisiteLessons: brief.prerequisiteLessons,
+  architecture: brief.architecture,
+  folderStructure: brief.folderStructure,
+  checks: brief.checks,
 }));
 export const projectBySlug = Object.fromEntries(
-  projects.map((p) => [p.slug, p]),
+  projects.map((project) => [project.slug, project]),
 );

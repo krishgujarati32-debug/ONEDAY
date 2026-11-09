@@ -25,11 +25,21 @@ import {
   type LearningState,
 } from "@/lib/state";
 import { topicIndex } from "@/lib/progress";
+import { personalSessionTopic } from "@/lib/planner-archive";
 import { createClient } from "@/lib/supabase/client";
 import { Modal, PageHeading, Pill } from "./ui";
 export function Settings() {
-  const { state, ready, pending, mode, user, mutate, notify, reload } =
-    useLearning();
+  const {
+    state,
+    ready,
+    pending,
+    mode,
+    user,
+    mutate,
+    notify,
+    reload,
+    loadFailure,
+  } = useLearning();
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const [name, setName] = useState(state.settings.name),
@@ -55,20 +65,28 @@ export function Settings() {
     state.settings.language,
   ]);
   const download = () => {
+    const original = loadFailure?.original;
+    if (mode === "error" && original == null) return;
     const blob = new Blob(
       [
-        JSON.stringify(
-          { version: 1, exportedAt: new Date().toISOString(), data: state },
-          null,
-          2,
-        ),
+        original ??
+          JSON.stringify(
+            { version: 1, exportedAt: new Date().toISOString(), data: state },
+            null,
+            2,
+          ),
       ],
       { type: "application/json" },
     );
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "engineer-learning-" + dateKey() + ".json";
+    a.download =
+      (original == null
+        ? "engineer-learning-"
+        : "engineer-learning-original-") +
+      dateKey() +
+      ".json";
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     notify("Learning export downloaded. Keep it somewhere safe.");
@@ -341,15 +359,21 @@ export function Settings() {
             <div className="data-actions">
               <button
                 className="button button-secondary"
-                disabled={!ready || pending}
+                disabled={
+                  !ready ||
+                  pending ||
+                  (mode === "error" && loadFailure?.original == null)
+                }
                 onClick={download}
               >
                 <Download size={15} />
-                Export progress
+                {loadFailure?.original != null
+                  ? "Download original browser data"
+                  : "Export progress"}
               </button>
               <button
                 className="button button-secondary"
-                disabled={!ready || pending}
+                disabled={!ready || pending || mode === "error"}
                 onClick={() => input.current?.click()}
               >
                 <Upload size={15} />
@@ -417,7 +441,10 @@ export function Settings() {
                     <div key={s.id}>
                       <div>
                         <strong>
-                          {topicIndex.find((t) => t.id === s.topicId)?.title}
+                          {topicIndex.find((t) => t.id === s.topicId)?.title ??
+                            (s.topicId === personalSessionTopic
+                              ? "Personal study"
+                              : "Archived topic")}
                         </strong>
                         <small>
                           {s.date} · {s.minutes} minutes

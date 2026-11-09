@@ -8,7 +8,12 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/navigation";
-import { emptyState, stateSchema, type LearningState } from "@/lib/state";
+import {
+  emptyState,
+  preservePlanner,
+  stateSchema,
+  type LearningState,
+} from "@/lib/state";
 import type { Status } from "@/lib/types";
 const LOCAL_KEY = "engineer-learning-preview-v1";
 type Toast = { message: string; error?: boolean; undo?: () => void };
@@ -19,6 +24,7 @@ type Context = {
   mode: "preview" | "cloud" | "guest" | "error";
   user: { id: string; email: string } | null;
   toast: Toast | null;
+  loadFailure: { message: string; original: string | null } | null;
   notify: (message: string, error?: boolean) => void;
   mutate: (
     fn: (s: LearningState) => LearningState,
@@ -42,6 +48,8 @@ export function LearningProvider({
   const ref = useRef(state);
   const revision = useRef(0);
   const lock = useRef(false);
+  const loading = useRef(false);
+  const previewRaw = useRef<string | null>(null);
   const [ready, setReady] = useState(false),
     [pending, setPending] = useState(false),
     [mode, setMode] = useState<Context["mode"]>(
@@ -49,16 +57,27 @@ export function LearningProvider({
     ),
     [user, setUser] = useState<Context["user"]>(null),
     [toast, setToast] = useState<Toast | null>(null);
+  const [loadFailure, setLoadFailure] = useState<Context["loadFailure"]>(null);
   const router = useRouter();
   const notify = useCallback(
     (message: string, error = false) => setToast({ message, error }),
     [],
   );
   const reload = useCallback(async () => {
+    if (loading.current || lock.current) return;
+    loading.current = true;
+    setPending(true);
+    let original: string | null = null;
+    let message =
+      "Could not load cloud progress. Check your connection and retry.";
     try {
       if (!configured) {
-        const raw = localStorage.getItem(LOCAL_KEY);
-        const next = raw ? stateSchema.parse(JSON.parse(raw)) : emptyState();
+        original = localStorage.getItem(LOCAL_KEY);
+        const next =
+          original === null
+            ? emptyState()
+            : stateSchema.parse(JSON.parse(original));
+        previewRaw.current = original;
         ref.current = next;
         setState(next);
         setMode("preview");
@@ -79,8 +98,20 @@ export function LearningProvider({
           setUser(null);
           setMode("guest");
         } else {
-          if (!response.ok) throw new Error(body.error);
+          if (!response.ok) {
+            if (typeof body?.error === "string") message = body.error;
+            throw new Error(message);
+          }
+          message =
+            "The cloud response could not be validated. Check the app and database versions, then retry.";
           const next = stateSchema.parse(body.data);
+          if (
+            !Number.isSafeInteger(body.revision) ||
+            body.revision < 0 ||
+            typeof body.user?.id !== "string"
+          ) {
+            throw new Error(message);
+          }
           ref.current = next;
           setState(next);
           revision.current = body.revision;
@@ -88,24 +119,29 @@ export function LearningProvider({
           setMode("cloud");
         }
       }
-    } catch (error) {
+      setLoadFailure(null);
+    } catch {
       setMode("error");
-      notify(
-        error instanceof Error
-          ? error.message
-          : "Could not load your saved data.",
-        true,
-      );
+      setLoadFailure({
+        original,
+        message: configured
+          ? message
+          : original === null
+            ? "This browser's storage could not be read. Check its storage settings and retry."
+            : "The original browser data is still in storage. Download a copy from Account & data before repairing it.",
+      });
     } finally {
+      loading.current = false;
+      setPending(false);
       setReady(true);
     }
-  }, [configured, notify]);
+  }, [configured]);
   useEffect(() => {
     const timer = setTimeout(() => void reload(), 0);
     return () => clearTimeout(timer);
   }, [reload]);
   useEffect(() => {
-    if (!ready) return;
+    if (!ready || mode === "error") return;
     const media = matchMedia("(prefers-color-scheme: dark)");
     const preference = state.settings.theme;
     const apply = () => {
@@ -122,7 +158,7 @@ export function LearningProvider({
     } catch {}
     media.addEventListener("change", apply);
     return () => media.removeEventListener("change", apply);
-  }, [ready, state.settings.theme]);
+  }, [ready, mode, state.settings.theme]);
   useEffect(() => {
     if (!toast) return;
     const timer = setTimeout(() => setToast(null), toast.error ? 14000 : 8000);
@@ -139,7 +175,7 @@ export function LearningProvider({
   }, [notify]);
   const mutate = useCallback(
     async (fn: (s: LearningState) => LearningState, message?: string) => {
-      if (!ready || lock.current) return false;
+      if (!ready || lock.current || loading.current) return false;
       if (mode === "guest") {
         notify("Sign in to save your learning progress.", true);
         router.push("/auth/sign-in");
@@ -160,7 +196,7 @@ export function LearningProvider({
         );
         return false;
       }
-      const result = stateSchema.safeParse(proposed);
+      const result = stateSchema.safeParse(preservePlanner(before, proposed));
       if (!result.success) {
         notify(result.error.issues[0]?.message ?? "Invalid change.", true);
         return false;
@@ -170,9 +206,20 @@ export function LearningProvider({
       ref.current = result.data;
       setState(result.data);
       try {
-        if (mode === "preview")
-          localStorage.setItem(LOCAL_KEY, JSON.stringify(result.data));
-        else {
+        if (mode === "preview") {
+          const save = () => {
+            if (localStorage.getItem(LOCAL_KEY) !== previewRaw.current) {
+              throw new Error(
+                "Saved data changed in another tab. Reload before saving again.",
+              );
+            }
+            const next = JSON.stringify(result.data);
+            localStorage.setItem(LOCAL_KEY, next);
+            previewRaw.current = next;
+          };
+          if (navigator.locks) await navigator.locks.request(LOCAL_KEY, save);
+          else save();
+        } else {
           const response = await fetch("/api/state", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -224,10 +271,15 @@ export function LearningProvider({
       }));
       if (saved)
         setToast({
-          message:
-            status === "completed"
-              ? "Lesson completed. One step closer."
-              : "Learning status updated.",
+          message: id.startsWith("evidence:")
+            ? status === "completed"
+              ? "Topic practice recorded."
+              : "Topic practice reopened."
+            : id.startsWith("job-ready:")
+              ? "Checkpoint evidence updated."
+              : status === "completed"
+                ? "Lesson completed. One step closer."
+                : "Learning status updated.",
           undo: () => {
             void mutate(
               (s) => ({ ...s, progress: { ...s.progress, [id]: before } }),
@@ -279,6 +331,7 @@ export function LearningProvider({
         mode,
         user,
         toast,
+        loadFailure,
         notify,
         mutate,
         setStatus,
