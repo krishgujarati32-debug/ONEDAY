@@ -6,7 +6,7 @@ import {
   legacyProjectBySlug,
   projectSuccessors,
 } from "@/data/curriculum-legacy-links";
-import { technologies } from "@/data/technologies";
+import { technologyByName } from "@/data/technologies";
 import { depthLabels } from "@/data/course-v5-types";
 import { resources } from "@/data/resources";
 import { lessonNeighbors } from "@/lib/progress";
@@ -121,7 +121,7 @@ export default async function ProjectPage({ params }: Props) {
               {project.technologies.map((name) => (
                 <li key={name}>
                   <strong>{name}</strong> ·{" "}
-                  {technologies.find((tool) => tool.name === name)?.description}
+                  {technologyByName.get(name)?.description}
                 </li>
               ))}
             </ul>

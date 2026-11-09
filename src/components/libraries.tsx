@@ -1,18 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Boxes,
-  Braces,
-  ChevronRight,
-  Search,
-} from "lucide-react";
-import { technologies } from "@/data/technologies";
+import { ArrowRight, ArrowUpRight, Boxes, Braces, Search } from "lucide-react";
 import { resources } from "@/data/resources";
 import { projects } from "@/data/projects";
-import { phaseIndex, topicIndex, formatPercent } from "@/lib/progress";
+import { topicIndex, formatPercent } from "@/lib/progress";
 import type { Project } from "@/lib/types";
 import { useLearning } from "./learning-provider";
 import {
@@ -23,122 +15,6 @@ import {
   Pill,
   ProgressBar,
 } from "./ui";
-export function TechnologyLibrary() {
-  const [query, setQuery] = useState(""),
-    [category, setCategory] = useState("all");
-  const list = technologies.filter(
-    (t) =>
-      (category === "all" || t.category === category) &&
-      (t.name + " " + t.description)
-        .toLowerCase()
-        .includes(query.toLowerCase()),
-  );
-  const categories = [...new Set(technologies.map((t) => t.category))];
-  return (
-    <>
-      <PageHeading
-        eyebrow="ENGINEERING STACK"
-        title="Learn the right tool, at the right time."
-        description="Find where each technology is introduced in the learning sequence."
-        action={
-          <Pill tone="purple">
-            {technologies.length} connected technologies
-          </Pill>
-        }
-      />
-      <div className="library-toolbar">
-        <label className="search-field">
-          <Search size={16} />
-          <input
-            aria-label="Search technologies"
-            placeholder="Find a tool or technology…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
-        <select
-          aria-label="Technology category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="all">Every category</option>
-          {categories.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-        <span className="muted">{list.length} tools</span>
-      </div>
-      {!list.length && (
-        <Empty
-          title="No tools match that search"
-          description="Try a broader term or choose every category."
-        />
-      )}
-      {categories
-        .filter((c) => list.some((t) => t.category === c))
-        .map((c) => (
-          <section className="technology-group" key={c}>
-            <div className="section-heading compact">
-              <h2>{c}</h2>
-              <span className="muted">
-                {list.filter((t) => t.category === c).length} tools
-              </span>
-            </div>
-            <div className="technology-grid">
-              {list
-                .filter((t) => t.category === c)
-                .map((t) => (
-                  <article className="technology-card" id={t.id} key={t.id}>
-                    <div className="between">
-                      <span className="technology-monogram">
-                        {t.name
-                          .split(/[ /-]/)
-                          .map((x) => x[0])
-                          .slice(0, 2)
-                          .join("")}
-                      </span>
-                    </div>
-                    <h3>{t.name}</h3>
-                    <p>{t.description}</p>
-                    <div className="technology-phase">
-                      <span>LEARN IN</span>
-                      <Link
-                        href={
-                          "/roadmap/" +
-                          phaseIndex.find((phase) => phase.number === t.phase)!
-                            .slug
-                        }
-                      >
-                        Phase {t.phase}
-                        <ArrowRight size={13} />
-                      </Link>
-                    </div>
-                    <details>
-                      <summary>
-                        Why this tool & where to start
-                        <ChevronRight size={13} />
-                      </summary>
-                      <p>{t.why}</p>
-                      <div className="technology-topic-links">
-                        {t.topicIds.map((id) => {
-                          const topic = topicIndex.find((x) => x.id === id)!;
-                          return (
-                            <Link href={"/learn/" + topic.slug} key={id}>
-                              {topic.title}
-                              <ArrowUpRight size={13} />
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </details>
-                  </article>
-                ))}
-            </div>
-          </section>
-        ))}
-    </>
-  );
-}
 export function ProjectLibrary() {
   const { state } = useLearning();
   return (

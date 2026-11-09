@@ -3040,15 +3040,29 @@ kbd {
 .technology-group {
   margin-bottom: 35px;
 }
+.technology-group .section-heading {
+  align-items: center;
+  flex-wrap: nowrap;
+}
 .technology-group .section-heading h2 {
+  min-width: 0;
+  margin-bottom: 0;
   font-size: 20px;
+  overflow-wrap: anywhere;
 }
 .technology-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
+.technology-grid:has(details[open]) {
+  align-items: start;
+}
 .technology-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
   padding: 22px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -3071,10 +3085,11 @@ kbd {
   margin-top: 19px;
   margin-bottom: 10px;
 }
-.technology-card p {
-  font-size: 11px;
-  line-height: 1.85;
-  min-height: 60px;
+.technology-card > .technology-description {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 3.2em;
 }
 .technology-phase {
   display: flex;
@@ -3104,8 +3119,9 @@ kbd {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   cursor: pointer;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--body);
   list-style: none;
 }
@@ -3113,9 +3129,76 @@ kbd {
   margin-bottom: 12px;
   color: var(--accent);
 }
-.technology-card details p {
-  font-size: 10px;
-  min-height: 0;
+.technology-card summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+.technology-card summary::-webkit-details-marker {
+  display: none;
+}
+.technology-card summary svg,
+.technology-topic-links svg {
+  flex-shrink: 0;
+}
+.technology-card details[open] summary svg {
+  transform: rotate(90deg);
+}
+.technology-card .technology-details {
+  display: grid;
+  gap: 13px;
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.technology-details dt {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.technology-details dd {
+  margin: 0;
+  color: var(--body);
+}
+.technology-details dd p {
+  margin: 4px 0 0;
+  font-size: inherit;
+}
+.technology-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--body);
+}
+.technology-legend > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.technology-verified {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.technology-group .section-heading > .technology-count {
+  flex-shrink: 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.technology-anchor {
+  position: absolute;
+  top: 0;
+  scroll-margin-top: 25px;
+}
+.technology-library .library-toolbar select {
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+.technology-card h3,
+.technology-card summary {
+  overflow-wrap: anywhere;
 }
 .technology-topic-links {
   display: flex;

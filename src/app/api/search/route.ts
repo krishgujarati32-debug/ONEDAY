@@ -36,6 +36,7 @@ const records = [
     type: "Technology",
     description: t.description,
     href: "/technology-stack#" + t.id,
+    searchText: t.names.join(" "),
   })),
   ...resources.map((r) => ({
     label: r.title,

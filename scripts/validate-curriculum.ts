@@ -8,7 +8,8 @@ import {
 } from "../src/data/curriculum";
 import { projects } from "../src/data/projects";
 import { resources, resourceById } from "../src/data/resources";
-import { technologies } from "../src/data/technologies";
+import { technologies, technologyByName } from "../src/data/technologies";
+import { validateTechnologyStack } from "./validate-technology-stack";
 import {
   phases as previousPhases,
   subtopics as previousLessons,
@@ -26,6 +27,7 @@ import v5Migration from "../src/data/v5-migration-map.json";
 export function validateCurriculum() {
   validateResourceLearning();
   validateDepthProfiles();
+  validateTechnologyStack();
   const unique = (keys: string[], kind: string) =>
     assert.equal(new Set(keys).size, keys.length, "Duplicate " + kind);
   assert.deepEqual(
@@ -74,10 +76,6 @@ export function validateCurriculum() {
   unique(
     resources.map((resource) => resource.url),
     "resource URLs",
-  );
-  unique(
-    technologies.map((technology) => technology.id),
-    "technology IDs",
   );
   const positions = new Map(
     topics.map((topic, position) => [topic.id, position]),
@@ -205,7 +203,6 @@ export function validateCurriculum() {
     projects.map((project) => project.targetDepth),
     ["L3", "L3", "L3", "L3", "L5"],
   );
-  const stack = new Set(technologies.map((tool) => tool.name));
   for (const project of projects) {
     assert.ok(
       project.architecture &&
@@ -222,12 +219,9 @@ export function validateCurriculum() {
         (lessonPhases.get(id) ?? Infinity) <= project.phases[0],
         project.id + ": " + id,
       );
-    for (const name of project.technologies) assert.ok(stack.has(name), name);
+    for (const name of project.technologies)
+      assert.ok(technologyByName.has(name), name);
   }
-  for (const technology of technologies)
-    for (const id of technology.topicIds) {
-      assert.equal(topicById[id]?.phase, technology.phase, technology.id);
-    }
   assert.equal(topicById["1.1"].phase, 2);
   assert.equal(topicById["3.2"].phase, 4);
   assert.equal(topicById["7.2"].phase, 9);

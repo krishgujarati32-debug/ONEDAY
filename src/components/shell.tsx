@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   BookOpen,
+  Boxes,
   ChevronRight,
   Command,
   GraduationCap,
@@ -32,6 +33,7 @@ const nav = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/roadmap", label: "Learning roadmap", icon: Map },
   { href: "/projects", label: "Projects", icon: Layers3 },
+  { href: "/technology-stack", label: "Technology Stack", icon: Boxes },
 ];
 type SearchResult = {
   label: string;

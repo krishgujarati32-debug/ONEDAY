@@ -31,6 +31,8 @@ The Job-Ready Foundation Checkpoint appears after Phase 12 topic 16. It records 
 
 Python, Linux, Bash, Git and GitHub form the development foundation. PostgreSQL, NumPy, Pandas, scikit-learn, PyTorch and Hugging Face support data and models. Backend work uses FastAPI, Pydantic, SQLAlchemy, Alembic and pytest. AI services use Python provider adapters, pypdf, BeautifulSoup, pgvector and the official MCP Python SDK. Distributed and production work uses Redis, Kafka, Docker Compose, AWS, Terraform, Kubernetes, MLflow, OpenTelemetry, Prometheus, Grafana, Locust and vLLM.
 
+The [Technology Stack guide](docs/technology-stack.md) lists the cards, curriculum anchors and release verification process for the `/technology-stack` page.
+
 ## Portfolio
 
 1. Python Engineering Toolkit
